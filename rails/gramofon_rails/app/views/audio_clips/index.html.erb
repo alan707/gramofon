@@ -1,0 +1,33 @@
+<h1>Listing audio_clips</h1>
+
+<table>
+  <tr>
+    <th>Clip url</th>
+    <th>User</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Title</th>
+    <th>Public</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @audio_clips.each do |audio_clip| %>
+  <tr>
+    <td><%= audio_clip.clip_url %></td>
+    <td><%= audio_clip.user_id %></td>
+    <td><%= audio_clip.latitude %></td>
+    <td><%= audio_clip.longitude %></td>
+    <td><%= audio_clip.title %></td>
+    <td><%= audio_clip.public %></td>
+    <td><%= link_to 'Show', audio_clip %></td>
+    <td><%= link_to 'Edit', edit_audio_clip_path(audio_clip) %></td>
+    <td><%= link_to 'Destroy', audio_clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Audio clip', new_audio_clip_path %>

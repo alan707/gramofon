@@ -1,0 +1,41 @@
+<%= form_for(@audio_clip) do |f| %>
+  <% if @audio_clip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@audio_clip.errors.count, "error") %> prohibited this audio_clip from being saved:</h2>
+
+      <ul>
+      <% @audio_clip.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :clip_url %><br />
+    <%= f.text_field :clip_url %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.number_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.number_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br />
+    <%= f.check_box :public %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

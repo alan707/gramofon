@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clip_url: MyString
+  user_id: 1
+  latitude: 1
+  longitude: 1
+  title: MyString
+  public: false
+
+two:
+  clip_url: MyString
+  user_id: 1
+  latitude: 1
+  longitude: 1
+  title: MyString
+  public: false

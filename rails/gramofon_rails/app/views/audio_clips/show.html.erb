@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Clip url:</b>
+  <%= @audio_clip.clip_url %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @audio_clip.user_id %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @audio_clip.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @audio_clip.longitude %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @audio_clip.title %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @audio_clip.public %>
+</p>
+
+
+<%= link_to 'Edit', edit_audio_clip_path(@audio_clip) %> |
+<%= link_to 'Back', audio_clips_path %>
