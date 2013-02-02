@@ -14,9 +14,9 @@
         <h4>top users</h4>
 
         <ul class="top-users">
-            <li><span class="label">benchutz</span> 93,821 follows</li>
-            <li><span class="label">raul</span> 12,527 follows</li>
-            <li><span class="label">dtrenz</span> 8,223 follows</li>
+            <li><a href="/benchutz"><span class="label">benchutz</span></a> 93,821 follows</li>
+            <li><a href="/raul"><span class="label">raul</span></a> 12,527 follows</li>
+            <li><a href="/dtrenz"><span class="label">dtrenz</span></a> 8,223 follows</li>
         </ul>
     </div>
 </div>

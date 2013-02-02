@@ -3,10 +3,15 @@ body
     background-color: #f6f3db;
 }
 
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
 #content
 {
     background-color: white;
     padding: 15px 3px 3px;
+    min-height: 350px;
 }
 
 .top-bar {
@@ -15,7 +20,7 @@ body
 }
 
 .divider {
-    background-color: #ccc !important;
+    background-color: #444 !important;
 }
 
 /**
