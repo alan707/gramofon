@@ -10,6 +10,7 @@
                 <h2 class="user-block-name"><?= $user->firstname ?> <?= $user->lastname ?></h2>
                 <a href="" class="user-block-username"><?= $user->username ?></a>
                 <div><?= sizeof($user->audio_clips) ?> sounds</div>
+                <div><a class="tiny button" href="#">Follow</a></div>
             </div>
         </div>
 
