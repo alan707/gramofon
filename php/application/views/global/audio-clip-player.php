@@ -4,7 +4,11 @@
         <div class="audio-clip-player-play">
             <i class="icon-play"></i>
         </div>
-        <span class="audio-clip-player-visualizer"></span>
+        <span class="audio-clip-player-visualizer">
+            <audio controls id='my-audio'>
+                <source src='<? echo $clip->clip_url ?>' type='audio/mp4; codecs="mp4a.40.5"'>
+            </audio>
+        </span>
     </div>
     <ul class="audio-clip-actions">
         <li class="audio-clip-actions-item" >
