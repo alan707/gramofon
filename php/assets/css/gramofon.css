@@ -1,3 +1,11 @@
+.top-bar {
+    background-color: #eee;
+}
+
+.divider {
+    background-color: #ccc !important;
+}
+
 /**
  *     The top-section of a users profile, which shows their profile picture and such
  */

@@ -6,12 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>gramofon</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
-        
-        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/gramofon.css">
         
@@ -29,19 +27,19 @@
                 <nav class="top-bar">
                     <ul>
                         <li class="name">
-                            <h1><a href="/">Gramofon</a></h1>
+                            <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
                         </li>
                         <li class="divider"></li>
                         <li class="toggle-topbar"><a href="#"></a></li>
                     </ul>
 
-                <section>
+<!--                <section>
                     <ul class="left">
                         <li class="">
                             <a href="/">Stream</a>
                         </li>
                     </ul>
-                  </section>
+                </section>
                   
                 <section>
                     <ul class="left">
@@ -57,6 +55,6 @@
                             </ul>
                         </li>
                     </ul>
-                  </section>
+                </section>-->
             </div>
         </div>

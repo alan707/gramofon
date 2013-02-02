@@ -8,7 +8,7 @@
             <? foreach( $audio_clips as $clip ) : ?>
                 <div class="row">
                     <div class="twelve columns audio-feed">
-                        <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip ))?>
+                        <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip )) ?>
                     </div>
                 </div>
             <? endforeach; ?>
