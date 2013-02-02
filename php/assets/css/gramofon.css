@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5 {
     background-color: white;
     padding: 15px 3px 3px;
     min-height: 350px;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid #543230;
+    border-top: 0;
 }
 
 .top-bar {
@@ -23,6 +26,11 @@ h1, h2, h3, h4, h5 {
     background-color: #444 !important;
 }
 
+.user-follow-button
+{
+    margin-left: 5px;
+}
+
 /**
  *     The top-section of a users profile, which shows their profile picture and such
  */
@@ -30,7 +38,7 @@ h1, h2, h3, h4, h5 {
 {
     padding: 0 0 10px 0;
     margin-bottom: 0;
-    box-shadow: 0 4px 2px -2px gray;
+    box-shadow: 0 4px 5px -2px gray;
 }
 
 @media only screen and (max-width:620px)
@@ -52,6 +60,7 @@ h1, h2, h3, h4, h5 {
 .audio-feed
 {
     padding-top: 10px;
+    min-height: 400px;
 }
 
 /**
