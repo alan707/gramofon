@@ -19,6 +19,11 @@ body
     background-color: #ccc !important;
 }
 
+.user-follow-button
+{
+    margin-left: 5px;
+}
+
 /**
  *     The top-section of a users profile, which shows their profile picture and such
  */
