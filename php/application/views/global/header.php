@@ -29,12 +29,20 @@
                 <nav class="top-bar">
                     <ul>
                         <li class="name">
-                            <h1><a href="/">Bootstrap</a></h1>
+                            <h1><a href="/<?= $username; ?>">Gramofon</a></h1>
                         </li>
                         <li class="divider"></li>
                         <li class="toggle-topbar"><a href="#"></a></li>
                     </ul>
 
+                <section>
+                    <ul class="left">
+                        <li class="">
+                            <a href="/">Stream</a>
+                        </li>
+                    </ul>
+                  </section>
+                  
                 <section>
                     <ul class="left">
                         <li class="has-dropdown">
