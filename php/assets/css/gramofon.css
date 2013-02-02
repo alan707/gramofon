@@ -1,0 +1,127 @@
+/**
+ *     The top-section of a users profile, which shows their profile picture and such
+ */
+.user-block
+{
+    padding: 0 0 10px 0;
+    margin-bottom: 0;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+@media only screen and (max-width:620px)
+{
+    .user-block
+    {
+        margin-top: 40px;
+    }
+    
+    .user-block-image
+    {
+        width: 100px;
+    }
+}
+
+/**
+ *     A wrapper to hold a collection of Audio Clips
+ */
+.audio-feed
+{
+    padding-top: 10px;
+}
+
+/**
+ *     Audio Clip view (/gobal/audio-clip-player.php)
+ */
+.audio-clip-title
+{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.audio-clip-player
+{
+    height: 80px;
+    margin: 0 10px 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+} 
+
+.audio-clip-player-play
+{
+    font-size: 60px;
+    border-radius: 100px;
+    background-color: lightgreen;
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 3px;
+    box-shadow: 0 0 10px green;
+}
+
+.audio-clip-player-play i
+{
+    vertical-align: middle;
+}
+
+.user-block-image
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.audio-clip-actions
+{
+    list-style: none;
+}
+
+.audio-clip-footer
+{
+    padding-top: 10px;
+}
+
+
+/**
+ *     User Sidebar view (/user-sidebar.php)
+ */
+.user-sidebar
+{
+    list-style: none;
+    position: fixed;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.user-sidebar-item
+{
+    margin: 3px 0;
+}
+
+.user-sidebar-item-name
+{
+    font-weight: bolder;
+}
+
+.user-sidebar-item-value
+{
+    
+}
+
+@media only screen and (max-width:620px)
+{
+    .user-sidebar
+    {
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        top: 40px;
+        background-color: white;
+    }
+    
+    .user-sidebar-item
+    {
+        display: inline;
+    }
+}
