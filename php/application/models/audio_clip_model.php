@@ -10,7 +10,7 @@ class Audio_clip_model extends CI_Model {
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
-            
+
             foreach ( $audio_clips as &$clip ) {
                 $clip->created_at = strtotime($clip->created_at);
                 $clip->updated_at = strtotime($clip->updated_at);
