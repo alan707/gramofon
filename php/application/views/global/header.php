@@ -29,7 +29,7 @@
                 <nav class="top-bar">
                     <ul>
                         <li class="name">
-                            <h1><a href="/<?= $username; ?>">Gramofon</a></h1>
+                            <h1><a href="/<?= $user->username; ?>">Gramofon</a></h1>
                         </li>
                         <li class="divider"></li>
                         <li class="toggle-topbar"><a href="#"></a></li>
