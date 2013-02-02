@@ -1,3 +1,13 @@
+body
+{
+    background-color: #f6f3db;
+}
+
+#content
+{
+    background-color: white;
+}
+
 .top-bar {
     background-color: #eee;
 }
@@ -101,6 +111,7 @@
     box-shadow: 0 0 10px gainsboro;
     border-radius: 10px;
     padding: 10px;
+    background-color: #eee;
 }
 
 .sidebar ul

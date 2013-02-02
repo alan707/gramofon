@@ -1,6 +1,4 @@
 <? $this->load->view('global/header.php') ?>
-
-<div class="row">
     <div class="nine columns">
     
         <div class="row user-block">
@@ -48,7 +46,5 @@
     <div class="three columns">
         <? $this->load->view('user-sidebar.php') ?>
     </div>
-
-</div>
 
 <? $this->load->view('global/footer.php') ?>
