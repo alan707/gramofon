@@ -1,3 +1,4 @@
+<? $month =date('m',$clip->created_at) -1 ; ?>
 <!--<div class="audio-clip-wrapper">
     <h3 class="audio-clip-title"><?= $clip->title ?></h3>
     <div class="audio-clip-player ten columns">
@@ -5,10 +6,17 @@
             <i class="icon-play"></i>
         </div>
         <span class="audio-clip-player-visualizer">-->
-            <audio controls id='my-audio'>
-                <source src='<? echo $clip->clip_url ?>' type='audio/mp4; codecs="mp4a.40.5"'>
-            </audio>
-<!--        </span>
+<h3 class="audio-clip-title"><?= $clip->title ?></h3>
+<audio controls id='my-audio'>
+    <source src='<? echo $clip->clip_url ?>' type='audio/mp4; codecs="mp4a.40.5"'>
+</audio>
+<div id='from-now' class='from-now'
+     year='<? echo date('Y',$clip->created_at); ?>'
+     month='<? echo $month ?>'
+     day='<? echo date('d',$clip->created_at); ?>'
+     hour='<? echo date('H',$clip->created_at); ?>'
+     minute='<? echo date('i',$clip->created_at); ?>'
+     second='<? echo date('s',$clip->created_at); ?>'></div><!--        </span>
     </div>
     <ul class="audio-clip-actions">
         <li class="audio-clip-actions-item" >

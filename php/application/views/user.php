@@ -43,3 +43,4 @@
     </div>    
 
 <? $this->load->view('global/footer.php') ?>
+<? $this->load->view('global/audio-clip-player-footer.php') ?>
