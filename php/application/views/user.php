@@ -15,16 +15,13 @@
                 <div>21 Following</div>
             </div>
         </div>
-
+        
+        <div class="row audio-feed">
+            
             <?php
                 if( sizeof($user->audio_clips) == 0):
             ?>
-            
-        <div class="row">
-            <div class="twelve columns">
-                Sorry... no sounds yet
-            </div>
-        </div>
+                <span>Sorry... no sounds yet</span>
             
             <?php
                 endif;
@@ -34,16 +31,15 @@
             <?php
                 foreach($user->audio_clips as $clip):
             ?>
-        <div class="row">
-            <div class="twelve columns audio-feed">
+            <div class="twelve columns ">
                 <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip )) ?>
             </div>
-        </div>
             <?php
                 endforeach;
             ?>
             <!-- end iterating over audio_clip array here -->
-        
+            
+        </div>        
     </div>    
 
 <? $this->load->view('global/footer.php') ?>

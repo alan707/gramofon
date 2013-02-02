@@ -7,7 +7,9 @@ body
 {
     background-color: white;
     padding: 15px 3px 3px;
-    border-radius: 5px;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid #543230;
+    border-top: 0;
 }
 
 .top-bar {
@@ -31,7 +33,7 @@ body
 {
     padding: 0 0 10px 0;
     margin-bottom: 0;
-    box-shadow: 0 4px 2px -2px gray;
+    box-shadow: 0 4px 5px -2px gray;
 }
 
 @media only screen and (max-width:620px)
@@ -53,6 +55,7 @@ body
 .audio-feed
 {
     padding-top: 10px;
+    min-height: 400px;
 }
 
 /**
