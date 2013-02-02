@@ -2,7 +2,7 @@
 
 <div class="row">
     
-    <div class="twelve columns user-block">
+    <div class="nine columns user-block">
         <div class="user-block-image-wrapper two columns">
             <img class="user-block-image" src="http://www.androidtablets.net/forum/attachments/sylvania-tablets/4266d1318424401-what-mini-tablet-express-plus-nailed_it_re_20th_century_fox_theme_on_flute-s240x320-227191.jpg" />
         </div>
@@ -57,6 +57,8 @@
         ?>
         <!-- end iterating over audio_clip array here -->
     </div>
+    
+    <? $this->load->view('user-sidebar.php') ?>
 
 </div>
 
