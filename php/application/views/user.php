@@ -1,16 +1,20 @@
 <? $this->load->view('global/header.php') ?>
-    <div class="nine columns">
+    <div class="twelve columns">
     
         <div class="row user-block">
             <div class="user-block-image-wrapper two columns">
                 <img class="user-block-image" src="http://www.androidtablets.net/forum/attachments/sylvania-tablets/4266d1318424401-what-mini-tablet-express-plus-nailed_it_re_20th_century_fox_theme_on_flute-s240x320-227191.jpg" />
             </div>
 
-            <div class="user-block-details-wrapper ten columns">
+            <div class="user-block-details-wrapper eight columns">
                 <h2 class="user-block-name"><?= $user->firstname ?> <?= $user->lastname ?></h2>
                 <a href="" class="user-block-username"><?= $user->username ?></a>
                 <div><?= sizeof($user->audio_clips) ?> sounds</div>
                 <div><a class="tiny button" href="#">Follow</a></div>
+            </div>
+            
+            <div class="two columns">
+                <? $this->load->view('user-sidebar.php') ?>
             </div>
         </div>
 
@@ -43,9 +47,5 @@
             <!-- end iterating over audio_clip array here -->
         
     </div>    
-    
-    <div class="three columns">
-        <? $this->load->view('user-sidebar.php') ?>
-    </div>
 
 <? $this->load->view('global/footer.php') ?>
