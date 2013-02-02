@@ -35,7 +35,7 @@
             ?>
         <div class="row">
             <div class="twelve columns audio-feed">
-                <? $this->load->view('global/audio-clip-player.php', $clip) ?>
+                <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip )) ?>
             </div>
         </div>
             <?php
