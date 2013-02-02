@@ -18,7 +18,7 @@
         </li>
     </ul>
     <div class="audio-clip-footer">
-        <span class="audio-clip-date icon-time"><?= $clip->date ?></span>
+        <span class="audio-clip-date icon-time"><?= date('M d, Y H:i:s', $clip->created_at) ?></span>
         <span class="audio-clip-location  icon-map-marker">U of M</span>
     </div>
 </div>

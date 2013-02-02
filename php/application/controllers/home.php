@@ -4,11 +4,15 @@ class Home extends CI_Controller {
 
     public function index()
     {
-//        $this->load->model('audio_model');
-//        
-//        $audio_clips = $this->audio_model->get_audio_clips();
+        $this->load->model('audio_clip_model');
         
-        $this->load->view('home');
+        $audio_clips = $this->audio_clip_model->get_all();
+        
+        $data = array(
+            'audio_clips' => $audio_clips
+        );
+        
+        $this->load->view('home', $data);
     }
 
 }
