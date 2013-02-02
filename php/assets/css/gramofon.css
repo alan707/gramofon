@@ -93,8 +93,9 @@
 /**
  *     User Sidebar view (/user-sidebar.php)
  */
-.user-sidebar
+.sidebar
 {
+    width: 205px;
     list-style: none;
     position: fixed;
     box-shadow: 0 0 10px gainsboro;
@@ -102,24 +103,29 @@
     padding: 10px;
 }
 
-.user-sidebar-item
+.sidebar ul
+{
+    list-style: none;
+}
+
+.sidebar-item
 {
     margin: 3px 0;
 }
 
-.user-sidebar-item-name
+.sidebar-item-name
 {
     font-weight: bolder;
 }
 
-.user-sidebar-item-value
+.sidebar-item-value
 {
     
 }
 
 @media only screen and (max-width:620px)
 {
-    .user-sidebar
+    .sidebar
     {
         left: 0;
         right: 0;
@@ -128,7 +134,7 @@
         background-color: white;
     }
     
-    .user-sidebar-item
+    .sidebar-item
     {
         display: inline;
     }

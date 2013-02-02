@@ -23,7 +23,7 @@
     </div>    
     
     <div class="three columns">
-        <? $this->load->view('user-sidebar.php') ?>
+        <? $this->load->view('home-sidebar.php') ?>
     </div>
 
 </div>
