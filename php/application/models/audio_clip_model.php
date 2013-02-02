@@ -6,7 +6,7 @@ class Audio_clip_model extends CI_Model {
     {
         $audio_clips = array();
         
-        $json = @file_get_contents("http://gramofon.herokuapp.com/audio_clips.json");
+        $json = file_get_contents("http://gramofon.herokuapp.com/audio_clips.json");
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
@@ -24,10 +24,14 @@ class Audio_clip_model extends CI_Model {
     {
         $audio_clips = array();
         
-        $json = @file_get_contents("http://gramofon.herokuapp.com/users/$username/audio_clips.json");
+        $json = file_get_contents("http://gramofon.herokuapp.com/users/$username/audio_clips.json");
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
+
+            if ( !is_array($audio_clips) ) {
+                $audio_clips = array( $audio_clips );
+            } 
             
             foreach ( $audio_clips as &$clip ) {
                 $clip->created_at = strtotime($clip->created_at);
