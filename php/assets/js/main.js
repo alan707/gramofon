@@ -49,11 +49,12 @@ $(function() {
                 method: 'feed',
                 name: clipTitle,
                 link: clipUrl,
-                caption: 'Share the sound of your life'
+                caption: 'Share the sound of your life',
+                picture: window.location.origin + '/gramofon-logo-facebook.jpg'
               },
               function(response) {
                 if (response && response.post_id) {
-                  alert('Post was published.');
+                  console.log('Link shared');
                 } else {
                   alert('Post was not published.');
                 }
