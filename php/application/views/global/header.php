@@ -30,6 +30,21 @@
                     <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
                 </li>
             </ul>
+            
+            <ul class="right" style="width: 100px;">
+                <li class="name">
+                    
+                </li>
+            </ul>
+            
+            <ul class="right">
+                <li class="name">
+                    <div>
+                        <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
+                        
+                    </div>
+                </li>
+            </ul>
         </nav>
         
         <div id="content" class="row">
