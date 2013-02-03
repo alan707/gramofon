@@ -1,6 +1,16 @@
 <? $this->load->view('global/header.php') ?>
 
 <div class="row">
+    <div class="twelve columns">
+        <dl class="sub-nav">
+            <dt>View:</dt>
+            <dd class="active"><a href="/">Feed</a></dd>
+            <dd><a href="/map">Map</a></dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row">
     <div class="eight columns">
         <? if ( !empty($audio_clips) ) : ?>
             <!-- start iterating over audio_clip array here -->
