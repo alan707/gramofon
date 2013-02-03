@@ -15,8 +15,10 @@
 
 <% @audio_clips.each do |audio_clip| %>
   <tr>
-    <td><%= audio_clip.clip_url %></td>
-    <td><%= audio_clip.user_id %></td>
+
+
+    <td><%= audio_clip.sound_file.url %></td>
+    <td><%= audio_clip.username %></td>
     <td><%= audio_clip.latitude %></td>
     <td><%= audio_clip.longitude %></td>
     <td><%= audio_clip.title %></td>

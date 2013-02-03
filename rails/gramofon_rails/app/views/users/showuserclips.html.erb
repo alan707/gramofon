@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+  <%@clips.each do |clip|%>
+
+<p>
+  <b>Clip url:</b>
+  <%= clip.clip_url%>
+</p>
+
+<p>
+  <b>User Name:</b>
+  <%= clip.username %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= clip.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= clip.longitude %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= clip.title %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= clip.public %>
+</p>
+
+<%end%>
+
+<!-- 
+<%#= link_to 'Edit', edit_audio_clip_path(@audio_clip) %> |
+<%#= link_to 'Back', audio_clips_path %>
+ -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202155549) do
+ActiveRecord::Schema.define(:version => 20130202215245) do
 
   create_table "audio_clips", :force => true do |t|
     t.string   "clip_url"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20130202155549) do
     t.boolean  "public"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "username"
+    t.string   "sound_file"
   end
 
   create_table "users", :force => true do |t|

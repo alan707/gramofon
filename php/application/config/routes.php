@@ -38,6 +38,8 @@
 |
 */
 
+$route['facebook'] = 'user/facebook';
+
 $route['(:any)'] = 'user/index/$1';
 
 $route['default_controller'] = 'home';
