@@ -70,6 +70,7 @@
                                 //this.infowindow.open(map,this);
                                 audio.load(this.src);
                                 audio.play();
+                                title = this.title.replace(/'/g, "''")
                                 $('#audio-title').text('Playing: '+this.title);
                             });
                             google.maps.event.addListener(marker, 'mouseover', function() {
