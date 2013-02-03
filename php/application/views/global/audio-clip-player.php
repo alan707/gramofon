@@ -3,8 +3,15 @@
         <img src="/images/user-photo.jpg" width="65" height="65" alt="">
     </div>
     
-    <div class="play-count"><i class="icon-play"></i><span class="count"><?= rand(0, 50) ?></span></div>
-    <div class="like-button"><i class="icon-heart"></i><span class="count"><?= rand(0, 25) ?></span></div>
+    <div class="play-count">
+        <span class="count"><?= rand(0, 50) ?></span>
+        <i class="icon-play"></i>
+    </div>
+    
+    <div class="like-button">
+        <i class="icon-heart"></i>
+        <span class="count"><?= rand(0, 25) ?></span>
+    </div>
     
     <div class="audio-clip-info">
         <h3 class="audio-clip-title">

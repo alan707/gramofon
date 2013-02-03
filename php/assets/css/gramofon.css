@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5 {
 .audio-clip .play-count {
     position: absolute;
     top: 28px;
-    right: 35px;
+    right: 37px;
     color: #ddd;
     cursor: pointer;
     font-size: 1.2em;
@@ -98,9 +98,13 @@ h1, h2, h3, h4, h5 {
 .audio-clip .like-button.liked {
     color: rgb(153, 27, 27);
 }
-.audio-clip .play-count .count,
+.audio-clip .play-count .count {
+    position: relative;
+    top: 2px;
+    font-size: 10px;
+    color: #333;
+}
 .audio-clip .like-button .count {
-    right: 0;
     position: relative;
     top: 2px;
     font-size: 10px;
