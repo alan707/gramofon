@@ -1,3 +1,17 @@
+<?
+    $categories = array(
+        'outdoors',
+        'ambient',
+        'conversation',
+        'comedy',
+        'music',
+        'animals',
+        'urban',
+        'sporting'
+    );
+    
+    shuffle($categories);
+?>
 <div class="audio-clip">
     <div class="user-photo">
         <img src="/images/user-photo.jpg" width="65" height="65" alt="">
@@ -28,7 +42,7 @@
         
         <div class="audio-clip-metadata">
             <span class="post-date" data-timestamp="<?= $clip->created_at ?>"></span> near <span class="location"><?= empty($clip->fsvenue) ? 'Unknown' : character_limiter($clip->fsvenue, 30) ?></span>            
-            <div class="category"><span class="label">outdoors</span></div>
+            <div class="category"><span class="label"><?= $categories[0] ?></span></div>
         </div>
     </div>
 </div>

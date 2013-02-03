@@ -38,12 +38,20 @@
                 <li class="name">
                     <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
                 </li>
-            </ul>
-            
-            <ul class="right" style="width: 100px;">
-                <li class="name">
-                    
-                </li>
+<!--                <li>
+                    <div class="row collapse">
+                        <div class="five columns centered">
+                            <div class="row collapse">
+                                <div class="ten columns">
+                                    <input type="text" />
+                                </div>
+                                <div class="two columns">
+                                    <a class="button expand postfix">Search</a>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                </li>-->
             </ul>
             
             <ul class="right">
