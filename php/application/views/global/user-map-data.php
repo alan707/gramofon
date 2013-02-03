@@ -11,7 +11,7 @@
                     point.marker =  new google.maps.Marker({
                         position: new google.maps.LatLng(<? echo $clip->latitude ?>,<? echo $clip->longitude ?>),
                         map: map,
-                        title:'<? echo $clip->title ?>',
+                        title:'<? echo addslashes($clip->title) ?>',
                         src:'<? echo $clip->sound_file->url ?>'
 
                     });
