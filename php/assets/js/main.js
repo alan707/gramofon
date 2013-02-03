@@ -50,7 +50,7 @@ $(function() {
                 name: clipTitle,
                 link: clipUrl,
                 caption: 'Share the sound of your life',
-                picture: window.location.origin + '/gramofon-logo-facebook.jpg'
+                picture: window.location.origin + '/images/gramofon-logo-facebook.jpg'
               },
               function(response) {
                 if (response && response.post_id) {
