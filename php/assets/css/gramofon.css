@@ -1,0 +1,134 @@
+body
+{
+    background-color: #f6f3db;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+#content
+{
+    background-color: white;
+    padding: 15px 3px 3px;
+    min-height: 350px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.top-bar {
+    background-color: #222;
+    margin-bottom: 0;
+}
+
+.divider {
+    background-color: #444 !important;
+}
+
+.user-follow-button
+{
+    margin-left: 5px;
+}
+
+/**
+ *     The top-section of a users profile, which shows their profile picture and such
+ */
+.user-block
+{
+    padding: 0 0 10px 0;
+    margin-bottom: 0;
+    box-shadow: 0 4px 5px -2px gray;
+}
+
+@media only screen and (max-width:620px)
+{
+    .user-block
+    {
+        margin-top: 40px;
+    }
+    
+    .user-block-image
+    {
+        width: 100px;
+    }
+}
+
+/**
+ *     A wrapper to hold a collection of Audio Clips
+ */
+.audio-feed
+{
+    padding-top: 10px;
+    min-height: 400px;
+}
+
+/**
+ *     Audio Clip view (/gobal/audio-clip-player.php)
+ */
+.audio-clip
+{
+    width: 500px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.user-block-image
+{
+    max-width: 100%;
+    height: auto;
+}
+
+/**
+ *     User Sidebar view (/user-sidebar.php)
+ */
+.sidebar
+{
+    width: 205px;
+    list-style: none;
+    position: fixed;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #eee;
+}
+
+.sidebar ul
+{
+    list-style: none;
+}
+
+.sidebar-item
+{
+    margin: 3px 0;
+}
+
+.sidebar-item-name
+{
+    font-weight: bolder;
+}
+
+.sidebar-item-value
+{
+    
+}
+
+@media only screen and (max-width:620px)
+{
+    .sidebar
+    {
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        top: 40px;
+        background-color: white;
+    }
+    
+    .sidebar-item
+    {
+        display: inline;
+    }
+}
