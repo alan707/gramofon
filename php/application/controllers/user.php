@@ -1,17 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
-
-    public function __construct()
-    {
-        parent::__construct();
-        // Your own constructor code
-        $CI = & get_instance();
-        $CI->config->load("facebook",TRUE);
-        $config = $CI->config->item('facebook');
-        $this->load->library('facebook', $config);
-    }
-
+    
     public function index( $username )
     {
         $this->load->model('user_model');
@@ -32,17 +22,22 @@ class User extends CI_Controller {
             'user' => $user 
         );
         
+        
         $this->load->view('user', $data);
     }   
 
     public function facebook()
     {
         $user = $this->facebook->getUser();
-        print_r($this->facebook);
+        
+        echo "User ID: " . $user;
+        
         if($user) {
             try {
                 $user_info = $this->facebook->api('/me');
-                echo '<pre>'.htmlspecialchars(print_r($user_info, true)).'</pre>';
+
+                echo "<img src='https://graph.facebook.com/" . $user_info['username'] . "/picture?type=normal' />";                 
+
             } catch(FacebookApiException $e) {
                 echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
                 $user = null;

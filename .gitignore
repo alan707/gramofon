@@ -17,3 +17,15 @@
 rails/.project
 
 .project
+
+.gitignore
+.DS_Store
+gramofon/
+php/.htaccess
+php/.idea/
+php/assets/dummyfiles/
+php/assets/js/.DS_Store
+php/assets/js/vendor/.DS_Store
+php/assets/js/vendor/jwplayer/
+php/assets/js/vendor/soundmanager/
+rails/gramofon_rails/.idea/

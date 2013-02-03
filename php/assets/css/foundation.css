@@ -9,11 +9,11 @@ body { background: white; font-family: "OpenSansLight", "Helvetica Neue", "Helve
 /* Links ---------------------- */
 a img { border: none; }
 
-a { color: cadetblue; text-decoration: none; line-height: inherit; }
+a { color: #e54c52; text-decoration: none; line-height: inherit; }
 
-a:hover { color: #2795b6; }
+a:hover { color: #e54c52; }
 
-a:focus { color: cadetblue; outline: none; }
+a:focus { color: #e54c52; outline: none; }
 
 p a, p a:visited { line-height: inherit; }
 
@@ -51,7 +51,7 @@ p.lead { font-size: 17.5px; line-height: 1.6; margin-bottom: 17px; }
 
 aside p { font-size: 13px; line-height: 1.35; font-style: italic; }
 
-h1, h2, h3, h4, h5, h6 { font-family: "OpenSansSemiBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: cadetblue; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+h1, h2, h3, h4, h5, h6 { font-family: "OpenSansSemiBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #e54c52; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
 
 h1 { font-size: 44px; }
@@ -61,8 +61,8 @@ h2 { font-size: 37px; }
 h3 { font-size: 27px; }
 
 h4 { font-size: 23px; }
-
-h5 { font-size: 17px; }
+h
+5 { font-size: 17px; }
 
 h6 { font-size: 14px; }
 
@@ -672,7 +672,7 @@ div.alert-box a.close { color: #333; position: absolute; right: 4px; top: -1px; 
 div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
 
 /* Labels ---------------------- */
-.label { padding: 1px 4px 2px; font-size: 12px; font-weight: bold; text-align: center; text-decoration: none; line-height: 1; white-space: nowrap; display: inline; position: relative; bottom: 1px; color: #fff; background: #2ba6cb; }
+.label { padding: 1px 4px 2px; font-size: 12px; font-weight: bold; text-align: center; text-decoration: none; line-height: 1; white-space: nowrap; display: inline; position: relative; bottom: 1px; color: #fff; background: rgba(226, 74, 80, 0.3); }
 .label.radius { -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .label.round { padding: 1px 7px 2px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
 .label.alert { background-color: #c60f13; }

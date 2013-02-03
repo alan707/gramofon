@@ -10,15 +10,25 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
-        <link rel="stylesheet" href="css/webfont/webfont.css">
-        <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/gramofon.css">        
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/webfont/webfont.css">
+        <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="/css/foundation.css">
+        <link rel="stylesheet" href="/css/gramofon.css">        
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="js/vendor/moment.js"></script>
+        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="/js/vendor/moment.js"></script>
     </head>
     <body>
+        
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=494330727285381";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -27,6 +37,34 @@
             <ul>
                 <li class="name">
                     <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
+                </li>
+            </ul>
+            
+            <ul class="right" style="width: 100px;">
+                <li class="name">
+                    
+                </li>
+            </ul>
+            
+            <ul class="right">
+                <li class="name">
+                    <div>
+                        <?php
+                            if( $this->session->userdata('username') ):
+                            ?>
+                              <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
+                          <?php
+                            else:
+                          ?>
+                            <a href="<?= $this->facebook->getLoginUrl() ?>">
+                                <img src="/assets/images/fb-login-btn-small.png" />
+                            </a>
+                          <?php  
+                            endif
+                          ?>
+                        
+                        
+                    </div>
                 </li>
             </ul>
         </nav>

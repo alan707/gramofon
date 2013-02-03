@@ -1,21 +1,13 @@
-<ul class="sidebar" data-spy="affix" data-offset-top="45">
-    <li class="sidebar-item">
-        <span class="sidebar-item-name">Sounds</span>
-        <span class="sidebar-item-value"><?= sizeof($user->audio_clips) ?></span>
-    </li>
+<div class="sidebar">
+    <img class="user-block-image" src="<?= $user->profile_picture ?>">
+
+    <h4 class="user-block-name"><?= $user->firstname ?> <?= $user->lastname ?></h4>
     
-    <li class="sidebar-item">
-        <span class="sidebar-item-name">Plays</span>
-        <span class="sidebar-item-value">42</span>
-    </li>
-    
-    <li class="sidebar-item">
-        <span class="sidebar-item-name">Followers</span>
-        <span class="sidebar-item-value">77</span>
-    </li>
-    
-    <li class="sidebar-item">
-        <span class="sidebar-item-name">Following</span>
-        <span class="sidebar-item-value">21</span>
-    </li>
-</ul>
+    <div class="stats">        
+        <ul>
+            <li>42 plays</li>
+            <li>77 followers</li>
+            <li>21 following</li>
+        </ul>
+    </div>
+</div>
