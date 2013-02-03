@@ -173,6 +173,8 @@ h1, h2, h3, h4, h5 {
  */
 .sidebar
 {
+    position: fixed;
+    top: 45px;
     width: 236px;
     list-style: none;
     padding: 10px 10px 10px 20px;

@@ -9,13 +9,13 @@ $(function() {
         $el.text(fromNow);
     });
     
-    $(window).scroll(function() {
-        if ( $(window).scrollTop() > 45 ) {
-            $('.sidebar').css({ position: "fixed", top: 0 });
-        } else {
-            $('.sidebar').css({ position: "static" });
-        }
-    });
+//    $(window).scroll(function() {
+//        if ( $(window).scrollTop() > 45 ) {
+//            $('.sidebar').css({ position: "fixed", top: 45 });
+//        } else {
+//            $('.sidebar').css({ position: "static" });
+//        }
+//    });
     
     audiojs.events.ready(function() {
         var as = audiojs.createAll();
