@@ -16,7 +16,7 @@
     $( document ).ready( function() {
         var myLatlng = new google.maps.LatLng(42.281 ,-83.738609)
         var mapOptions = {
-            zoom: 18,
+            zoom: 16,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
