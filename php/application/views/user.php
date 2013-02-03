@@ -1,5 +1,4 @@
 <? $this->load->view('global/header.php') ?>
-    <div class="twelve columns">
     
         <div class="row user-block">
             <div class="user-block-image-wrapper two columns">
@@ -39,8 +38,6 @@
             ?>
             <!-- end iterating over audio_clip array here -->
             
-        </div>        
-    </div>    
+        </div>  
 
 <? $this->load->view('global/footer.php') ?>
-<? $this->load->view('global/audio-clip-player-footer.php') ?>

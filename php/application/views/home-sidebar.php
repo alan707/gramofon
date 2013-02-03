@@ -1,6 +1,6 @@
-<div class="sidebar">
+<div class="sidebar" data-spy="affix" data-offset-top="45">
     <div class="top-categories">
-        <h4>top categories</h4>
+        <h5>top categories</h5>
 
         <ul>
             <li><span class="label">outdoors</span> 351</li>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="top-users">
-        <h4>top users</h4>
+        <h5>top users</h5>
 
         <ul class="top-users">
             <li><a href="/benchutz"><span class="label">benchutz</span></a> 93,821 follows</li>
