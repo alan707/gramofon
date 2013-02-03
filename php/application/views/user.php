@@ -2,6 +2,7 @@
     
         <div class="row user-block">
             <div class="user-block-image-wrapper two columns">
+
                 <img class="user-block-image" src="<?= $user->profile_picture ?>" />
             </div>
 
