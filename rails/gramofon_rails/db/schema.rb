@@ -11,19 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202215245) do
+ActiveRecord::Schema.define(:version => 20130203012221) do
 
   create_table "audio_clips", :force => true do |t|
-    t.string   "clip_url"
     t.integer  "user_id"
-    t.integer  "latitude"
-    t.integer  "longitude"
     t.string   "title"
     t.boolean  "public"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "username"
     t.string   "sound_file"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "category"
   end
 
   create_table "users", :force => true do |t|
