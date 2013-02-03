@@ -33,14 +33,30 @@
         #map img {
             max-width: none;
         }
+        .audio-player{
+            display:none;
+        }
     </style>
     <div class="row">
+        <h3 id='audio-title'>Click a Marker to play</h3>
         <div class="audio-player">
-            <h3 id='audio-title'>Click a Marker to play</h3>
-            <audio  type="audio/mp4"></audio>
+            <audio  preload='none' type="audio/mp4" />
         </div>
           <div id="map"  style="width: 800px; height: 495px" class="map"></div>
           <script>
+                  function isAppLoaded()
+                  {
+                      alert('success');
+                      return true;
+                  }
+                  function loadAudio(uri)
+                  {
+                      var audio = new Audio();
+                      //audio.onload = isAppLoaded; // It doesn't works!
+                      audio.addEventListener('canplaythrough', isAppLoaded, false); // It works!!
+                      audio.src = uri;
+                      return audio;
+                  }
                     function initialize(map) {
                         $(function() {
                             var a = audiojs.createAll();
@@ -51,11 +67,12 @@
                             ps = getPoints(map);
                             for(var i=0;i<ps.length;i++){
                                 marker = ps[i].marker;
+                                loadAudio(marker.src);
                                 google.maps.event.addListener(marker, 'click', function() {
                                     //this.infowindow.open(map,this);
                                     audio.load(this.src);
                                     audio.play();
-                                    $('#audio-title').text(this.title);
+                                    $('#audio-title').text('Playing: '+this.title);
                                 });
                                 google.maps.event.addListener(marker, 'mouseover', function() {
                                     this.infowindow.open(map,this);
@@ -76,19 +93,23 @@
     </div>
     <!--- <h4>"+ps[marker.index].title+"</h4>-->
 </div>
-<
+
 <? $this->load->view('global/footer.php') ?>
 <script type="text/javascript">
+    var isInit=false;
     $( document ).ready( function() {
-        var myLatlng = new google.maps.LatLng(42.28 ,-83.738609)
+        var myLatlng = new google.maps.LatLng(42.281 ,-83.738609)
         var mapOptions = {
-            zoom: 15,
+            zoom: 18,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-      initialize(map);
+        if(!isInit){
+            initialize(map);
+        }
+        isInit = false;
     });
 </script>
 </body>
