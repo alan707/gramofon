@@ -9,11 +9,11 @@ body { background: white; font-family: "OpenSansLight", "Helvetica Neue", "Helve
 /* Links ---------------------- */
 a img { border: none; }
 
-a { color: #f69; text-decoration: none; line-height: inherit; }
+a { color: #e54c52; text-decoration: none; line-height: inherit; }
 
-a:hover { color: #2795b6; }
+a:hover { color: #e54c52; }
 
-a:focus { color: #f69; outline: none; }
+a:focus { color: #e54c52; outline: none; }
 
 p a, p a:visited { line-height: inherit; }
 
