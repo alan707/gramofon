@@ -4,7 +4,8 @@
         'benchutz' => 'http://profile.ak.fbcdn.net/hprofile-ak-ash3/s200x200/525896_10102292859862274_1574279843_n.jpg',
         'dtrenz'   => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s200x200/293575_10151404780873832_883004756_n.jpg',
         'raul'     => 'http://profile.ak.fbcdn.net/hprofile-ak-snc6/168690_490367046461_326319_n.jpg',
-        'Chris'    => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s320x320/407312_10100531205646645_182024679_n.jpg'
+        'Chris'    => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s320x320/407312_10100531205646645_182024679_n.jpg',
+        'eflatt'   => 'http://profile.ak.fbcdn.net/hprofile-ak-prn1/s200x200/644295_10151468936365628_594630485_n.jpg'
     );
     
     if ( isset($user_photos[$clip->username]) ) {        
