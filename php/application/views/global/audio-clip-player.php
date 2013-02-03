@@ -1,5 +1,7 @@
 <div class="audio-clip">
-    <div class="user-photo"></div>
+    <div class="user-photo">
+        <img src="/images/user-photo.jpg" width="65" height="65" alt="">
+    </div>
     
     <div class="audio-clip-info">
         <h3 class="audio-clip-title"><?= ( !empty($clip->title) ) ? $clip->title : 'untitled' ?></h3>
