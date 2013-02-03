@@ -40,7 +40,12 @@
 
 $route['facebook'] = 'user/facebook';
 
+<<<<<<< HEAD
 $route['clip/(:any)'] = 'audio_clip/index/$1';
+=======
+$route['map'] = 'map';
+
+>>>>>>> 0f85bb2a6d240d7eeffc351cc06ce2f4fef500a9
 
 $route['(:any)'] = 'user/index/$1';
 

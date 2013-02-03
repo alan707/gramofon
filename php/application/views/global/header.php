@@ -30,6 +30,34 @@
                     <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
                 </li>
             </ul>
+            
+            <ul class="right" style="width: 100px;">
+                <li class="name">
+                    
+                </li>
+            </ul>
+            
+            <ul class="right">
+                <li class="name">
+                    <div>
+                        <?php
+                            if( $this->session->userdata('username') ):
+                            ?>
+                              <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
+                          <?php
+                            else:
+                          ?>
+                            <a href="<?= $this->facebook->getLoginUrl() ?>">
+                                <img src="/assets/images/fb-login-btn-small.png" />
+                            </a>
+                          <?php  
+                            endif
+                          ?>
+                        
+                        
+                    </div>
+                </li>
+            </ul>
         </nav>
         
         <div id="content" class="row">

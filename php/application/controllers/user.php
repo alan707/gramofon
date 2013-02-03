@@ -2,6 +2,7 @@
 
 class User extends CI_Controller {
 
+<<<<<<< HEAD
     public function __construct()
     {
         parent::__construct();
@@ -28,6 +29,8 @@ class User extends CI_Controller {
         
     }
 
+=======
+>>>>>>> 0f85bb2a6d240d7eeffc351cc06ce2f4fef500a9
     public function index( $username )
     {
         $this->load->model('user_model');
@@ -48,6 +51,7 @@ class User extends CI_Controller {
             'user' => $user 
         );
         
+        
         $this->load->view('user', $data);
     }   
 
@@ -60,8 +64,9 @@ class User extends CI_Controller {
         if($user) {
             try {
                 $user_info = $this->facebook->api('/me');
-                echo '<pre>'.htmlspecialchars(print_r($user_info, true)).'</pre>';
-                echo "<br/><br/><a href=\"{$this->facebook->getLogoutUrl()}\">Logout of Facebook!</a>";
+
+                echo "<img src='https://graph.facebook.com/" . $user_info['username'] . "/picture?type=normal' />";                 
+
             } catch(FacebookApiException $e) {
                 echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
                 $user = null;
