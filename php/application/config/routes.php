@@ -40,6 +40,9 @@
 
 $route['facebook'] = 'user/facebook';
 
+$route['map'] = 'map';
+
+
 $route['(:any)'] = 'user/index/$1';
 
 $route['default_controller'] = 'home';
