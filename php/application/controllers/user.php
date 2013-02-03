@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
-
+    
     public function index( $username )
     {
         $this->load->model('user_model');
@@ -45,8 +45,6 @@ class User extends CI_Controller {
         } else {
             echo "<a href=\"{$this->facebook->getLoginUrl()}\">Login using Facebook!</a>";
         }
-        
-        
     }
 
 }
