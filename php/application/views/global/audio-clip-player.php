@@ -13,7 +13,7 @@
         </div>
         
         <div class="audio-clip-metadata">
-            <span class="post-date" data-timestamp="<?= $clip->created_at ?>"></span> near <span class="location">Rackham</span>            
+            <span class="post-date" data-timestamp="<?= $clip->created_at ?>"></span> near <span class="location"><?= empty($clip->fsvenue) ? 'Unknown' : $clip->fsvenue ?></span>            
             <div class="category"><span class="label">outdoors</span></div>
         </div>
     </div>

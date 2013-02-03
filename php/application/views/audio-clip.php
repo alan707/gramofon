@@ -6,6 +6,7 @@
             <div class="twelve columns audio-feed">
                 <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $audio_clip )) ?>
             </div>
+            <div class="fb-comments" data-href="/clip/<?= $audio_clip->id ?>" data-width="470" data-num-posts="5"></div>
         </div>
     </div>    
     

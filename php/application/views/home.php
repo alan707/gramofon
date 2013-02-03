@@ -19,14 +19,14 @@
                 </div>
             <? endforeach; ?>
             <!-- end iterating over audio_clip array here -->
-        <? else : ?>            
+        <? else : ?>
             <div class="row">
                 <div class="twelve columns">
                     Sorry... no sounds yet
                 </div>
             </div>
         <? endif; ?>
-    </div>    
+    </div>
     
     <div class="four columns">
         <? $this->load->view('home-sidebar.php') ?>
