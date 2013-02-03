@@ -6,7 +6,9 @@
     <div class="icon-heart like-button"></div>
     
     <div class="audio-clip-info">
-        <h3 class="audio-clip-title"><?= ( !empty($clip->title) ) ? $clip->title : 'untitled' ?></h3>
+        <h3 class="audio-clip-title">
+            <a href="/clip/<?= $clip->id ?>"><?= ( !empty($clip->title) ) ? $clip->title : 'untitled' ?></a>
+        </h3>
         
         <div class="audio-player">
             <audio src="<? echo $clip->sound_file->url ?>" type="audio/mp4"></audio>
