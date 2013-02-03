@@ -40,7 +40,20 @@
             <ul class="right">
                 <li class="name">
                     <div>
-                        <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
+                        <?php
+                            if( $this->session->userdata('username') ):
+                            ?>
+                              <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
+                          <?php
+                            else:
+                          ?>
+                            <a href="<?= $this->facebook->getLoginUrl() ?>">
+                                <img src="/assets/images/fb-login-btn-small.png" />
+                            </a>
+                          <?php  
+                            endif
+                          ?>
+                        
                         
                     </div>
                 </li>
