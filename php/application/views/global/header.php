@@ -10,14 +10,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
-        <link rel="stylesheet" href="css/webfont/webfont.css">
-        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
-        <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/gramofon.css">        
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/webfont/webfont.css">
+        <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="/css/foundation.css">
+        <link rel="stylesheet" href="/css/gramofon.css">        
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="js/vendor/moment.js"></script>
+        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="/js/vendor/moment.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>

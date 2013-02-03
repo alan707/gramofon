@@ -40,6 +40,8 @@
 
 $route['facebook'] = 'user/facebook';
 
+$route['clip/(:any)'] = 'audio_clip/index/$1';
+
 $route['(:any)'] = 'user/index/$1';
 
 $route['default_controller'] = 'home';

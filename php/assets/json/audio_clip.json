@@ -1,0 +1,9 @@
+{
+    "title": "offline title",
+    "sound_file": {
+        "url": "/"
+    },
+    "created_at": 1234567890,
+    "updated_at": 1234567890,
+    "user": "johndoe"
+}

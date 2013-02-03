@@ -60,4 +60,27 @@ class Audio_clip_model extends CI_Model {
         return $audio_clips;
     }
     
+    public function get_audio_clip( $id )
+    {
+        $audio_clip = false;
+        
+        if ( ! OFFLINE_MODE ) {
+            $json = @file_get_contents("http://gramofon.herokuapp.com/audio_clips/$id.json");
+        }
+        
+        // offline fallback
+        if ( empty($json) ) {
+            $json = file_get_contents("http://local.usegramofon.com/json/audio_clip.json");
+        }
+        
+        if ( !empty($json) ) {
+            $audio_clip = json_decode($json);
+            
+            $audio_clip->created_at = strtotime($audio_clip->created_at);
+            $audio_clip->updated_at = strtotime($audio_clip->updated_at);
+        }
+        
+        return $audio_clip;
+    }
+    
 }
