@@ -1,4 +1,8 @@
 $(function() {
+    $('.like-button').click(function(){
+        $(this).toggleClass('liked')
+    });
+    
     $('.post-date').each(function() {
         var $el = $(this);
         var fromNow = moment.unix($el.data('timestamp')).fromNow();
