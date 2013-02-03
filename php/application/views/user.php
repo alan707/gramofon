@@ -3,7 +3,7 @@
 <div class="row">
     <div class="eight columns ">
     
-        <? $this->load->view('global/view-subnav.php', array( 'view' => 'feed' )) ?>
+        <? $this->load->view('global/user-view-subnav.php', array( 'view' => 'feed' )) ?>
 
     <? if ( !empty($user->audio_clips) ) : ?>
         <!-- start iterating over audio_clip array here -->
