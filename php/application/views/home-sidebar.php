@@ -1,4 +1,4 @@
-<div class="sidebar" data-spy="affix" data-offset-top="45">
+<div class="sidebar">
     <div class="top-categories">
         <h5>top categories</h5>
 

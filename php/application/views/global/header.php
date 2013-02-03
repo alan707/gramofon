@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         
         <link rel="stylesheet" href="css/webfont/webfont.css">
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/gramofon.css">        
         <link rel="stylesheet" href="css/font-awesome.min.css">

@@ -1,6 +1,5 @@
 body
 {
-    background-color: #f6f3db;
 }
 
 h1, h2, h3, h4, h5 {
@@ -10,7 +9,7 @@ h1, h2, h3, h4, h5 {
 #content
 {
     background-color: white;
-    padding-top: 15p;
+    padding-top: 45px;
     min-height: 350px;
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
@@ -18,6 +17,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .top-bar {
+    position: fixed;
+    z-index: 1000;
     background-color: #222;
     margin-bottom: 0;
 }
@@ -62,7 +63,6 @@ h1, h2, h3, h4, h5 {
 .audio-feed
 {
     padding-top: 10px;
-    min-height: 400px;
 }
 
 /**
@@ -70,12 +70,26 @@ h1, h2, h3, h4, h5 {
  */
 .audio-clip
 {
+    position: relative;
     width: 500px;
     padding: 20px;
     margin-bottom: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.user-photo {
+    float: left;
+    width: 65px;
+    height: 65px;
+    background-color: #eee;
+}
+
+.audio-clip-info {
+    margin-left: 75px;
+}
+
+.audio-clip-title {
+    margin: 0 0 5px;
+    font-size: 1.5em;
 }
 
 .user-block-image
@@ -89,9 +103,9 @@ h1, h2, h3, h4, h5 {
  */
 .sidebar
 {
+    width: 236px;
     list-style: none;
     padding: 10px;
-    background-color: #eee;
 }
 
 .sidebar ul
@@ -130,3 +144,19 @@ h1, h2, h3, h4, h5 {
         display: inline;
     }
 }
+
+/* player styles */
+.audiojs {
+    width: 422px;
+}
+.audiojs .play-pause {
+    width: 38px;
+}
+.audiojs .scrubber {
+    width: 364px;
+}
+.audiojs .time {
+    display: none;
+}
+
+

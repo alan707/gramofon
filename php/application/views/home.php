@@ -1,7 +1,7 @@
 <? $this->load->view('global/header.php') ?>
 
 <div class="row">
-    <div class="nine columns">
+    <div class="eight columns">
         <? if ( !empty($audio_clips) ) : ?>
             <!-- start iterating over audio_clip array here -->
             <? foreach( $audio_clips as $clip ) : ?>
@@ -21,7 +21,7 @@
         <? endif; ?>
     </div>    
     
-    <div class="three columns">
+    <div class="four columns">
         <? $this->load->view('home-sidebar.php') ?>
     </div>
 </div>
