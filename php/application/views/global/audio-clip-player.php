@@ -41,8 +41,7 @@
         <span class="count"><?= rand(0, 25) ?></span>
     </div>
     
-    <div class="share-button action-button" data-clip-id="<?= $clip->id ?>" data-clip-title="<?= $clip->title ?>">
-        <i class="icon-share"></i>
+    <div class="share-button action-button icon-share" data-clip-id="<?= $clip->id ?>" data-clip-title="<?= $clip->title ?>">
     </div>
     
     <div class="audio-clip-info">
