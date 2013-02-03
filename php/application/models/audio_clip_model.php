@@ -17,6 +17,8 @@ class Audio_clip_model extends CI_Model {
             }
         }
         
+        rsort($audio_clips);
+        
         return $audio_clips;
     }
     
@@ -32,6 +34,8 @@ class Audio_clip_model extends CI_Model {
             if ( !is_array($audio_clips) ) {
                 $audio_clips = array( $audio_clips );
             } 
+        
+            rsort($audio_clips);
             
             foreach ( $audio_clips as &$clip ) {
                 $clip->created_at = strtotime($clip->created_at);
