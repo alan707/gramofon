@@ -28,7 +28,7 @@
 ?>
 <div class="audio-clip">
     <div class="user-photo">
-        <img src="<?= $user_photo ?>" alt="">
+        <a href="/<?= $clip->username ?>" title="<?= $clip->username ?>"><img src="<?= $user_photo ?>" alt="<?= $clip->username ?>"></a>
     </div>
     
     <div class=" action-button play-count">
