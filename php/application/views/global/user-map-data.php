@@ -16,7 +16,7 @@
 
                     });
                     point.infowindow = new google.maps.InfoWindow({
-                        content: "<h2><? echo $clip->title ?></h2>",
+                        content: "<h4><? echo $clip->title ?></h4>",
                     });
                     point.marker.infowindow =point.infowindow;
                     ps[ps.length] = point;

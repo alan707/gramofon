@@ -25,7 +25,7 @@ $(function() {
         var isInit=false;
         var myLatlng = new google.maps.LatLng(42.281 ,-83.738609)
         var mapOptions = {
-            zoom: 18,
+            zoom: 14,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
