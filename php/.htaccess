@@ -3,7 +3,7 @@
     RewriteBase /
     
     # redirect static assets
-    RewriteCond $1 ^(css|images|js|json)
+    RewriteCond $1 ^(css|images|js|json|audio)
     RewriteRule ^(.*)$ /assets/$1 [L]
     
     # remove index.php

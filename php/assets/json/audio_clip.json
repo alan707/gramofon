@@ -1,9 +1,16 @@
 {
-    "title": "offline title",
+    "category": null,
+    "created_at": "2013-02-03T00:19:57Z",
+    "fsvenue": null,
+    "id": 15,
+    "latitude": 33.4222685,
+    "longitude": -111.8226402,
+    "public": true,
     "sound_file": {
-        "url": "/"
+        "url": "/audio/clip-1.mp4"
     },
-    "created_at": 1234567890,
-    "updated_at": 1234567890,
-    "user": "johndoe"
+    "title": "Hello world",
+    "updated_at": "2013-02-03T01:41:35Z",
+    "user_id": null,
+    "username": "dtrenz"
 }
