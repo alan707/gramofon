@@ -79,22 +79,37 @@ h1, h2, h3, h4, h5 {
     background-color: #eee;
 }
 
-.audio-clip .play-count {
+
+.audio-clip .action-button {
     position: absolute;
     top: 28px;
+<<<<<<< HEAD
     right: 37px;
+=======
+>>>>>>> d5df334b43a98281611538d59d12a7748869f118
     color: #ddd;
     cursor: pointer;
     font-size: 1.2em;
 }
+
+.audio-clip .action-button:hover
+{
+    color: #e54c52;
+}
+
+.audio-clip .play-count {
+    right: 65px;
+}
+
 .audio-clip .like-button {
-    position: absolute;
-    top: 28px;
     right: 0;
-    color: #ddd;
-    cursor: pointer;
-    font-size: 1.2em;
 }
+
+.audio-clip .share-button
+{
+    right: 34px;
+}
+
 .audio-clip .like-button.liked {
     color: rgb(153, 27, 27);
 }
