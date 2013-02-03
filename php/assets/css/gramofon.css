@@ -79,6 +79,7 @@ h1, h2, h3, h4, h5 {
     background-color: #eee;
 }
 
+
 .audio-clip .play-count {
     position: absolute;
     top: 28px;
@@ -87,14 +88,29 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
     font-size: 1.2em;
 }
-.audio-clip .like-button {
+
+.audio-clip .action-button {
     position: absolute;
     top: 28px;
-    right: 0;
     color: #ddd;
     cursor: pointer;
     font-size: 1.2em;
 }
+
+.audio-clip .action-button:hover
+{
+    color: #e54c52;
+}
+
+.audio-clip .like-button {
+    right: 0;
+}
+
+.audio-clip .share-button
+{
+    right: 25px;
+}
+
 .audio-clip .like-button.liked {
     color: rgb(153, 27, 27);
 }

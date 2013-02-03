@@ -36,4 +36,31 @@ $(function() {
         }
         isInit = false;
     }
+    
+    $('.share-button').click(function(event){
+        var target = $(event.target),
+            clipId = target.data('clip-id'),
+            clipTitle = target.data('clip-title');
+            
+        var clipUrl = window.location.origin + '/clip/' + clipId;
+            
+        FB.ui(
+              {
+                method: 'feed',
+                name: clipTitle,
+                link: clipUrl,
+                caption: 'Share the sound of your life'
+              },
+              function(response) {
+                if (response && response.post_id) {
+                  alert('Post was published.');
+                } else {
+                  alert('Post was not published.');
+                }
+              }
+            );
+        
+        
+    })
+    
 });
