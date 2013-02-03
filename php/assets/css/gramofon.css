@@ -12,8 +12,8 @@ h1, h2, h3, h4, h5 {
     background-color: white;
     padding: 15px 3px 3px;
     min-height: 350px;
-    border-radius: 0 0 15px 15px;
-    border: 1px solid #543230;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
     border-top: 0;
 }
 
@@ -66,37 +66,14 @@ h1, h2, h3, h4, h5 {
 /**
  *     Audio Clip view (/gobal/audio-clip-player.php)
  */
-.audio-clip-title
+.audio-clip
 {
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.audio-clip-player
-{
-    height: 80px;
-    margin: 0 10px 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px black;
-} 
-
-.audio-clip-player-play
-{
-    font-size: 60px;
-    border-radius: 100px;
-    background-color: lightgreen;
-    display: inline-block;
-    height: 75px;
-    width: 75px;
-    text-align: center;
-    padding-left: 10px;
-    padding-top: 3px;
-    box-shadow: 0 0 10px green;
-}
-
-.audio-clip-player-play i
-{
-    vertical-align: middle;
+    width: 500px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .user-block-image
@@ -104,17 +81,6 @@ h1, h2, h3, h4, h5 {
     max-width: 100%;
     height: auto;
 }
-
-.audio-clip-actions
-{
-    list-style: none;
-}
-
-.audio-clip-footer
-{
-    padding-top: 10px;
-}
-
 
 /**
  *     User Sidebar view (/user-sidebar.php)
