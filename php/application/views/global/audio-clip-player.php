@@ -1,4 +1,18 @@
 <?
+    $user_photos = array(
+        'amond'    => 'http://profile.ak.fbcdn.net/hprofile-ak-ash3/s200x200/530565_10102950454612124_1281285938_n.jpg',
+        'benchutz' => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s200x200/418402_10150970598867676_1768372976_a.jpg',
+        'dtrenz'   => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s200x200/293575_10151404780873832_883004756_n.jpg',
+        'raul'     => 'http://profile.ak.fbcdn.net/hprofile-ak-snc6/168690_490367046461_326319_n.jpg',
+        'Chris'    => 'http://profile.ak.fbcdn.net/hprofile-ak-ash4/s320x320/407312_10100531205646645_182024679_n.jpg'
+    );
+    
+    if ( isset($user_photos[$clip->username]) ) {        
+        $user_photo = $user_photos[$clip->username];
+    } else {
+        $user_photo = '/images/user-photo.jpg';
+    }
+    
     $categories = array(
         'outdoors',
         'ambient',
@@ -14,7 +28,7 @@
 ?>
 <div class="audio-clip">
     <div class="user-photo">
-        <img src="/images/user-photo.jpg" width="65" height="65" alt="">
+        <img src="<?= $user_photo ?>" alt="">
     </div>
     
     <div class=" action-button play-count">

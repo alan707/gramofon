@@ -77,6 +77,10 @@ h1, h2, h3, h4, h5 {
     width: 65px;
     height: 65px;
     background-color: #eee;
+    overflow: hidden;
+}
+.user-photo img {
+    max-width: 65px;
 }
 
 

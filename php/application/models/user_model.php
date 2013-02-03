@@ -9,7 +9,7 @@ class User_model extends CI_Model {
         if ( ! OFFLINE_MODE ) {
             $json = file_get_contents("http://gramofon.herokuapp.com/users/$username.json");
         }
-        
+
         //grab the facebookID from the users Gramofon profile
         $userFacebookId = json_decode($json);
         $userFacebookId = $userFacebookId->facebook_id;
