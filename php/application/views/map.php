@@ -4,6 +4,8 @@
 
 <div class="row">
     <div class="nine columns">
+        <? $this->load->view('global/view-subnav.php', array( 'view' => 'map' )) ?>
+        
     <script>
         function getPoints(map){
             var ps = new Array();

@@ -59,7 +59,6 @@ h1, h2, h3, h4, h5 {
  */
 .audio-feed
 {
-    padding-top: 10px;
 }
 
 /**
@@ -200,3 +199,16 @@ h1, h2, h3, h4, h5 {
     }
 }
 
+dl.sub-nav {
+    margin: 0;
+}
+    dl.sub-nav dd a {
+/*        font-family: "OpenSansSemiBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; */
+        color: #aaa;
+    }
+    dl.sub-nav dd.active a {
+        background: 0;
+        font-weight: normal;
+        font-family: "OpenSansSemiBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+        color: #e54c52;
+    }

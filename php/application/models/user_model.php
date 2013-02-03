@@ -10,6 +10,16 @@ class User_model extends CI_Model {
             $json = file_get_contents("http://gramofon.herokuapp.com/users/$username.json");
         }
         
+        //grab the facebookID from the users Gramofon profile
+        $userFacebookId = json_decode($json);
+        $userFacebookId = $userFacebookId->facebook_id;
+        
+        //use Fb's OpenGraph API to grab their user data (right now only profile picture)
+        $facebookJson = file_get_contents("http://graph.facebook.com/" . $userFacebookId . "?fields=name,picture.height(200)");
+        
+        $facebookData = json_decode($facebookJson);
+        
+        
         // offline fallback
         if ( empty($json) ) {
             $json = file_get_contents("http://local.usegramofon.com/json/user.json");
@@ -17,6 +27,7 @@ class User_model extends CI_Model {
 
         if ( !empty($json) ) {
             $user = json_decode($json);
+            $user->profile_picture = $facebookData->picture->data->url;
         }
         
         return $user;

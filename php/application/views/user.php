@@ -1,5 +1,5 @@
 <? $this->load->view('global/header.php') ?>
-    
+
 <div class="row">
     <div class="twelve columns">
         <dl class="sub-nav">
@@ -12,7 +12,7 @@
     
 <div class="row user-block">
     <div class="user-block-image-wrapper two columns">
-        <img class="user-block-image" src="http://local.usegramofon.com/images/user-photo.jpg">
+        <img class="user-block-image" src="<?= $user->profile_picture ?>" />
     </div>
 
     <div class="user-block-details-wrapper ten columns">
@@ -26,28 +26,24 @@
 </div>
 
 <div class="row audio-feed">
+    <div class="twelve columns ">
+    
+        <? $this->load->view('global/view-subnav.php', array( 'view' => 'feed' )) ?>
 
-    <?php
-        if( sizeof($user->audio_clips) == 0):
-    ?>
+    <? if ( !empty($user->audio_clips) ) : ?>
         <span>Sorry... no sounds yet</span>
-
-    <?php
-        endif;
-    ?>
+    <? endif; ?>
 
     <!-- start iterating over audio_clip array here -->
-    <?php
-        foreach($user->audio_clips as $clip):
-    ?>
-    <div class="twelve columns ">
-        <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip )) ?>
-    </div>
-    <?php
-        endforeach;
-    ?>
+    <? foreach( $user->audio_clips as $clip ) : ?>
+        <div class="row">
+            <div class="twelve columns ">
+                <? $this->load->view('global/audio-clip-player.php', array( 'clip' => $clip )) ?>
+            </div>
+        </div>  
+    <? endforeach; ?>
     <!-- end iterating over audio_clip array here -->
-
+    </div>
 </div>  
 
 <? $this->load->view('global/footer.php') ?>
