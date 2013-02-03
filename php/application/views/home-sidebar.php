@@ -7,6 +7,10 @@
             <li><span class="label">ambient</span> 127</li>
             <li><span class="label">conversation</span> 82</li>
             <li><span class="label">comedy</span> 59</li>
+            <li><span class="label">music</span> 51</li>
+            <li><span class="label">animals</span> 47</li>
+            <li><span class="label">urban</span> 32</li>
+            <li><span class="label">sporting</span> 29</li>
         </ul>
     </div>
 

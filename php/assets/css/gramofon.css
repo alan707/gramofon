@@ -79,16 +79,32 @@ h1, h2, h3, h4, h5 {
     background-color: #eee;
 }
 
+.audio-clip .play-count {
+    position: absolute;
+    top: 28px;
+    right: 35px;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 1.2em;
+}
 .audio-clip .like-button {
     position: absolute;
     top: 28px;
     right: 0;
-    color: #ccc;
+    color: #ddd;
     cursor: pointer;
     font-size: 1.2em;
 }
 .audio-clip .like-button.liked {
     color: rgb(153, 27, 27);
+}
+.audio-clip .play-count .count,
+.audio-clip .like-button .count {
+    right: 0;
+    position: relative;
+    top: 2px;
+    font-size: 10px;
+    color: #333;
 }
         
 
@@ -159,7 +175,7 @@ h1, h2, h3, h4, h5 {
 {
     width: 236px;
     list-style: none;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
 }
 
 .sidebar ul
