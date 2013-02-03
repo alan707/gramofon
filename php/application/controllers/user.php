@@ -1,8 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
-
-<<<<<<< HEAD
+    
     public function __construct()
     {
         parent::__construct();
@@ -24,13 +23,9 @@ class User extends CI_Controller {
         
         if(count($request_uri) > 1) {
             parse_str($request_uri[1], $_REQUEST);
-        }
-        
-        
+        }        
     }
-
-=======
->>>>>>> 0f85bb2a6d240d7eeffc351cc06ce2f4fef500a9
+    
     public function index( $username )
     {
         $this->load->model('user_model');
@@ -74,8 +69,6 @@ class User extends CI_Controller {
         } else {
             echo "<a href=\"{$this->facebook->getLoginUrl()}\">Login using Facebook!</a>";
         }
-        
-        
     }
 
 }
