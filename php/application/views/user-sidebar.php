@@ -1,4 +1,4 @@
-<ul class="sidebar">
+<ul class="sidebar" data-spy="affix" data-offset-top="45">
     <li class="sidebar-item">
         <span class="sidebar-item-name">Sounds</span>
         <span class="sidebar-item-value"><?= sizeof($user->audio_clips) ?></span>

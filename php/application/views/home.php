@@ -2,7 +2,6 @@
 
 <div class="row">
     <div class="nine columns">
-        
         <? if ( !empty($audio_clips) ) : ?>
             <!-- start iterating over audio_clip array here -->
             <? foreach( $audio_clips as $clip ) : ?>
@@ -25,7 +24,6 @@
     <div class="three columns">
         <? $this->load->view('home-sidebar.php') ?>
     </div>
-
 </div>
 
 <? $this->load->view('global/footer.php') ?>
