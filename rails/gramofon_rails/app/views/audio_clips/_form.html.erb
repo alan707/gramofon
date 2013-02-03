@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :clip_url %><br />
-    <%= f.text_field :clip_url %>
+
+      <%= f.file_field :sound_file %>
+    <%= f.hidden_field :sound_file_cache %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
   <div class="field">
     <%= f.label :latitude %><br />

@@ -14,7 +14,7 @@ class AudioClipsController < ApplicationController
   # GET /audio_clips/1.json
   def show
     @audio_clip = AudioClip.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @audio_clip }
@@ -25,6 +25,7 @@ class AudioClipsController < ApplicationController
   # GET /audio_clips/new.json
   def new
     @audio_clip = AudioClip.new
+    # @clip_url = AudioClip 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,8 @@ class AudioClipsController < ApplicationController
   # POST /audio_clips.json
   def create
     @audio_clip = AudioClip.new(params[:audio_clip])
-
+   @audio_clip.sound_file = params[:sound_file]
+  
     respond_to do |format|
       if @audio_clip.save
         format.html { redirect_to @audio_clip, notice: 'Audio clip was successfully created.' }

@@ -6,6 +6,13 @@ GramofonRails::Application.routes.draw do
 
   resources :audio_clips
 
+  # match "/users/:username" => "users#show", :via => [:get]
+
+match "users/:username", :to => "users#show", :via => [:get]
+match "users/:username/audio_clips", :to => "users#showuserclips", :via => [:get]
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

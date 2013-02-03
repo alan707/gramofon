@@ -9,6 +9,8 @@ gem 'rails', '3.2.11'
 gem 'sqlite3', :group => :development
 gem 'thin', :group => :production
 gem 'pg', :group => :production
+gem 'carrierwave'
+gem 'fog', "~> 1.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
