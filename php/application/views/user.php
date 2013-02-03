@@ -2,7 +2,7 @@
     
         <div class="row user-block">
             <div class="user-block-image-wrapper two columns">
-                <img class="user-block-image" src="http://www.androidtablets.net/forum/attachments/sylvania-tablets/4266d1318424401-what-mini-tablet-express-plus-nailed_it_re_20th_century_fox_theme_on_flute-s240x320-227191.jpg" />
+                <img class="user-block-image" src="http://local.usegramofon.com/images/user-photo.jpg">
             </div>
 
             <div class="user-block-details-wrapper ten columns">

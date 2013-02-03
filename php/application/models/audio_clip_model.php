@@ -6,7 +6,14 @@ class Audio_clip_model extends CI_Model {
     {
         $audio_clips = array();
         
-        $json = file_get_contents("http://gramofon.herokuapp.com/audio_clips.json");
+        if ( ! OFFLINE_MODE ) {
+            $json = @file_get_contents("http://gramofon.herokuapp.com/audio_clips.json");
+        }
+        
+        // offline fallback
+        if ( empty($json) ) {
+            $json = file_get_contents("http://local.usegramofon.com/json/audio_clips.json");
+        }
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
@@ -26,7 +33,14 @@ class Audio_clip_model extends CI_Model {
     {
         $audio_clips = array();
         
-        $json = file_get_contents("http://gramofon.herokuapp.com/users/$username/audio_clips.json");
+        if ( ! OFFLINE_MODE ) {
+            $json = file_get_contents("http://gramofon.herokuapp.com/users/$username/audio_clips.json");
+        }
+        
+        // offline fallback
+        if ( empty($json) ) {
+            $json = file_get_contents("http://local.usegramofon.com/json/audio_clips.json");
+        }
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);

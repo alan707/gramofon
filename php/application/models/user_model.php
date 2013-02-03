@@ -6,8 +6,15 @@ class User_model extends CI_Model {
     {        
         $user = false;
         
-        $json = file_get_contents("http://gramofon.herokuapp.com/users/$username.json");
+        if ( ! OFFLINE_MODE ) {
+            $json = file_get_contents("http://gramofon.herokuapp.com/users/$username.json");
+        }
         
+        // offline fallback
+        if ( empty($json) ) {
+            $json = file_get_contents("http://local.usegramofon.com/json/user.json");
+        }
+
         if ( !empty($json) ) {
             $user = json_decode($json);
         }
