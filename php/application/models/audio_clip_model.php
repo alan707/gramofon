@@ -17,6 +17,8 @@ class Audio_clip_model extends CI_Model {
 
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
+            
+            $audio_clips = array_slice($audio_clips, 20);
 
             foreach ( $audio_clips as &$clip ) {
                 $clip->created_at = strtotime($clip->created_at);

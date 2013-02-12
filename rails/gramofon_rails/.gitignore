@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore AWS environment variables
+/config/heroku_env.rb
+Procfile
