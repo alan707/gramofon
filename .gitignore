@@ -29,3 +29,12 @@ php/assets/js/vendor/.DS_Store
 php/assets/js/vendor/jwplayer/
 php/assets/js/vendor/soundmanager/
 rails/gramofon_rails/.idea/
+
+xcuserdata
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
