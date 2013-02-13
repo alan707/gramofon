@@ -51,7 +51,12 @@
         </h3>
         
         <div class="audio-player">
-            <audio src="<? echo $clip->sound_file->url ?>" type="audio/mp4"></audio>
+            <!-- <audio src="<? echo $clip->sound_file->url ?>" type="audio/mp4"></audio> -->
+            <!-- <div class="audio-player-btn audio-playet-btn-restart icon-repeat" data-sid="<?= $clip->id ?>"></div> -->
+            <div class="audio-player-btn audio-playet-btn-play icon-play" data-sid="<?= $clip->id ?>"></div>
+            <div class="audio-player-progress-wrapper">
+                <div class="audio-player-progress"></div>
+            </div>
         </div>
         
         <div class="audio-clip-metadata">
@@ -60,3 +65,6 @@
         </div>
     </div>
 </div>
+<script>
+        GF.registerSoundClip('<?= $clip->id ?>', '<?= $clip->sound_file->url ?>');
+</script>

@@ -17,10 +17,10 @@ $(function() {
 //        }
 //    });
     
-    audiojs.events.ready(function() {
-        var as = audiojs.createAll();
-    });
-    
+    // audiojs.events.ready(function() {
+        // var as = audiojs.createAll();
+    // });
+
     if ( $('#map').length > 0 ) {
         var isInit=false;
         var myLatlng = new google.maps.LatLng(42.281 ,-83.738609)

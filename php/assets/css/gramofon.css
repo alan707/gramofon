@@ -166,6 +166,26 @@ h1, h2, h3, h4, h5 {
     min-height: 36px;
     background-color: #f8f8f8;
 }
+
+.audio-player-btn
+{
+    display: inline-block;
+    font-size: 25px;
+}
+
+.audio-player-progress-wrapper
+{
+    border: 1px solid purple;
+    width: 100%;
+}
+
+.audio-player-progress
+{
+    width: 0%;
+    background-color: pink;
+    height: 15px;
+}
+
 .audiojs {
     width: 422px;
     box-shadow: none;

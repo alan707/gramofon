@@ -18,6 +18,10 @@
 
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="/js/vendor/moment.js"></script>
+
+        <script src="/js/vendor/soundmanager/script/soundmanager2.js"></script>
+        <script src="/js/soundmanager-init.js"></script>
+
     </head>
     <body>
         
