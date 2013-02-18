@@ -35,7 +35,6 @@ $(function(){
         {
             GF.soundManager.pause(soundId);
         }else{
-            console.log('playing clip');
             GF.soundManager.play(soundId, {
                 onfinish : function(){
                     $(target).removeClass('icon-pause').addClass('icon-play');
@@ -45,14 +44,13 @@ $(function(){
                     progressBar.width(0);
                 },
                 onpause : function(){
-                    $(target).css('color', 'orange');
+                    $(target).removeClass('icon-pause').addClass('icon-play');
                 },
                 onresume : function(){
                     $(target).removeClass('icon-play').addClass('icon-pause');
-                    $(target).attr('style', '');
                 },
                 whileplaying : function(){
-                    progress = (this.position / this.duration) * 100;
+                    var progress = (this.position / this.duration) * 100;
                     progressBar.width(progress + '%');
                     
                 }
@@ -63,7 +61,7 @@ $(function(){
 //handles the clips restart action (this is currently not being used)
     function restartSound(event)
     {
-        var target = event.target
+        var target = event.target,
             soundId = target.attributes['data-sid'].value;
             
         var activceSound = GF.soundManager.getSoundById(soundId);
