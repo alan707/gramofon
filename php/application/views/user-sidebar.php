@@ -5,9 +5,9 @@
     
     <div class="stats">        
         <ul>
-            <li>42 plays</li>
-            <li>77 followers</li>
-            <li>21 following</li>
+            <li>
+                <?= $clip_count . ( ( $clip_count == 1 ) ? ' clip' : ' clips' ) ?>
+            </li>
         </ul>
     </div>
 </div>

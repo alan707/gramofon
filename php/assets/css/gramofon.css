@@ -181,11 +181,11 @@ h1, h2, h3, h4, h5 {
  */
 .sidebar
 {
-    position: fixed;
+/*    position: fixed;
     top: 45px;
-    width: 236px;
+    width: 236px;*/
+    padding-top: 15px;
     list-style: none;
-    padding: 10px 10px 10px 20px;
 }
 
 .sidebar ul
@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5 {
     
 }
 
-@media only screen and (max-width:620px)
+/*@media only screen and (max-width:620px)
 {
     .sidebar
     {
@@ -223,7 +223,7 @@ h1, h2, h3, h4, h5 {
     {
         display: inline;
     }
-}
+}*/
 
 dl.sub-nav {
     margin: 0;

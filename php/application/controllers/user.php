@@ -12,14 +12,13 @@ class User extends CI_Controller {
             $this->load->model('audio_clip_model');
             
             $user->audio_clips = $this->audio_clip_model->get_user_audio_clips($username);
-            
-            //4sq API: https://api.foursquare.com/v2/venues/search?ll=lat,long&intet=match&llAcc=1&&oauth_token=#####
         } else {
             show_404();
         }
         
         $data = array( 
-            'user' => $user 
+            'user'       => $user,
+            'clip_count' => count($user->audio_clips)
         );
         
         
