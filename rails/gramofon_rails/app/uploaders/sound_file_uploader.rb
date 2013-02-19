@@ -17,7 +17,11 @@ class SoundFileUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    unless model.username.blank?
+    "uploads/#{model.username.to_s.underscore}/#{mounted_as}"
+    else
+    "uploads/no_user_name/#{mounted_as}"
+    end
   end
 
     # def cache_dir

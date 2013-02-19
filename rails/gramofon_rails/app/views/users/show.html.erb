@@ -2,27 +2,27 @@
 
 <p>
   <b>Firstname:</b>
-  <%= @user.firstname %>
+  <%= @user.try(:firstname) %>
 </p>
 
 <p>
   <b>Lastname:</b>
-  <%= @user.lastname %>
+  <%= @user.try(:lastname) %>
 </p>
 
 <p>
   <b>Email:</b>
-  <%= @user.email %>
+  <%= @user.try(:email) %>
 </p>
 
 <p>
   <b>Facebook:</b>
-  <%= @user.facebook_id %>
+  <%= @user.try(:facebook_id) %>
 </p>
 
 <p>
   <b>Username:</b>
-  <%= @user.username %>
+  <%= @user.try(:username) %>
 </p>
 
 
