@@ -24,7 +24,7 @@
     <div class="eight columns pull-four">
         <? if ( !empty($user->audio_clips) ) : ?>
             <? foreach( $user->audio_clips as $clip ) : ?>
-                <? $this->load->view('global/user-audio-clip-player.php', array( 'clip' => $clip) ) ?>
+                <? $this->load->view('global/user-audio-clip.php', array( 'clip' => $clip) ) ?>
             <? endforeach; ?>
         <? else : ?>
             <span>Sorry... no sounds yet</span>

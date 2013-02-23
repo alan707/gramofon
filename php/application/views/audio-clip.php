@@ -1,6 +1,6 @@
 <? $this->load->view('global/header.php') ?>
 
-<? $this->load->view('global/audio-clip-player.php', array( 'clip' => $audio_clip )) ?>
+<? $this->load->view('global/audio-clip.php', array( 'clip' => $audio_clip )) ?>
 
 <div class="row">
     <div class="twelve columns">
