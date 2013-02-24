@@ -40,7 +40,8 @@
 
 $route['facebook'] = 'user/facebook';
 
-$route['clip/(:any)'] = 'audio_clip/index/$1';
+$route['clip/([0-9]+)/increment-play-count'] = 'audio_clip/index/increment_play_count/$1';
+$route['clip/([0-9]+)'] = 'audio_clip/index/$1';
 $route['map'] = 'map';
 
 $route['(:any)/map'] = 'map/user/$1';

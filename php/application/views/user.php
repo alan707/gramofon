@@ -4,7 +4,12 @@
     <div class="four columns push-eight sidebar">
         <div class="row">
              <div class="twelve columns mobile-one user-photo">
-                <img class="user-block-image" src="<?= $user->profile_picture ?>">
+                 <img 
+                     class="user-block-image" 
+                     src="<?= get_facebook_profile_picture($user->facebook_id, array( 'width' => 200, 'height' => 200 )) ?>"
+                     width="200"
+                     height="200"
+                     alt="<?= $user->username ?>">
             </div>
 
             <div class="twelve columns mobile-three">
@@ -13,7 +18,7 @@
                 <div class="stats">        
                     <ul>
                         <li>
-                            <?= $clip_count . ( ( $clip_count == 1 ) ? ' clip' : ' clips' ) ?>
+                            <?= $user->clip_count . ( ( $user->clip_count == 1 ) ? ' clip' : ' clips' ) ?>
                         </li>
                     </ul>
                 </div>

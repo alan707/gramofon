@@ -1,8 +1,13 @@
 <div class="row audio-clip">
     <div class="four columns mobile-one user-photo">
+        <? 
+        if ( !empty($clip->user_facebook_id) ) :
+            $clip->photo = get_facebook_profile_picture($clip->user_facebook_id, array( 'width' => 210 ));
+        endif; 
+        ?>
         <a href="/<?= $clip->username ?>" 
            title="<?= $clip->username ?>"
-           style="background-image:url(<?= $clip->photo ?>)"></a>
+           style="<?= ( !empty($clip->photo) ) ? "background-image:url({$clip->photo})" : '' ?>"></a>
     </div>
     
     <div class="eight columns mobile-three">

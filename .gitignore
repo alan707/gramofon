@@ -27,7 +27,6 @@ php/assets/dummyfiles/
 php/assets/js/.DS_Store
 php/assets/js/vendor/.DS_Store
 php/assets/js/vendor/jwplayer/
-php/assets/js/vendor/soundmanager/
 rails/gramofon_rails/.idea/
 
 xcuserdata
@@ -38,3 +37,4 @@ xcuserdata
 *.perspectivev3
 *.pbxuser
 *.xcworkspace
+/php/assets/js/vendor/jquery/jquery-ui-1.10.1.min.js

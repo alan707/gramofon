@@ -2,35 +2,33 @@
 
 class User_model extends CI_Model {
     
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->load->library('GramofonClient');
+    }
+
     public function get_user_profile( $username )
-    {        
-        $user = false;
-        
-        if ( ! OFFLINE_MODE ) {
-            $json = file_get_contents("http://gramofon.herokuapp.com/users/$username.json");
-        }
+    {                
+        return $this->gramofonclient->get_user_by_username( $username );
 
-        //grab the facebookID from the users Gramofon profile
-        $userFacebookId = json_decode($json);
-        $userFacebookId = $userFacebookId->facebook_id;
+//        //grab the facebookID from the users Gramofon profile
+//        $userFacebookId = json_decode($json);
+//        $userFacebookId = $userFacebookId->facebook_id;
+//        
+//        //use Fb's OpenGraph API to grab their user data (right now only profile picture)
+//        $facebookJson = file_get_contents("http://graph.facebook.com/" . $userFacebookId . "?fields=name,picture.height(200)");
+//        
+//        $facebookData = json_decode($facebookJson);
         
-        //use Fb's OpenGraph API to grab their user data (right now only profile picture)
-        $facebookJson = file_get_contents("http://graph.facebook.com/" . $userFacebookId . "?fields=name,picture.height(200)");
+      
+//        if ( !empty($json) ) {
+//            $user = json_decode($json);
+//            $user->profile_picture = $facebookData->picture->data->url;
+//        }
         
-        $facebookData = json_decode($facebookJson);
-        
-        
-        // offline fallback
-        if ( empty($json) ) {
-            $json = file_get_contents("http://local.usegramofon.com/json/user.json");
-        }
-
-        if ( !empty($json) ) {
-            $user = json_decode($json);
-            $user->profile_picture = $facebookData->picture->data->url;
-        }
-        
-        return $user;
+//        return $user;
     }
     
     public function get_facebook_profile( $facebook_id )
@@ -38,6 +36,23 @@ class User_model extends CI_Model {
         $profile = false;
         
         return $profile;
+    }
+    
+    public function get_facebook_profile_picture( $facebook_id, $width = 0, $height = 0 )
+    {
+        $picture_url = 'http://graph.facebook.com/dtrenz/picture';
+        
+        $params = array();
+        
+        if ( $width ) {
+            $params['width'] = $width;
+        }
+        
+        if ( $height ) {
+            $params['height'] = $height;
+        }
+        
+        return $picture_url;
     }
     
 }

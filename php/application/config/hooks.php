@@ -11,10 +11,16 @@
 */
 
 $hook['post_controller_constructor'] = array(
-                                'function' => 'loadFacebookData',
-                                'filename' => 'FacebookAuth.php',
-                                'filepath' => 'hooks'
-                                );
+    'function' => 'autologin',
+    'filename' => 'Autologin.php',
+    'filepath' => 'hooks'
+);
+
+$hook['post_controller_constructor'] = array(
+    'function' => 'facebookAuth',
+    'filename' => 'FacebookAuth.php',
+    'filepath' => 'hooks'
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

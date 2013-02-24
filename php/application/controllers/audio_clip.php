@@ -2,16 +2,6 @@
 
 class Audio_clip extends CI_Controller {
 
-    public function __construct()
-    {
-        parent::__construct();
-        // Your own constructor code
-        $CI = & get_instance();
-        $CI->config->load("facebook",TRUE);
-        $config = $CI->config->item('facebook');
-        $this->load->library('facebook', $config);
-    }
-
     public function index( $id )
     {
         $this->load->model('audio_clip_model');
@@ -19,6 +9,21 @@ class Audio_clip extends CI_Controller {
         $audio_clip = $this->audio_clip_model->get_audio_clip($id);
 
         $data = array(
+            'me' => $this->session->userdata('user'),
+            'audio_clip' => $audio_clip
+        );
+        
+        $this->load->view('audio-clip', $data);
+    }
+
+    public function increment_play_count( $id )
+    {
+        $this->load->model('audio_clip_model');
+        
+        $audio_clip = $this->audio_clip_model->get_audio_clip($id);
+
+        $data = array(
+            'me' => $this->session->userdata('user'),
             'audio_clip' => $audio_clip
         );
         

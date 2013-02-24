@@ -35,22 +35,32 @@
         <nav class="top-bar contain-to-grid">
             <ul>
                 <li class="name">
-                    <h1><a href="/"><img src="/images/logo-small.png" alt="gramafon" width="90" height="30"></a></h1>
+                    <h1>
+                        <a href="/">
+                            <img src="/images/logo-small.png" alt="gramafon" width="90" height="30">
+                        </a>
+                    </h1>
                 </li>
             </ul>
             
             <ul class="right">
+                <li class="divider show-for-medium-and-up"></li>
+                
+            <? if ( isset($me->username) ) : ?>
+                <li class="has-dropdown name">
+                    <a href="/<?= $me->username ?>"><?= $me->username ?></a>
+                    <ul class="dropdown">
+                      <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>                
+            <? else : ?>
                 <li class="name">
-                    <div>
-                        <? if ( $this->session->userdata('username') ) : ?>
-                            <img src="https://graph.facebook.com/<?= $this->session->userdata('username'); ?>/picture?type=normal" />
-                        <? else : ?>
-                            <a href="<?= $this->facebook->getLoginUrl() ?>">
-                                <img src="/assets/images/fb-login-btn-small.png" />
-                            </a>
-                        <? endif; ?>
-                    </div>
+                    <a href="<?= $this->facebook->getLoginUrl(array( 'scope' => 'email' )) ?>">
+                        <img src="/assets/images/fb-login-btn-small.png">
+                    </a>
                 </li>
+            <? endif; ?>
+                
             </ul>
         </nav>
         

@@ -65,10 +65,12 @@
                         progress.width( ( this.position / this.duration ) * 100 + '%' );
                     },
                     onfinish: function() {
-                        sound.setPosition(0);
                         button.removeClass('icon-pause').addClass('icon-play');
+                        
+                        sound.setPosition(0);
                         progress.width( '0%' );
-                        // todo: increment play count in API
+                        
+                        $.post('/clip/' + this.options.id + '/increment-play-count');
                     }
                 });
             } else if ( sound.position > 0 && ! sound.paused ) {                
