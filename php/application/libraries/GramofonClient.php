@@ -121,9 +121,9 @@ class GramofonClient {
     public function update_audio_clip( $id, $data )
     {
         $clip = false;
-        
+
         $json = RESTClient::put(self::BASE_URI . "/audio_clips/$id.json", $data);
-        
+
         if ( !empty($json) ) {
             $clip = json_decode($json);
         }

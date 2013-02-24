@@ -1,6 +1,18 @@
 $(function() {
     $('.like-button').click(function(){
+//        var $this = $(this),
+//            clipId = $this.closest('[data-clip-id]').data('clip-id'),
+//            url;
+            
         $(this).toggleClass('liked')
+        
+//        if ( $(this).hasClass('liked') ) {
+//            url = '/clip/' + clipId + '/like';
+//        } else {            
+//            url = '/clip/' + clipId + '/unlike';
+//        }
+//        
+//        $.post(url);
     });
     
     $('.post-date').each(function() {
@@ -9,34 +21,6 @@ $(function() {
         $el.text(fromNow);
     });
     
-//    $(window).scroll(function() {
-//        if ( $(window).scrollTop() > 45 ) {
-//            $('.sidebar').css({ position: "fixed", top: 45 });
-//        } else {
-//            $('.sidebar').css({ position: "static" });
-//        }
-//    });
-    
-    // audiojs.events.ready(function() {
-        // var as = audiojs.createAll();
-    // });
-
-    if ( $('#map').length > 0 ) {
-        var isInit=false;
-        var myLatlng = new google.maps.LatLng(42.281 ,-83.738609)
-        var mapOptions = {
-            zoom: 14,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-        if(!isInit){
-            initialize(map);
-        }
-        isInit = false;
-    }
-    
     $('.share-button').click(function(event){
         var target = $(event.target),
             clipId = target.data('clip-id'),
@@ -44,24 +28,19 @@ $(function() {
             
         var clipUrl = window.location.origin + '/clip/' + clipId;
             
-        FB.ui(
-              {
-                method: 'feed',
-                name: clipTitle,
-                link: clipUrl,
-                caption: 'Share the sound of your life',
-                picture: window.location.origin + '/images/gramofon-logo-facebook.jpg'
-              },
-              function(response) {
-                if (response && response.post_id) {
-                  console.log('Link shared');
-                } else {
-                  alert('Post was not published.');
-                }
-              }
-            );
-        
-        
+        FB.ui({
+            method: 'feed',
+            name: clipTitle,
+            link: clipUrl,
+            caption: 'Share the sound of your life',
+            picture: window.location.origin + '/images/gramofon-logo-facebook.jpg'
+        },function(response) {
+            if (response && response.post_id) {
+//                console.log('Link shared');
+            } else {
+//                alert('Post was not published.');
+            }
+        });
     })
     
 });
