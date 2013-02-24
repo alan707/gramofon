@@ -68,8 +68,6 @@ class GramofonClient {
                 'photo_url'         => 'http://graph.facebook.com/' . $facebook_user['id'] . '/picture'
             );
             
-            var_dump($new_user);exit;
-            
             $json = RESTClient::post(self::BASE_URI . "/users/new.json", $new_user);        
 
             if ( !empty($json) ) {
@@ -78,6 +76,59 @@ class GramofonClient {
         }
         
         return $user;
+    }
+    
+    public function get_audio_clips()
+    {
+        $audio_clips = array();
+        
+        $json = RESTClient::get(self::BASE_URI . '/audio_clips.json');
+        
+        if ( !empty($json) ) {
+            $audio_clips = json_decode($json);
+        }
+        
+        return $audio_clips;
+    }
+    
+    public function get_user_audio_clips( $username )
+    {
+        $audio_clips = array();
+        
+        $json = RESTClient::get(self::BASE_URI . "/users/$username/audio_clips.json");
+        
+        if ( !empty($json) ) {
+            $audio_clips = json_decode($json);
+        }
+        
+        return $audio_clips;
+    }
+    
+    public function get_audio_clip( $id )
+    {
+        $clip = false;
+        
+        $json = RESTClient::get(self::BASE_URI . "/audio_clips/$id.json");
+
+        if ( !empty($json) ) {
+            $clip = json_decode($json);
+        }
+        
+        return $clip;
+    }
+    
+    
+    public function update_audio_clip( $id, $data )
+    {
+        $clip = false;
+        
+        $json = RESTClient::put(self::BASE_URI . "/audio_clips/$id.json", $data);
+        
+        if ( !empty($json) ) {
+            $clip = json_decode($json);
+        }
+        
+        return $clip;
     }
     
 }

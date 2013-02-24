@@ -27,8 +27,6 @@ function facebookAuth() {
 
         // if we have a facebook user id...
         if ( isset($facebook_id) ) {    
-            $CI->load->library('GramofonClient');
-
             // lookup the user using the facebook id
             $user = $CI->gramofonclient->get_user_by_facebook_id( $facebook_id );
 
