@@ -48,8 +48,9 @@
                 
             <? if ( isset($me->username) ) : ?>
                 <li class="has-dropdown name">
-                    <a href="/<?= $me->username ?>"><?= $me->username ?></a>
+                    <a href="/<?= $me->username ?>"><?= $me->firstname . ' ' . $me->lastname ?></a>
                     <ul class="dropdown">
+                      <li><a href="/<?= $me->username ?>">My Sounds</a></li>
                       <li><a href="/logout">Logout</a></li>
                     </ul>
                 </li>                
