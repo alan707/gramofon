@@ -11,7 +11,7 @@ class User extends CI_Controller {
         if ( $user ) {
             $this->load->model('audio_clip_model');
             
-            $user->audio_clips = $this->audio_clip_model->get_user_audio_clips($username);
+            $user->audio_clips = $this->audio_clip_model->get_user_audio_clips($username, 0, 5);
             $user->clip_count  = count($user->audio_clips);
         } else {
             show_404();

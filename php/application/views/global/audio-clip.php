@@ -1,8 +1,8 @@
 <div class="row audio-clip">
     <div class="four columns mobile-one user-photo">
         <? 
-        if ( !empty($clip->user_facebook_id) ) :
-            $clip->photo = get_facebook_profile_picture($clip->user_facebook_id, array( 'width' => 210 ));
+        if ( !empty($clip->user->facebook_id) ) :
+            $clip->photo = get_facebook_profile_picture($clip->user->facebook_id, array( 'width' => 210 ));
         endif; 
         ?>
         

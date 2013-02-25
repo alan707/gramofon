@@ -78,11 +78,18 @@ class GramofonClient {
         return $user;
     }
     
-    public function get_audio_clips()
+    public function get_audio_clips( $offset = 0, $limit = 20 )
     {
         $audio_clips = array();
+                
+        $params = array(
+            'offset' => $offset,
+            'limit'  => $limit
+        );
         
-        $json = RESTClient::get(self::BASE_URI . '/audio_clips.json');
+        $url = self::BASE_URI . '/audio_clips.json?' . http_build_query($params);
+        
+        $json = RESTClient::get($url);
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);
@@ -91,11 +98,18 @@ class GramofonClient {
         return $audio_clips;
     }
     
-    public function get_user_audio_clips( $username )
+    public function get_user_audio_clips( $username, $offset = 0, $limit = 20 )
     {
         $audio_clips = array();
+                
+        $params = array(
+            'offset' => $offset,
+            'limit'  => $limit
+        );
         
-        $json = RESTClient::get(self::BASE_URI . "/users/$username/audio_clips.json");
+        $url = self::BASE_URI . "/users/$username/audio_clips.json?" . http_build_query($params);
+        
+        $json = RESTClient::get($url);
         
         if ( !empty($json) ) {
             $audio_clips = json_decode($json);

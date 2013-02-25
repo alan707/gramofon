@@ -6,7 +6,7 @@ class Home extends CI_Controller {
     {
         $this->load->model('audio_clip_model');
         
-        $audio_clips = $this->audio_clip_model->get_all();
+        $audio_clips = $this->audio_clip_model->get_all(0, 20);
         
         $data = array(
             'me' => $this->session->userdata('user'),
