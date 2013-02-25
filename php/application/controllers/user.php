@@ -23,6 +23,18 @@ class User extends CI_Controller {
         );
         
         $this->load->view('user', $data);
-    }   
+    }
+    
+    public function logout()
+    {
+        $this->session->set_userdata('user', 0);
+                
+        $this->input->set_cookie(array(
+            'name'   => 'remember',
+            'expire' => ''
+        ));
+
+        redirect('/');
+    }
 
 }

@@ -5,9 +5,12 @@
             $clip->photo = get_facebook_profile_picture($clip->user_facebook_id, array( 'width' => 210 ));
         endif; 
         ?>
-        <a href="/<?= $clip->username ?>" 
-           title="<?= $clip->username ?>"
-           style="<?= ( !empty($clip->photo) ) ? "background-image:url({$clip->photo})" : '' ?>"></a>
+        
+        <? if ( !empty($clip->user->username) ) : ?>
+            <a href="/<?= $clip->user->username ?>" 
+               title="<?= $clip->user->username ?>"
+               style="<?= ( !empty($clip->photo) ) ? "background-image:url({$clip->photo})" : '' ?>"></a>
+        <? endif; ?>
     </div>
     
     <div class="eight columns mobile-three">

@@ -38,15 +38,12 @@
 |
 */
 
-$route['facebook'] = 'user/facebook';
-
 //$route['clip/([0-9]+)/like']   = 'audio_clip/like/$1';
 //$route['clip/([0-9]+)/unlike'] = 'audio_clip/unlike/$1';
 $route['clip/([0-9]+)/increment-play-count'] = 'audio_clip/increment_play_count/$1';
 $route['clip/([0-9]+)'] = 'audio_clip/index/$1';
-$route['map'] = 'map';
 
-$route['(:any)/map'] = 'map/user/$1';
+$route['logout'] = 'user/logout';
 
 $route['(:any)'] = 'user/index/$1';
 
