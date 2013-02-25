@@ -12,6 +12,3 @@
         </div>
     </div>
 </div>
-<script>
-        GF.registerSoundClip('<?= $clip->id ?>', '<?= $clip->sound_file->url ?>');
-</script>

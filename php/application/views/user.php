@@ -6,9 +6,7 @@
              <div class="twelve columns mobile-one user-photo">
                  <img 
                      class="user-block-image" 
-                     src="<?= get_facebook_profile_picture($user->facebook_id, array( 'width' => 200, 'height' => 200 )) ?>"
-                     width="200"
-                     height="200"
+                     src="<?= get_facebook_profile_picture($user->facebook_id, array( 'width' => 210, 'height' => 210 )) ?>"
                      alt="<?= $user->username ?>">
             </div>
 

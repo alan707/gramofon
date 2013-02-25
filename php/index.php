@@ -18,7 +18,17 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+
+$domain_pieces = explode('.', $_SERVER['HTTP_HOST']);
+$subdomain = array_shift($domain_pieces);
+
+if ( $subdomain  == 'local' ) {
+    define('ENVIRONMENT', 'development');
+} else {
+    define('ENVIRONMENT', 'production');
+}
+
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

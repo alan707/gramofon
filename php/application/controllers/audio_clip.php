@@ -7,6 +7,10 @@ class Audio_clip extends CI_Controller {
         $this->load->model('audio_clip_model');
         
         $audio_clip = $this->audio_clip_model->get_audio_clip($id);
+        
+        if ( empty($audio_clip) ) {
+            show_404();
+        }
 
         $data = array(
             'me' => $this->session->userdata('user'),
