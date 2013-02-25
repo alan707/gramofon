@@ -16,8 +16,7 @@
         <link rel="stylesheet" href="/css/gramofon.css">        
         <link rel="stylesheet" href="/css/font-awesome.min.css">
     </head>
-    <body>
-        
+    <body>        
         <div id="fb-root"></div>
         
         <script>(function(d, s, id) {
@@ -32,38 +31,43 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <nav class="top-bar contain-to-grid">
-            <ul>
-                <li class="name">
-                    <h1>
-                        <a href="/">
-                            <img src="/images/logo-small.png" alt="gramafon" width="90" height="30">
+        <div class="fixed">
+            <nav class="top-bar">
+                <ul>
+                    <li class="name">
+                        <h1>
+                            <a href="/">
+                                <img src="/images/logo-small.png" alt="gramafon" width="90" height="30">
+                            </a>
+                        </h1>
+                    </li>
+                </ul>
+
+                <ul class="right show-for-small-and-up">
+                    <li class="divider show-for-small-and-up"></li>
+
+                <? if ( isset($me->username) ) : ?>
+                    <li class="has-dropdown">
+                        <a href="/<?= $me->username ?>">
+                            <?= $me->firstname . ' ' . $me->lastname ?>
                         </a>
-                    </h1>
-                </li>
-            </ul>
-            
-            <ul class="right">
-                <li class="divider show-for-medium-and-up"></li>
-                
-            <? if ( isset($me->username) ) : ?>
-                <li class="has-dropdown name">
-                    <a href="/<?= $me->username ?>"><?= $me->firstname . ' ' . $me->lastname ?></a>
-                    <ul class="dropdown">
-                      <li><a href="/<?= $me->username ?>">My Sounds</a></li>
-                      <li><a href="/logout">Logout</a></li>
-                    </ul>
-                </li>                
-            <? else : ?>
-                <li class="name">
-                    <a href="<?= $this->facebook->getLoginUrl(array( 'scope' => 'email' )) ?>">
-                        <img src="/assets/images/fb-login-btn-small.png">
-                    </a>
-                </li>
-            <? endif; ?>
-                
-            </ul>
-        </nav>
+                        
+                        <ul class="dropdown">
+                          <li><a href="/<?= $me->username ?>">My Sounds</a></li>
+                          <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>                
+                <? else : ?>
+                    <li>
+                        <a href="<?= $this->facebook->getLoginUrl(array( 'scope' => 'email' )) ?>">
+                            <img src="/assets/images/fb-login-btn-small.png">
+                        </a>
+                    </li>
+                <? endif; ?>
+
+                </ul>
+            </nav>
+        </div>
         
         <div id="content" class="row">
             <div class="ten columns centered">

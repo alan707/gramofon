@@ -13,13 +13,6 @@ h1, h2, h3, h4, h5 {
     min-height: 350px;
 }
 
-.top-bar {
-    position: fixed;
-    z-index: 1000;
-    background-color: #222;
-    margin-bottom: 0;
-}
-
 .divider {
     background-color: #444 !important;
 }
@@ -71,7 +64,6 @@ h1, h2, h3, h4, h5 {
 .mobile-one.user-photo {
     padding-right: 0;
     overflow: hidden;
-    background-color: #eee;
 }
 
 .user-photo a {
