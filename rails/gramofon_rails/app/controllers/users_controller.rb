@@ -23,8 +23,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
-  
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
 
+    def facebookuser
+    @user = User.find_by_facebook_id(params[:facebook_id])
+     
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

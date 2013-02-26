@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203133443) do
+ActiveRecord::Schema.define(:version => 20130225232654) do
 
   create_table "audio_clips", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.boolean  "public"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "username"
     t.string   "sound_file"
     t.float    "latitude"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20130203133443) do
     t.string   "category"
     t.string   "fsvenue"
     t.string   "address"
+    t.string   "sound_file_url"
+    t.integer  "play_count",     :default => 0, :null => false
+    t.integer  "like_count",     :default => 0, :null => false
   end
 
   create_table "places", :force => true do |t|
@@ -39,8 +42,10 @@ ActiveRecord::Schema.define(:version => 20130203133443) do
     t.string   "email"
     t.integer  "facebook_id"
     t.string   "username"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "facebook_username"
+    t.string   "photo_url"
   end
 
 end
