@@ -27,6 +27,19 @@ class GramofonClient {
         return $user;
     }
     
+    public function get_users()
+    {
+        $users = false;
+        
+        $json = RESTClient::get(self::BASE_URI . "/users.json");        
+
+        if ( !empty($json) ) {
+            $users = json_decode($json);
+        }
+        
+        return $users;
+    }
+    
     public function get_user_by_username( $username )
     {
         $user = false;

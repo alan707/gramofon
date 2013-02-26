@@ -1,4 +1,5 @@
 $(function() {
+    
     $('.like-button').click(function(){
 //        var $this = $(this),
 //            clipId = $this.closest('[data-clip-id]').data('clip-id'),
@@ -41,6 +42,38 @@ $(function() {
 //                alert('Post was not published.');
             }
         });
-    })
+    });
+    
+    if ( $('.clip-feed').length ) {
+        (function(){
+            var loading = false;
+            
+            $(window).scroll(function() {
+                var $win = $(window),
+                    $feed = $('.clip-feed'),
+                    loadClips = ( $win.scrollTop() + $win.height() > $feed.height() ),
+                    perPage = 20,
+                    url;
+
+                if ( ! loading && loadClips ) {
+                    loading = true;
+                    
+                    url = '/ajax_pagination/' + $('.audio-clip').length + '/' + perPage;
+                    
+                    $.ajax({
+                        url: url,
+                        beforeSend: function() {
+                            $feed.append('<img src="images/ajax-spinner.gif" alt="loading..." class="ajax-spinner">')
+                        },
+                        success: function(clips) {
+                            $feed.find('.ajax-spinner').remove();
+                            $feed.append(clips);
+                            loading = false;
+                        }
+                    });
+                }
+            });
+        })();
+    }
     
 });

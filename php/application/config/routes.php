@@ -45,6 +45,10 @@ $route['clip/([0-9]+)'] = 'audio_clip/index/$1';
 
 $route['logout'] = 'user/logout';
 
+$route['utilities/(:any)'] = 'utilities/$1';
+
+$route['ajax_pagination/(:any)'] = 'home/ajax_pagination/$1';
+
 $route['(:any)'] = 'user/index/$1';
 
 $route['default_controller'] = 'home';

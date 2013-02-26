@@ -6,7 +6,7 @@ class Utilities extends CI_Controller {
     {
         $this->load->model('user_model');
         $this->load->model('audio_clip_model');
-        
+
         $users = $this->user_model->get_users();
         
         foreach ( $users as $user ) {
@@ -17,7 +17,6 @@ class Utilities extends CI_Controller {
                     if ( empty($clip->user_id) ) {
                         $data = array( 'audio_clip' => array( 'user_id' => $user->id ) );
                         $updated_clip = $this->audio_clip_model->update_audio_clip($clip->id, $data);
-                        die;
                     }
                 }
             }

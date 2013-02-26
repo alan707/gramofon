@@ -1,6 +1,11 @@
 <?php
 
 class User_model extends CI_Model {
+    
+    public function get_users()
+    {
+        return $this->gramofonclient->get_users();        
+    }
 
     public function get_user_profile( $username )
     {                

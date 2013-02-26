@@ -239,3 +239,10 @@ dl.sub-nav {
 }
 
 .fb-comments { padding-top: 30px; }
+
+.ajax-spinner {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 50px auto;
+}

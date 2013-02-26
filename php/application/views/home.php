@@ -1,9 +1,11 @@
 <? $this->load->view('global/header.php') ?>
 
 <? if ( !empty($audio_clips) ) : ?>
-    <? foreach( $audio_clips as $clip ) : ?>
-        <? $this->load->view('global/audio-clip.php', array( 'clip' => $clip )) ?>                
-    <? endforeach; ?>
+    <div class="clip-feed">
+        <? foreach( $audio_clips as $clip ) : ?>
+            <? $this->load->view('global/audio-clip.php', array( 'clip' => $clip )) ?>                
+        <? endforeach; ?>
+    </div>
 <? else : ?>
     <div class="row">
         <div class="twelve columns">
