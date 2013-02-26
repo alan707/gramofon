@@ -19,12 +19,18 @@
 		60CCD5C716DC2D6A0065E761 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */; };
 		60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5C916DC2D6A0065E761 /* ViewController.m */; };
 		60CCD5D216DC31090065E761 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D116DC31090065E761 /* LoginViewController.m */; };
-		60CCD5D516DC31A10065E761 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D416DC31A10065E761 /* RecordViewController.m */; };
 		60CCD5D816DC31DC0065E761 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D716DC31DC0065E761 /* FeedViewController.m */; };
 		60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */; };
 		60CCD5DD16DC35B60065E761 /* button_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DC16DC35B60065E761 /* button_over.png */; };
 		60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */; };
 		60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */; };
+		60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569516DC709C005AD219 /* FacebookSDK.framework */; };
+		60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */; };
+		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
+		60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569A16DC711F005AD219 /* AdSupport.framework */; };
+		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; };
+		60FD56A016DC7395005AD219 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569F16DC7395005AD219 /* login-button-small.png */; };
+		60FD56A116DC80B5005AD219 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D416DC31A10065E761 /* RecordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +61,12 @@
 		60CCD5DC16DC35B60065E761 /* button_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_over.png; sourceTree = "<group>"; };
 		60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableShareSound-white-bg.png"; sourceTree = "<group>"; };
 		60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleShareSound-whitebg.png"; sourceTree = "<group>"; };
+		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		60FD569A16DC711F005AD219 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		60FD569B16DC711F005AD219 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		60FD569F16DC7395005AD219 /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login-button-small.png"; path = "../../../../../../Developer/IntegratingFacebookTutorial/IntegratingFacebookTutorial/login-button-small.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +74,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */,
+				60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */,
+				60FD569E16DC711F005AD219 /* Social.framework in Frameworks */,
 				60CCD5AE16DC2D6A0065E761 /* UIKit.framework in Frameworks */,
 				60CCD5B016DC2D6A0065E761 /* Foundation.framework in Frameworks */,
 				60CCD5B216DC2D6A0065E761 /* CoreGraphics.framework in Frameworks */,
+				60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +107,11 @@
 		60CCD5AC16DC2D6A0065E761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60FD569916DC711F005AD219 /* Accounts.framework */,
+				60FD569A16DC711F005AD219 /* AdSupport.framework */,
+				60FD569B16DC711F005AD219 /* Social.framework */,
+				60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */,
+				60FD569516DC709C005AD219 /* FacebookSDK.framework */,
 				60CCD5AD16DC2D6A0065E761 /* UIKit.framework */,
 				60CCD5AF16DC2D6A0065E761 /* Foundation.framework */,
 				60CCD5B116DC2D6A0065E761 /* CoreGraphics.framework */,
@@ -125,6 +146,7 @@
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 				60CCD5DC16DC35B60065E761 /* button_over.png */,
+				60FD569F16DC7395005AD219 /* login-button-small.png */,
 				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
 				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
 				60CCD5B916DC2D6A0065E761 /* main.m */,
@@ -195,6 +217,8 @@
 				60CCD5DD16DC35B60065E761 /* button_over.png in Resources */,
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
+				60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */,
+				60FD56A016DC7395005AD219 /* login-button-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +233,9 @@
 				60CCD5BE16DC2D6A0065E761 /* AppDelegate.m in Sources */,
 				60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */,
 				60CCD5D216DC31090065E761 /* LoginViewController.m in Sources */,
-				60CCD5D516DC31A10065E761 /* RecordViewController.m in Sources */,
 				60CCD5D816DC31DC0065E761 /* FeedViewController.m in Sources */,
 				60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */,
+				60FD56A116DC80B5005AD219 /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,9 +320,17 @@
 		60CCD5CE16DC2D6A0065E761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -307,9 +339,17 @@
 		60CCD5CF16DC2D6A0065E761 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -334,6 +374,7 @@
 				60CCD5CF16DC2D6A0065E761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

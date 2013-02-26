@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+- (void)openSession;
+
+@property (strong, nonatomic) UINavigationController* navController;
+@property (strong, nonatomic) RecordViewController* mainViewController;
 
 @property (strong, nonatomic) UIWindow *window;
 
