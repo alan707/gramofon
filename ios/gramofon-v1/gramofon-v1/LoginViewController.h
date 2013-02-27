@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface LoginViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *buttonText;
 - (void)loginFailed;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 - (IBAction)performLogin:(id)sender;
