@@ -25,8 +25,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [super viewDidLoad];	
+    NSString *httpSource = @"http://gramofon.dantrenz.com/";
+    NSURL *fullUrl = [NSURL URLWithString:httpSource];
+    NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
+    [_feedWebView loadRequest:httpRequest];
 }
 
 - (void)didReceiveMemoryWarning

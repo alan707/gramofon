@@ -10,4 +10,6 @@
 
 @interface FeedViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
+
 @end
