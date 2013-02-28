@@ -115,7 +115,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" id="xUB-JU-bk8"/>
                     <connections>
-                        <segue destination="WFw-xB-R63" kind="modal" id="hNQ-ys-blq"/>
+                        <segue destination="WFw-xB-R63" kind="modal" identifier="segueToShare" modalTransitionStyle="coverVertical" id="hNQ-ys-blq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1A-xg-izR" sceneMemberID="firstResponder"/>
@@ -222,11 +222,11 @@
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="leading" secondItem="CtR-Yf-UZ9" secondAttribute="leading" type="default" id="JKh-To-F48"/>
                             <constraint firstAttribute="bottom" secondItem="W4e-4x-bSx" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Jvd-UY-vGH"/>
                             <constraint firstItem="cdj-ff-mqy" firstAttribute="centerX" secondItem="fD9-2d-b7f" secondAttribute="centerX" type="default" id="QEP-3U-Hc3"/>
+                            <constraint firstItem="wwr-bI-rjZ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="73" id="QoW-eB-Lzx"/>
                             <constraint firstAttribute="bottom" secondItem="ebN-pa-ywb" secondAttribute="bottom" constant="122" id="Uao-Ao-WL2"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="29" id="WB4-3P-PsU"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="trailing" secondItem="W4e-4x-bSx" secondAttribute="trailing" type="default" id="XSr-fd-DPM"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="centerX" secondItem="cdj-ff-mqy" secondAttribute="centerX" type="default" id="YAE-bO-bJA"/>
-                            <constraint firstItem="wwr-bI-rjZ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="75" id="fE7-Mw-Fcc"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="10" id="hLN-N7-7jh"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="W4e-4x-bSx" secondAttribute="leading" type="default" id="hQq-NV-IXy"/>
                             <constraint firstAttribute="trailing" secondItem="CtR-Yf-UZ9" secondAttribute="trailing" constant="33" id="ou2-7r-O7F"/>
@@ -255,8 +255,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Tbq-Sh-7GP" kind="relationship" relationship="viewControllers" id="x7I-XA-0SX"/>
                         <segue destination="jtr-XI-3At" kind="relationship" relationship="viewControllers" id="Rjv-aG-upA"/>
+                        <segue destination="Tbq-Sh-7GP" kind="relationship" relationship="viewControllers" id="x7I-XA-0SX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqG-5k-a9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,6 +308,42 @@
         <image name="tableShareSound-white-bg.png" width="292" height="172"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startRecording:"/>
+                <relationship kind="action" name="stopRecording:"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="titleSound:"/>
+                <relationship kind="outlet" name="facebookShareSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterShareSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
