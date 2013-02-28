@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ShareSoundViewController : UIViewController
+- (IBAction)titleSound:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+- (IBAction)shareSoundButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *facebookShareSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *twitterShareSwitch;
 
 @end
