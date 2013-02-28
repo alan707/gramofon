@@ -16,6 +16,9 @@
 @implementation LoginViewController
 @synthesize spinner;
 
+//NSString *const FBSessionStateChangedNotification =
+//@"com.gramofon.gramofon:FBSessionStateChangedNotification";
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,28 +27,91 @@
     }
     return self;
 }
+/*
+ * If we have a valid session at the time of openURL call, we handle
+ * Facebook transitions by passing the url argument to handleOpenURL
+ */
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+
+/*
+ * Opens a Facebook session and optionally shows the login UX.
+ */
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"email",
+                            nil];
+    return [FBSession openActiveSessionWithReadPermissions:nil
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [self sessionStateChanged:session
+                                                                 state:state
+                                                                 error:error];
+                                         }];
+}
+
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen:
+            if (!error) {
+                // We have a valid session
+                NSLog(@"User session found");
+            }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            break;
+        default:
+            break;
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:FBSessionStateChangedNotification
+     object:session];
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//
-//    [[NSNotificationCenter defaultCenter]
-//     addObserver:self
-//     selector:@selector(sessionStateChanged:)
-//     name:FBSessionStateChangedNotification
-//     object:nil];
-    if (FBSession.activeSession.isOpen) {
-        // valid account UI is shown whenever the session is open
-//        [self.loginFailed setTitle:@"Log out" forState:UIControlStateNormal];
-
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // To-do, show logged in view
+        [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
     } else {
-        // login-needed account UI is shown whenever the session is closed
-//        [self.buttonLoginLogout setTitle:@"Log in" forState:UIControlStateNormal];
-//        [self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
+        // No, display the login page.
+        [self showLoginView];
     }
-
     
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // Yes, so just open the session (this won't display any UX).
+        [self openSession];
+    } else {
+        // No, display the login page.
+        [self showLoginView];
+    }
     
 }
 - (void)didAuthenticate{
@@ -60,24 +126,66 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)performLogin:(id)sender {
+- (void)openSession
+{
     
-    AppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+     }];
+    //    NSLog(@"%@", [self.tabBarController viewControllers]);
+    //     [self.mainViewController pushViewController:RecordViewController animated:true];
+    
+    
+}
+
+- (void)showLoginView
+{
+    //    UIViewController *topViewController = [self.navController topViewController];
+    //    UIViewController *modalViewController = [topViewController modalViewController];
+    NSLog(@"hello world");
+    
+    
+    // If the login screen is not already displayed, display it. If the login screen is
+    // displayed, then getting back here means the login in progress did not successfully
+    // complete. In that case, notify the login view so it can update its UI appropriately.
+    //    if (![modalViewController isKindOfClass:[LoginViewController class]]) {
+    //        LoginViewController* loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController"
+    //                                                      bundle:nil];
+    //        [topViewController presentModalViewController:loginViewController animated:NO];
+    //    } else {
+    //        LoginViewController* loginViewController =
+    //        (LoginViewController*)modalViewController;
+    //        [loginViewController loginFailed];
+    //    }
+}
+
+
+
+- (IBAction)performLogin:(id)sender
+{
+    
+//    AppDelegate *appDelegate =
+//    [[UIApplication sharedApplication] delegate];
     
     // If the user is authenticated, log out when the button is clicked.
     // If the user is not authenticated, log in when the button is clicked.
     if (FBSession.activeSession.isOpen) {
-        [appDelegate closeSession];
+        [self closeSession];
     } else {
         // The user has initiated a login, so call the openSession method
         // and show the login UX if necessary.
-        [appDelegate openSessionWithAllowLoginUI:YES];
+        [self openSessionWithAllowLoginUI:YES];
     }
 
-    }
+}
 
-
+- (void) closeSession {
+    [FBSession.activeSession closeAndClearTokenInformation];
+}
 
 
 - (void)loginFailed
