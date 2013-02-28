@@ -232,6 +232,7 @@
                     <connections>
                         <outlet property="facebookShareSwitch" destination="zoc-XT-sCV" id="81M-om-ffO"/>
                         <outlet property="playButton" destination="wwr-bI-rjZ" id="Djo-y5-RIg"/>
+                        <outlet property="titleSound" destination="2tj-2E-rA1" id="wXz-JG-GtN"/>
                         <outlet property="twitterShareSwitch" destination="CtR-Yf-UZ9" id="fC6-z1-yyD"/>
                     </connections>
                 </viewController>
@@ -304,38 +305,6 @@
         <image name="tableShareSound-white-bg.png" width="292" height="172"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
-    <classes>
-        <class className="FeedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="performLogin:"/>
-                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RecordViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
-        </class>
-        <class className="ShareSoundViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareSoundButton:"/>
-                <relationship kind="action" name="titleSound:"/>
-                <relationship kind="outlet" name="facebookShareSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="twitterShareSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

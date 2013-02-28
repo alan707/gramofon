@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
+		6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */; };
+		6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079D02116DEF43400BCD3DC /* AudioClip.m */; };
 		60CCD5AE16DC2D6A0065E761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AD16DC2D6A0065E761 /* UIKit.framework */; };
 		60CCD5B016DC2D6A0065E761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AF16DC2D6A0065E761 /* Foundation.framework */; };
 		60CCD5B216DC2D6A0065E761 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5B116DC2D6A0065E761 /* CoreGraphics.framework */; };
@@ -38,6 +40,9 @@
 		6050EAA316DC877300060F05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6050EAA416DC877300060F05 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		6050EAA516DC877300060F05 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
+		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
 		60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gramofon-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CCD5AD16DC2D6A0065E761 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CCD5AF16DC2D6A0065E761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */,
 				60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */,
 				60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */,
 				60FD569E16DC711F005AD219 /* Social.framework in Frameworks */,
@@ -107,6 +113,7 @@
 		60CCD5AC16DC2D6A0065E761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */,
 				60FD569916DC711F005AD219 /* Accounts.framework */,
 				60FD569A16DC711F005AD219 /* AdSupport.framework */,
 				60FD569B16DC711F005AD219 /* Social.framework */,
@@ -132,6 +139,8 @@
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
+				6079D02016DEF43400BCD3DC /* AudioClip.h */,
+				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
@@ -236,6 +245,7 @@
 				60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */,
 				6050EAA616DC877300060F05 /* LoginViewController.m in Sources */,
 				6050EAA716DC877300060F05 /* RecordViewController.m in Sources */,
+				6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
