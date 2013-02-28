@@ -32,7 +32,7 @@
 		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
 		60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569A16DC711F005AD219 /* AdSupport.framework */; };
 		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; };
-		60FD56A016DC7395005AD219 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569F16DC7395005AD219 /* login-button-small.png */; };
+		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +71,7 @@
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		60FD569A16DC711F005AD219 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		60FD569B16DC711F005AD219 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		60FD569F16DC7395005AD219 /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login-button-small.png"; path = "../../../../../../Developer/IntegratingFacebookTutorial/IntegratingFacebookTutorial/login-button-small.png"; sourceTree = "<group>"; };
+		C531662416DF8E13004BEDE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */,
+				C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */,
 				60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */,
 				60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */,
 				60FD569E16DC711F005AD219 /* Social.framework in Frameworks */,
@@ -113,6 +114,7 @@
 		60CCD5AC16DC2D6A0065E761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C531662416DF8E13004BEDE0 /* AVFoundation.framework */,
 				6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */,
 				60FD569916DC711F005AD219 /* Accounts.framework */,
 				60FD569A16DC711F005AD219 /* AdSupport.framework */,
@@ -155,7 +157,6 @@
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 				60CCD5DC16DC35B60065E761 /* button_over.png */,
-				60FD569F16DC7395005AD219 /* login-button-small.png */,
 				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
 				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
 				60CCD5B916DC2D6A0065E761 /* main.m */,
@@ -227,7 +228,6 @@
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
 				60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */,
-				60FD56A016DC7395005AD219 /* login-button-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

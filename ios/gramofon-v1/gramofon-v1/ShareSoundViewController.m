@@ -82,28 +82,28 @@
 - (IBAction)titleSound:(id)sender {
 }
 - (IBAction)shareSoundButton:(id)sender {
-    
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"]];
-    [request setPostValue:[CurrentData sharedInstance].username forKey:@"audio_clip[username]"];
-    
-    NSString *latString = [NSString stringWithFormat:@"%f",[CurrentData sharedInstance].currentLocation.coordinate.latitude];
-    NSString *longString = [NSString stringWithFormat:@"%f",[CurrentData sharedInstance].currentLocation.coordinate.longitude];
-    
-    [request setPostValue:latString forKey:@"audio_clip[latitude]"];
-    [request setPostValue:longString forKey:@"audio_clip[longitude]"];
-    [request setPostValue:titleField.text forKey:@"audio_clip[title]"];
-    [request setPostValue:@"true" forKey:@"audio_clip[public]"];
-    NSArray *dirPaths;
-    NSString *docsDir;
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:[CurrentData sharedInstance].fileName];
-    
-    [request setFile:soundFilePath forKey:@"audio_clip[sound_file]"];
-    [request startSynchronous];
-    NSString *response = [request responseString];
-    [self.navigationController popViewControllerAnimated:YES];
+//    
+//    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"]];
+//    [request setPostValue:[CurrentData sharedInstance].username forKey:@"audio_clip[username]"];
+//    
+//    NSString *latString = [NSString stringWithFormat:@"%f",[CurrentData sharedInstance].currentLocation.coordinate.latitude];
+//    NSString *longString = [NSString stringWithFormat:@"%f",[CurrentData sharedInstance].currentLocation.coordinate.longitude];
+//    
+//    [request setPostValue:latString forKey:@"audio_clip[latitude]"];
+//    [request setPostValue:longString forKey:@"audio_clip[longitude]"];
+//    [request setPostValue:titleField.text forKey:@"audio_clip[title]"];
+//    [request setPostValue:@"true" forKey:@"audio_clip[public]"];
+//    NSArray *dirPaths;
+//    NSString *docsDir;
+//    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    docsDir = [dirPaths objectAtIndex:0];
+//    NSString *soundFilePath = [docsDir
+//                               stringByAppendingPathComponent:[CurrentData sharedInstance].fileName];
+//    
+//    [request setFile:soundFilePath forKey:@"audio_clip[sound_file]"];
+//    [request startSynchronous];
+//    NSString *response = [request responseString];
+//    [self.navigationController popViewControllerAnimated:YES];
     
 }
 @end

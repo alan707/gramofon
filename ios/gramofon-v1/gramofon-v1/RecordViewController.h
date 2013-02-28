@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface RecordViewController : UIViewController
+@interface RecordViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+{
+    AVAudioRecorder *audioRecorder;
+    AVAudioPlayer *audioPlayer;
+}
+
+- (IBAction)startRecording:(id)sender;
+- (IBAction)stopRecording:(id)sender;
+- (void)previewRecording;
 
 @end
