@@ -99,7 +99,7 @@
 	// Do any additional setup after loading the view.
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // To-do, show logged in view
-        [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        [self didAuthenticate];
     } else {
         // No, display the login page.
         [self showLoginView];
@@ -146,7 +146,7 @@
 {
     //    UIViewController *topViewController = [self.navController topViewController];
     //    UIViewController *modalViewController = [topViewController modalViewController];
-    NSLog(@"hello world");
+   [self didAuthenticate];
     
     
     // If the login screen is not already displayed, display it. If the login screen is
