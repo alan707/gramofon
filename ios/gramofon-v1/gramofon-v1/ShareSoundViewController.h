@@ -16,6 +16,7 @@
 {
     AVAudioPlayer *audioPlayer;
 }
+- (IBAction)dismissKeyboard:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *titleSound;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookShareSwitch;

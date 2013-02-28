@@ -106,4 +106,7 @@
 //    [self.navigationController popViewControllerAnimated:YES];
     
 }
+- (IBAction)dismissKeyboard:(id)sender {
+    [titleSound resignFirstResponder];
+}
 @end
