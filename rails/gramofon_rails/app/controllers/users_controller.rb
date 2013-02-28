@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
  def showuserclips
  @users = User.all
- @clips = AudioClip.find_all_by_username(params[:username])
+ @clips = AudioClip.limit(params[:limit]).offset(params[:offset]).order("created_at DESC").find_all_by_username(params[:username])
  respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @clips }
@@ -23,8 +23,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
-  
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
 
+    def facebookuser
+    @user = User.find_by_facebook_id(params[:facebook_id])
+     
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

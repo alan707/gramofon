@@ -38,6 +38,29 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+<!-- 
+  <%#unless @audio_clip.play_count.blank? || @audio_clip.like_count.blank?%>
+   -->  
+    <div class="field">
+    <%= f.label :play_count %><br />
+    <%= f.text_field :play_count %>
+  </div>
+
+   <div class="field">
+    <%= f.label :like_count %><br />
+    <%= f.text_field :like_count %>
+  </div>
+<!-- 
+  <%#end%> -->
+
+     <div class="field">
+    <%= f.label :sound_file_url %><br />
+    <%= f.text_field :sound_file_url %>
+  </div>
+
+
+
+
   <div class="field">
     <%= f.label :public %><br />
     <%= f.check_box :public %>

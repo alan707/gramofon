@@ -10,6 +10,7 @@ GramofonRails::Application.routes.draw do
 
 match "users/:username", :to => "users#show", :via => [:get]
 match "users/:username/audio_clips", :to => "users#showuserclips", :via => [:get]
+match "users/facebook/:facebook_id", :to => "users#facebookuser", :via => [:get]
 
 
 

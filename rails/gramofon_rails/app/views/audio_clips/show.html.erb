@@ -32,8 +32,13 @@
 </p>
 
 <p>
-  <b>Public:</b>
-  <%= @audio_clip.public %>
+  <b>Play Count:</b>
+  <%= @audio_clip.try(:play_count)%>
+</p>
+
+<p>
+  <b>Like Count:</b>
+  <%= @audio_clip.try(:like_count)%>
 </p>
 
 
