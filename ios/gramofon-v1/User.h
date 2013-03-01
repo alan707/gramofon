@@ -12,6 +12,8 @@
 
 + (User *)sharedInstance;
 
+- (void)authenticateGramofonUser;
+
 @property (nonatomic, strong) NSString *user_id;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *facebook_id;

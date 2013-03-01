@@ -64,23 +64,22 @@
     switch ( state ) {
         case FBSessionStateOpen:
             if ( !error ) {
-                // We have a valid session
-                NSLog(@"User session found: %@", [session description]);
-                
-                if ( FBSession.activeSession.isOpen ) {
-                    [[FBRequest requestForMe] startWithCompletionHandler:
-                     ^(FBRequestConnection *connection,
-                       NSDictionary<FBGraphUser> *user,
-                       NSError *error) {
-                         if ( !error ) {
-                             [User sharedInstance].username = user.username;
-                             [User sharedInstance].facebook_id = user.id;
-                             [User sharedInstance].firstname = user.first_name;
-                             [User sharedInstance].lastname = user.last_name;
-                             // TODO: email?
-                         }
-                     }];
-                }
+                // We have a valid session, go get user profile info               
+                [[FBRequest requestForMe] startWithCompletionHandler:
+                    ^(FBRequestConnection *connection,
+                    NSDictionary<FBGraphUser> *user,
+                    NSError *error) {
+                        if ( !error ) {
+                            [User sharedInstance].username = user.username;
+                            [User sharedInstance].facebook_id = user.id;
+                            [User sharedInstance].firstname = user.first_name;
+                            [User sharedInstance].lastname = user.last_name;
+                            // TODO: email? - we need to figure out how to ask for email permissions.
+                            
+                            // get their Gramofon user id, or create a new user account for this user.
+                            [[User sharedInstance] authenticateGramofonUser];
+                        }
+                    }];
             }
             break;
         case FBSessionStateClosed:
