@@ -13,7 +13,9 @@
 @end
 
 @implementation ShareSoundViewController
+
 @synthesize playButton, titleSound;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,51 +38,46 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)playAudio:(id)sender
+
+- (IBAction)playAudio:(id)sender
 {
     [playButton setTitle:@"Stop" forState:UIControlStateNormal];
     
-    NSArray *dirPaths;
-    NSString *docsDir;
+    NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
     
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:[AudioClip sharedInstance].fileName];
-    
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    if (audioPlayer)
+    if (audioPlayer) {
         audioPlayer = nil;
+    }
+    
     NSError *error;
     
-    audioPlayer = [[AVAudioPlayer alloc]
-                   initWithContentsOfURL:soundFileURL
-                   error:&error];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
     
     audioPlayer.delegate = self;
     
-    if (error)
-        NSLog(@"Error: %@",
-              [error localizedDescription]);
-    else
+    if (error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    } else {
         [audioPlayer play];
+    }
     
     
 }
--(IBAction)toggleAudio:(id)sender
+
+- (IBAction)toggleAudio:(id)sender
 {
-    if([audioPlayer isPlaying])
+    if ( audioPlayer.isPlaying )
     {
         [playButton setTitle:@"Play" forState:UIControlStateNormal];
         [audioPlayer stop];
-    }else{
+    } else {
         [self playAudio:nil];
     }
 }
 
 - (IBAction)titleSound:(id)sender {
 }
+
 - (IBAction)shareSoundButton:(id)sender {
 //    
 //    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"]];
@@ -105,8 +102,14 @@
 //    NSString *response = [request responseString];
 //    [self.navigationController popViewControllerAnimated:YES];
     
+    
+    NSLog(@"username: %@", [AudioClip sharedInstance].username);
+    NSLog(@"fileName: %@", [[AudioClip sharedInstance].fileName absoluteString]);
+    
 }
+
 - (IBAction)dismissKeyboard:(id)sender {
     [titleSound resignFirstResponder];
 }
+
 @end

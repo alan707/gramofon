@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "AudioClip.h"
 
 @interface RecordViewController ()
 
@@ -115,9 +116,10 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
-    countDownLabel.text = @"Done!";
+    countDownLabel.text = @"Done!";    
+
+    [AudioClip sharedInstance].fileName = audioRecorder.url;
     
-    [self previewRecording];
     [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
 }
 

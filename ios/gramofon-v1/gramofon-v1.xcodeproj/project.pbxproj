@@ -135,19 +135,19 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
 				6050EAA316DC877300060F05 /* LoginViewController.m */,
 				6050EAA416DC877300060F05 /* RecordViewController.h */,
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
-				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
-				6079D02016DEF43400BCD3DC /* AudioClip.h */,
-				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
 				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
+				6079D02016DEF43400BCD3DC /* AudioClip.h */,
+				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
