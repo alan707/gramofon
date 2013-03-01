@@ -109,13 +109,8 @@
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
-<<<<<<< HEAD
     [self previewRecording];
-    [self performSegueWithIdentifier: @"segueToShare" sender: self];
-=======
-//    [self previewRecording];
     [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
->>>>>>> 1670d3f8b994258db49cc9e649a028e85ad5fd31
 }
 
 - (void)previewRecording
