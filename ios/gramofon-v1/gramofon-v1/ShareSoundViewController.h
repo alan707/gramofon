@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "ASIFormDataRequest.h"
+#import <AVFoundation/AVFoundation.h>
+#import "AudioClip.h"
 
-@interface ShareSoundViewController : UIViewController
-- (IBAction)titleSound:(id)sender;
+
+@interface ShareSoundViewController : UIViewController<AVAudioPlayerDelegate>
+{
+    AVAudioPlayer *audioPlayer;
+}
+- (IBAction)dismissKeyboard:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *titleSound;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
-- (IBAction)shareSoundButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookShareSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *twitterShareSwitch;
+
+-(IBAction)shareSoundButton:(id)sender;
+-(IBAction)playAudio:(id)sender;
 
 @end

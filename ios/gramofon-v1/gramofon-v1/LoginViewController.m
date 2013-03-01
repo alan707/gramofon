@@ -117,6 +117,7 @@
 - (void)didAuthenticate{
 
        [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        
 }
 
 

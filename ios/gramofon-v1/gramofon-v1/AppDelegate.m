@@ -12,7 +12,6 @@
 
 @implementation AppDelegate
 @synthesize session = _session;
-
 //@synthesize openedURL = _openedURL;
 
 
