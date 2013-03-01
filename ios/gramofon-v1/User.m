@@ -10,7 +10,7 @@
 
 @implementation User
 
-@synthesize username, facebook_id, firstname, lastname, email;
+@synthesize user_id, username, facebook_id, firstname, lastname, email;
 
 + (User *)sharedInstance
 {
@@ -25,6 +25,30 @@
     
     // return the instance of this class
     return myInstance;
+}
+
+- (void)authenticateGramofonUser
+{
+    // go get the user from the API
+    [self fetchUser];
+    
+    // if we did not find a user id to store...
+    if ( self.user_id == nil ) {
+        // create a new user
+        [self createUser];
+    }
+}
+
+- (void)fetchUser
+{
+    // GET user by self.facebook_id,
+    // then store the user's id in self.user_id
+}
+
+- (void)createUser
+{
+    // POST user data (self.username, self.facebook_id, etc)
+    // to API to create a new user
 }
 
 @end
