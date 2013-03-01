@@ -12,6 +12,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="gramaphon_logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-r7-9Po">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="174" id="d7e-Pw-Yjc"/>
+                                    <constraint firstAttribute="width" constant="267" id="kHN-hl-63p"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXy-Dd-gGG">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aEO-Ak-2Vj"/>
@@ -32,12 +38,14 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Kcq-1b-P49"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Kcq-1b-P49" firstAttribute="top" secondItem="3" secondAttribute="top" constant="72" id="jU7-Tl-Hjz"/>
-                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="rqs-tB-ib7"/>
+                            <constraint firstAttribute="bottom" secondItem="yXy-Dd-gGG" secondAttribute="bottom" constant="78" id="9l2-cC-3Xz"/>
+                            <constraint firstItem="nGc-r7-9Po" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="LcH-70-EgQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Kcq-1b-P49" secondAttribute="bottom" constant="156" id="gZF-mo-pMI"/>
+                            <constraint firstItem="nGc-r7-9Po" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="ieP-Po-Q2x"/>
+                            <constraint firstItem="nGc-r7-9Po" firstAttribute="top" secondItem="3" secondAttribute="top" constant="41" id="lvJ-hx-d7i"/>
                             <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="tRz-Wf-hyh"/>
-                            <constraint firstItem="Kcq-1b-P49" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="wC6-TT-fLO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HTX-73-h5o">
@@ -52,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="42"/>
+            <point key="canvasLocation" x="815" y="54"/>
         </scene>
         <!--Feed View Controller - View-->
         <scene sceneID="OyO-5c-RuO">
@@ -70,11 +78,13 @@
                         <constraints>
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="GBC-ZQ-ezv" secondAttribute="trailing" type="default" id="E1X-QT-VQP"/>
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="GBC-ZQ-ezv" secondAttribute="leading" type="default" id="LOs-EU-xBB"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="GBC-ZQ-ezv" secondAttribute="top" type="default" id="PSz-fj-jSW"/>
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="GBC-ZQ-ezv" secondAttribute="bottom" type="default" id="kXE-lh-Zsm"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="GBC-ZQ-ezv" secondAttribute="top" type="default" id="pfc-Jq-AyT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Audio Clips" id="OGy-Ts-LEF"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="OGy-Ts-LEF">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="feedWebView" destination="STX-Gj-dDD" id="mge-19-3Ys"/>
                     </connections>
@@ -93,11 +103,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-BV-eRq">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="168" id="H20-fD-ics"/>
                                     <constraint firstAttribute="width" constant="199" id="dj8-pD-9Ib"/>
+                                    <constraint firstAttribute="height" constant="192" id="yD9-a4-7D5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="button_over.png">
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" backgroundImage="gramaphon_logo_small.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -109,11 +121,22 @@
                                     <action selector="stopRecording:" destination="jtr-XI-3At" eventType="touchUpInside" id="bRt-xZ-hih"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hold To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zks-8P-OvN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YAU-XB-Sxd"/>
+                                    <constraint firstAttribute="width" constant="139" id="egG-8u-CO4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="centerY" secondItem="Cqn-Cw-hpT" secondAttribute="centerY" type="default" id="25E-EG-den"/>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="5VC-TZ-mk8"/>
+                            <constraint firstAttribute="bottom" secondItem="Zks-8P-OvN" secondAttribute="bottom" constant="62" id="2YU-hW-rxu"/>
+                            <constraint firstItem="Zks-8P-OvN" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="Dzk-n2-bzH"/>
+                            <constraint firstItem="Zks-8P-OvN" firstAttribute="centerX" secondItem="6zW-BV-eRq" secondAttribute="centerX" type="default" id="EaJ-Sn-8d9"/>
+                            <constraint firstItem="6zW-BV-eRq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="51" id="miF-E1-SeF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NiP-Md-acV">
@@ -223,7 +246,7 @@
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="1line.png" translatesAutoresizingMaskIntoConstraints="NO" id="90e-L2-R1C"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="bottom" secondItem="ebN-pa-ywb" secondAttribute="bottom" type="default" id="0ZY-GQ-stV"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="10" id="5si-qa-ppD"/>
@@ -303,24 +326,27 @@
             </objects>
             <point key="canvasLocation" x="143" y="42"/>
         </scene>
-        <!--Navigation Controller - Record-->
+        <!--Navigation Controller-->
         <scene sceneID="RFo-YO-RUz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="32l-Sy-bcO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" id="xUB-JU-bk8"/>
+                    <tabBarItem key="tabBarItem" tag="5" title="" image="rec_image.png" id="xUB-JU-bk8"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="NJO-vl-rSy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dWl-Py-db4">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="jtr-XI-3At" kind="relationship" relationship="rootViewController" id="la7-JT-oPa"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048" y="-258"/>
         </scene>
@@ -328,10 +354,49 @@
     <resources>
         <image name="1line.png" width="276" height="3"/>
         <image name="2lines.png" width="277" height="121"/>
-        <image name="button_over.png" width="403" height="290"/>
+        <image name="gramaphon_logo_small.png" width="361" height="360"/>
         <image name="login-button-small.png" width="151" height="43"/>
+        <image name="rec_image.png" width="172" height="104"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startRecording:"/>
+                <relationship kind="action" name="stopRecording:"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="playAudio:"/>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="outlet" name="facebookShareSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="twitterShareSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

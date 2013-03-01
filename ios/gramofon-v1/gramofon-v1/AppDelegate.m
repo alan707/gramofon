@@ -37,8 +37,21 @@ NSString *const FBSessionStateChangedNotification =
 
 /*
  * Callback for session changes.
- */
-
+// */
+//- (void)populateUserDetails
+//{
+//    if (FBSession.activeSession.isOpen) {
+//        [[FBRequest requestForMe] startWithCompletionHandler:
+//         ^(FBRequestConnection *connection,
+//           NSDictionary<FBGraphUser> *user,
+//           NSError *error) {
+//             if (!error) {
+//                 self.userNameLabel.text = user.name;
+//                 self.userProfileImage.profileID = user.id;
+//             }
+//         }];
+//    }
+//}
 
 
 							

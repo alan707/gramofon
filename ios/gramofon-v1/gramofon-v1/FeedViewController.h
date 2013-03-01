@@ -11,5 +11,8 @@
 @interface FeedViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
+//
+//@property (nonatomic, strong) IBOutlet FBProfilePictureView *userProfileImage;
+//@property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
 
 @end
