@@ -112,8 +112,11 @@
     
 }
 
-- (IBAction)dismissKeyboard:(id)sender {
-    [titleSound resignFirstResponder];
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if ( titleSound == self.titleSound ) {
+        [titleSound resignFirstResponder];
+    }
+    return YES;
 }
 
 @end

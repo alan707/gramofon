@@ -12,7 +12,7 @@
 #import "AudioClip.h"
 
 
-@interface ShareSoundViewController : UIViewController<AVAudioPlayerDelegate>
+@interface ShareSoundViewController : UIViewController <AVAudioPlayerDelegate, UITextFieldDelegate>
 {
     AVAudioPlayer *audioPlayer;
 }
