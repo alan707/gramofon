@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-//#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface LoginViewController : UIViewController
@@ -18,12 +17,10 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (weak, nonatomic) IBOutlet UIButton *buttonText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-- (void)openSession;
+- (void) openSession;
 - (void) closeSession;
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-- (void)loginFailed;
-- (IBAction)performLogin:(id)sender;
-
-//@property (strong, nonatomic) FBSession *session;
+- (BOOL) openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void) loginFailed;
+- (IBAction) performLogin:(id)sender;
 
 @end

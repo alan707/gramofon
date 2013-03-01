@@ -7,7 +7,8 @@
 //
 
 #import "ShareSoundViewController.h"
-#import "AudioClip.h";
+#import "User.h"
+#import "AudioClip.h"
 
 @interface ShareSoundViewController ()
 
@@ -83,7 +84,12 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
-    NSLog(@"AudioClip.username: %@", [AudioClip sharedInstance].username);
+    NSLog(@"User.username: %@", [User sharedInstance].username);
+    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
+    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
+    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
+    NSLog(@"User.email: %@", [User sharedInstance].email);
+    
     NSLog(@"AudioClip.fileName: %@", [[AudioClip sharedInstance].fileName absoluteString]);
     NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
     NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
