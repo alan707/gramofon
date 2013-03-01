@@ -7,6 +7,7 @@
 //
 
 #import "ShareSoundViewController.h"
+#import "AudioClip.h";
 
 @interface ShareSoundViewController ()
 
@@ -28,8 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     self.title = @"Share Sounds";
+    
     [titleSound becomeFirstResponder];
 }
 	
@@ -45,7 +47,7 @@
     
     NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
     
-    if (audioPlayer) {
+    if ( audioPlayer ) {
         audioPlayer = nil;
     }
     
@@ -55,13 +57,11 @@
     
     audioPlayer.delegate = self;
     
-    if (error) {
+    if ( error ) {
         NSLog(@"Error: %@", [error localizedDescription]);
     } else {
         [audioPlayer play];
-    }
-    
-    
+    }   
 }
 
 - (IBAction)toggleAudio:(id)sender
@@ -75,10 +75,18 @@
     }
 }
 
-- (IBAction)titleSound:(id)sender {
+- (IBAction)titleSound:(id)sender
+{
 }
 
-- (IBAction)shareSoundButton:(id)sender {
+- (IBAction)shareSoundButton:(id)sender
+{
+    [AudioClip sharedInstance].title = titleSound.text;
+    
+    NSLog(@"AudioClip.username: %@", [AudioClip sharedInstance].username);
+    NSLog(@"AudioClip.fileName: %@", [[AudioClip sharedInstance].fileName absoluteString]);
+    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
+    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
 //    
 //    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"]];
 //    [request setPostValue:[CurrentData sharedInstance].username forKey:@"audio_clip[username]"];
@@ -101,10 +109,6 @@
 //    [request startSynchronous];
 //    NSString *response = [request responseString];
 //    [self.navigationController popViewControllerAnimated:YES];
-    
-    
-    NSLog(@"username: %@", [AudioClip sharedInstance].username);
-    NSLog(@"fileName: %@", [[AudioClip sharedInstance].fileName absoluteString]);
     
 }
 

@@ -17,5 +17,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) NSURL *fileName;
+@property (nonatomic, strong) NSString *title;
 
 @end

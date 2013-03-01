@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "AppDelegate.h" 
+#import "AppDelegate.h"
+#import "AudioClip.h"
 
 @interface LoginViewController ()
 
@@ -63,7 +64,18 @@
         case FBSessionStateOpen:
             if ( !error ) {
                 // We have a valid session
-                NSLog(@"User session found: %@", [session description]);                
+                NSLog(@"User session found: %@", [session description]);
+                
+                if ( FBSession.activeSession.isOpen ) {
+                    [[FBRequest requestForMe] startWithCompletionHandler:
+                     ^(FBRequestConnection *connection,
+                       NSDictionary<FBGraphUser> *user,
+                       NSError *error) {
+                         if ( !error ) {
+                             [AudioClip sharedInstance].username = user.username;
+                         }
+                     }];
+                }
             }
             break;
         case FBSessionStateClosed:
@@ -112,7 +124,6 @@
 
 - (void)didAuthenticate
 {    
-    
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];        
 }
 
