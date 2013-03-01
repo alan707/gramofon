@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
+		6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336C16DFFC5F000B2F39 /* 2lines.png */; };
+		6052336F16DFFC75000B2F39 /* 1line.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336E16DFFC75000B2F39 /* 1line.png */; };
 		6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */; };
 		6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079D02116DEF43400BCD3DC /* AudioClip.m */; };
 		60CCD5AE16DC2D6A0065E761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AD16DC2D6A0065E761 /* UIKit.framework */; };
@@ -40,6 +42,8 @@
 		6050EAA316DC877300060F05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6050EAA416DC877300060F05 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		6050EAA516DC877300060F05 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		6052336C16DFFC5F000B2F39 /* 2lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2lines.png; path = ../2lines.png; sourceTree = "<group>"; };
+		6052336E16DFFC75000B2F39 /* 1line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1line.png; path = ../1line.png; sourceTree = "<group>"; };
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
 		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
@@ -131,19 +135,19 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
+				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
 				6050EAA316DC877300060F05 /* LoginViewController.m */,
 				6050EAA416DC877300060F05 /* RecordViewController.h */,
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
-				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
-				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
+				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
 				6079D02116DEF43400BCD3DC /* AudioClip.m */,
-				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
@@ -156,6 +160,8 @@
 			children = (
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
+				6052336C16DFFC5F000B2F39 /* 2lines.png */,
+				6052336E16DFFC75000B2F39 /* 1line.png */,
 				60CCD5DC16DC35B60065E761 /* button_over.png */,
 				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
 				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
@@ -228,6 +234,8 @@
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
 				60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */,
+				6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */,
+				6052336F16DFFC75000B2F39 /* 1line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

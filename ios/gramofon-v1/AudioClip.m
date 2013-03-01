@@ -9,6 +9,7 @@
 #import "AudioClip.h"
 
 @implementation AudioClip
+
 @synthesize username, locationManager, currentLocation, fileName;
 
 + (AudioClip *)sharedInstance
@@ -17,7 +18,7 @@
     static AudioClip *myInstance = nil;
 	
     // check to see if an instance already exists
-    if (nil == myInstance) {
+    if ( nil == myInstance ) {
         myInstance  = [[[self class] alloc] init];
 		myInstance.locationManager = [[CLLocationManager alloc] init];
         myInstance.locationManager.delegate = myInstance;

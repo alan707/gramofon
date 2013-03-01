@@ -16,12 +16,14 @@
 {
     AVAudioPlayer *audioPlayer;
 }
+
 @property (weak, nonatomic) IBOutlet UITextField *titleSound;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookShareSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *twitterShareSwitch;
 
--(IBAction)shareSoundButton:(id)sender;
--(IBAction)playAudio:(id)sender;
+- (IBAction)shareSoundButton:(id)sender;
+- (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)playAudio:(id)sender;
 
 @end
