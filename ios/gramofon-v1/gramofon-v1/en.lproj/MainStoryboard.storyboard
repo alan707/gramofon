@@ -151,7 +151,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-6V-OGQ">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -160,7 +159,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissKeyboard:" destination="bmH-xg-Tk4" eventType="touchDown" id="XGU-jt-OYr"/>
+                                    <action selector="dismissKeyboard:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="19q-bm-zUC"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="2lines.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8O-RN-MhK"/>
@@ -175,7 +174,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYE-iK-kTH">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="asr-RC-9f5"/>
                                     <constraint firstAttribute="width" constant="101" id="ffc-Jm-GpD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
@@ -198,7 +196,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="titleSound:" destination="bmH-xg-Tk4" eventType="editingDidEnd" id="9cH-aw-I9Y"/>
                                     <outlet property="delegate" destination="bmH-xg-Tk4" id="Mgu-k9-taw"/>
                                 </connections>
                             </textField>
@@ -208,7 +205,6 @@
                                     <constraint firstAttribute="width" constant="109" id="qau-5f-0Dg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.30980392159999998" green="0.20784313730000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,7 +213,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playAudio:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="Sv3-pO-3wE"/>
+                                    <action selector="toggleAudio:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="FA6-un-ttH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-4x-bSx">
@@ -225,7 +221,6 @@
                                     <constraint firstAttribute="height" constant="59" id="PVg-vC-e0M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Share my Sound">
                                     <color key="titleColor" red="0.30980392159999998" green="0.20784313730000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -257,23 +252,22 @@
                             <constraint firstItem="fYE-iK-kTH" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="24" id="VLE-eS-hXD"/>
                             <constraint firstAttribute="bottom" secondItem="W4e-4x-bSx" secondAttribute="bottom" constant="39" id="bsA-7V-DMA"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="dYc-QE-RCH"/>
+                            <constraint firstItem="CtR-Yf-UZ9" firstAttribute="centerY" secondItem="fYE-iK-kTH" secondAttribute="centerY" type="default" id="dvK-M0-z03"/>
                             <constraint firstItem="wwr-bI-rjZ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="75" id="fE7-Mw-Fcc"/>
+                            <constraint firstItem="CtR-Yf-UZ9" firstAttribute="top" secondItem="fYE-iK-kTH" secondAttribute="top" type="default" id="pxh-yj-sfr"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="28" id="q3S-7o-V7R"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="22" id="qxl-ZD-Mkc"/>
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="199" id="tam-B6-rdX"/>
                             <constraint firstItem="90e-L2-R1C" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="toa-hj-I1m"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xto-MX-Ghc"/>
-                            <constraint firstItem="CtR-Yf-UZ9" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="151" id="yhs-wz-0Z6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Share Your Sound" id="iK1-Zi-XfT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="facebookShareSwitch" destination="zoc-XT-sCV" id="81M-om-ffO"/>
                         <outlet property="playButton" destination="wwr-bI-rjZ" id="Djo-y5-RIg"/>
                         <outlet property="titleSound" destination="2tj-2E-rA1" id="wXz-JG-GtN"/>
-                        <outlet property="twitterShareSwitch" destination="CtR-Yf-UZ9" id="fC6-z1-yyD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ok-QN-6hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,6 +342,43 @@
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startRecording:"/>
+                <relationship kind="action" name="stopRecording:"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="toggleAudio:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

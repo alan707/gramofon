@@ -123,30 +123,6 @@
     [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
 }
 
-- (void)previewRecording
-{
-    if ( audioPlayer.isPlaying == NO ) {
-        NSError *error;
-        NSURL *soundFile = audioRecorder.url;
-        
-        if ( audioPlayer ) {
-            audioPlayer = nil;
-        }
-    
-        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundFile error:&error];
-    
-        audioPlayer.delegate = self;
-    
-        [audioPlayer prepareToPlay];
-    
-        if ( error ) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        } else {
-            [audioPlayer play];
-        }
-    }
-}
-
 -(void)tick
 {
     NSTimeInterval timeRemaining = 12 - audioRecorder.currentTime;    

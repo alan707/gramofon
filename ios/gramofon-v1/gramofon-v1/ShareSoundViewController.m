@@ -16,7 +16,7 @@
 
 @implementation ShareSoundViewController
 
-@synthesize playButton, titleSound;
+@synthesize titleSound, playButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +42,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)playAudio:(id)sender
+- (void)playAudio
 {
     [playButton setTitle:@"Stop" forState:UIControlStateNormal];
     
@@ -72,12 +72,8 @@
         [playButton setTitle:@"Play" forState:UIControlStateNormal];
         [audioPlayer stop];
     } else {
-        [self playAudio:nil];
+        [self playAudio];
     }
-}
-
-- (IBAction)titleSound:(id)sender
-{
 }
 
 - (IBAction)shareSoundButton:(id)sender
@@ -123,6 +119,10 @@
         [titleSound resignFirstResponder];
     }
     return YES;
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+    [titleSound resignFirstResponder];
 }
 
 @end
