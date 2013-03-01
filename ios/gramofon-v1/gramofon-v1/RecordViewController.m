@@ -14,6 +14,8 @@
 
 @implementation RecordViewController
 
+@synthesize countDownLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    countDownLabel.text = @"12:00";
     
     // when the record view loads, set-up the recorder
     [self resetPlayer];
@@ -100,6 +104,7 @@
     }
     
     [audioRecorder recordForDuration:12];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
 
 - (IBAction)stopRecording:(id)sender
@@ -108,7 +113,10 @@
 }
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
-{
+{    
+    [timer invalidate];
+    countDownLabel.text = @"Done!";
+    
     [self previewRecording];
     [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
 }
@@ -136,5 +144,20 @@
         }
     }
 }
+
+-(void)tick
+{
+    NSTimeInterval timeRemaining = 12 - audioRecorder.currentTime;    
+    NSInteger floor = floorf(timeRemaining);
+    NSInteger milliseconds = roundf((timeRemaining - floor) * 100);
+    
+    if(floor < 0){
+        countDownLabel.text = @"Done!";
+        [timer invalidate];
+    }else{
+        countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d",floor, milliseconds];
+    }
+}
+
 
 @end

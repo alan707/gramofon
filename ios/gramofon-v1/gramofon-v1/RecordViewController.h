@@ -13,7 +13,10 @@
 {
     AVAudioRecorder *audioRecorder;
     AVAudioPlayer *audioPlayer;
+    NSTimer * timer;
 }
+
+@property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
 
 - (IBAction)startRecording:(id)sender;
 - (IBAction)stopRecording:(id)sender;
