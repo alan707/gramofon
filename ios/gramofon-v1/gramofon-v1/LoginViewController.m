@@ -117,6 +117,7 @@
     NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
     NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
     NSLog(@"User.email: %@", [User sharedInstance].email);
+
     
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
 }
