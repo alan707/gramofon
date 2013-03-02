@@ -35,7 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{    
     countDownLabel.text = @"12:00";
     
     // when the record view loads, set-up the recorder
