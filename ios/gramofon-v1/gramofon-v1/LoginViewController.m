@@ -7,13 +7,16 @@
 //
 
 #import "LoginViewController.h"
-#import "AppDelegate.h" 
+#import "AppDelegate.h"
+#import "User.h"
+#import "AudioClip.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+
 @synthesize spinner;
 
 //NSString *const FBSessionStateChangedNotification =
@@ -27,11 +30,11 @@
     }
     return self;
 }
+
 /*
  * If we have a valid session at the time of openURL call, we handle
  * Facebook transitions by passing the url argument to handleOpenURL
  */
-
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -45,29 +48,38 @@
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    NSArray *permissions = [[NSArray alloc] initWithObjects:
-                            @"email",
-                            nil];
     return [FBSession openActiveSessionWithReadPermissions:nil
-                                              allowLoginUI:allowLoginUI
-                                         completionHandler:^(FBSession *session,
-                                                             FBSessionState state,
-                                                             NSError *error) {
-                                             [self sessionStateChanged:session
-                                                                 state:state
-                                                                 error:error];
-                                         }];
+               allowLoginUI:allowLoginUI
+               completionHandler:^(FBSession *session,
+               FBSessionState state,
+               NSError *error) {
+                   [self sessionStateChanged:session state:state error:error];
+               }];
 }
 
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error
 {
-    switch (state) {
+    switch ( state ) {
         case FBSessionStateOpen:
-            if (!error) {
-                // We have a valid session
-                NSLog(@"User session found");
+            if ( !error ) {
+                // We have a valid session, go get user profile info               
+                [[FBRequest requestForMe] startWithCompletionHandler:
+                    ^(FBRequestConnection *connection,
+                    NSDictionary<FBGraphUser> *user,
+                    NSError *error) {
+                        if ( !error ) {
+                            [User sharedInstance].username = user.username;
+                            [User sharedInstance].facebook_id = user.id;
+                            [User sharedInstance].firstname = user.first_name;
+                            [User sharedInstance].lastname = user.last_name;
+                            // TODO: email? - we need to figure out how to ask for email permissions.
+                            
+                            // get their Gramofon user id, or create a new user account for this user.
+                            [[User sharedInstance] authenticateGramofonUser];
+                        }
+                    }];
             }
             break;
         case FBSessionStateClosed:
@@ -82,7 +94,7 @@
      postNotificationName:FBSessionStateChangedNotification
      object:session];
     
-    if (error) {
+    if ( error ) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Error"
                                   message:error.localizedDescription
@@ -96,9 +108,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // To-do, show logged in view
         [self didAuthenticate];
     } else {
         // No, display the login page.
@@ -114,12 +125,11 @@
     }
     
 }
-- (void)didAuthenticate{
 
-       [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
-        
+- (void)didAuthenticate
+{    
+    [self performSegueWithIdentifier: @"SegueToRecord" sender: self];        
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -139,8 +149,6 @@
      }];
     //    NSLog(@"%@", [self.tabBarController viewControllers]);
     //     [self.mainViewController pushViewController:RecordViewController animated:true];
-    
-    
 }
 
 - (void)showLoginView

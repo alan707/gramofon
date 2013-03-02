@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "AudioClip.h"
 
 @interface RecordViewController ()
 
@@ -115,34 +116,11 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
-    countDownLabel.text = @"Done!";
-    
-    [self previewRecording];
-    [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
-}
+    countDownLabel.text = @"Done!";    
 
-- (void)previewRecording
-{
-    if ( audioPlayer.isPlaying == NO ) {
-        NSError *error;
-        NSURL *soundFile = audioRecorder.url;
-        
-        if ( audioPlayer ) {
-            audioPlayer = nil;
-        }
+    [AudioClip sharedInstance].fileName = audioRecorder.url;
     
-        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundFile error:&error];
-    
-        audioPlayer.delegate = self;
-    
-        [audioPlayer prepareToPlay];
-    
-        if ( error ) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        } else {
-            [audioPlayer play];
-        }
-    }
+    [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
 }
 
 -(void)tick

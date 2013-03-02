@@ -7,13 +7,17 @@
 //
 
 #import "ShareSoundViewController.h"
+#import "User.h"
+#import "AudioClip.h"
 
 @interface ShareSoundViewController ()
 
 @end
 
 @implementation ShareSoundViewController
-@synthesize playButton, titleSound;
+
+@synthesize titleSound, playButton;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,8 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     self.title = @"Share Sounds";
+    
     [titleSound becomeFirstResponder];
 }
 	
@@ -36,52 +41,54 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)playAudio:(id)sender
+
+- (void)playAudio
 {
     [playButton setTitle:@"Stop" forState:UIControlStateNormal];
     
-    NSArray *dirPaths;
-    NSString *docsDir;
+    NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
     
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:[AudioClip sharedInstance].fileName];
-    
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    if (audioPlayer)
+    if ( audioPlayer ) {
         audioPlayer = nil;
+    }
+    
     NSError *error;
     
-    audioPlayer = [[AVAudioPlayer alloc]
-                   initWithContentsOfURL:soundFileURL
-                   error:&error];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
     
     audioPlayer.delegate = self;
     
-    if (error)
-        NSLog(@"Error: %@",
-              [error localizedDescription]);
-    else
+    if ( error ) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    } else {
         [audioPlayer play];
-    
-    
+    }   
 }
--(IBAction)toggleAudio:(id)sender
+
+- (IBAction)toggleAudio:(id)sender
 {
-    if([audioPlayer isPlaying])
+    if ( audioPlayer.isPlaying )
     {
         [playButton setTitle:@"Play" forState:UIControlStateNormal];
         [audioPlayer stop];
-    }else{
-        [self playAudio:nil];
+    } else {
+        [self playAudio];
     }
 }
 
-- (IBAction)titleSound:(id)sender {
-}
-- (IBAction)shareSoundButton:(id)sender {
+- (IBAction)shareSoundButton:(id)sender
+{
+    [AudioClip sharedInstance].title = titleSound.text;
+    
+    NSLog(@"User.username: %@", [User sharedInstance].username);
+    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
+    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
+    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
+    NSLog(@"User.email: %@", [User sharedInstance].email);
+    
+    NSLog(@"AudioClip.fileName: %@", [[AudioClip sharedInstance].fileName absoluteString]);
+    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
+    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
 //    
 //    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"]];
 //    [request setPostValue:[CurrentData sharedInstance].username forKey:@"audio_clip[username]"];
@@ -106,7 +113,16 @@
 //    [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if ( titleSound == self.titleSound ) {
+        [titleSound resignFirstResponder];
+    }
+    return YES;
+}
+
 - (IBAction)dismissKeyboard:(id)sender {
     [titleSound resignFirstResponder];
 }
+
 @end

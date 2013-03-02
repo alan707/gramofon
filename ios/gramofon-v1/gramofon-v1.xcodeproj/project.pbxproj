@@ -40,6 +40,7 @@
 		60FD569D16DC711F005AD219 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569A16DC711F005AD219 /* AdSupport.framework */; };
 		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; };
 		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
+		C531662816E16773004BEDE0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C531662716E16773004BEDE0 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		60FD569A16DC711F005AD219 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		60FD569B16DC711F005AD219 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C531662416DF8E13004BEDE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C531662616E16773004BEDE0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		C531662716E16773004BEDE0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
@@ -157,10 +161,12 @@
 				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
-				6079D02016DEF43400BCD3DC /* AudioClip.h */,
-				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
 				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
+				6079D02016DEF43400BCD3DC /* AudioClip.h */,
+				6079D02116DEF43400BCD3DC /* AudioClip.m */,
+				C531662616E16773004BEDE0 /* User.h */,
+				C531662716E16773004BEDE0 /* User.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
@@ -274,6 +280,7 @@
 				6050EAA616DC877300060F05 /* LoginViewController.m in Sources */,
 				6050EAA716DC877300060F05 /* RecordViewController.m in Sources */,
 				6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */,
+				C531662816E16773004BEDE0 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +384,8 @@
 		60CCD5CF16DC2D6A0065E761 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -389,6 +398,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

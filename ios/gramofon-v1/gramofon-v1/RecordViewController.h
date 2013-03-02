@@ -20,6 +20,5 @@
 
 - (IBAction)startRecording:(id)sender;
 - (IBAction)stopRecording:(id)sender;
-- (void)previewRecording;
 
 @end
