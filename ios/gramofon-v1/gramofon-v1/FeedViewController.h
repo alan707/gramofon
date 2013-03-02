@@ -11,7 +11,7 @@
 @interface FeedViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
-@property (nonatomic, strong) UITabBarController *tabBarController;
+
 //@property (strong, nonatomic) UIWindow *window;
 //
 //@property (nonatomic, strong) IBOutlet FBProfilePictureView *userProfileImage;

@@ -12,7 +12,7 @@
 
 @implementation AppDelegate
 @synthesize session = _session;
-@synthesize tabBarController= _tabBarController;
+//@synthesize tabBarController= _tabBarController;
 
 //@synthesize openedURL = _openedURL;
 
