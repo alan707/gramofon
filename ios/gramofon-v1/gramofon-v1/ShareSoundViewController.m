@@ -84,25 +84,26 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
+//    NSLog(@"User.user_id: %@", [User sharedInstance].user_id);
 //    NSLog(@"User.username: %@", [User sharedInstance].username);
 //    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
 //    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
 //    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
 //    NSLog(@"User.email: %@", [User sharedInstance].email);
-//    
+//
 //    NSLog(@"AudioClip.fileURL: %@", [[AudioClip sharedInstance].fileURL absoluteString]);
 //    NSLog(@"AudioClip.fileName: %@", [AudioClip sharedInstance].fileName);
 //    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
 //    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
     
-//    [self uploadAudioClip];
-        
+    [self uploadAudioClip];
+    
     [self performSegueWithIdentifier: @"SegueToFeed" sender: self];
 }
 
 - (void)uploadAudioClip
 {
-    NSString *audioClipUserId   = @"1"; //[User sharedInstance].user_id;
+    NSString *audioClipUserId   = [User sharedInstance].user_id;
     NSString *audioClipUserName = [User sharedInstance].username;
     NSString *audioClipTitle    = [AudioClip sharedInstance].title;
     NSString *audioClipLng      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.longitude];
