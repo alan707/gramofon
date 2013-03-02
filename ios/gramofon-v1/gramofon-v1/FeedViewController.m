@@ -13,7 +13,7 @@
 @end
 
 @implementation FeedViewController
-@synthesize tabBarController;
+//@synthesize tabBarController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
