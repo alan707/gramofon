@@ -335,7 +335,6 @@
         <!--Navigation Controller - Record-->
         <scene sceneID="RFo-YO-RUz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Record" id="32l-Sy-bcO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Record" id="xUB-JU-bk8"/>
                     <toolbarItems/>
@@ -350,6 +349,7 @@
                         <segue destination="jtr-XI-3At" kind="relationship" relationship="rootViewController" id="la7-JT-oPa"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048" y="-258"/>
         </scene>
