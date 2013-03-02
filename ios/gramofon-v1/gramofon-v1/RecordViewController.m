@@ -83,7 +83,7 @@
     } else {
         [audioRecorder prepareToRecord];
     }
-    
+
     // grab the iOS audio session for recording
     session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryRecord error:nil];

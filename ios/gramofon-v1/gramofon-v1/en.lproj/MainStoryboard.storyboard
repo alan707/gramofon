@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -82,6 +82,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Audio Clips" id="EwS-A0-ZKy"/>
+                    <navigationItem key="navigationItem" id="dWH-MM-a6E"/>
                     <connections>
                         <outlet property="feedWebView" destination="STX-Gj-dDD" id="4jo-jO-ZID"/>
                     </connections>
@@ -247,6 +248,7 @@
                                 </state>
                                 <connections>
                                     <action selector="shareSoundButton:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="PGY-iP-KNs"/>
+                                    <segue destination="vFO-37-Ktc" kind="push" identifier="SegueToFeed" id="Hox-rB-n4A"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="1line.png" translatesAutoresizingMaskIntoConstraints="NO" id="90e-L2-R1C"/>
@@ -404,4 +406,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hox-rB-n4A"/>
+    </inferredMetricsTieBreakers>
 </document>
