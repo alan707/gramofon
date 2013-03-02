@@ -126,7 +126,12 @@
     
     countDownLabel.text = @"Done!";    
 
-    [AudioClip sharedInstance].fileName = audioRecorder.url;
+    [AudioClip sharedInstance].fileURL = audioRecorder.url;
+    
+    NSString *url = [audioRecorder.url absoluteString];
+    NSArray *parts = [url componentsSeparatedByString:@"/"];
+    
+    [AudioClip sharedInstance].fileName = [parts objectAtIndex:[parts count]-1];
     
     [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
 }

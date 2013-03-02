@@ -18,10 +18,10 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (weak, nonatomic) IBOutlet UIButton *buttonText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-- (void) openSession;
-- (void) closeSession;
-- (BOOL) openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-- (void) loginFailed;
-- (IBAction) performLogin:(id)sender;
+- (void)openSession;
+- (void)closeSession;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void)loginFailed;
+- (IBAction)performLogin:(id)sender;
 
 @end

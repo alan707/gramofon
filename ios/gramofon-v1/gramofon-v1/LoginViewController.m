@@ -32,19 +32,6 @@
 }
 
 /*
- * If we have a valid session at the time of openURL call, we handle
- * Facebook transitions by passing the url argument to handleOpenURL
- */
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [FBSession.activeSession handleOpenURL:url];
-}
-
-
-/*
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
@@ -64,22 +51,7 @@
     switch ( state ) {
         case FBSessionStateOpen:
             if ( !error ) {
-                // We have a valid session, go get user profile info               
-                [[FBRequest requestForMe] startWithCompletionHandler:
-                    ^(FBRequestConnection *connection,
-                    NSDictionary<FBGraphUser> *user,
-                    NSError *error) {
-                        if ( !error ) {
-                            [User sharedInstance].username = user.username;
-                            [User sharedInstance].facebook_id = user.id;
-                            [User sharedInstance].firstname = user.first_name;
-                            [User sharedInstance].lastname = user.last_name;
-                            // TODO: email? - we need to figure out how to ask for email permissions.
-                            
-                            // get their Gramofon user id, or create a new user account for this user.
-                            [[User sharedInstance] authenticateGramofonUser];
-                        }
-                    }];
+                [self getUser];
             }
             break;
         case FBSessionStateClosed:
@@ -109,26 +81,44 @@
 {
     [super viewDidLoad];
     
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        [self didAuthenticate];
-    } else {
-        // No, display the login page.
-        [self showLoginView];
-    }
+    [self openSession];
     
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // Yes, so just open the session (this won't display any UX).
-        [self openSession];
-    } else {
-        // No, display the login page.
-        [self showLoginView];
+        [self getUser];
     }
-    
+}
+
+- (void)getUser
+{
+    // We have a valid session, go get user profile info
+    [[FBRequest requestForMe] startWithCompletionHandler:
+     ^(FBRequestConnection *connection,
+       NSDictionary<FBGraphUser> *user,
+       NSError *error) {
+         if ( !error ) {
+             [User sharedInstance].username = user.username;
+             [User sharedInstance].facebook_id = user.id;
+             [User sharedInstance].firstname = user.first_name;
+             [User sharedInstance].lastname = user.last_name;
+             // TODO: email? - we need to figure out how to ask for email permissions.
+             
+             // get their Gramofon user id, or create a new user account for this user.
+             [[User sharedInstance] authenticateGramofonUser];
+             
+             [self didAuthenticate];
+         }
+     }];
 }
 
 - (void)didAuthenticate
-{    
-    [self performSegueWithIdentifier: @"SegueToRecord" sender: self];        
+{
+    NSLog(@"User.username: %@", [User sharedInstance].username);
+    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
+    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
+    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
+    NSLog(@"User.email: %@", [User sharedInstance].email);
+    
+    [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -141,7 +131,7 @@
 {
     
     [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
+                                       allowLoginUI:NO
                                   completionHandler:
      ^(FBSession *session,
        FBSessionState state, NSError *error) {
