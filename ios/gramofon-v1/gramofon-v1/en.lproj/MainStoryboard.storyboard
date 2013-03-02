@@ -114,8 +114,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startRecording:" destination="jtr-XI-3At" eventType="touchDown" id="xTi-cI-mhB"/>
-                                    <action selector="stopRecording:" destination="jtr-XI-3At" eventType="touchUpInside" id="bRt-xZ-hih"/>
+                                    <action selector="toggleRecording:" destination="jtr-XI-3At" eventType="touchDown" id="at5-fN-r2v"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQg-2w-GT3">
@@ -293,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ok-QN-6hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4164" y="-258"/>
+            <point key="canvasLocation" x="3636" y="-234"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5a-Cl-aid">
@@ -387,6 +386,7 @@
             <relationships>
                 <relationship kind="action" name="startRecording:"/>
                 <relationship kind="action" name="stopRecording:"/>
+                <relationship kind="action" name="toggleRecording:"/>
                 <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

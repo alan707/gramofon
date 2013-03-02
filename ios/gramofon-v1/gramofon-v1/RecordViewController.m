@@ -112,6 +112,14 @@
     [audioRecorder stop];
 }
 
+- (IBAction)toggleRecording:(id)sender {
+    if ( audioRecorder.isRecording ) {
+        [audioRecorder stop];
+    } else {
+        [self startRecording:(id)sender];
+    }
+}
+
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
