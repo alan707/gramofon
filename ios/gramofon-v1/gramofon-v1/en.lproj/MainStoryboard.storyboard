@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -103,8 +103,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-BV-eRq">
                                 <constraints>
+
                                     <constraint firstAttribute="width" constant="199" id="dj8-pD-9Ib"/>
-                                    <constraint firstAttribute="height" constant="192" id="yD9-a4-7D5"/>
+
+                                    <constraint firstAttribute="height" constant="168" id="H20-fD-ics"/>
+
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,12 +124,19 @@
                                     <action selector="stopRecording:" destination="jtr-XI-3At" eventType="touchUpInside" id="bRt-xZ-hih"/>
                                 </connections>
                             </button>
+
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hold To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zks-8P-OvN">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="YAU-XB-Sxd"/>
                                     <constraint firstAttribute="width" constant="139" id="egG-8u-CO4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQg-2w-GT3">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="5P1-qP-SRG"/>
+                                    <constraint firstAttribute="height" constant="88" id="Tjs-hj-8RJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -137,6 +147,11 @@
                             <constraint firstItem="Zks-8P-OvN" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="Dzk-n2-bzH"/>
                             <constraint firstItem="Zks-8P-OvN" firstAttribute="centerX" secondItem="6zW-BV-eRq" secondAttribute="centerX" type="default" id="EaJ-Sn-8d9"/>
                             <constraint firstItem="6zW-BV-eRq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="51" id="miF-E1-SeF"/>
+                            <constraint firstItem="6zW-BV-eRq" firstAttribute="centerY" secondItem="Cqn-Cw-hpT" secondAttribute="centerY" type="default" id="25E-EG-den"/>
+                            <constraint firstItem="6zW-BV-eRq" firstAttribute="trailing" secondItem="OQg-2w-GT3" secondAttribute="trailing" type="default" id="LmE-F7-8zC"/>
+                            <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="15" id="epk-cF-xbk"/>
+                            <constraint firstItem="OQg-2w-GT3" firstAttribute="leading" secondItem="6zW-BV-eRq" secondAttribute="leading" type="default" id="esJ-if-trX"/>
+                            <constraint firstItem="OQg-2w-GT3" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="mL1-Sg-h7C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NiP-Md-acV">
@@ -145,6 +160,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="countDownLabel" destination="OQg-2w-GT3" id="evI-dW-fyA"/>
                         <segue destination="bmH-xg-Tk4" kind="push" identifier="SegueToShareSound" id="xnF-8W-m0k"/>
                     </connections>
                 </viewController>
@@ -382,6 +398,7 @@
             <relationships>
                 <relationship kind="action" name="startRecording:"/>
                 <relationship kind="action" name="stopRecording:"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ShareSoundViewController" superclassName="UIViewController">
@@ -390,6 +407,8 @@
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="playAudio:"/>
                 <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="titleSound:"/>
+                <relationship kind="action" name="toggleAudio:"/>
                 <relationship kind="outlet" name="facebookShareSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
