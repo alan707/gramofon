@@ -79,21 +79,43 @@
 //    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
 //                                                                 delegate:self];
     
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                         email, [NSString stringWithFormat: @"%@",self.email],
-                         facebook_id, [NSString stringWithFormat: @"%@",self.facebook_id],
-                         firstname, [NSString stringWithFormat: @"%@",self.firstname],
-                         lastname, [NSString stringWithFormat: @"%@",self.lastname],
-                         // facebook username is currently not in the iOS app. 
-//                       facebook_username, [NSString stringWithFormat: @"%@",self.username],
-//                       photo_url, [NSString stringWithFormat: @"%@", self.] --> add when we have a picture
-                          
-                          nil];
+    
+    NSArray *userObjects = [[NSArray alloc] init];
+    NSArray *userKeys = [[NSArray alloc] init];
+//    NSString *aEmail = @"email";
+    NSString *aFacebook_id = @"facebook_id";
+    NSString *aFirstname = @"firstname";
+    NSString *aLastname = @"lastname";
+//    NSString *facebook_username = @"facebook_username";
+//    NSString *photo_url = @"photo_url";
+    
+    // Still missing facebook_username and photo_url
+    userObjects = [NSArray arrayWithObjects:
+//                   aEmail,
+                   aFacebook_id, aFirstname, aLastname, nil];
+    
+    userKeys = [NSArray arrayWithObjects:
+            [NSString stringWithFormat: @"%@",self.facebook_id],
+            [NSString stringWithFormat: @"%@",self.firstname],
+            [NSString stringWithFormat: @"%@",self.lastname], nil];
+    
+
+    
+    NSMutableDictionary *dict;
+    dict = [NSMutableDictionary dictionaryWithObjects:userObjects forKeys:userKeys];
     
     [request setHTTPMethod:@"POST"];
     NSError *error;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
-    [request setHTTPBody:postData];
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error ];
+//    NSLog(postData);
+//    if (postData isValidJSONObject:postData = YES) {
+//        NSLog(@"YES!!");
+//    }
+    [request setHTTPBody:postData ];
+    
+
+        
+    
 //    NSString *postString = @"firstname=&quality=AWESOME!";
 //    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
