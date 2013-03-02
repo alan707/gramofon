@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RecordViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface RecordViewController : UIViewController <AVAudioRecorderDelegate>
 {
     AVAudioRecorder *audioRecorder;
-    AVAudioPlayer *audioPlayer;
     NSTimer * timer;
 }
 

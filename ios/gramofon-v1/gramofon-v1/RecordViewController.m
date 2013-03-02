@@ -99,11 +99,7 @@
 }
 
 - (IBAction)startRecording:(id)sender
-{
-    if ( audioPlayer.isPlaying ) {
-        [audioPlayer stop];
-    }
-    
+{    
     [audioRecorder recordForDuration:12];
     timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
@@ -116,6 +112,7 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
+    
     countDownLabel.text = @"Done!";    
 
     [AudioClip sharedInstance].fileName = audioRecorder.url;
