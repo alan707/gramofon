@@ -71,16 +71,14 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Gj-dDD">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="460" id="ca7-uE-FqF"/>
-                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="1yu-xs-RXd"/>
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="7jw-bu-nSP"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" constant="-46" id="NGf-Um-huL"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="Cgu-LN-DOZ"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="GJI-57-NXE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Audio Clips" id="EwS-A0-ZKy"/>
