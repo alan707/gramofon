@@ -33,6 +33,36 @@
     
     self.title = @"Share Sounds";
     
+    if ( audioPlayer ) {
+        audioPlayer = nil;
+    }
+    
+    NSError *error;
+        
+    // set-up audio player
+    NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
+//    NSURL *soundFileURL = [NSURL URLWithString:@"https://gramofon.s3.amazonaws.com/uploads/amond/sound_file/D17B7EE9-08B8-4E69-BED8-DD8F6DD1B326.m4a"];
+    
+//    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
+    
+//    NSURL *url = [NSURL URLWithString:@"https://gramofon.s3.amazonaws.com/uploads/amond/sound_file/D17B7EE9-08B8-4E69-BED8-DD8F6DD1B326.m4a"];
+    NSData *soundData = [NSData dataWithContentsOfURL:soundFileURL];
+    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                    NSUserDomainMask, YES) objectAtIndex:0]
+                          stringByAppendingPathComponent:@"sound.caf"];
+    [soundData writeToFile:filePath atomically:YES];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL
+                                                           fileURLWithPath:filePath] error:NULL];
+    
+    if ( error ) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    } else {
+        audioPlayer.delegate = self;
+        
+        [audioPlayer prepareToPlay];
+    }
+    
+    // focus text field
     [titleSound becomeFirstResponder];
 }
 	
@@ -42,37 +72,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)playAudio
-{
-    [playButton setTitle:@"Stop" forState:UIControlStateNormal];
-    
-    NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
-    
-    if ( audioPlayer ) {
-        audioPlayer = nil;
-    }
-    
-    NSError *error;
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    
-    audioPlayer.delegate = self;
-    
-    if ( error ) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    } else {
-        [audioPlayer play];
-    }   
-}
-
 - (IBAction)toggleAudio:(id)sender
 {
-    if ( audioPlayer.isPlaying )
-    {
-        [playButton setTitle:@"Play" forState:UIControlStateNormal];
+    if ( audioPlayer.isPlaying ) {
         [audioPlayer stop];
     } else {
-        [self playAudio];
+        [audioPlayer play];
+    }
+    
+    if ( audioPlayer.isPlaying ) {
+        [playButton setTitle:@"Stop" forState:UIControlStateNormal];
+    } else {
+        [playButton setTitle:@"Play" forState:UIControlStateNormal];        
     }
 }
 
