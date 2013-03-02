@@ -12,7 +12,8 @@
 
 @implementation AppDelegate
 @synthesize session = _session;
-@synthesize tabBar;
+@synthesize tabBarController= _tabBarController;
+
 //@synthesize openedURL = _openedURL;
 
 
@@ -29,10 +30,12 @@ NSString *const FBSessionStateChangedNotification =
  * Opens a Facebook session and optionally shows the login UX.
  */
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [UITabBarItem Record];
-//    [tabBar setSelectedItem:UITabBarItem Record];
+
+
+
 
     return YES;
 }
@@ -78,6 +81,7 @@ NSString *const FBSessionStateChangedNotification =
 {
     // We need to properly handle activation of the application with regards to Facebook Login
     // (e.g., returning from iOS 6.0 Login Dialog or from fast app switching).
+
     [FBSession.activeSession handleDidBecomeActive];
 }
 

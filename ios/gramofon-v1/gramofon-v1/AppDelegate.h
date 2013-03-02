@@ -19,7 +19,9 @@
 //@property (strong, nonatomic) UINavigationController* navController;
 //@property (strong, nonatomic) UIViewController* mainViewController;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UITabBar *tabBar;
+@property (nonatomic, strong) UITabBarController *tabBarController;
+
+
 //@property (strong, nonatomic) UIStoryboard* goStoryboard;
 
 // FBSample logic

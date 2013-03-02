@@ -95,7 +95,7 @@
             <objects>
                 <viewController storyboardIdentifier="RecordViewController" title="Record" id="jtr-XI-3At" customClass="RecordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cqn-Cw-hpT">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-BV-eRq">
@@ -149,7 +149,7 @@
                         <barButtonItem key="backBarButtonItem" title="Record" id="oIq-ZJ-HMX"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countDownLabel" destination="OQg-2w-GT3" id="evI-dW-fyA"/>
                         <segue destination="bmH-xg-Tk4" kind="push" identifier="SegueToShareSound" id="xnF-8W-m0k"/>
@@ -164,7 +164,7 @@
             <objects>
                 <viewController id="bmH-xg-Tk4" customClass="ShareSoundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7SP-q7-Vuq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-6V-OGQ">
@@ -283,7 +283,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Share Your Sound" id="iK1-Zi-XfT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playButton" destination="wwr-bI-rjZ" id="Djo-y5-RIg"/>
                         <outlet property="titleSound" destination="2tj-2E-rA1" id="wXz-JG-GtN"/>
@@ -335,7 +335,8 @@
         <!--Navigation Controller - Record-->
         <scene sceneID="RFo-YO-RUz">
             <objects>
-                <navigationController id="32l-Sy-bcO" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController title="Record" id="32l-Sy-bcO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Record" id="xUB-JU-bk8"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -349,7 +350,6 @@
                         <segue destination="jtr-XI-3At" kind="relationship" relationship="rootViewController" id="la7-JT-oPa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048" y="-258"/>
         </scene>
