@@ -72,9 +72,8 @@
 {
     
     NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users.json"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
+ 
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl];
 //    
 //    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
 //                                                                 delegate:self];

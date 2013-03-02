@@ -19,7 +19,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="login" backgroundImage="login-button-small.png">
+                                <state key="normal" title="Log In" backgroundImage="login-button-small.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,11 +39,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="175" id="WjV-k9-eW5"/>
-                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="29" id="b3u-Qy-d8S"/>
+                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="Fpe-Gs-OS1"/>
+                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="IYZ-3k-X1D"/>
+                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="56" id="k6T-o9-YAW"/>
                             <constraint firstItem="Kcq-1b-P49" firstAttribute="top" secondItem="3" secondAttribute="top" constant="171" id="pvZ-Ma-7Yf"/>
-                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="rYH-w0-hl2"/>
-                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="tRz-Wf-hyh"/>
+                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="user" id="tRz-Wf-hyh"/>
                             <constraint firstItem="pmQ-ES-vcE" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="vM4-3S-0ut"/>
                         </constraints>
                     </view>
@@ -120,14 +120,13 @@
                                     <constraint firstAttribute="width" constant="199" id="5P1-qP-SRG"/>
                                     <constraint firstAttribute="height" constant="88" id="Tjs-hj-8RJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hold To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-e3-kKe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TAP To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-e3-kKe">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="YPa-pY-rZh"/>
-                                    <constraint firstAttribute="height" constant="21" id="i5d-V2-yDk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -138,9 +137,9 @@
                         <constraints>
                             <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="3XP-Fz-dHb"/>
                             <constraint firstItem="6zW-BV-eRq" firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="default" id="NME-bR-uJ3"/>
-                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="60" id="OVT-39-Cxe"/>
                             <constraint firstItem="6zW-BV-eRq" firstAttribute="top" secondItem="OQg-2w-GT3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aW6-E2-2sU"/>
                             <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="15" id="epk-cF-xbk"/>
+                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="61" id="ozp-Y3-2HX"/>
                             <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="6zW-BV-eRq" secondAttribute="centerX" type="default" id="ugC-Ev-Dzi"/>
                         </constraints>
                     </view>
@@ -361,6 +360,45 @@
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startRecording:"/>
+                <relationship kind="action" name="stopRecording:"/>
+                <relationship kind="action" name="toggleRecording:"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="showKeyboard:"/>
+                <relationship kind="action" name="toggleAudio:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
