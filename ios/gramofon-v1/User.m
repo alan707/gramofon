@@ -29,7 +29,6 @@
 
 - (void)authenticateGramofonUser
 {
-    NSLog(@"Yeah!");
     // go get the user from the API
     [self fetchUser];
     

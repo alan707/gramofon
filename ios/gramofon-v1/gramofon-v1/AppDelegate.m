@@ -20,45 +20,18 @@
 NSString *const FBSessionStateChangedNotification =
 @"com.gramofon.gramofon:FBSessionStateChangedNotification";
 
-/*
- * If we have a valid session at the time of openURL call, we handle
- * Facebook transitions by passing the url argument to handleOpenURL
- */
-
-
-/*
- * Opens a Facebook session and optionally shows the login UX.
- */
-
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-
-
-
     return YES;
 }
-
-/*
- * Callback for session changes.
-// */
-//- (void)populateUserDetails
-//{
-//    if (FBSession.activeSession.isOpen) {
-//        [[FBRequest requestForMe] startWithCompletionHandler:
-//         ^(FBRequestConnection *connection,
-//           NSDictionary<FBGraphUser> *user,
-//           NSError *error) {
-//             if (!error) {
-//                 self.userNameLabel.text = user.name;
-//                 self.userProfileImage.profileID = user.id;
-//             }
-//         }];
-//    }
-//}
-
-
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
