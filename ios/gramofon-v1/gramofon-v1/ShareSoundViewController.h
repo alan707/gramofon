@@ -16,11 +16,13 @@
     AVAudioPlayer *audioPlayer;
 }
 
+
 @property (weak, nonatomic) IBOutlet UITextField *titleSound;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 - (IBAction)shareSoundButton:(id)sender;
 - (IBAction)toggleAudio:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)showKeyboard:(id)sender;
 
 @end

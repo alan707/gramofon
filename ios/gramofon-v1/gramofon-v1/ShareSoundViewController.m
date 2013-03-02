@@ -62,8 +62,6 @@
         [audioPlayer prepareToPlay];
     }
     
-    // focus text field
-    [titleSound becomeFirstResponder];
 }
 	
 - (void)didReceiveMemoryWarning
@@ -136,4 +134,8 @@
     [titleSound resignFirstResponder];
 }
 
+- (IBAction)showKeyboard:(id)sender {
+    // focus text field
+    [titleSound becomeFirstResponder];
+}
 @end

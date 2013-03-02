@@ -11,6 +11,7 @@
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
 		6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336C16DFFC5F000B2F39 /* 2lines.png */; };
 		6052336F16DFFC75000B2F39 /* 1line.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336E16DFFC75000B2F39 /* 1line.png */; };
+		607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */; };
 		6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */; };
 		6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079D02116DEF43400BCD3DC /* AudioClip.m */; };
 		60CCD5AE16DC2D6A0065E761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AD16DC2D6A0065E761 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		60CCD5C016DC2D6A0065E761 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5BF16DC2D6A0065E761 /* Default.png */; };
 		60CCD5C216DC2D6A0065E761 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5C116DC2D6A0065E761 /* Default@2x.png */; };
 		60CCD5C416DC2D6A0065E761 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5C316DC2D6A0065E761 /* Default-568h@2x.png */; };
-		60CCD5C716DC2D6A0065E761 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */; };
 		60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5C916DC2D6A0065E761 /* ViewController.m */; };
 		60CCD5D816DC31DC0065E761 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D716DC31DC0065E761 /* FeedViewController.m */; };
 		60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */; };
@@ -50,6 +50,7 @@
 		6050EAA516DC877300060F05 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		6052336C16DFFC5F000B2F39 /* 2lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2lines.png; path = ../2lines.png; sourceTree = "<group>"; };
 		6052336E16DFFC75000B2F39 /* 1line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1line.png; path = ../1line.png; sourceTree = "<group>"; };
+		607714F416E18DE6009EEC40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
 		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		60CCD5BF16DC2D6A0065E761 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60CCD5C116DC2D6A0065E761 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		60CCD5C316DC2D6A0065E761 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		60CCD5C616DC2D6A0065E761 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		60CCD5C816DC2D6A0065E761 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		60CCD5C916DC2D6A0065E761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60CCD5D616DC31DC0065E761 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -150,17 +150,15 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
-				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
 				6050EAA316DC877300060F05 /* LoginViewController.m */,
 				6050EAA416DC877300060F05 /* RecordViewController.h */,
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
-				60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */,
-				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
+				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
 				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
@@ -183,6 +181,7 @@
 				60D17C2D16E050F6004A07A3 /* Gramofon-app-icon.png */,
 				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
 				6052336C16DFFC5F000B2F39 /* 2lines.png */,
+				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
 				6052336E16DFFC75000B2F39 /* 1line.png */,
 				60CCD5DC16DC35B60065E761 /* button_over.png */,
 				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
@@ -251,7 +250,6 @@
 				60CCD5C016DC2D6A0065E761 /* Default.png in Resources */,
 				60CCD5C216DC2D6A0065E761 /* Default@2x.png in Resources */,
 				60CCD5C416DC2D6A0065E761 /* Default-568h@2x.png in Resources */,
-				60CCD5C716DC2D6A0065E761 /* MainStoryboard.storyboard in Resources */,
 				60CCD5DD16DC35B60065E761 /* button_over.png in Resources */,
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
@@ -262,6 +260,7 @@
 				60D17C2F16E050F6004A07A3 /* Gramofon-app-icon.png in Resources */,
 				60D17C3016E050F6004A07A3 /* Gramofon-circle-logo.png in Resources */,
 				60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */,
+				607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,20 +286,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607714F416E18DE6009EEC40 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				60CCD5B716DC2D6A0065E761 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		60CCD5C516DC2D6A0065E761 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				60CCD5C616DC2D6A0065E761 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

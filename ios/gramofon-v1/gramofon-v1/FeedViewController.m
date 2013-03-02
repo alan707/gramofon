@@ -23,6 +23,11 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [_feedWebView reload];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];	

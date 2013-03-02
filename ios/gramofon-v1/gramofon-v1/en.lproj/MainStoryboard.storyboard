@@ -39,8 +39,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="175" id="WjV-k9-eW5"/>
                             <constraint firstItem="yXy-Dd-gGG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="29" id="b3u-Qy-d8S"/>
-                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="150" id="cuY-0q-qMW"/>
                             <constraint firstItem="Kcq-1b-P49" firstAttribute="top" secondItem="3" secondAttribute="top" constant="171" id="pvZ-Ma-7Yf"/>
                             <constraint firstItem="pmQ-ES-vcE" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="rYH-w0-hl2"/>
                             <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="tRz-Wf-hyh"/>
@@ -214,6 +214,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="showKeyboard:" destination="bmH-xg-Tk4" eventType="editingDidBegin" id="Jxu-zP-301"/>
                                     <outlet property="delegate" destination="bmH-xg-Tk4" id="Mgu-k9-taw"/>
                                 </connections>
                             </textField>
@@ -272,10 +273,10 @@
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="dYc-QE-RCH"/>
                             <constraint firstItem="CtR-Yf-UZ9" firstAttribute="centerY" secondItem="fYE-iK-kTH" secondAttribute="centerY" type="default" id="dvK-M0-z03"/>
                             <constraint firstItem="wwr-bI-rjZ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="75" id="fE7-Mw-Fcc"/>
+                            <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="205" id="jPK-ij-chu"/>
                             <constraint firstItem="CtR-Yf-UZ9" firstAttribute="top" secondItem="fYE-iK-kTH" secondAttribute="top" type="default" id="pxh-yj-sfr"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="28" id="q3S-7o-V7R"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="22" id="qxl-ZD-Mkc"/>
-                            <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="199" id="tam-B6-rdX"/>
                             <constraint firstItem="90e-L2-R1C" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="toa-hj-I1m"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xto-MX-Ghc"/>
                         </constraints>
@@ -295,7 +296,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Qcl-Z7-eDX">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="5Vb-WT-jKN" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" wantsFullScreenLayout="YES" id="5Vb-WT-jKN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6jq-4o-Pkf"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -360,43 +361,6 @@
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
-    <classes>
-        <class className="FeedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="performLogin:"/>
-                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RecordViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startRecording:"/>
-                <relationship kind="action" name="stopRecording:"/>
-                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ShareSoundViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="shareSoundButton:"/>
-                <relationship kind="action" name="toggleAudio:"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

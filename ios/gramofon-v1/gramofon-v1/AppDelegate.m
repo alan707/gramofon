@@ -12,6 +12,7 @@
 
 @implementation AppDelegate
 @synthesize session = _session;
+@synthesize tabBar;
 //@synthesize openedURL = _openedURL;
 
 
@@ -30,7 +31,8 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
+//    [UITabBarItem Record];
+//    [tabBar setSelectedItem:UITabBarItem Record];
 
     return YES;
 }
