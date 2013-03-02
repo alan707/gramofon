@@ -84,18 +84,20 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
-    NSLog(@"User.username: %@", [User sharedInstance].username);
-    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
-    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
-    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
-    NSLog(@"User.email: %@", [User sharedInstance].email);
-    
-    NSLog(@"AudioClip.fileURL: %@", [[AudioClip sharedInstance].fileURL absoluteString]);
-    NSLog(@"AudioClip.fileName: %@", [AudioClip sharedInstance].fileName);
-    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
-    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
+//    NSLog(@"User.username: %@", [User sharedInstance].username);
+//    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
+//    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
+//    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
+//    NSLog(@"User.email: %@", [User sharedInstance].email);
+//    
+//    NSLog(@"AudioClip.fileURL: %@", [[AudioClip sharedInstance].fileURL absoluteString]);
+//    NSLog(@"AudioClip.fileName: %@", [AudioClip sharedInstance].fileName);
+//    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
+//    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
     
 //    [self uploadAudioClip];
+        
+    [self performSegueWithIdentifier: @"SegueToFeed" sender: self];
 }
 
 - (void)uploadAudioClip
@@ -105,25 +107,23 @@
     NSString *audioClipTitle    = [AudioClip sharedInstance].title;
     NSString *audioClipLng      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.longitude];
     NSString *audioClipLat      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.latitude];
-    NSString *audioClipURL      = [[AudioClip sharedInstance].fileURL absoluteString];
     NSString *audioClipFileName = [AudioClip sharedInstance].fileName;
 
     NSURL *url = [NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    
-    NSMutableData *body = [NSMutableData data];
-    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];    
+    NSMutableData *body = [NSMutableData data];    
     NSString *boundary = @"---------------------------14737809831466499882746641449";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];    
+    
+    [request setHTTPMethod:@"POST"];
     [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
     
     // file
-    NSData *soundFileData = [[NSFileManager defaultManager] contentsAtPath:audioClipURL];
+    NSData *soundFileData = [NSData dataWithContentsOfURL:[AudioClip sharedInstance].fileURL];
     
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"audio_clip[sound_file]\"; filename=\"%@\"\r\n", audioClipFileName] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"audio_clip[sound_file]\"; filename=\"%@\"\r\n", audioClipFileName] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:soundFileData]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
