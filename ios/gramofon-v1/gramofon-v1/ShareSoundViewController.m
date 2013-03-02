@@ -32,27 +32,26 @@
     [super viewDidLoad];
     
     self.title = @"Share Sounds";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // grab the iOS audio session fo playback
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
     
+    // when the share view loads, set-up the player
     if ( audioPlayer ) {
         audioPlayer = nil;
     }
     
-    NSError *error;
-        
     // set-up audio player
+    NSError *error;
+    
     NSURL *soundFileURL = [AudioClip sharedInstance].fileName;
-//    NSURL *soundFileURL = [NSURL URLWithString:@"https://gramofon.s3.amazonaws.com/uploads/amond/sound_file/D17B7EE9-08B8-4E69-BED8-DD8F6DD1B326.m4a"];
     
-//    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    
-//    NSURL *url = [NSURL URLWithString:@"https://gramofon.s3.amazonaws.com/uploads/amond/sound_file/D17B7EE9-08B8-4E69-BED8-DD8F6DD1B326.m4a"];
-    NSData *soundData = [NSData dataWithContentsOfURL:soundFileURL];
-    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                    NSUserDomainMask, YES) objectAtIndex:0]
-                          stringByAppendingPathComponent:@"sound.caf"];
-    [soundData writeToFile:filePath atomically:YES];
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL
-                                                           fileURLWithPath:filePath] error:NULL];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
     
     if ( error ) {
         NSLog(@"Error: %@", [error localizedDescription]);
@@ -61,9 +60,8 @@
         
         [audioPlayer prepareToPlay];
     }
-    
 }
-	
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -121,12 +119,51 @@
 //    NSString *response = [request responseString];
 //    [self.navigationController popViewControllerAnimated:YES];
     
+//    NSString *longitude = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.longitude];
+//    NSString *latitude = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.latitude];
+    
+    
+    // try this upload code instead
+    // from: http://stackoverflow.com/questions/11033448/send-json-data-with-nsurlconnection-in-xcode
+    // and: http://stackoverflow.com/questions/9460817/form-data-request-using-nsurlconnection-in-ios
+//    NSString *key = [NSString stringWithFormat:@"audio_clip[user_id]=%@&audio_clip[title]=%@&audio_clip[latitude]=%@&audio_clip[longitude]=%@&audio_clip[sound_file]",
+//                     [User sharedInstance].user_id,
+//                     [AudioClip sharedInstance].title,
+//                     longitude,
+//                     latitude];
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"];
+//    
+//    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+//    
+//    [request setHTTPMethod:@"POST"];
+//    [request setHTTPBody:[key dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//    
+//    // this is for you to be able to get your server answer.
+//    // you will need to make your class a delegate of NSURLConnectionDelegate and NSURLConnectionDataDelegate
+//    myClassPointerData = [[NSMutableData data] retain];
+//    
+//    //later in your class you need to implement
+//    
+//    -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+//        [myClassPointerData appendData:data]
+//    }
+//    
+//    -(void)connection:(NSURLConnection *)connection DidFinishLoading {
+//        // do what you want with myClassPointerData the data that your server did send you back here
+//        // for info on your server php script you just need to do: echo json_encode(array('var1'=> $var1, 'var2'=>$var2...));
+//        // to get your server sending an answer
+//    }
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     if ( titleSound == self.titleSound ) {
         [titleSound resignFirstResponder];
     }
+    
     return YES;
 }
 
@@ -138,4 +175,5 @@
     // focus text field
     [titleSound becomeFirstResponder];
 }
+
 @end

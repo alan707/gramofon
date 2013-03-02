@@ -31,10 +31,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
+{    
     self.currentLocation = newLocation;
-    
-    //if(newLocation.horizontalAccuracy <= 100.0f) { [locationManager stopUpdatingLocation]; }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
