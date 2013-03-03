@@ -15,7 +15,7 @@
 
 @implementation RecordViewController
 
-@synthesize countDownLabel;
+@synthesize countDownLabel, tapLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {    
     countDownLabel.text = @"12:00";
+    tapLabel.text = @"TAP To Record";
     
     // when the record view loads, set-up the recorder
     [self resetPlayer];
@@ -105,6 +106,7 @@
 {    
     [audioRecorder recordForDuration:12];
     timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    tapLabel.text = @"TAP To Finish";
 }
 
 - (IBAction)stopRecording:(id)sender

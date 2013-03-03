@@ -125,9 +125,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TAP To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-e3-kKe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TAP To Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-e3-kKe">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="YPa-pY-rZh"/>
+                                    <constraint firstAttribute="height" constant="37" id="FCJ-vW-yJ6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -136,12 +136,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="Cqn-Cw-hpT" secondAttribute="centerX" type="default" id="3XP-Fz-dHb"/>
+                            <constraint firstAttribute="trailing" secondItem="XJv-e3-kKe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1Zy-aS-Tkd"/>
+                            <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="6zW-BV-eRq" secondAttribute="centerX" type="default" id="G9k-Dj-yK8"/>
+                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="48" id="Ifc-mq-Yzj"/>
                             <constraint firstItem="6zW-BV-eRq" firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="default" id="NME-bR-uJ3"/>
                             <constraint firstItem="6zW-BV-eRq" firstAttribute="top" secondItem="OQg-2w-GT3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aW6-E2-2sU"/>
+                            <constraint firstItem="XJv-e3-kKe" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bYf-fR-jAG"/>
                             <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="15" id="epk-cF-xbk"/>
-                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="61" id="ozp-Y3-2HX"/>
-                            <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="6zW-BV-eRq" secondAttribute="centerX" type="default" id="ugC-Ev-Dzi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NiP-Md-acV">
@@ -151,6 +152,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countDownLabel" destination="OQg-2w-GT3" id="evI-dW-fyA"/>
+                        <outlet property="tapLabel" destination="XJv-e3-kKe" id="Gv2-pS-rQu"/>
                         <segue destination="bmH-xg-Tk4" kind="push" identifier="SegueToShareSound" id="xnF-8W-m0k"/>
                     </connections>
                 </viewController>
@@ -211,7 +213,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <action selector="showKeyboard:" destination="bmH-xg-Tk4" eventType="editingDidBegin" id="Jxu-zP-301"/>
                                     <outlet property="delegate" destination="bmH-xg-Tk4" id="Mgu-k9-taw"/>
@@ -386,6 +388,7 @@
                 <relationship kind="action" name="stopRecording:"/>
                 <relationship kind="action" name="toggleRecording:"/>
                 <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ShareSoundViewController" superclassName="UIViewController">

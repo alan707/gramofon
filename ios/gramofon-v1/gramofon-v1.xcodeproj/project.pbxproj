@@ -123,6 +123,7 @@
 				60CCD5AB16DC2D6A0065E761 /* Products */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 1;
 		};
 		60CCD5AB16DC2D6A0065E761 /* Products */ = {
 			isa = PBXGroup;
