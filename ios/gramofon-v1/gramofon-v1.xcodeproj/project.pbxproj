@@ -49,6 +49,8 @@
 		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; };
 		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
 		C531662816E16773004BEDE0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C531662716E16773004BEDE0 /* User.m */; };
+		C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */; };
+		C5B1132F16E3FAE4000C0BF5 /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1132E16E3FAE4000C0BF5 /* 123-id-card.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,9 @@
 		C531662416DF8E13004BEDE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C531662616E16773004BEDE0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
 		C531662716E16773004BEDE0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		C5B1132E16E3FAE4000C0BF5 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card.png"; path = "../../../../../Downloads/glyphish-icons (1)/PNG icons/123-id-card.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,7 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
@@ -177,9 +183,10 @@
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
-				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
 				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
 				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
+				C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */,
+				C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
 				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				C531662616E16773004BEDE0 /* User.h */,
@@ -194,6 +201,7 @@
 		60CCD5B416DC2D6A0065E761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5B1132E16E3FAE4000C0BF5 /* 123-id-card.png */,
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 				60DCB73116E2F53500ED4366 /* 12-eye.png */,
@@ -294,6 +302,7 @@
 				606BF88716E2FC7000DAD2B4 /* iOS Simulator Screen shot Mar 2, 2013 10.34.27 PM.png in Resources */,
 				606BF88916E2FC7E00DAD2B4 /* Default.png in Resources */,
 				606BF88B16E2FCB400DAD2B4 /* Default@2x.png in Resources */,
+				C5B1132F16E3FAE4000C0BF5 /* 123-id-card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +322,7 @@
 				6050EAA716DC877300060F05 /* RecordViewController.m in Sources */,
 				6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */,
 				C531662816E16773004BEDE0 /* User.m in Sources */,
+				C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -85,6 +85,11 @@
     }
 }
 
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [playButton setTitle:@"Play" forState:UIControlStateNormal];    
+}
+
 - (IBAction)shareSoundButton:(id)sender
 {
     [AudioClip sharedInstance].title = titleSound.text;

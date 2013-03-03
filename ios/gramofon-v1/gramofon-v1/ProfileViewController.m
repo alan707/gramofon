@@ -1,42 +1,37 @@
 //
-//  FeedViewController.m
+//  ProfileViewController.m
 //  gramofon-v1
 //
-//  Created by Alan Mond on 2/25/13.
+//  Created by Dan Trenz on 3/3/13.
 //  Copyright (c) 2013 gramofon. All rights reserved.
 //
 
-#import "FeedViewController.h"
+#import "ProfileViewController.h"
+#import "User.h"
 
-@interface FeedViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation FeedViewController
+@implementation ProfileViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-  
     }
     return self;
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [_feedWebView reload];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSString *httpSource = @"http://gramofon.dantrenz.com/";
+    
+    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.dantrenz.com/%@", [User sharedInstance].username];
     NSURL *fullUrl = [NSURL URLWithString:httpSource];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
-    [_feedWebView loadRequest:httpRequest];
+    [_profileWebView loadRequest:httpRequest];
 }
 
 - (void)didReceiveMemoryWarning

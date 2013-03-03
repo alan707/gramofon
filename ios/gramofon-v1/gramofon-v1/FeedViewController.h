@@ -12,9 +12,4 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
 
-//@property (strong, nonatomic) UIWindow *window;
-//
-//@property (nonatomic, strong) IBOutlet FBProfilePictureView *userProfileImage;
-//@property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
-
 @end
