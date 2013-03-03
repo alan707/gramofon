@@ -31,8 +31,6 @@
 {
     [super viewDidLoad];
     
-//    self.title = @"Share Sounds";
-    
     // grab the iOS audio session fo playback
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -57,6 +55,13 @@
         
         [audioPlayer prepareToPlay];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // release the iOS audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:NO error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,19 +89,9 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
-//    NSLog(@"User.user_id: %@", [User sharedInstance].user_id);
-//    NSLog(@"User.username: %@", [User sharedInstance].username);
-//    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
-//    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
-//    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
-//    NSLog(@"User.email: %@", [User sharedInstance].email);
-//
-//    NSLog(@"AudioClip.fileURL: %@", [[AudioClip sharedInstance].fileURL absoluteString]);
-//    NSLog(@"AudioClip.fileName: %@", [AudioClip sharedInstance].fileName);
-//    NSLog(@"AudioClip.title: %@", [AudioClip sharedInstance].title);
-//    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
-    
     [self uploadAudioClip];
+    
+//    [self performSegueWithIdentifier: @"SegueToRecord" sender:self];
 }
 
 - (void)uploadAudioClip

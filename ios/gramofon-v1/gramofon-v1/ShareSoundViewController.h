@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-//#import "ASIFormDataRequest.h"
 
 
 @interface ShareSoundViewController : UIViewController <AVAudioPlayerDelegate, UITextFieldDelegate>
 {
     AVAudioPlayer *audioPlayer;
+    AVAudioSession *audioSession;
 }
-
 
 @property (weak, nonatomic) IBOutlet UITextField *titleSound;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;

@@ -46,6 +46,13 @@
     [self resetPlayer];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // release the iOS audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:NO error:nil];
+}
+
 // set-up the recorder
 - (void)resetPlayer
 {
