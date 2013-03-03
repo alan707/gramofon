@@ -30,10 +30,10 @@
 		60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */; };
 		60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */; };
 		60D17C2C16E03DED004A07A3 /* rec_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C2B16E03DED004A07A3 /* rec_image.png */; };
-		60D17C2F16E050F6004A07A3 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C2D16E050F6004A07A3 /* Gramofon-app-icon.png */; };
 		60D17C3016E050F6004A07A3 /* Gramofon-circle-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */; };
 		60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */; };
 		60D17C3D16E059B4004A07A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D17C3C16E059B4004A07A3 /* MapKit.framework */; };
+		60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */; };
 		60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569516DC709C005AD219 /* FacebookSDK.framework */; };
 		60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */; };
 		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
@@ -77,10 +77,11 @@
 		60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableShareSound-white-bg.png"; sourceTree = "<group>"; };
 		60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleShareSound-whitebg.png"; sourceTree = "<group>"; };
 		60D17C2B16E03DED004A07A3 /* rec_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rec_image.png; path = ../rec_image.png; sourceTree = "<group>"; };
-		60D17C2D16E050F6004A07A3 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = "<group>"; };
 		60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-circle-logo.png"; sourceTree = "<group>"; };
 		60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gramaphon_logo_small.png; sourceTree = "<group>"; };
 		60D17C3C16E059B4004A07A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = SOURCE_ROOT; };
+		60DCB72616E2CA4800ED4366 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -115,6 +116,8 @@
 		60CCD5A116DC2D6A0065E761 = {
 			isa = PBXGroup;
 			children = (
+				60DCB72616E2CA4800ED4366 /* Default.png */,
+				60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */,
 				60CCD5B316DC2D6A0065E761 /* gramofon-v1 */,
 				60CCD5AC16DC2D6A0065E761 /* Frameworks */,
 				60CCD5AB16DC2D6A0065E761 /* Products */,
@@ -178,7 +181,6 @@
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 				60D17C2B16E03DED004A07A3 /* rec_image.png */,
-				60D17C2D16E050F6004A07A3 /* Gramofon-app-icon.png */,
 				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
 				6052336C16DFFC5F000B2F39 /* 2lines.png */,
 				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
@@ -257,10 +259,10 @@
 				6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */,
 				6052336F16DFFC75000B2F39 /* 1line.png in Resources */,
 				60D17C2C16E03DED004A07A3 /* rec_image.png in Resources */,
-				60D17C2F16E050F6004A07A3 /* Gramofon-app-icon.png in Resources */,
 				60D17C3016E050F6004A07A3 /* Gramofon-circle-logo.png in Resources */,
 				60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */,
 				607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */,
+				60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
