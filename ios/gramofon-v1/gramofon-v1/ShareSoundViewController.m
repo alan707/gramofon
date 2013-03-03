@@ -97,13 +97,11 @@
 //    NSLog(@"AudioClip.currentLocation: %@", [AudioClip sharedInstance].currentLocation);
     
     [self uploadAudioClip];
-    
-    [self performSegueWithIdentifier: @"SegueToFeed" sender: self];
 }
 
 - (void)uploadAudioClip
 {
-    NSString *audioClipUserId   = [User sharedInstance].user_id;
+    NSString *audioClipUserId   = [NSString stringWithFormat:@"%@", [User sharedInstance].user_id];
     NSString *audioClipUserName = [User sharedInstance].username;
     NSString *audioClipTitle    = [AudioClip sharedInstance].title;
     NSString *audioClipLng      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.longitude];
