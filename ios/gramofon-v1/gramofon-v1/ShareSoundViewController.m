@@ -89,9 +89,9 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
-    [self uploadAudioClip];
+//    [self uploadAudioClip];
     
-//    [self performSegueWithIdentifier: @"SegueToRecord" sender:self];
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
 
 - (void)uploadAudioClip

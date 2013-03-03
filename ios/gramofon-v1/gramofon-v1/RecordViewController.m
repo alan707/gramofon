@@ -109,23 +109,14 @@
 	return string;
 }
 
-- (IBAction)startRecording:(id)sender
-{    
-    [audioRecorder recordForDuration:12];
-    timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    tapLabel.text = @"TAP To Finish";
-}
-
-- (IBAction)stopRecording:(id)sender
+- (IBAction)toggleRecording:(id)sender
 {
-    [audioRecorder stop];
-}
-
-- (IBAction)toggleRecording:(id)sender {
     if ( audioRecorder.isRecording ) {
         [audioRecorder stop];
     } else {
-        [self startRecording:(id)sender];
+        [audioRecorder recordForDuration:12];
+        timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        tapLabel.text = @"TAP To Finish";
     }
 }
 

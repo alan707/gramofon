@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="142"/>
+            <point key="canvasLocation" x="507" y="150"/>
         </scene>
         <!--Feed View Controller - View Audio Clips-->
         <scene sceneID="tp7-Ye-k9j">
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lA-gg-N6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2254" y="450"/>
+            <point key="canvasLocation" x="1510" y="786"/>
         </scene>
         <!--Record View Controller - Record-->
         <scene sceneID="dnY-4G-Xr3">
@@ -101,19 +101,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-BV-eRq">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" backgroundImage="gramaphon_logo_small.png">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleRecording:" destination="jtr-XI-3At" eventType="touchDown" id="at5-fN-r2v"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQg-2w-GT3">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="HJv-az-kXY"/>
@@ -137,19 +124,34 @@
                                     <constraint firstAttribute="height" constant="143" id="2zh-e1-35i"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-FJ-aUZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="367" id="4M1-4N-1mu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRecording:" destination="jtr-XI-3At" eventType="touchUpInside" id="hwE-F4-34f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="dR2-FJ-aUZ" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" type="default" id="4KM-AP-ItV"/>
+                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="48" id="533-bZ-3q5"/>
                             <constraint firstItem="oEC-U0-siq" firstAttribute="centerX" secondItem="XJv-e3-kKe" secondAttribute="centerX" type="default" id="9NA-2X-paj"/>
-                            <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="16" id="ASN-Y9-70o"/>
-                            <constraint firstItem="oEC-U0-siq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="118" id="B9d-D8-Saf"/>
-                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="48" id="Ifc-mq-Yzj"/>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" type="default" id="PjC-g2-n3q"/>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" type="default" id="Q5s-jD-l7t"/>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="trailing" secondItem="Cqn-Cw-hpT" secondAttribute="trailing" type="default" id="S8t-vH-CdD"/>
+                            <constraint firstItem="oEC-U0-siq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="118" id="Oyb-iJ-hPE"/>
                             <constraint firstItem="OQg-2w-GT3" firstAttribute="centerX" secondItem="oEC-U0-siq" secondAttribute="centerX" type="default" id="TsB-Jd-ze2"/>
-                            <constraint firstItem="6zW-BV-eRq" firstAttribute="bottom" secondItem="Cqn-Cw-hpT" secondAttribute="bottom" type="default" id="Zy6-pV-xdd"/>
+                            <constraint firstItem="dR2-FJ-aUZ" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" type="default" id="bCQ-FI-p1W"/>
                             <constraint firstItem="XJv-e3-kKe" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bYf-fR-jAG"/>
+                            <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="16" id="cye-AF-r4D"/>
+                            <constraint firstItem="dR2-FJ-aUZ" firstAttribute="trailing" secondItem="Cqn-Cw-hpT" secondAttribute="trailing" type="default" id="uh0-HO-sVM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NiP-Md-acV">
@@ -165,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1A-xg-izR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2998" y="-274"/>
+            <point key="canvasLocation" x="2034" y="150"/>
         </scene>
         <!--Share Sound View Controller - Share Your Sound-->
         <scene sceneID="Uj0-Tl-lpq">
@@ -299,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ok-QN-6hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="-234"/>
+            <point key="canvasLocation" x="2544" y="150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5a-Cl-aid">
@@ -340,7 +342,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opn-M1-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="-258"/>
+            <point key="canvasLocation" x="1516" y="150"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="l8g-Ky-pIj">
@@ -360,7 +362,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgC-eH-Kw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="117"/>
+            <point key="canvasLocation" x="966" y="150"/>
         </scene>
     </scenes>
     <resources>
