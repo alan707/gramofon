@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nIt-mI-Wjf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -23,6 +23,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="login-button-small-pressed@2x.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -81,7 +82,7 @@
                             <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="GJI-57-NXE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Audio Clips" id="EwS-A0-ZKy"/>
+                    <tabBarItem key="tabBarItem" title="Listen" image="65-note.png" id="EwS-A0-ZKy"/>
                     <navigationItem key="navigationItem" id="dWH-MM-a6E"/>
                     <connections>
                         <outlet property="feedWebView" destination="STX-Gj-dDD" id="4jo-jO-ZID"/>
@@ -317,7 +318,7 @@
         <scene sceneID="RFo-YO-RUz">
             <objects>
                 <navigationController title="Record" id="32l-Sy-bcO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" id="xUB-JU-bk8"/>
+                    <tabBarItem key="tabBarItem" title="Record" image="160-voicemail-2.png" id="xUB-JU-bk8"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aUQ-1U-d3E"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -357,9 +358,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="160-voicemail-2.png" width="26" height="18"/>
         <image name="1line.png" width="276" height="3"/>
         <image name="2lines.png" width="277" height="121"/>
+        <image name="65-note.png" width="15" height="24"/>
         <image name="gramaphon_logo_small.png" width="361" height="360"/>
+        <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>

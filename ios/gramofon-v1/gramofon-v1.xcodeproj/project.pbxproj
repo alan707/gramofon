@@ -34,6 +34,13 @@
 		60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */; };
 		60D17C3D16E059B4004A07A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D17C3C16E059B4004A07A3 /* MapKit.framework */; };
 		60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */; };
+		60DCB72D16E2F33700ED4366 /* login-button-small-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72916E2F33700ED4366 /* login-button-small-pressed.png */; };
+		60DCB72E16E2F33700ED4366 /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72A16E2F33700ED4366 /* login-button-small-pressed@2x.png */; };
+		60DCB72F16E2F33700ED4366 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72B16E2F33700ED4366 /* login-button-small.png */; };
+		60DCB73016E2F33700ED4366 /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */; };
+		60DCB73216E2F53500ED4366 /* 12-eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73116E2F53500ED4366 /* 12-eye.png */; };
+		60DCB73416E2F5BF00ED4366 /* 160-voicemail-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */; };
+		60DCB73616E2F5FB00ED4366 /* 65-note.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73516E2F5FB00ED4366 /* 65-note.png */; };
 		60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569516DC709C005AD219 /* FacebookSDK.framework */; };
 		60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */; };
 		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
@@ -81,6 +88,13 @@
 		60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gramaphon_logo_small.png; sourceTree = "<group>"; };
 		60D17C3C16E059B4004A07A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = SOURCE_ROOT; };
+		60DCB72916E2F33700ED4366 /* login-button-small-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed.png"; sourceTree = "<group>"; };
+		60DCB72A16E2F33700ED4366 /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
+		60DCB72B16E2F33700ED4366 /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
+		60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
+		60DCB73116E2F53500ED4366 /* 12-eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-eye.png"; sourceTree = "<group>"; };
+		60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "160-voicemail-2.png"; sourceTree = "<group>"; };
+		60DCB73516E2F5FB00ED4366 /* 65-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "65-note.png"; sourceTree = "<group>"; };
 		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -178,13 +192,20 @@
 			children = (
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
+				60DCB73116E2F53500ED4366 /* 12-eye.png */,
 				60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */,
 				60D17C2B16E03DED004A07A3 /* rec_image.png */,
+				60DCB73516E2F5FB00ED4366 /* 65-note.png */,
+				60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */,
 				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
 				6052336C16DFFC5F000B2F39 /* 2lines.png */,
 				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
 				6052336E16DFFC75000B2F39 /* 1line.png */,
 				60CCD5DC16DC35B60065E761 /* button_over.png */,
+				60DCB72916E2F33700ED4366 /* login-button-small-pressed.png */,
+				60DCB72A16E2F33700ED4366 /* login-button-small-pressed@2x.png */,
+				60DCB72B16E2F33700ED4366 /* login-button-small.png */,
+				60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */,
 				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
 				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
 				60CCD5B916DC2D6A0065E761 /* main.m */,
@@ -262,6 +283,13 @@
 				60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */,
 				607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */,
 				60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */,
+				60DCB72D16E2F33700ED4366 /* login-button-small-pressed.png in Resources */,
+				60DCB72E16E2F33700ED4366 /* login-button-small-pressed@2x.png in Resources */,
+				60DCB72F16E2F33700ED4366 /* login-button-small.png in Resources */,
+				60DCB73016E2F33700ED4366 /* login-button-small@2x.png in Resources */,
+				60DCB73216E2F53500ED4366 /* 12-eye.png in Resources */,
+				60DCB73416E2F5BF00ED4366 /* 160-voicemail-2.png in Resources */,
+				60DCB73616E2F5FB00ED4366 /* 65-note.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +399,8 @@
 		60CCD5CE16DC2D6A0065E761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Mond (B24X6S6GM5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -383,6 +413,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A1FA987-C84D-4C24-B515-F82F50475B80";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
