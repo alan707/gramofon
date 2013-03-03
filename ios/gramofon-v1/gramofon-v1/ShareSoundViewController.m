@@ -73,7 +73,7 @@
         [audioPlayer play];
     }
     
-    if ( audioPlayer.isPlaying ) {
+    if ( audioPlayer.isPlaying) {
         [playButton setTitle:@"Stop" forState:UIControlStateNormal];
     } else {
         [playButton setTitle:@"Play" forState:UIControlStateNormal];        
