@@ -18,10 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tapLabel;
 
-- (IBAction)startRecording:(id)sender;
-- (IBAction)stopRecording:(id)sender;
 - (IBAction)toggleRecording:(id)sender;
-
-
 
 @end
