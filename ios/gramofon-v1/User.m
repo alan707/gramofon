@@ -70,8 +70,8 @@
 
 - (void)createUser
 {
-    
-    NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users.json"];
+    NSString *post = @"facebook_id=2343&firstname=Almotest&lastname=itsworking";
+    NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users"];
  
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl];
 //    
@@ -104,14 +104,20 @@
     dict = [NSMutableDictionary dictionaryWithObjects:userObjects forKeys:userKeys];
     
     [request setHTTPMethod:@"POST"];
-    NSError *error;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error ];
+//    NSError *error;
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//    NSData *postData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error ];
 //    NSLog(postData);
 //    if (postData isValidJSONObject:postData = YES) {
 //        NSLog(@"YES!!");
 //    }
     [request setHTTPBody:postData ];
     
+
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", returnString);
 
         
     
