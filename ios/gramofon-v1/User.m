@@ -36,6 +36,7 @@
     if ( self.user_id == nil ) {
         // create a new user
         [self createUser];
+        [self fetchUser];
     }
 }
 
@@ -70,54 +71,63 @@
 
 - (void)createUser
 {
-    NSString *post = @"facebook_id=2343&firstname=Almotest&lastname=itsworking";
+    NSString *post = [NSString stringWithFormat:@"user[facebook_id]=%@&user[firstname]=%@&user[lastname]=%@", self.facebook_id, self.firstname, self.lastname];
     NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users"];
  
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl];
-//    
-//    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
-//                                                                 delegate:self];
     
-    
-    NSArray *userObjects = [[NSArray alloc] init];
-    NSArray *userKeys = [[NSArray alloc] init];
-//    NSString *aEmail = @"email";
-    NSString *aFacebook_id = @"facebook_id";
-    NSString *aFirstname = @"firstname";
-    NSString *aLastname = @"lastname";
-//    NSString *facebook_username = @"facebook_username";
-//    NSString *photo_url = @"photo_url";
-    
-    // Still missing facebook_username and photo_url
-    userObjects = [NSArray arrayWithObjects:
-//                   aEmail,
-                   aFacebook_id, aFirstname, aLastname, nil];
-    
-    userKeys = [NSArray arrayWithObjects:
-            [NSString stringWithFormat: @"%@",self.facebook_id],
-            [NSString stringWithFormat: @"%@",self.firstname],
-            [NSString stringWithFormat: @"%@",self.lastname], nil];
-    
-
-    
-    NSMutableDictionary *dict;
-    dict = [NSMutableDictionary dictionaryWithObjects:userObjects forKeys:userKeys];
     
     [request setHTTPMethod:@"POST"];
-//    NSError *error;
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//    NSData *postData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error ];
-//    NSLog(postData);
-//    if (postData isValidJSONObject:postData = YES) {
-//        NSLog(@"YES!!");
-//    }
-    [request setHTTPBody:postData ];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
     
-
+    
+    
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     NSLog(@"%@", returnString);
+
+
+    
+    
+//    
+//    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
+//                                                                 delegate:self];
+    
+//    
+//    NSArray *userObjects = [[NSArray alloc] init];
+//    NSArray *userKeys = [[NSArray alloc] init];
+////    NSString *aEmail = @"email";
+//    NSString *aFacebook_id = @"user[facebook_id]";
+//    NSString *aFirstname = @"user[firstname]";
+//    NSString *aLastname = @"user[lastname]";
+////    NSString *facebook_username = @"facebook_username";
+////    NSString *photo_url = @"photo_url";
+//    
+//    // Still missing facebook_username and photo_url
+//    userObjects = [NSArray arrayWithObjects:
+////                   aEmail,
+//                   aFacebook_id, aFirstname, aLastname, nil];
+//    
+//    userKeys = [NSArray arrayWithObjects:
+//            [NSString stringWithFormat: @"%@",self.facebook_id],
+//            [NSString stringWithFormat: @"%@",self.firstname],
+//            [NSString stringWithFormat: @"%@",self.lastname], nil];
+//    
+//
+//    
+//    NSMutableDictionary *dict;
+//    dict = [NSMutableDictionary dictionaryWithObjects:userObjects forKeys:userKeys];
+// 
+//    NSError *error;
+//    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//    NSData *postData = [NSJSONSerialization dataWithJSONObject:post options:0 error:&error ];
+//    NSLog(postData);
+//    if (postData isValidJSONObject:postData = YES) {
+//        NSLog(@"YES!!");
+//    }
+//    [request setHTTPBody:postData ];
+    
 
         
     
