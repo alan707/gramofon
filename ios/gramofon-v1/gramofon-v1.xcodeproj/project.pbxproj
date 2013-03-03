@@ -81,7 +81,6 @@
 		60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gramaphon_logo_small.png; sourceTree = "<group>"; };
 		60D17C3C16E059B4004A07A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = SOURCE_ROOT; };
-		60DCB72616E2CA4800ED4366 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -116,8 +115,6 @@
 		60CCD5A116DC2D6A0065E761 = {
 			isa = PBXGroup;
 			children = (
-				60DCB72616E2CA4800ED4366 /* Default.png */,
-				60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */,
 				60CCD5B316DC2D6A0065E761 /* gramofon-v1 */,
 				60CCD5AC16DC2D6A0065E761 /* Frameworks */,
 				60CCD5AB16DC2D6A0065E761 /* Products */,
@@ -181,6 +178,7 @@
 			children = (
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
+				60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */,
 				60D17C2B16E03DED004A07A3 /* rec_image.png */,
 				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
 				6052336C16DFFC5F000B2F39 /* 2lines.png */,
