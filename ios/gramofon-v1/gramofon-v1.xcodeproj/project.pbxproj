@@ -49,6 +49,7 @@
 		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
 		C531662816E16773004BEDE0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C531662716E16773004BEDE0 /* User.m */; };
 		C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */; };
+		C5B1133116E4485A000C0BF5 /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133016E4485A000C0BF5 /* 123-id-card.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		C531662716E16773004BEDE0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 		C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		C5B1133016E4485A000C0BF5 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123-id-card.png"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,7 @@
 		60CCD5B416DC2D6A0065E761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5B1133016E4485A000C0BF5 /* 123-id-card.png */,
 				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
 				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 				60DCB73116E2F53500ED4366 /* 12-eye.png */,
@@ -297,6 +301,7 @@
 				606BF88716E2FC7000DAD2B4 /* iOS Simulator Screen shot Mar 2, 2013 10.34.27 PM.png in Resources */,
 				606BF88916E2FC7E00DAD2B4 /* Default.png in Resources */,
 				606BF88B16E2FCB400DAD2B4 /* Default@2x.png in Resources */,
+				C5B1133116E4485A000C0BF5 /* 123-id-card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
