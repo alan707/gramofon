@@ -14,6 +14,7 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>Gramofon-app-icon@2x.png</string>
 				<string>Gramofon-app-icon.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
