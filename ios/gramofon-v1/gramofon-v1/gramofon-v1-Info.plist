@@ -13,9 +13,7 @@
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
-			<array>
-				<string>Gramofon-app-icon.png</string>
-			</array>
+			<array/>
 			<key>UIPrerenderedIcon</key>
 			<true/>
 		</dict>

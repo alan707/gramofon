@@ -34,7 +34,6 @@
 		60D17C3016E050F6004A07A3 /* Gramofon-circle-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */; };
 		60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */; };
 		60D17C3D16E059B4004A07A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D17C3C16E059B4004A07A3 /* MapKit.framework */; };
-		60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72416E2C96C00ED4366 /* Gramofon-app-icon.png */; };
 		60DCB72D16E2F33700ED4366 /* login-button-small-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72916E2F33700ED4366 /* login-button-small-pressed.png */; };
 		60DCB72E16E2F33700ED4366 /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72A16E2F33700ED4366 /* login-button-small-pressed@2x.png */; };
 		60DCB72F16E2F33700ED4366 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72B16E2F33700ED4366 /* login-button-small.png */; };
@@ -288,7 +287,6 @@
 				60D17C3016E050F6004A07A3 /* Gramofon-circle-logo.png in Resources */,
 				60D17C3216E05215004A07A3 /* gramaphon_logo_small.png in Resources */,
 				607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */,
-				60DCB72516E2C96C00ED4366 /* Gramofon-app-icon.png in Resources */,
 				60DCB72D16E2F33700ED4366 /* login-button-small-pressed.png in Resources */,
 				60DCB72E16E2F33700ED4366 /* login-button-small-pressed@2x.png in Resources */,
 				60DCB72F16E2F33700ED4366 /* login-button-small.png in Resources */,
