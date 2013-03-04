@@ -45,12 +45,11 @@
     // GET user by self.facebook_id after logging in through facebook login button.
 
     
-    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://staging-gramofon.herokuapp.com/users/facebook/%@.json", self.facebook_id]];
-//    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://gramofon.herokuapp.com/users/facebook/%@.json", self.facebook_id]];
+    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://gramofon.herokuapp.com/users/facebook/%@.json", self.facebook_id]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
-    
+//    NSLog(self.facebook_id);
     [request setHTTPMethod:@"GET"];
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
@@ -74,7 +73,7 @@
 - (void)createUser
 {
     NSString *post = [NSString stringWithFormat:@"user[facebook_id]=%@&user[firstname]=%@&user[lastname]=%@", self.facebook_id, self.firstname, self.lastname];
-    NSURL *aUrl = [NSURL URLWithString:@"http://staging-gramofon.herokuapp.com/users"];
+    NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users"];
  
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl];
     
