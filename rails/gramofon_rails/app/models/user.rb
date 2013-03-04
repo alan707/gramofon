@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :facebook_id, :firstname, :lastname, :username, :facebook_username, :photo_url
   
-  def to_param
-    username
-  end
+  # def to_param
+  #   username
+  # end
 
   def as_json(options={})
     {:id                 => self.id,
