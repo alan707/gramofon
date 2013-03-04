@@ -237,9 +237,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60CCD5A916DC2D6A0065E761 /* gramofon-v1 */ = {
+		60CCD5A916DC2D6A0065E761 /* gramofon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon-v1" */;
+			buildConfigurationList = 60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon" */;
 			buildPhases = (
 				60CCD5A616DC2D6A0065E761 /* Sources */,
 				60CCD5A716DC2D6A0065E761 /* Frameworks */,
@@ -249,7 +249,7 @@
 			);
 			dependencies = (
 			);
-			name = "gramofon-v1";
+			name = gramofon;
 			productName = "gramofon-v1";
 			productReference = 60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */;
 			productType = "com.apple.product-type.application";
@@ -263,7 +263,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = gramofon;
 			};
-			buildConfigurationList = 60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon-v1" */;
+			buildConfigurationList = 60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -275,7 +275,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60CCD5A916DC2D6A0065E761 /* gramofon-v1 */,
+				60CCD5A916DC2D6A0065E761 /* gramofon */,
 			);
 		};
 /* End PBXProject section */
@@ -467,7 +467,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon-v1" */ = {
+		60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CCD5CB16DC2D6A0065E761 /* Debug */,
@@ -476,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon-v1" */ = {
+		60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CCD5CE16DC2D6A0065E761 /* Debug */,

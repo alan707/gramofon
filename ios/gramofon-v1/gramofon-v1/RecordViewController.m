@@ -50,6 +50,7 @@
 {
     // release the iOS audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:NO error:nil];
 }
 
