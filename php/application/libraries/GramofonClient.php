@@ -111,7 +111,7 @@ class GramofonClient {
         return $audio_clips;
     }
     
-    public function get_user_audio_clips( $username, $offset = 0, $limit = 20 )
+    public function get_user_audio_clips( $user_id, $offset = 0, $limit = 20 )
     {
         $audio_clips = array();
                 
@@ -120,7 +120,7 @@ class GramofonClient {
             'limit'  => $limit
         );
         
-        $url = self::BASE_URI . "/users/$username/audio_clips.json?" . http_build_query($params);
+        $url = self::BASE_URI . "/users/$user_id/audio_clips.json?" . http_build_query($params);
         
         $json = RESTClient::get($url);
         
