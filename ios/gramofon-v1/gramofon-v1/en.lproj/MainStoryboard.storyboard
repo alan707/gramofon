@@ -106,23 +106,37 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Gj-dDD">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="yDy-6j-sqU"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="1yu-xs-RXd"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="7jw-bu-nSP"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="Cgu-LN-DOZ"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="GJI-57-NXE"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="7ne-8j-k7U"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="HyJ-b5-1QE"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="jPG-pc-Fnk"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="vm5-OM-OXK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="gmh-zO-dKd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Listen" image="65-note.png" id="EwS-A0-ZKy"/>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="feedWebView" destination="STX-Gj-dDD" id="4jo-jO-ZID"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lA-gg-N6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="Idw-h6-FgB">
+                    <connections>
+                        <action selector="backButton:" destination="vFO-37-Ktc" id="lWC-AX-a4l"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1516" y="738"/>
         </scene>
@@ -415,6 +429,7 @@
         <class className="FeedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="feedWebView" candidateClass="UIWebView"/>
             </relationships>
         </class>

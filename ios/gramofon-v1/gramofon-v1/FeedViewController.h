@@ -11,5 +11,6 @@
 @interface FeedViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
+- (IBAction)backButton:(id)sender;
 
 @end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303011240) do
+ActiveRecord::Schema.define(:version => 20130305144742) do
 
   create_table "audio_clips", :force => true do |t|
     t.integer  "user_id"
@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(:version => 20130303011240) do
     t.string   "lastname"
     t.string   "email"
     t.string   "username"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.string   "facebook_username"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "photo_url"
     t.integer  "facebook_id"
   end
