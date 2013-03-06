@@ -121,32 +121,38 @@
     // file
     NSData *soundFileData = [NSData dataWithContentsOfURL:[AudioClip sharedInstance].fileURL];
     
+    NSLog(@"Uploading...");
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"audio_clip[sound_file]\"; filename=\"%@\"\r\n", audioClipFileName] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:soundFileData]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    NSLog(@"audio_clip[user_id]: %@", audioClipUserId);
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[user_id]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipUserId dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    NSLog(@"audio_clip[username]: %@", audioClipUserName);
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[username]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipUserName dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    NSLog(@"audio_clip[title]: %@", audioClipTitle);
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[title]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipTitle dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    NSLog(@"audio_clip[latitude]: %@", audioClipLat);
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[latitude]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipLat dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    NSLog(@"audio_clip[longitude]: %@", audioClipLng);
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[longitude]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipLng dataUsingEncoding:NSUTF8StringEncoding]];

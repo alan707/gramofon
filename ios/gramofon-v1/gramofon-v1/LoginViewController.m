@@ -112,11 +112,12 @@
 
 - (void)didAuthenticate
 {
-//    NSLog(@"User.username: %@", [User sharedInstance].username);
-//    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
-//    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
-//    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
-//    NSLog(@"User.email: %@", [User sharedInstance].email);
+    NSLog(@"User.user_id: %@", [User sharedInstance].user_id);
+    NSLog(@"User.username: %@", [User sharedInstance].username);
+    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
+    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
+    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
+    NSLog(@"User.email: %@", [User sharedInstance].email);
 
     
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
