@@ -3,8 +3,15 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :facebook_id, :firstname, :lastname, :username, :photo_url
   
-  # def to_param
-  #   username
+  
+  # unless self.username.blank?
+    def to_param
+      if self.username.blank?
+      "#{id}"
+      else
+      "#{username}"
+    end
+    end
   # end
 
   def as_json(options={})
