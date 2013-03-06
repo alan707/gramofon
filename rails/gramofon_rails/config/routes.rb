@@ -1,9 +1,10 @@
 GramofonRails::Application.routes.draw do
-  resources :users
+  
 
 
   root :to => "home#index"
 
+  resources :users, :id =>  /[^\/]+/, :username =>  /[^\/]+/
   resources :audio_clips
 
   # match "/users/:username" => "users#show", :via => [:get]

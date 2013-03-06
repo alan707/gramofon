@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.dantrenz.com/%@", [User sharedInstance].username];
+    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.dantrenz.com/%@", [User sharedInstance].user_id];
     NSURL *fullUrl = [NSURL URLWithString:httpSource];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
     [_profileWebView loadRequest:httpRequest];

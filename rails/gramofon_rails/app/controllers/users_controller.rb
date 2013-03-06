@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
  def showuserclips
  @users = User.all
- @clips = AudioClip.limit(params[:limit]).offset(params[:offset]).order("created_at DESC").find_all_by_username(params[:username])
+ @clips = AudioClip.limit(params[:limit]).offset(params[:offset]).order("created_at DESC").find_all_by_id(params[:id])
  respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @clips }
@@ -22,7 +22,11 @@ class UsersController < ApplicationController
  end
 
   def show
+    if User.find_by_username(params[:id]).blank?
+      @user=User.find(params[:id])
+    else
     @user = User.find_by_username(params[:id])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -51,7 +55,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if User.find_by_username(params[:id]).blank?
+    @user=User.find(params[:id])
+    else
     @user = User.find_by_username(params[:id])
+    end
   end
 
   # POST /users
@@ -73,8 +81,11 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
- @user = User.find_by_username(params[:id])
-
+    if User.find_by_username(params[:id]).blank?
+      @user=User.find(params[:id])
+    else
+    @user = User.find_by_username(params[:id])
+    end
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -88,8 +99,12 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
- @user = User.find_by_username(params[:id])
+  def destroy   
+    if User.find_by_username(params[:id]).blank?
+      @user=User.find(params[:id])
+    else
+    @user = User.find_by_username(params[:id])
+    end
     @user.destroy
 
     respond_to do |format|

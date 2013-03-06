@@ -94,9 +94,8 @@
 {
     [AudioClip sharedInstance].title = titleSound.text;
     
-    [self uploadAudioClip];
-    
     [self.navigationController popToRootViewControllerAnimated:TRUE];
+    [self uploadAudioClip];
 }
 
 - (void)uploadAudioClip

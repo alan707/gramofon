@@ -106,23 +106,37 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Gj-dDD">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="yDy-6j-sqU"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="1yu-xs-RXd"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="7jw-bu-nSP"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="Cgu-LN-DOZ"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="GJI-57-NXE"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="7ne-8j-k7U"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="HyJ-b5-1QE"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="jPG-pc-Fnk"/>
+                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="vm5-OM-OXK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="gmh-zO-dKd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Listen" image="65-note.png" id="EwS-A0-ZKy"/>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="feedWebView" destination="STX-Gj-dDD" id="4jo-jO-ZID"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lA-gg-N6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="Idw-h6-FgB">
+                    <connections>
+                        <action selector="backButton:" destination="vFO-37-Ktc" id="lWC-AX-a4l"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1516" y="738"/>
         </scene>
@@ -209,10 +223,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-6V-OGQ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="UXI-fF-XpA"/>
-                                    <constraint firstAttribute="height" constant="455" id="aCe-RU-gnu"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -296,6 +306,7 @@
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="centerY" secondItem="ebN-pa-ywb" secondAttribute="centerY" type="user" id="0T9-XX-fbd"/>
+                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="37" id="2M8-q8-889"/>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="top" secondItem="ebN-pa-ywb" secondAttribute="top" type="user" id="2gF-XO-Awi"/>
                             <constraint firstAttribute="bottom" secondItem="W4e-4x-bSx" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="3vO-0P-KRP"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4QF-fs-VyR"/>
@@ -305,13 +316,14 @@
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="EAz-Io-mYu"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="trailing" secondItem="ebN-pa-ywb" secondAttribute="trailing" type="default" id="ESt-hD-EiO"/>
                             <constraint firstAttribute="bottom" secondItem="zoc-XT-sCV" secondAttribute="bottom" constant="128" type="user" id="HIL-H8-Lkm"/>
+                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="bottom" secondItem="7SP-q7-Vuq" secondAttribute="bottom" type="default" id="MSw-q7-Dwd"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="top" secondItem="N8O-RN-MhK" secondAttribute="bottom" constant="30" type="user" id="NDV-YS-ZRj"/>
-                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="276" id="NSq-q2-i6c"/>
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="leading" secondItem="KeF-hC-oh2" secondAttribute="leading" type="user" id="RZB-oJ-7JA"/>
                             <constraint firstItem="wwr-bI-rjZ" firstAttribute="centerX" secondItem="2tj-2E-rA1" secondAttribute="centerX" type="default" id="U1I-iA-Xug"/>
+                            <constraint firstItem="90e-L2-R1C" firstAttribute="centerX" secondItem="wwr-bI-rjZ" secondAttribute="centerX" type="default" id="Wct-bJ-0L7"/>
                             <constraint firstAttribute="bottom" secondItem="KeF-hC-oh2" secondAttribute="bottom" constant="183" type="user" id="Xjh-lD-com"/>
+                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" type="default" id="aTD-Ap-Uy1"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="user" id="aXL-ss-Zxr"/>
-                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="155" id="atk-VY-3KE"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="bDv-9e-2gk"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cro-RZ-eki"/>
                             <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="37" id="dWx-0f-qQW"/>
@@ -322,8 +334,9 @@
                             <constraint firstAttribute="centerX" secondItem="W4e-4x-bSx" secondAttribute="centerX" type="user" id="ny6-Zm-3T4"/>
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="plC-Tb-ayF" secondAttribute="top" type="user" id="qfX-CF-cTQ"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="centerY" secondItem="zoc-XT-sCV" secondAttribute="centerY" type="user" id="rDF-2J-zhA"/>
+                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="trailing" secondItem="7SP-q7-Vuq" secondAttribute="trailing" type="default" id="s3S-OG-CXT"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="tAT-4N-6uz"/>
-                            <constraint firstItem="90e-L2-R1C" firstAttribute="centerX" secondItem="N8O-RN-MhK" secondAttribute="centerX" type="default" id="viD-sc-LzU"/>
+                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" type="default" id="tGw-vd-nCJ"/>
                             <constraint firstAttribute="bottom" secondItem="N8O-RN-MhK" secondAttribute="bottom" constant="109" type="user" id="xz3-ze-2ds"/>
                         </constraints>
                     </view>

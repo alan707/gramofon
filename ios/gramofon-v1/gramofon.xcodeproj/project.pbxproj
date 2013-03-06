@@ -65,7 +65,7 @@
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
 		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
-		60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gramofon-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60CCD5AA16DC2D6A0065E761 /* gramofon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gramofon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CCD5AD16DC2D6A0065E761 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CCD5AF16DC2D6A0065E761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		60CCD5B116DC2D6A0065E761 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,7 +152,7 @@
 		60CCD5AB16DC2D6A0065E761 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */,
+				60CCD5AA16DC2D6A0065E761 /* gramofon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,9 +234,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60CCD5A916DC2D6A0065E761 /* gramofon-v1 */ = {
+		60CCD5A916DC2D6A0065E761 /* gramofon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon-v1" */;
+			buildConfigurationList = 60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon" */;
 			buildPhases = (
 				60CCD5A616DC2D6A0065E761 /* Sources */,
 				60CCD5A716DC2D6A0065E761 /* Frameworks */,
@@ -246,9 +246,9 @@
 			);
 			dependencies = (
 			);
-			name = "gramofon-v1";
+			name = gramofon;
 			productName = "gramofon-v1";
-			productReference = 60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */;
+			productReference = 60CCD5AA16DC2D6A0065E761 /* gramofon.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +260,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = gramofon;
 			};
-			buildConfigurationList = 60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon-v1" */;
+			buildConfigurationList = 60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -272,7 +272,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60CCD5A916DC2D6A0065E761 /* gramofon-v1 */,
+				60CCD5A916DC2D6A0065E761 /* gramofon */,
 			);
 		};
 /* End PBXProject section */
@@ -283,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CCD5B816DC2D6A0065E761 /* InfoPlist.strings in Resources */,
+				60CCD5DD16DC35B60065E761 /* button_over.png in Resources */,
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
 				60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */,
@@ -463,7 +464,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon-v1" */ = {
+		60CCD5A516DC2D6A0065E761 /* Build configuration list for PBXProject "gramofon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CCD5CB16DC2D6A0065E761 /* Debug */,
@@ -472,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon-v1" */ = {
+		60CCD5CD16DC2D6A0065E761 /* Build configuration list for PBXNativeTarget "gramofon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CCD5CE16DC2D6A0065E761 /* Debug */,
