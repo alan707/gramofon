@@ -24,17 +24,15 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [_feedWebView reload];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
-    NSString *httpSource = @"http://gramofon.dantrenz.com/";
-    NSURL *fullUrl = [NSURL URLWithString:httpSource];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSURL *fullUrl = [NSURL URLWithString:@"http://gramofon.co"];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
     [_feedWebView loadRequest:httpRequest];
 }

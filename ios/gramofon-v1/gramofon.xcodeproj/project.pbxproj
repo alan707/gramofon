@@ -69,7 +69,7 @@
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
 		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
-		60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gramofon-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60CCD5AA16DC2D6A0065E761 /* gramofon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gramofon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CCD5AD16DC2D6A0065E761 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CCD5AF16DC2D6A0065E761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		60CCD5B116DC2D6A0065E761 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,7 +155,7 @@
 		60CCD5AB16DC2D6A0065E761 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */,
+				60CCD5AA16DC2D6A0065E761 /* gramofon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 			);
 			name = gramofon;
 			productName = "gramofon-v1";
-			productReference = 60CCD5AA16DC2D6A0065E761 /* gramofon-v1.app */;
+			productReference = 60CCD5AA16DC2D6A0065E761 /* gramofon.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

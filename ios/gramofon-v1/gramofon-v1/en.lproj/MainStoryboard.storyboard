@@ -313,7 +313,6 @@
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="user" id="aXL-ss-Zxr"/>
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="155" id="atk-VY-3KE"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="bDv-9e-2gk"/>
-                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="38" id="brj-yd-vl8"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cro-RZ-eki"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="trailing" secondItem="W4e-4x-bSx" secondAttribute="trailing" type="default" id="eb5-le-bhi"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j6c-do-bv0"/>
@@ -323,6 +322,7 @@
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="plC-Tb-ayF" secondAttribute="top" type="user" id="qfX-CF-cTQ"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="centerY" secondItem="zoc-XT-sCV" secondAttribute="centerY" type="user" id="rDF-2J-zhA"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="tAT-4N-6uz"/>
+                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="37" id="vPB-dz-GbZ"/>
                             <constraint firstItem="90e-L2-R1C" firstAttribute="centerX" secondItem="N8O-RN-MhK" secondAttribute="centerX" type="default" id="viD-sc-LzU"/>
                             <constraint firstAttribute="bottom" secondItem="N8O-RN-MhK" secondAttribute="bottom" constant="109" type="user" id="xz3-ze-2ds"/>
                         </constraints>
