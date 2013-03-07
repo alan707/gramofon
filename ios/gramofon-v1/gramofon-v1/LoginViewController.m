@@ -112,7 +112,7 @@
 
 - (void)didAuthenticate
 {
-    NSLog(@"User.username: %@", [User sharedInstance].user_id);
+    NSLog(@"User.user_id: %@", [User sharedInstance].user_id);
     NSLog(@"User.username: %@", [User sharedInstance].username);
     NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
     NSLog(@"User.firstname: %@", [User sharedInstance].firstname);

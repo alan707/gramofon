@@ -28,7 +28,16 @@
 {
     [super viewDidLoad];
     
-    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.dantrenz.com/%@", [User sharedInstance].user_id];
+    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.co/%@", [User sharedInstance].username];
+    NSURL *fullUrl = [NSURL URLWithString:httpSource];
+    NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
+    [_profileWebView loadRequest:httpRequest];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSString *httpSource = [NSString stringWithFormat:@"http://gramofon.co/%@", [User sharedInstance].username];
     NSURL *fullUrl = [NSURL URLWithString:httpSource];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
     [_profileWebView loadRequest:httpRequest];
