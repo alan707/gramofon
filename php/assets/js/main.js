@@ -68,7 +68,10 @@ $(function() {
                         success: function(clips) {
                             $feed.find('.ajax-spinner').remove();
                             $feed.append(clips);
+
                             loading = false;
+
+                            initAudioClips();
                         }
                     });
                 }

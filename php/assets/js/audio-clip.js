@@ -32,6 +32,8 @@
                     
                 self.seek( percent );
             });
+
+            self.element.data('audio')
         },
 
         playPause: function( startPercentage ) {
@@ -98,6 +100,17 @@
     });
 }( jQuery ) );
 
+function initAudioClips() {
+    $('.audio-player').not(':gramofon-audioClip').each(function(i) {
+        var $this = $(this);
+
+        $this.audioClip({
+            id:  $this.data('clip-id'),
+            url: $this.data('clip-url')
+        });
+    });
+}
+
 // If audio clips exist on the page,
 // setup SoundManager and init audioClip widgets
 if ( $('.audio-player').length ) {
@@ -107,14 +120,7 @@ if ( $('.audio-player').length ) {
         useFlashBlock: false,
         preferFlash: false,
         onready: function() {
-            $('.audio-player').each(function(i) {
-                var $this = $(this);
-
-                $this.audioClip({
-                    id:  $this.data('clip-id'),
-                    url: $this.data('clip-url')
-                });
-            });
+            initAudioClips();
         }
     });
 }
