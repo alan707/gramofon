@@ -96,49 +96,16 @@
             </objects>
             <point key="canvasLocation" x="1516" y="1332"/>
         </scene>
-        <!--Feed View Controller - View Audio Clips-->
-        <scene sceneID="tp7-Ye-k9j">
+        <!--Feed View Controller - Feed-->
+        <scene sceneID="Gp8-nv-A1D">
             <objects>
-                <viewController title="View Audio Clips" id="vFO-37-Ktc" customClass="FeedViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hNj-Xz-y6e">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Gj-dDD">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="yDy-6j-sqU"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="trailing" secondItem="hNj-Xz-y6e" secondAttribute="trailing" type="default" id="7ne-8j-k7U"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="bottom" secondItem="hNj-Xz-y6e" secondAttribute="bottom" type="default" id="HyJ-b5-1QE"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="leading" secondItem="hNj-Xz-y6e" secondAttribute="leading" type="default" id="jPG-pc-Fnk"/>
-                            <constraint firstItem="STX-Gj-dDD" firstAttribute="top" secondItem="hNj-Xz-y6e" secondAttribute="top" type="default" id="vm5-OM-OXK"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Idw-h6-FgB" appends="YES" id="gmh-zO-dKd"/>
-                        </connections>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Listen" image="65-note.png" id="EwS-A0-ZKy"/>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="feedWebView" destination="STX-Gj-dDD" id="4jo-jO-ZID"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8lA-gg-N6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="Idw-h6-FgB">
-                    <connections>
-                        <action selector="backButton:" destination="vFO-37-Ktc" id="lWC-AX-a4l"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QjE-fQ-Y3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="So9-2Y-B2M" customClass="FeedViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="65-note.png" id="rmm-cY-24i"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1516" y="738"/>
+            <point key="canvasLocation" x="1516" y="744"/>
         </scene>
         <!--Record View Controller - Record-->
         <scene sceneID="dnY-4G-Xr3">
@@ -306,7 +273,6 @@
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="centerY" secondItem="ebN-pa-ywb" secondAttribute="centerY" type="user" id="0T9-XX-fbd"/>
-                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="37" id="2M8-q8-889"/>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="top" secondItem="ebN-pa-ywb" secondAttribute="top" type="user" id="2gF-XO-Awi"/>
                             <constraint firstAttribute="bottom" secondItem="W4e-4x-bSx" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="3vO-0P-KRP"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4QF-fs-VyR"/>
@@ -336,8 +302,6 @@
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="centerY" secondItem="zoc-XT-sCV" secondAttribute="centerY" type="user" id="rDF-2J-zhA"/>
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="trailing" secondItem="7SP-q7-Vuq" secondAttribute="trailing" type="default" id="s3S-OG-CXT"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="tAT-4N-6uz"/>
-                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="37" id="vPB-dz-GbZ"/>
-                            <constraint firstItem="90e-L2-R1C" firstAttribute="centerX" secondItem="N8O-RN-MhK" secondAttribute="centerX" type="default" id="viD-sc-LzU"/>
                             <constraint firstAttribute="bottom" secondItem="N8O-RN-MhK" secondAttribute="bottom" constant="109" type="user" id="xz3-ze-2ds"/>
                         </constraints>
                     </view>
@@ -406,9 +370,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="32l-Sy-bcO" kind="relationship" relationship="viewControllers" id="yoI-MQ-FNM"/>
-                        <segue destination="vFO-37-Ktc" kind="relationship" relationship="viewControllers" id="URk-lr-gAb"/>
                         <segue destination="ZFX-v9-4H7" kind="relationship" relationship="viewControllers" id="bsz-4A-P5V"/>
+                        <segue destination="So9-2Y-B2M" kind="relationship" relationship="viewControllers" id="QDo-NV-QUA"/>
+                        <segue destination="32l-Sy-bcO" kind="relationship" relationship="viewControllers" id="bS6-tr-XeG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgC-eH-Kw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,6 +391,47 @@
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleRecording:"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="showKeyboard:"/>
+                <relationship kind="action" name="toggleAudio:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
