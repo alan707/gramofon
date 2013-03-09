@@ -21,7 +21,6 @@
 		60CCD5BA16DC2D6A0065E761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5B916DC2D6A0065E761 /* main.m */; };
 		60CCD5BE16DC2D6A0065E761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */; };
 		60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5C916DC2D6A0065E761 /* ViewController.m */; };
-		60CCD5D816DC31DC0065E761 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5D716DC31DC0065E761 /* FeedViewController.m */; };
 		60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */; };
 		60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */; };
 		60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */; };
@@ -52,6 +51,9 @@
 		C5B1134716E45CB5000C0BF5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134616E45CB5000C0BF5 /* Default-568h@2x.png */; };
 		C5B1134916E45CBD000C0BF5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134816E45CBD000C0BF5 /* Default@2x.png */; };
 		C5B1134B16E45CC7000C0BF5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134A16E45CC7000C0BF5 /* Default.png */; };
+		C5C1CF7016EBBA440061094F /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1CF6F16EBBA440061094F /* FeedViewController.m */; };
+		C5C1CF7416EBBFE80061094F /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C1CF7216EBBFE80061094F /* play.png */; };
+		C5C1CF7516EBBFE80061094F /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C1CF7316EBBFE80061094F /* speaker.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +79,6 @@
 		60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		60CCD5C816DC2D6A0065E761 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		60CCD5C916DC2D6A0065E761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		60CCD5D616DC31DC0065E761 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
-		60CCD5D716DC31DC0065E761 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSoundViewController.h; sourceTree = "<group>"; };
 		60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSoundViewController.m; sourceTree = "<group>"; };
 		60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableShareSound-white-bg.png"; sourceTree = "<group>"; };
@@ -112,6 +112,10 @@
 		C5B1134616E45CB5000C0BF5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5B1134816E45CBD000C0BF5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C5B1134A16E45CC7000C0BF5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C5C1CF6E16EBBA440061094F /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		C5C1CF6F16EBBA440061094F /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		C5C1CF7216EBBFE80061094F /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		C5C1CF7316EBBFE80061094F /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,10 +191,10 @@
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
-				60CCD5D616DC31DC0065E761 /* FeedViewController.h */,
-				60CCD5D716DC31DC0065E761 /* FeedViewController.m */,
 				C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */,
 				C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */,
+				C5C1CF6E16EBBA440061094F /* FeedViewController.h */,
+				C5C1CF6F16EBBA440061094F /* FeedViewController.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
 				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				C531662616E16773004BEDE0 /* User.h */,
@@ -205,6 +209,8 @@
 		60CCD5B416DC2D6A0065E761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5C1CF7216EBBFE80061094F /* play.png */,
+				C5C1CF7316EBBFE80061094F /* speaker.png */,
 				C5B1134016E45C47000C0BF5 /* Gramofon-app-icon.png */,
 				C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */,
 				C5B1133A16E45C40000C0BF5 /* Default.png */,
@@ -283,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CCD5B816DC2D6A0065E761 /* InfoPlist.strings in Resources */,
-				60CCD5DD16DC35B60065E761 /* button_over.png in Resources */,
 				60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */,
 				60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */,
 				60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */,
@@ -308,6 +313,8 @@
 				C5B1134716E45CB5000C0BF5 /* Default-568h@2x.png in Resources */,
 				C5B1134916E45CBD000C0BF5 /* Default@2x.png in Resources */,
 				C5B1134B16E45CC7000C0BF5 /* Default.png in Resources */,
+				C5C1CF7416EBBFE80061094F /* play.png in Resources */,
+				C5C1CF7516EBBFE80061094F /* speaker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,13 +328,13 @@
 				60CCD5BA16DC2D6A0065E761 /* main.m in Sources */,
 				60CCD5BE16DC2D6A0065E761 /* AppDelegate.m in Sources */,
 				60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */,
-				60CCD5D816DC31DC0065E761 /* FeedViewController.m in Sources */,
 				60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */,
 				6050EAA616DC877300060F05 /* LoginViewController.m in Sources */,
 				6050EAA716DC877300060F05 /* RecordViewController.m in Sources */,
 				6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */,
 				C531662816E16773004BEDE0 /* User.m in Sources */,
 				C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */,
+				C5C1CF7016EBBA440061094F /* FeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

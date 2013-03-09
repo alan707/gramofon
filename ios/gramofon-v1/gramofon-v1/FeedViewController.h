@@ -1,16 +1,18 @@
 //
 //  FeedViewController.h
-//  gramofon-v1
+//  gramofon
 //
-//  Created by Alan Mond on 2/25/13.
+//  Created by Dan Trenz on 3/9/13.
 //  Copyright (c) 2013 gramofon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface FeedViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIWebView *feedWebView;
-- (IBAction)backButton:(id)sender;
+@interface FeedViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
+{
+    NSArray *feed;
+    AVAudioPlayer *audioPlayer;
+}
 
 @end
