@@ -23,9 +23,15 @@ class user_model extends CI_Model
         return $users;
     }
 
-    public function get_user( $id )
+    public function get_user( $id, $id_type )
     {
-        $user = new User;
+        $user = FALSE;
+
+        if ( $id_type !== 'facebook' ) {
+            $user = new User;
+        } else {            
+            $user = new User;
+        }
 
         return $user;
     }

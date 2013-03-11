@@ -44,11 +44,12 @@
 switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
 {
     case 'GET':
-        $route['users/(:num)/clips'] = 'clips/show_user_clips/$1';
-        $route['users/(:num)']       = 'users/show/$1';
-        $route['users']              = 'users/index';
-        $route['clips/(:num)']       = 'clips/show/$1';
-        $route['clips']              = 'clips/index';
+        $route['users/facebook_(:num)'] = 'users/show/$1/facebook';
+        $route['users/(:num)/clips']    = 'clips/show_user_clips/$1';
+        $route['users/(:num)']          = 'users/show/$1';
+        $route['users']                 = 'users/index';
+        $route['clips/(:num)'] = 'clips/show/$1';
+        $route['clips']        = 'clips/index';
         break;
 
     case 'POST':
