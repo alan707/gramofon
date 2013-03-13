@@ -26,6 +26,14 @@
 {
     [super viewDidLoad];
     
+    // Inside a Table View Controller's viewDidLoad method
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+   refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self
+     action:@selector(refreshView:)
+      forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    
     NSError *error;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips.json?limit=20"]];
@@ -57,6 +65,43 @@
     // There is only one section.
     return 1;
 }
+
+-(void)refreshView:(UIRefreshControl *)refresh {
+     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
+
+    // custom refresh logic would be placed here...
+    NSError *error;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips.json?limit=20"]];
+    NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    if ( ! error ) {
+        feed = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+        
+        if ( ! error ) {
+            for (NSDictionary *clip in feed) {
+                NSLog(@"%@", [clip objectForKey:@"title"]);
+            }
+        } else {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+    } else {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
+
+    
+    [self.tableView reloadData];
+    
+ 
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+     [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",
+     [formatter stringFromDate:[NSDate date]]];
+     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+     [refresh endRefreshing];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

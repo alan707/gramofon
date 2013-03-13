@@ -4,7 +4,7 @@ GramofonRails::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :users, :constraints => { :id => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
+  resources :users, :constraints => { :id => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }, :constraints => {:username => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
   resources :audio_clips
 
   # match "/users/:username" => "users#show", :via => [:get]
