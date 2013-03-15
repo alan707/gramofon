@@ -72,7 +72,7 @@
 
 - (void)createUser
 {
-    NSString *post = [NSString stringWithFormat:@"user[facebook_id]=%@&user[firstname]=%@&user[lastname]=%@", self.facebook_id, self.firstname, self.lastname];
+    NSString *post = [NSString stringWithFormat:@"user[facebook_id]=%@&user[firstname]=%@&user[lastname]=%@&user[username]=%@", self.facebook_id, self.firstname, self.lastname, self.username];
     NSURL *aUrl = [NSURL URLWithString:@"http://gramofon.herokuapp.com/users"];
  
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl];
