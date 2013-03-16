@@ -28,30 +28,16 @@
     
     // Inside a Table View Controller's viewDidLoad method
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-   refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    [refresh addTarget:self
-     action:@selector(refreshView:)
-      forControlEvents:UIControlEventValueChanged];
+    
+    refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
+    [refresh addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    
     self.refreshControl = refresh;
     
-    NSError *error;
+    feed = [NSMutableArray array];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips.json?limit=20"]];
-    NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
-    if ( ! error ) {
-        feed = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-        
-        if ( ! error ) {
-            for (NSDictionary *clip in feed) {
-                NSLog(@"%@", [clip objectForKey:@"title"]);
-            }
-        } else {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
-    } else {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
+    [self getFeedData:0 itemCount:20];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,40 +52,27 @@
     return 1;
 }
 
--(void)refreshView:(UIRefreshControl *)refresh {
-     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
-
-    // custom refresh logic would be placed here...
-    NSError *error;
+-(void)refreshView:(UIRefreshControl *)refresh
+{
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];    
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips.json?limit=20"]];
-    NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    int count = (unsigned int)[feed count];
     
-    if ( ! error ) {
-        feed = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-        
-        if ( ! error ) {
-            for (NSDictionary *clip in feed) {
-                NSLog(@"%@", [clip objectForKey:@"title"]);
-            }
-        } else {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
-    } else {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
+    [self getFeedData:0 itemCount:count];
 
     
     [self.tableView reloadData];
-    
  
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-     [formatter setDateFormat:@"MMM d, h:mm a"];
-    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",
-     [formatter stringFromDate:[NSDate date]]];
-     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
-     [refresh endRefreshing];
+    
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    
+    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@", [formatter stringFromDate:[NSDate date]]];
+    
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+    
+    [refresh endRefreshing];
 }
 
 
@@ -108,8 +81,8 @@
     return [feed count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{    
     static NSString *CellIdentifier = @"CellIdentifier";
     
     // Try to retrieve from the table view a now-unused cell with the given identifier.
@@ -214,18 +187,40 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Are we at the bottom of the feed table?
     if ( indexPath.row + 1 == [feed count] ) {
-        NSLog(@"bottom reached!");
-    } else {
-        NSLog(@"will display cell: %i", indexPath.row);
         
-        //        NSArray *insertIndexPaths = [NSArray arrayWithObjects:
-        //                                     [NSIndexPath indexPathForRow:0 inSection:0],
-        //                                     [NSIndexPath indexPathForRow:3 inSection:0],
-        //                                     [NSIndexPath indexPathForRow:5 inSection:0],
-        //                                     nil];
-        //        [tableView insertRowsAtIndexPaths:<#(NSArray *)#> withRowAnimation:<#(UITableViewRowAnimation)#>]'
+        int offset = (unsigned int)[feed count];
+        
+        [self getFeedData:offset itemCount:20];
+        
+        [self.tableView reloadData];
     }
+}
+
+- (void)getFeedData:(int)offset itemCount:(int)limit
+{
+    NSError *error;
+    
+    NSString *url         = [NSString stringWithFormat:@"http://gramofon.herokuapp.com/audio_clips.json?offset=%i&limit=20", offset];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    if ( ! error ) {
+        NSArray *data = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+        
+        if ( ! error ) {
+            for (NSDictionary *clip in data) {
+                [feed addObject:clip];
+            }
+        } else {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+    } else {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
+    
+    NSLog(@"feed count:%u", [feed count]);
 }
 
 @end

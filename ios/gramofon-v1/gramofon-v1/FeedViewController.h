@@ -11,7 +11,7 @@
 
 @interface FeedViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
 {
-    NSArray *feed;
+    NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
 }
 
