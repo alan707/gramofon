@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */; };
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
 		6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336C16DFFC5F000B2F39 /* 2lines.png */; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedTableViewController.h; sourceTree = "<group>"; };
+		6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedTableViewController.m; sourceTree = "<group>"; };
 		6050EAA216DC877300060F05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6050EAA316DC877300060F05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6050EAA416DC877300060F05 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				6050EAA516DC877300060F05 /* RecordViewController.m */,
 				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
+				603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */,
+				6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */,
 				C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */,
 				C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */,
 				C5C1CF6E16EBBA440061094F /* FeedViewController.h */,
@@ -335,6 +340,7 @@
 				C531662816E16773004BEDE0 /* User.m in Sources */,
 				C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */,
 				C5C1CF7016EBBA440061094F /* FeedViewController.m in Sources */,
+				6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

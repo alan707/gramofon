@@ -31,7 +31,8 @@
     
     refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     
-    [refresh addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    [refresh addTarget:self action:@selector(refreshView:)
+      forControlEvents:UIControlEventValueChanged];
     
     self.refreshControl = refresh;
     
@@ -172,18 +173,18 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ( audioPlayer.isPlaying ) {
-        [audioPlayer stop];
-    }
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
-    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-    cell.imageView.image = theImage;
-}
+//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ( audioPlayer.isPlaying ) {
+//        [audioPlayer stop];
+//    }
+//    
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
+//    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+//    cell.imageView.image = theImage;
+//}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
