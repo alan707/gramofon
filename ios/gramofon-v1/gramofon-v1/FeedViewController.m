@@ -47,6 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // There is only one section.
@@ -57,21 +58,21 @@
 {
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];    
     
-    int count = (unsigned int)[feed count];
-    
-    [self getFeedData:0 itemCount:count];
+//    int count = (unsigned int)[feed count];
+//    
+    [self getFeedData:0 itemCount:20];
 
     
     [self.tableView reloadData];
  
-
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
-    [formatter setDateFormat:@"MMM d, h:mm a"];
-    
-    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@", [formatter stringFromDate:[NSDate date]]];
-    
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+//
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    
+//    [formatter setDateFormat:@"MMM d, h:mm a"];
+//    
+//    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@", [formatter stringFromDate:[NSDate date]]];
+//    
+//    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
     
     [refresh endRefreshing];
 }
@@ -173,18 +174,18 @@
     }
 }
 
-//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if ( audioPlayer.isPlaying ) {
-//        [audioPlayer stop];
-//    }
-//    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
-//    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-//    cell.imageView.image = theImage;
-//}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( audioPlayer.isPlaying ) {
+        [audioPlayer stop];
+    }
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
+    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+    cell.imageView.image = theImage;
+}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
