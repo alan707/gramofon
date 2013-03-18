@@ -7,6 +7,7 @@
 //
 
 #import "UserFeedTableViewController.h"
+#import "Utilities.h"
 
 @interface UserFeedTableViewController ()
 
@@ -116,9 +117,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *clip  = [_feed objectAtIndex:indexPath.row];
-    NSString *clipTitle = [clip objectForKey:@"title"];
-    NSString *clipVenue = [clip objectForKey:@"fsvenue"];
+    NSDictionary *clip   = [_feed objectAtIndex:indexPath.row];
+    NSString *clipTitle  = [clip objectForKey:@"title"];
+    NSString *clipVenue  = [clip objectForKey:@"fsvenue"];
+    NSString *momentsAgo = [Utilities getRelativeTime:[clip objectForKey:@"created_at"]];
     
     
     if ( clipTitle.length == 0 ) {
@@ -135,7 +137,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // detail label
     cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@", clipVenue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
     return cell;
 }
 - (void)getFeedData:(int)offset itemCount:(int)limit

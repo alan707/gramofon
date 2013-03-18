@@ -41,6 +41,7 @@
 		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; };
 		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
 		C531662816E16773004BEDE0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C531662716E16773004BEDE0 /* User.m */; };
+		C587147D16F7C9A400B036C5 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C587147C16F7C9A400B036C5 /* Utilities.m */; };
 		C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */; };
 		C5B1133116E4485A000C0BF5 /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133016E4485A000C0BF5 /* 123-id-card.png */; };
 		C5B1133D16E45C41000C0BF5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133A16E45C40000C0BF5 /* Default.png */; };
@@ -103,6 +104,8 @@
 		C531662416DF8E13004BEDE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C531662616E16773004BEDE0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
 		C531662716E16773004BEDE0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		C587147B16F7C9A400B036C5 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		C587147C16F7C9A400B036C5 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C5B1133016E4485A000C0BF5 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123-id-card.png"; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				C531662716E16773004BEDE0 /* User.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
+				C587147B16F7C9A400B036C5 /* Utilities.h */,
+				C587147C16F7C9A400B036C5 /* Utilities.m */,
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
 			);
 			path = "gramofon-v1";
@@ -341,6 +346,7 @@
 				C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */,
 				C5C1CF7016EBBA440061094F /* FeedViewController.m in Sources */,
 				6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */,
+				C587147D16F7C9A400B036C5 /* Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
