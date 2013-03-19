@@ -103,9 +103,10 @@
     NSString *audioClipUserId   = [NSString stringWithFormat:@"%@", [User sharedInstance].user_id];
     NSString *audioClipUserName = [User sharedInstance].username;
     NSString *audioClipTitle    = [AudioClip sharedInstance].title;
-    NSString *audioClipLng      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.longitude];
-    NSString *audioClipLat      = [NSString stringWithFormat:@"%f", [AudioClip sharedInstance].currentLocation.coordinate.latitude];
+    NSString *audioClipLng      = [NSString stringWithFormat:@"%@", [AudioClip sharedInstance].longitude];
+    NSString *audioClipLat      = [NSString stringWithFormat:@"%@", [AudioClip sharedInstance].latitude];
     NSString *audioClipFileName = [AudioClip sharedInstance].fileName;
+    NSString *audioClipVenue    = [AudioClip sharedInstance].venue;
 
     NSURL *url = [NSURL URLWithString:@"http://gramofon.herokuapp.com/audio_clips"];
     
@@ -155,6 +156,12 @@
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[longitude]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[audioClipLng dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSLog(@"audio_clip[venue]: %@", audioClipVenue);
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[venue]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[audioClipVenue dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
     // close form
