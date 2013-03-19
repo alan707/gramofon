@@ -34,7 +34,8 @@
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI
+{
     return [FBSession openActiveSessionWithReadPermissions:nil
                allowLoginUI:allowLoginUI
                completionHandler:^(FBSession *session,
@@ -96,11 +97,11 @@
        NSDictionary<FBGraphUser> *user,
        NSError *error) {
          if ( !error ) {
-             [User sharedInstance].username = user.username;
+             [User sharedInstance].username    = user.username;
              [User sharedInstance].facebook_id = user.id;
-             [User sharedInstance].firstname = user.first_name;
-             [User sharedInstance].lastname = user.last_name;
-             // TODO: email? - we need to figure out how to ask for email permissions.
+             [User sharedInstance].firstname   = user.first_name;
+             [User sharedInstance].lastname    = user.last_name;
+             [User sharedInstance].email       = [user objectForKey:@"email"];
              
              // get their Gramofon user id, or create a new user account for this user.
              [[User sharedInstance] authenticateGramofonUser];
@@ -118,7 +119,6 @@
     NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
     NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
     NSLog(@"User.email: %@", [User sharedInstance].email);
-
     
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
 }
@@ -131,9 +131,10 @@
 
 - (void)openSession
 {
+//    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
     
     [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:NO
+                                       allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session,
        FBSessionState state, NSError *error) {
@@ -164,8 +165,6 @@
     //    }
 }
 
-
-
 - (IBAction)performLogin:(id)sender
 {
     
@@ -187,7 +186,6 @@
 - (void) closeSession {
     [FBSession.activeSession closeAndClearTokenInformation];
 }
-
 
 - (void)loginFailed
 {

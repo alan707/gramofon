@@ -10,7 +10,8 @@
 
 @implementation AudioClip
 
-@synthesize locationManager, currentLocation, fileName, fileURL, title, userId;
+@synthesize fileName, fileURL, title, latitude, longitude, venue;
+
 
 + (AudioClip *)sharedInstance
 {
@@ -20,35 +21,10 @@
     // check to see if an instance already exists
     if ( nil == myInstance ) {
         myInstance  = [[[self class] alloc] init];
-		myInstance.locationManager = [[CLLocationManager alloc] init];
-        myInstance.locationManager.delegate = myInstance;
-        [myInstance.locationManager startUpdatingLocation];
-        // initialize variables here
-        
     }
+    
     // return the instance of this class
     return myInstance;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{    
-    self.currentLocation = newLocation;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    if(error.code == kCLErrorDenied) {
-        [locationManager stopUpdatingLocation];
-    } else if(error.code == kCLErrorLocationUnknown) {
-        // retry
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
-                                                        message:[error description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
 }
 
 @end

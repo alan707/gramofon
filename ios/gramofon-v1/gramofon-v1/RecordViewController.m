@@ -15,7 +15,7 @@
 
 @implementation RecordViewController
 
-@synthesize countDownLabel, tapLabel;
+@synthesize countDownLabel, tapLabel, locationManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -132,9 +132,11 @@
     NSString *url = [audioRecorder.url absoluteString];
     NSArray *parts = [url componentsSeparatedByString:@"/"];
     
-    [AudioClip sharedInstance].fileName = [parts objectAtIndex:[parts count]-1];
+    [AudioClip sharedInstance].fileName = [parts objectAtIndex:[parts count]-1];    
     
-    [self performSegueWithIdentifier: @"SegueToShareSound" sender: self];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void)tick
@@ -151,5 +153,31 @@
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [AudioClip sharedInstance].location  = newLocation;
+    [AudioClip sharedInstance].latitude  = [[NSNumber alloc] initWithDouble:newLocation.coordinate.latitude];
+    [AudioClip sharedInstance].longitude = [[NSNumber alloc] initWithDouble:newLocation.coordinate.longitude];
+    [locationManager stopUpdatingLocation];
+    
+    [self performSegueWithIdentifier:@"SegueToVenueList" sender:self];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    if ( error.code == kCLErrorDenied ) {
+        [locationManager stopUpdatingLocation];
+        [self performSegueWithIdentifier:@"SegueToShareSound" sender:self];
+    } else if( error.code == kCLErrorLocationUnknown ) {
+        // retry
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+                                                        message:[error description]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
 
 @end

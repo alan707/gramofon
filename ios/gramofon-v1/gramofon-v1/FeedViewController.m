@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController.h"
+#import "Utilities.h"
 
 @interface FeedViewController ()
 
@@ -97,9 +98,10 @@
     }
     
     // Set up the cell.
-    NSDictionary *clip  = [feed objectAtIndex:indexPath.row];
-    NSString *clipTitle = [clip objectForKey:@"title"];
-    NSString *clipVenue = [clip objectForKey:@"fsvenue"];
+    NSDictionary *clip   = [feed objectAtIndex:indexPath.row];
+    NSString *clipTitle  = [clip objectForKey:@"title"];
+    NSString *clipVenue  = [clip objectForKey:@"fsvenue"];
+    NSString *momentsAgo = [Utilities getRelativeTime:[clip objectForKey:@"created_at"]];
     
     if ( clipTitle.length == 0 ) {
         clipTitle = @"Untitled";
@@ -119,7 +121,7 @@
     
     // detail label
     cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@", clipVenue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
     
     return cell;
 }

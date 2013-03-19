@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface RecordViewController : UIViewController <AVAudioRecorderDelegate>
+@interface RecordViewController : UIViewController <AVAudioRecorderDelegate, CLLocationManagerDelegate>
 {
     AVAudioRecorder *audioRecorder;
     NSTimer * timer;
@@ -17,6 +18,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tapLabel;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (IBAction)toggleRecording:(id)sender;
 

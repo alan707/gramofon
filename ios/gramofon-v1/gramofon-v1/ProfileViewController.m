@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "User.h"
+#import "Utilities.h"
 
 @interface ProfileViewController ()
 

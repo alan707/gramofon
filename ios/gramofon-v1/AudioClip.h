@@ -9,15 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface AudioClip : NSObject <CLLocationManagerDelegate>
+@interface AudioClip : NSObject
 
 + (AudioClip *)sharedInstance;
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) NSString *fileName;
 @property (strong, nonatomic) NSURL *fileURL;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *userId;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) NSNumber *latitude;
+@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *venue;
 
 @end
