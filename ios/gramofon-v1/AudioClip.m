@@ -10,7 +10,7 @@
 
 @implementation AudioClip
 
-@synthesize locationManager, currentLocation, fileName, fileURL, title;
+@synthesize locationManager, currentLocation, fileName, fileURL, title, userId;
 
 + (AudioClip *)sharedInstance
 {

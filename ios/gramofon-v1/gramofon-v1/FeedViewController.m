@@ -106,9 +106,13 @@
     }
     
     // image
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
-    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-    cell.imageView.image = theImage;
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" of Type:@"png"];
+    
+    NSString *username = [NSString stringWithFormat: @"dtrenz"];
+    NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", username];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
+    cell.imageView.image = [UIImage imageWithData: imageData];
+
     
     // primary label
     cell.textLabel.text = clipTitle;
@@ -180,11 +184,11 @@
         [audioPlayer stop];
     }
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
-    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-    cell.imageView.image = theImage;
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
+//    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+//    cell.imageView.image = theImage;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

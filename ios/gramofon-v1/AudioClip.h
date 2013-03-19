@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSString *fileName;
 @property (strong, nonatomic) NSURL *fileURL;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *userId;
 
 @end
