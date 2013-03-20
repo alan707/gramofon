@@ -105,4 +105,20 @@ class Users extends CI_Controller
         }
     }
 
+    /**
+     * Show all likes for a given user ID.
+     * @param int $user_id 
+     */
+    public function show_likes( $user_id )
+    {
+        $clips = $this->user_model->get_all_likes( $user_id, 0, 10 );
+
+        $json = json_encode( $clips );
+
+        if ( $json ) {
+            header('Content-type: application/json');
+            echo( $json );
+        }
+    }
+
 }

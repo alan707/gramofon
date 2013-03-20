@@ -73,7 +73,7 @@ class Clip_model extends CI_Model
 
     public function remove_clip( $id )
     {
-        return TRUE;
+        return true;
     }
 
 }

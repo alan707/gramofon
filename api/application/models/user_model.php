@@ -67,7 +67,20 @@ class user_model extends CI_Model
 
     public function remove_user( $id )
     {
-        return TRUE;
+        return true;
+    }
+
+    public function get_all_liked_clips( $offset = 0, $limit = 10 )
+    {
+        $users = array();
+
+        $users[] = new User;
+        $users[] = new User;
+        $users[] = new User;
+        $users[] = new User;
+        $users[] = new User;
+
+        return $users;
     }
 
 }
