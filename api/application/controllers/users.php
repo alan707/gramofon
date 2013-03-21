@@ -36,7 +36,7 @@ class Users extends CI_Controller
      * Show a user for a given user ID.
      * @param int $id 
      */
-    public function show( $id, $id_type = NULL )
+    public function show( $id, $id_type = null )
     {
         $user = $this->user_model->get_user( $id, $id_type );
 
