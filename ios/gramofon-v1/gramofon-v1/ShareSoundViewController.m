@@ -95,7 +95,12 @@
     [AudioClip sharedInstance].title = titleSound.text;
     
     [self.navigationController popToRootViewControllerAnimated:TRUE];
-    [self uploadAudioClip];
+    dispatch_queue_t uploadQ  = dispatch_queue_create("upload sound loading queue", NULL);
+    dispatch_async(uploadQ, ^{
+
+        [self uploadAudioClip];
+    
+    });
 }
 
 - (void)uploadAudioClip

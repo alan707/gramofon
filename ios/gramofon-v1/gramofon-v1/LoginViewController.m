@@ -82,11 +82,12 @@
 {
     [super viewDidLoad];
     
-    [self openSession];
     
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        [self getUser];
-    }
+    [self openSession];
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            [self getUser];
+        }
+
 }
 
 - (void)getUser
@@ -97,7 +98,7 @@
        NSDictionary<FBGraphUser> *user,
        NSError *error) {
          if ( !error ) {
-             [User sharedInstance].username    = user.username;
+                          [User sharedInstance].username    = user.username;
              [User sharedInstance].facebook_id = user.id;
              [User sharedInstance].firstname   = user.first_name;
              [User sharedInstance].lastname    = user.last_name;
@@ -107,7 +108,7 @@
              [[User sharedInstance] authenticateGramofonUser];
              
              [self didAuthenticate];
-         }
+        }
      }];
 }
 
@@ -132,23 +133,22 @@
 - (void)openSession
 {
 //    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
+        [FBSession openActiveSessionWithReadPermissions:nil
+                                           allowLoginUI:YES
+                                      completionHandler:
+         ^(FBSession *session,
+           FBSessionState state, NSError *error) {
+             [self sessionStateChanged:session state:state error:error];
+         }];
+        //    NSLog(@"%@", [self.tabBarController viewControllers]);
+        //     [self.mainViewController pushViewController:RecordViewController animated:true];
+  
     
-    [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
-    //    NSLog(@"%@", [self.tabBarController viewControllers]);
-    //     [self.mainViewController pushViewController:RecordViewController animated:true];
 }
 
 - (void)showLoginView
 {
-    //    UIViewController *topViewController = [self.navController topViewController];
-    //    UIViewController *modalViewController = [topViewController modalViewController];
-   [self didAuthenticate];
+      [self didAuthenticate];
     
     
     // If the login screen is not already displayed, display it. If the login screen is
