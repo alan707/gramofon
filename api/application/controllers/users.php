@@ -36,7 +36,7 @@ class Users extends CI_Controller
      * Show a user for a given user ID.
      * @param int $id 
      */
-    public function show( $id, $id_type = NULL )
+    public function show( $id, $id_type = null )
     {
         $user = $this->user_model->get_user( $id, $id_type );
 
@@ -98,6 +98,22 @@ class Users extends CI_Controller
         $result = $this->user_model->remove_user( $id );
 
         $json = json_encode( $result );
+
+        if ( $json ) {
+            header('Content-type: application/json');
+            echo( $json );
+        }
+    }
+
+    /**
+     * Show all likes for a given user ID.
+     * @param int $user_id 
+     */
+    public function show_likes( $user_id )
+    {
+        $clips = $this->user_model->get_all_likes( $user_id, 0, 10 );
+
+        $json = json_encode( $clips );
 
         if ( $json ) {
             header('Content-type: application/json');
