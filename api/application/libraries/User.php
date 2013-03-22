@@ -2,13 +2,6 @@
 
 class User
 {
-    public $id;
-    public $username;
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $facebook_id;
-    public $created;
 
     public function __construct( $data = null )
     {

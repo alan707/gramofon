@@ -1,4 +1,4 @@
-<div class="audio-player" data-clip-id="<?= $clip->id ?>" data-clip-url="<?= $clip->sound_file_url ?>">
+<div class="audio-player" data-clip-id="<?= $clip->id ?>" data-clip-url="<?= $clip->url ?>">
     <div class="action-button like-button">
         <i class="icon-heart"></i>
         <span class="count"><?= rand(0, 25) ?></span>

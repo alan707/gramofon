@@ -2,14 +2,6 @@
 
 class Clip 
 {
-    public $id;
-    public $url;
-    public $title;
-    public $latitude;
-    public $longitude;
-    public $venue;
-    public $created;
-    public $user;
 
     public function __construct( $data = null )
     {

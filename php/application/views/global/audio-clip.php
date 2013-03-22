@@ -21,8 +21,8 @@
         <? $this->load->view('global/audio-player') ?>
 
         <div class="clip-metadata">
-            <span class="post-date" data-timestamp="<?= $clip->created_at ?>"></span> near 
-            <span class="location"><?= empty($clip->fsvenue) ? 'Unknown' : character_limiter($clip->fsvenue, 30) ?></span>            
+            <span class="post-date" data-timestamp="<?= $clip->created ?>"></span> near 
+            <span class="location"><?= empty($clip->venue) ? 'Unknown' : character_limiter($clip->venue, 30) ?></span>            
         </div>
     </div>
 </div>
