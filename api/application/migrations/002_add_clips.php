@@ -41,6 +41,7 @@ class Migration_Add_clips extends CI_Migration
 		));
 
         $this->dbforge->add_key( 'id', true );
+        $this->dbforge->add_key( 'created' );
         $this->dbforge->add_key( 'user_id' );
 
         $this->dbforge->create_table('clips');

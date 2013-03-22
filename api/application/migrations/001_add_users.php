@@ -39,6 +39,7 @@ class Migration_Add_users extends CI_Migration
 		));
 
         $this->dbforge->add_key( 'id', true );
+        $this->dbforge->add_key( 'username' );
         $this->dbforge->add_key( 'facebook_id' );
 
         $this->dbforge->create_table('users');

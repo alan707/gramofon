@@ -49,6 +49,8 @@ class user_model extends CI_Model
 
         if ( $id_type === 'facebook' ) {
             $query = $this->db->get_where( 'users', array('facebook_id' => $id) );
+        } elseif ( $id_type == 'username' ) {            
+            $query = $this->db->get_where( 'users', array('username' => $id) );
         } else {            
             $query = $this->db->get_where( 'users', array('id' => $id) );
         }
