@@ -12,7 +12,7 @@ class Migration_Add_clips extends CI_Migration
 				'unsigned'       => true,
 				'auto_increment' => true
 			),
-			'file_url' => array(
+			'filename' => array(
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 			),

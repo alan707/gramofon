@@ -12,12 +12,22 @@ class user_model extends CI_Model
 
     public function get_all_users( $offset = 0, $limit = 10 )
     {
-        $users = array();
-        
+        $users = array();        
+
+        $this->db->select(
+            'users.id as user_id,'
+          . 'users.username as user_username,'
+          . 'users.firstname as user_firstname,'
+          . 'users.lastname as user_lastname,'
+          . 'users.email as user_email,'
+          . 'users.facebook_id as user_facebook_id,'
+          . 'users.created as user_created'
+        );
+
         $query = $this->db->get( 'users', $limit, $offset );
 
         foreach ( $query->result() as $user ) {
-            $users[] = $user;
+            $users[] = new User( $user );
         }
 
         return $users;
@@ -27,6 +37,16 @@ class user_model extends CI_Model
     {
         $user = FALSE;
 
+        $this->db->select(
+            'users.id as user_id,'
+          . 'users.username as user_username,'
+          . 'users.firstname as user_firstname,'
+          . 'users.lastname as user_lastname,'
+          . 'users.email as user_email,'
+          . 'users.facebook_id as user_facebook_id,'
+          . 'users.created as user_created'
+        );
+
         if ( $id_type === 'facebook' ) {
             $query = $this->db->get_where( 'users', array('facebook_id' => $id) );
         } else {            
@@ -34,7 +54,7 @@ class user_model extends CI_Model
         }
 
         if ( $query->num_rows() > 0 ) {
-            $user = $query->row();
+            $user = new User( $query->row() );
         }
 
         return $user;
@@ -46,8 +66,8 @@ class user_model extends CI_Model
 
         $user = new stdClass;
         $user->username    = $data['username'];
-        $user->first_name  = $data['first_name'];
-        $user->last_name   = $data['last_name'];
+        $user->firstname   = $data['firstname'];
+        $user->lastname    = $data['lastname'];
         $user->email       = $data['email'];
         $user->facebook_id = $data['facebook_id'];
 
@@ -63,20 +83,20 @@ class user_model extends CI_Model
     }
 
     // @todo
-    public function update_user( $id, $data )
-    {
-        $user = new User;
+    // public function update_user( $id, $data )
+    // {
+    //     $user = new User;
         
-        $user->id = $id;
+    //     $user->id = $id;
 
-        foreach ( $data as $key => $value ) {
-            if ( property_exists('User', $key) ) {
-                $user->$key = $value;
-            }
-        }
+    //     foreach ( $data as $key => $value ) {
+    //         if ( property_exists('User', $key) ) {
+    //             $user->$key = $value;
+    //         }
+    //     }
 
-        return $user;
-    }
+    //     return $user;
+    // }
 
     public function remove_user( $id )
     {
@@ -88,17 +108,17 @@ class user_model extends CI_Model
     }
 
     // @todo
-    public function get_all_liked_clips( $offset = 0, $limit = 10 )
-    {
-        $users = array();
+    // public function get_all_liked_clips( $offset = 0, $limit = 10 )
+    // {
+    //     $users = array();
 
-        $users[] = new User;
-        $users[] = new User;
-        $users[] = new User;
-        $users[] = new User;
-        $users[] = new User;
+    //     $users[] = new User;
+    //     $users[] = new User;
+    //     $users[] = new User;
+    //     $users[] = new User;
+    //     $users[] = new User;
 
-        return $users;
-    }
+    //     return $users;
+    // }
 
 }
