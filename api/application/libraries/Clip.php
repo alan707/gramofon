@@ -3,7 +3,7 @@
 class Clip 
 {
     public $id;
-    public $filename;
+    public $url;
     public $title;
     public $latitude;
     public $longitude;
@@ -15,7 +15,7 @@ class Clip
     {
     	if ( $data ) {
 	    	$this->id        = $data->id;
-	    	$this->filename  = $data->filename;
+	    	$this->url       = 'https://gramofon.s3.amazonaws.com/uploads/alan.mond/sound_file/' . $data->filename;
 	    	$this->title     = $data->title;
 	    	$this->latitude  = $data->latitude;
 	    	$this->longitude = $data->longitude;
