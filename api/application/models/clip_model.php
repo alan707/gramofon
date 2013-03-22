@@ -42,12 +42,29 @@ class Clip_model extends CI_Model
     {
         $clip = new stdClass;
 
-        $this->db->join( 'users', 'clips.user_id = users.user_id' );
+        $this->db->join( 'users', 'clips.user_id = users.id' );
 
-        $query = $this->db->get_where( 'clips', array('id' => $id) );
+        $query = $this->db->get_where( 'clips', array('clips.id' => $id) );
 
         if ( $query->num_rows() > 0 ) {
-            $clip = $query->row();
+            $data = $query->row();
+
+            $clip->id        = $data->id;
+            $clip->file_url  = $data->file_url;
+            $clip->title     = $data->title;
+            $clip->latitude  = $data->latitude;
+            $clip->longitude = $data->longitude;
+            $clip->venue     = $data->venue;
+            // $clip->created   = $data->created;
+
+            $clip->user = new stdClass;
+            $clip->user->id          = $data->user_id;
+            $clip->user->username    = $data->username;
+            $clip->user->first_name  = $data->first_name;
+            $clip->user->last_name   = $data->last_name;
+            $clip->user->email       = $data->email;
+            $clip->user->facebook_id = $data->facebook_id;
+            // $clip->user->created     = $data->user_id;
         }
 
         return $clip;
@@ -55,7 +72,7 @@ class Clip_model extends CI_Model
 
     public function create_clip( $data )
     {
-        $new_clip = stdClass;
+        $new_clip = new stdClass;
 
         // @todo: upload file data to S3
         // @todo: add errors
