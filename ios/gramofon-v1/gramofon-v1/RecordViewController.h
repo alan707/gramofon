@@ -15,6 +15,7 @@
     AVAudioRecorder *audioRecorder;
     NSTimer * timer;
 }
+@property (weak, nonatomic) IBOutlet UIProgressView *recordingProgress;
 
 @property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tapLabel;

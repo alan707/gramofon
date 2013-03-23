@@ -10,12 +10,12 @@
 #import "AudioClip.h"
 
 @interface RecordViewController ()
-
 @end
 
 @implementation RecordViewController
 
-@synthesize countDownLabel, tapLabel, locationManager;
+@synthesize countDownLabel, tapLabel, locationManager, recordingProgress;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +41,7 @@
 {    
     countDownLabel.text = @"12:00";
     tapLabel.text = @"TAP To Record";
-    
+    recordingProgress.progress = 0;
     // when the record view loads, set-up the recorder
     [self resetPlayer];
 }
@@ -110,22 +110,41 @@
 	return string;
 }
 
+
+
 - (IBAction)toggleRecording:(id)sender
 {
     if ( audioRecorder.isRecording ) {
         [audioRecorder stop];
     } else {
         [audioRecorder recordForDuration:12];
-        timer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        [self performSelectorOnMainThread:@selector(progressBar) withObject:nil waitUntilDone:NO];
+//
         tapLabel.text = @"TAP To Finish";
     }
 }
+
+- (void)progressBar {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NSTimer  scheduledTimerWithTimeInterval:0 target:self selector:@selector(progressBar) userInfo:nil repeats:NO];
+        float actual = [recordingProgress progress];
+        if (actual < 1) {
+            recordingProgress.progress =
+            ((float)audioRecorder.currentTime/(float)12);
+            
+        }
+        else{
+        }
+    });
+    }
+
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
     
-    countDownLabel.text = @"Done!";    
+        countDownLabel.text = @"Done!";
 
     [AudioClip sharedInstance].fileURL = audioRecorder.url;
     

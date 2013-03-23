@@ -133,11 +133,12 @@
                                 <color key="textColor" red="0.54258661684782616" green="0.54258661684782616" blue="0.54258661684782616" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="gramaphon_logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEC-U0-siq"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-FJ-aUZ">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="gramaphon_logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEC-U0-siq">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="MeT-BZ-5X7"/>
+                                    <constraint firstAttribute="height" constant="182" id="etR-3c-iGN"/>
                                 </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-FJ-aUZ">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -150,21 +151,29 @@
                                     <action selector="toggleRecording:" destination="jtr-XI-3At" eventType="touchUpInside" id="hwE-F4-34f"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" progress="0.20000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="PZW-eF-b6z">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="sWD-AZ-x2W"/>
+                                </constraints>
+                                <color key="progressTintColor" red="0.98431378602981567" green="0.28627452254295349" blue="0.011764707043766975" alpha="1" colorSpace="deviceRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="default" id="9sS-4X-XoX"/>
+                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="73b-MC-Bph"/>
+                            <constraint firstItem="oEC-U0-siq" firstAttribute="trailing" secondItem="dR2-FJ-aUZ" secondAttribute="trailing" type="default" id="DUU-5h-V2t"/>
                             <constraint firstAttribute="centerX" secondItem="oEC-U0-siq" secondAttribute="centerX" type="user" id="JYC-Rj-SuS"/>
                             <constraint firstItem="dR2-FJ-aUZ" firstAttribute="bottom" secondItem="Cqn-Cw-hpT" secondAttribute="bottom" type="default" id="MIW-oS-RhE"/>
+                            <constraint firstItem="PZW-eF-b6z" firstAttribute="top" secondItem="OQg-2w-GT3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Quy-aC-u7t"/>
                             <constraint firstItem="XJv-e3-kKe" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SOy-2O-jWh"/>
-                            <constraint firstAttribute="bottom" secondItem="XJv-e3-kKe" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="ZwI-rd-eB5"/>
-                            <constraint firstItem="XJv-e3-kKe" firstAttribute="top" secondItem="oEC-U0-siq" secondAttribute="bottom" constant="17" type="user" id="aiA-wD-NWf"/>
+                            <constraint firstItem="PZW-eF-b6z" firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="default" id="YY7-0v-Fsm"/>
                             <constraint firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="user" id="baW-hF-XUb"/>
                             <constraint firstItem="oEC-U0-siq" firstAttribute="leading" secondItem="Cqn-Cw-hpT" secondAttribute="leading" type="default" id="dWG-cr-bNt"/>
+                            <constraint firstItem="XJv-e3-kKe" firstAttribute="centerX" secondItem="oEC-U0-siq" secondAttribute="centerX" type="default" id="eRN-w3-Le7"/>
+                            <constraint firstItem="oEC-U0-siq" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="128" id="iyc-Bu-6rx"/>
                             <constraint firstItem="OQg-2w-GT3" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" constant="10" type="user" id="mEc-Mk-jUQ"/>
-                            <constraint firstItem="dR2-FJ-aUZ" firstAttribute="centerX" secondItem="OQg-2w-GT3" secondAttribute="centerX" type="default" id="vhg-b8-y5V"/>
+                            <constraint firstItem="oEC-U0-siq" firstAttribute="leading" secondItem="dR2-FJ-aUZ" secondAttribute="leading" type="default" id="qrT-kN-1wA"/>
                             <constraint firstItem="dR2-FJ-aUZ" firstAttribute="top" secondItem="Cqn-Cw-hpT" secondAttribute="top" type="default" id="xa7-gk-x6P"/>
-                            <constraint firstItem="oEC-U0-siq" firstAttribute="top" secondItem="OQg-2w-GT3" secondAttribute="bottom" constant="13" type="user" id="yjG-uJ-iVt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="NiP-Md-acV">
@@ -174,6 +183,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countDownLabel" destination="OQg-2w-GT3" id="evI-dW-fyA"/>
+                        <outlet property="recordingProgress" destination="PZW-eF-b6z" id="NtS-LU-LzS"/>
                         <outlet property="tapLabel" destination="XJv-e3-kKe" id="Gv2-pS-rQu"/>
                         <segue destination="bmH-xg-Tk4" kind="push" identifier="SegueToShareSound" id="xnF-8W-m0k"/>
                         <segue destination="wKa-l0-eVh" kind="push" identifier="SegueToVenueList" id="dlQ-4H-1ta"/>
@@ -455,12 +465,63 @@
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
+    <classes>
+        <class className="FeedTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="MainTabBarViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTabBarViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleRecording:"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="recordingProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ShareSoundViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareSoundViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="shareSoundButton:"/>
+                <relationship kind="action" name="showKeyboard:"/>
+                <relationship kind="action" name="toggleAudio:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleSound" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+        <class className="UserFeedTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserFeedTableViewController.h"/>
+        </class>
+        <class className="VenueListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueListViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nSp-cf-Ccx"/>
+        <segue reference="xnF-8W-m0k"/>
     </inferredMetricsTieBreakers>
 </document>
