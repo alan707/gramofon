@@ -7,7 +7,7 @@ class Clip
     {
     	if ( $data ) {
 	    	$this->id        = $data->id;
-	    	$this->url       = 'https://gramofon.s3.amazonaws.com/uploads/' . $data->user_username . '/sound_file/' . $data->filename;
+	    	$this->url       = 'https://gramofon.s3.amazonaws.com/clips/' .  $data->filename;
 	    	$this->title     = $data->title;
 	    	$this->latitude  = $data->latitude;
 	    	$this->longitude = $data->longitude;

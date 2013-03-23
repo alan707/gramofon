@@ -94,25 +94,26 @@ class Clip_model extends CI_Model
 
     public function create_clip( $data )
     {
-        $new_clip = new stdClass;
+        $new_clip = false;
 
-        // @todo: upload file data to S3
-        // @todo: add errors
+        $filename = $this->_upload_file();
 
-        $clip = new stdClass;
-        // $clip->filename  = $data['filename'];
-        $clip->title     = $data['title'];
-        $clip->latitude  = $data['latitude'];
-        $clip->longitude = $data['longitude'];
-        $clip->venue     = $data['venue'];
-        $clip->user_id   = $data['user_id'];
+        if ( $filename ) {
+            $clip = new stdClass;
+            $clip->filename  = $filename;
+            $clip->title     = $data['title'];
+            $clip->latitude  = $data['latitude'];
+            $clip->longitude = $data['longitude'];
+            $clip->venue     = $data['venue'];
+            $clip->user_id   = $data['user_id'];
 
-        $this->db->insert( 'clips', $clip );
+            $this->db->insert( 'clips', $clip );
 
-        $new_clip_id = $this->db->insert_id();
+            $new_clip_id = $this->db->insert_id();
 
-        if ( $new_clip_id ) {
-            $new_clip = $this->get_clip( $new_clip_id );
+            if ( $new_clip_id ) {
+                $new_clip = $this->get_clip( $new_clip_id );
+            }
         }
 
         return $new_clip;
@@ -141,6 +142,28 @@ class Clip_model extends CI_Model
         $query = $this->db->get_where( 'clips', array('id' => $id) );
 
         return ( $query->num_rows() == 0 );
+    }
+
+    private function _upload_file()
+    {
+        $return = false; 
+
+        $filename = $_FILES['audio']['name'];
+        $tmp_name = $_FILES['audio']['tmp_name'];
+
+        if ( ! empty($tmp_name) ) {
+            $this->load->library('S3');
+
+            S3::setAuth('AKIAIUEHW25WUS5VHGBA', 'InKItKupCGYvsJv3QGrueNnAf96zgLYJL1OdVZBu');
+
+            $return = S3::putObject( S3::inputFile($tmp_name), 'gramofon', 'clips/' . $filename, S3::ACL_PUBLIC_READ );
+
+            if ( $return ) {
+                $return = $filename;
+            }
+        }
+
+        return $return;
     }
 
 }
