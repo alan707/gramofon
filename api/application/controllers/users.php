@@ -22,7 +22,13 @@ class Users extends CI_Controller
      */
     public function index()
     {
-        $users = $this->user_model->get_all_users( 0, 10 );
+        $offset = $this->input->get( 'offset' );
+        $limit  = $this->input->get( 'limit' );
+
+        $offset = ( $offset ) ? $offset : 0;
+        $limit  = ( $limit ) ? $limit : 10;
+
+        $users = $this->user_model->get_all_users( $offset, $limit );
 
         $json = json_encode( $users );
 
@@ -33,7 +39,7 @@ class Users extends CI_Controller
     }
 
     /**
-     * Show a user for a given user ID.
+     * Show a user for a given user ID, Facebook ID, or username.
      * @param int $id 
      */
     public function show( $id, $id_type = null )

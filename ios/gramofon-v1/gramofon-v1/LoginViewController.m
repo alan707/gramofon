@@ -98,7 +98,7 @@
        NSDictionary<FBGraphUser> *user,
        NSError *error) {
          if ( !error ) {
-                          [User sharedInstance].username    = user.username;
+             [User sharedInstance].username    = user.username;
              [User sharedInstance].facebook_id = user.id;
              [User sharedInstance].firstname   = user.first_name;
              [User sharedInstance].lastname    = user.last_name;

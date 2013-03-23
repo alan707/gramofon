@@ -98,10 +98,11 @@
     }
     
     // Set up the cell.
-    NSDictionary *clip   = [feed objectAtIndex:indexPath.row];
-    NSString *clipTitle  = [clip objectForKey:@"title"];
-    NSString *clipVenue  = [clip objectForKey:@"fsvenue"];
-    NSString *momentsAgo = [Utilities getRelativeTime:[clip objectForKey:@"created_at"]];
+    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+    NSString *clipTitle    = [clip objectForKey:@"title"];
+    NSString *clipVenue    = [clip objectForKey:@"venue"];
+    NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
+    NSDictionary *clipUser = [clip objectForKey:@"user"];
     
     if ( clipTitle.length == 0 ) {
         clipTitle = @"Untitled";
@@ -110,8 +111,7 @@
     // image
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" of Type:@"png"];
     
-    NSString *username = [NSString stringWithFormat: @"dtrenz"];
-    NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", username];
+    NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
     cell.imageView.image = [UIImage imageWithData: imageData];
 
@@ -151,7 +151,7 @@
         
         // Get the clip
         NSDictionary *clip = [feed objectAtIndex:indexPath.row];
-        NSString *clipURL = [clip objectForKey:@"sound_file_url"];
+        NSString *clipURL = [clip objectForKey:@"url"];
         NSURL *soundFileURL = [NSURL URLWithString:clipURL];
         
         NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
@@ -210,7 +210,7 @@
 {
     NSError *error;
     
-    NSString *url         = [NSString stringWithFormat:@"http://gramofon.herokuapp.com/audio_clips.json?offset=%i&limit=20", offset];
+    NSString *url         = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     

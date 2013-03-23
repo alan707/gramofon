@@ -8,16 +8,16 @@ class Audio_clip_model extends CI_Model {
         
         if ( !empty($audio_clips) ) {            
             foreach ( $audio_clips as &$clip ) {
-                $clip->created_at = strtotime($clip->created_at);
+                $clip->created = strtotime($clip->created);
             }
         }
         
         return $audio_clips;
     }
     
-    public function get_user_audio_clips( $username, $offset = 0, $limit = 20 )
+    public function get_user_audio_clips( $user_id, $offset = 0, $limit = 20 )
     {        
-        $audio_clips = $this->gramofonclient->get_user_audio_clips($username, $offset, $limit);
+        $audio_clips = $this->gramofonclient->get_user_audio_clips($user_id, $offset, $limit);
         
         if ( !empty($audio_clips) ) { 
             if ( !is_array($audio_clips) ) {
@@ -25,7 +25,7 @@ class Audio_clip_model extends CI_Model {
             } 
             
             foreach ( $audio_clips as &$clip ) {
-                $clip->created_at = strtotime($clip->created_at);
+                $clip->created = strtotime($clip->created);
             }
         }
         
@@ -37,7 +37,7 @@ class Audio_clip_model extends CI_Model {
         $clip = $this->gramofonclient->get_audio_clip($id);
         
         if ( !empty($clip) ) {             
-            $clip->created_at = strtotime($clip->created_at);
+            $clip->created = strtotime($clip->created);
         }
         
         return $clip;

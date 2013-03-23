@@ -44,6 +44,7 @@
 switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
 {
     case 'GET':
+        $route['users/username_(:any)']         = 'users/show/$1/username';
         $route['users/facebook_(:num)']         = 'users/show/$1/facebook';
         $route['users/(:num)/clips']            = 'clips/show_user_clips/$1';
         $route['users/(:num)/favorites/(:num)'] = 'favorites/show/$1/$2';

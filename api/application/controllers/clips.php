@@ -22,7 +22,13 @@ class Clips extends CI_Controller
 	 */
 	public function index()
 	{
-		$clips = $this->clip_model->get_all_clips( 0, 10 );
+		$offset = $this->input->get( 'offset' );
+		$limit  = $this->input->get( 'limit' );
+
+		$offset = ( $offset ) ? $offset : 0;
+		$limit  = ( $limit ) ? $limit : 10;
+
+		$clips = $this->clip_model->get_all_clips( $offset, $limit );
 
 		$json = json_encode( $clips );
 
@@ -38,7 +44,13 @@ class Clips extends CI_Controller
 	 */
 	public function show_user_clips( $user_id )
 	{
-		$clips = $this->clip_model->get_all_user_clips( $user_id, 0, 10 );
+		$offset = $this->input->get( 'offset' );
+		$limit  = $this->input->get( 'limit' );
+
+		$offset = ( $offset ) ? $offset : 0;
+		$limit  = ( $limit ) ? $limit : 10;
+
+		$clips = $this->clip_model->get_all_user_clips( $user_id, $offset, $limit );
 
 		$json = json_encode( $clips );
 
