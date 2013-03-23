@@ -29,14 +29,12 @@
     [super viewDidLoad];
     
     // Inside a Table View Controller's viewDidLoad method
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    
-    refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    
-    [refresh addTarget:self action:@selector(refreshView:)
-      forControlEvents:UIControlEventValueChanged];
-    
-    self.refreshControl = refresh;
+//    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+//    
+//    self.refreshControl.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [self.refreshControl addTarget:self
+                            action:@selector(loadLatestAudioClips)
+                  forControlEvents:UIControlEventValueChanged];
     
     feed = [NSMutableArray array];
     
@@ -50,11 +48,28 @@
 }
 
 #pragma mark - Table view data source
+
+-(IBAction)loadLatestAudioClips
+{
+    
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
+    dispatch_async(loadclipsQ, ^{
+        feed = [NSMutableArray array];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self getFeedData:0 itemCount:20];
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        });
+    });
+}
+
+
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
     NSError *error;
     
-    NSString *url         = [NSString stringWithFormat:@"http://gramofon.herokuapp.com/audio_clips.json?offset=%i&limit=20", offset];
+    NSString *url         = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     
@@ -72,69 +87,133 @@
         NSLog(@"Error: %@", [error localizedDescription]);
     }
     
-    NSLog(@"feed count:%u", [feed count]);
+//    NSLog(@"feed count:%u", [feed count]);
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return 0;
+    return [feed count];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Audio Clip";
+
     
     // Configure the cell...
+    
+    // Try to retrieve from the table view a now-unused cell with the given identifier.
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                                            forIndexPath:indexPath];
+    
+    // If no cell is available, create a new one using the given identifier.
+    if ( cell == nil ) {
+        // Use the default cell style.
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    // Set up the cell.
+    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+    NSString *clipTitle    = [clip objectForKey:@"title"];
+    NSString *clipVenue    = [clip objectForKey:@"venue"];
+    NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
+    NSDictionary *clipUser = [clip objectForKey:@"user"];
+    
+    if ( clipTitle.length == 0 ) {
+        clipTitle = @"Untitled";
+    }
+    
+    // image
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" of Type:@"png"];
+    
+    NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
+    cell.imageView.image = [UIImage imageWithData: imageData];
+
+    // primary label
+    cell.textLabel.text = clipTitle;
+    
+    // detail label
+    cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+
+
     
     return cell;
 }
 
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return NO;
 }
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ( audioPlayer.isPlaying ) {
+        [audioPlayer stop];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
+        UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+        cell.imageView.image = theImage;
+    } else {
+        // set-up audio player
+        NSError *error;
+        
+        // grab the iOS audio session for playback
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [session setActive:YES error:&error];
+        
+        if ( error ) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        
+        // Get the clip
+        NSDictionary *clip = [feed objectAtIndex:indexPath.row];
+        NSString *clipURL = [clip objectForKey:@"url"];
+        NSURL *soundFileURL = [NSURL URLWithString:clipURL];
+        
+        NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
+        
+        if ( audioPlayer ) {
+            audioPlayer = nil;
+        }
+        
+        audioPlayer = [[AVAudioPlayer alloc] initWithData:soundFileData error:&error];
+        
+        if ( ! error ) {
+            audioPlayer.delegate = self;
+            
+            [audioPlayer prepareToPlay];
+            
+            [audioPlayer play];
+            
+            if ( audioPlayer.isPlaying ) {
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"play" ofType:@"png"];
+                UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+                cell.imageView.image = theImage;
+            }
+        } else {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+    }
+
 }
+
+
+
+
+
 
 @end

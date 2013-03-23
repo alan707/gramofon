@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 602EBF2B16F96934003EE035 /* MBProgressHUD.m */; };
 		6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */; };
+		6041F1EC16FE355D00FADA36 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */; };
 		604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604A654F16FBD5AF00162D63 /* FeedTableViewController.m */; };
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
@@ -72,6 +73,8 @@
 		602EBF2B16F96934003EE035 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedTableViewController.h; sourceTree = "<group>"; };
 		6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedTableViewController.m; sourceTree = "<group>"; };
+		6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		604A654E16FBD5AF00162D63 /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		604A654F16FBD5AF00162D63 /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		6050EAA216DC877300060F05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
+				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
+				6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */,
 				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
 				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
@@ -240,10 +245,6 @@
 				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
 				603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */,
 				6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */,
-				C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */,
-				C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */,
-				C5C1CF6E16EBBA440061094F /* FeedViewController.h */,
-				C5C1CF6F16EBBA440061094F /* FeedViewController.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
 				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				C531662616E16773004BEDE0 /* User.h */,
@@ -252,6 +253,7 @@
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 				C587147B16F7C9A400B036C5 /* Utilities.h */,
 				C587147C16F7C9A400B036C5 /* Utilities.m */,
+				60FFB44916FE3CB7007040FC /* Deprecated Files */,
 				602EBF2D16F96947003EE035 /* MBProgressIndicator */,
 				C58714A416F7E21A00B036C5 /* FourSquare */,
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
@@ -288,6 +290,17 @@
 				60CCD5BB16DC2D6A0065E761 /* gramofon-v1-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60FFB44916FE3CB7007040FC /* Deprecated Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5C1CF6E16EBBA440061094F /* FeedViewController.h */,
+				C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */,
+				C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */,
+				C5C1CF6F16EBBA440061094F /* FeedViewController.m */,
+			);
+			name = "Deprecated Files";
 			sourceTree = "<group>";
 		};
 		C58714A416F7E21A00B036C5 /* FourSquare */ = {
@@ -418,6 +431,7 @@
 				C58714B016F7E57600B036C5 /* FSVenue.m in Sources */,
 				602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */,
 				604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */,
+				6041F1EC16FE355D00FADA36 /* MainTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

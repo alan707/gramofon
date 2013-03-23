@@ -11,18 +11,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-//- (void)openSession;
-//extern NSString *const FBSessionStateChangedNotification;
-//- (void) closeSession;
-//- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-//
-//@property (strong, nonatomic) UINavigationController* navController;
-//@property (strong, nonatomic) UIViewController* mainViewController;
 @property (strong, nonatomic) UIWindow *window;
-//@property (nonatomic, strong) UITabBarController *tabBarController;
 
-
-//@property (strong, nonatomic) UIStoryboard* goStoryboard;
 
 // FBSample logic
 // In this sample the app delegate maintains a property for the current

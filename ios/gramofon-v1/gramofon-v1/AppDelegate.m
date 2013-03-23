@@ -12,9 +12,7 @@
 
 @implementation AppDelegate
 @synthesize session = _session;
-//@synthesize tabBarController= _tabBarController;
 
-//@synthesize openedURL = _openedURL;
 
 
 NSString *const FBSessionStateChangedNotification =

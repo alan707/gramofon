@@ -27,19 +27,27 @@
 {
     [super viewDidLoad];
     
-    // Inside a Table View Controller's viewDidLoad method
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+        UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     
-    refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    
-    [refresh addTarget:self action:@selector(refreshView:)
+//        refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    self.refreshControl = refresh;
+
+//    feed = [NSMutableArray array];
+//    [self getFeedData:0 itemCount:20];
+    [self loadLatestAudioClips];
+    [refresh addTarget:self
+                action:@selector(loadLatestAudioClips:)
       forControlEvents:UIControlEventValueChanged];
     
-    self.refreshControl = refresh;
     
-    feed = [NSMutableArray array];
+//    self.refreshControl = refresh;
+
+
+    // Inside a Table View Controller's viewDidLoad method
+//    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     
-    [self getFeedData:0 itemCount:20];
+//    refresh.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,16 +63,40 @@
     return 1;
 }
 
--(void)refreshView:(UIRefreshControl *)refresh
-{
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];    
-    
-//    int count = (unsigned int)[feed count];
-//    
-    [self getFeedData:0 itemCount:20];
+-(void)loadLatestAudioClips{
 
-    
-    [self.tableView reloadData];
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
+    dispatch_async(loadclipsQ, ^{
+        feed = [NSMutableArray array];
+        [self getFeedData:0 itemCount:20];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        });
+    });
+}
+
+
+//-(void)refreshView:(UIRefreshControl *)refresh
+//{
+//    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];    
+//    
+////    int count = (unsigned int)[feed count];
+////
+//    
+//    
+////    dispatch_queue_t getfeedQ = dispatch_queue_create("get latest clips", NULL);
+////    dispatch_async(getfeedQ, ^{
+//        [self getFeedData:0 itemCount:20];
+////    });
+////    dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//                [refresh endRefreshing];
+//
+//
+////    });
+
  
 //
 //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -75,8 +107,7 @@
 //    
 //    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
     
-    [refresh endRefreshing];
-}
+//    }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
