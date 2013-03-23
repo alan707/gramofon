@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 602EBF2B16F96934003EE035 /* MBProgressHUD.m */; };
 		6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */; };
+		604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604A654F16FBD5AF00162D63 /* FeedTableViewController.m */; };
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
 		6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336C16DFFC5F000B2F39 /* 2lines.png */; };
@@ -71,6 +72,8 @@
 		602EBF2B16F96934003EE035 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedTableViewController.h; sourceTree = "<group>"; };
 		6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedTableViewController.m; sourceTree = "<group>"; };
+		604A654E16FBD5AF00162D63 /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
+		604A654F16FBD5AF00162D63 /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		6050EAA216DC877300060F05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6050EAA316DC877300060F05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6050EAA416DC877300060F05 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
+				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
+				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
@@ -412,6 +417,7 @@
 				C58714AF16F7E57600B036C5 /* FSConverter.m in Sources */,
 				C58714B016F7E57600B036C5 /* FSVenue.m in Sources */,
 				602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */,
+				604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
