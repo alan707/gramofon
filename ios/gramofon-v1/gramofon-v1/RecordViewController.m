@@ -118,8 +118,8 @@
         [audioRecorder stop];
     } else {
         [audioRecorder recordForDuration:12];
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-        [self performSelectorOnMainThread:@selector(progressBar) withObject:nil waitUntilDone:NO];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        [self performSelectorInBackground:@selector(progressBar) withObject:nil];
 //
         tapLabel.text = @"TAP To Finish";
     }
