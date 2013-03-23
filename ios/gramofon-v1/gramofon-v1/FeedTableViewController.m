@@ -10,7 +10,7 @@
 #import "Utilities.h"
 
 @interface FeedTableViewController ()
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 @implementation FeedTableViewController
@@ -36,10 +36,17 @@
                             action:@selector(loadLatestAudioClips)
                   forControlEvents:UIControlEventValueChanged];
     
-    feed = [NSMutableArray array];
-    
-    [self getFeedData:0 itemCount:20];
-}
+    dispatch_queue_t getdataQ = dispatch_queue_create("load Audio Clips into table", NULL);
+    dispatch_async(getdataQ, ^{
+        feed = [NSMutableArray array];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+        [self getFeedData:0 itemCount:20];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+        });
+    });
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -57,7 +64,9 @@
     dispatch_async(loadclipsQ, ^{
         feed = [NSMutableArray array];
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [self getFeedData:0 itemCount:20];
+
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
         });
@@ -67,6 +76,7 @@
 
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
+    
     NSError *error;
     
     NSString *url         = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
@@ -156,6 +166,7 @@
 
 #pragma mark - Table view delegate
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -209,6 +220,19 @@
         }
     }
 
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Are we at the bottom of the feed table?
+    if ( indexPath.row + 1 == [feed count] ) {
+        
+        int offset = (unsigned int)[feed count];
+        
+        [self getFeedData:offset itemCount:20];
+        
+        [self.tableView reloadData];
+    }
 }
 
 
