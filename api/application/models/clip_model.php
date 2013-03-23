@@ -100,7 +100,7 @@ class Clip_model extends CI_Model
         // @todo: add errors
 
         $clip = new stdClass;
-        $clip->filename  = $data['filename'];
+        // $clip->filename  = $data['filename'];
         $clip->title     = $data['title'];
         $clip->latitude  = $data['latitude'];
         $clip->longitude = $data['longitude'];

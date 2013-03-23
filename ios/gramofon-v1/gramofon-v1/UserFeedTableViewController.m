@@ -35,22 +35,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
     [refresh addTarget:self
                 action:@selector(refreshView:)
       forControlEvents:UIControlEventValueChanged];
+    
     self.refreshControl = refresh;
     
-    
-
-    
     _feed = [NSMutableArray array];
-
     
-    [self getFeedData:0 itemCount:20];
-
-    
+    [self getFeedData:0 itemCount:20];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,13 +57,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath {
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if ( editingStyle == UITableViewCellEditingStyleDelete ) {
         NSInteger row = [indexPath row];
         [_feed removeObjectAtIndex:row];
         //[self deleteAudioClip:458];// must replace with clip ID as detected AudioClip.ID
@@ -82,7 +82,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 {
 
     // logic to delete clip from API goes here
-    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://gramofon.herokuapp.com/audio_clips/%i", clipId]];
+    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.gramofon.co/clips/%i", clipId]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
@@ -111,6 +111,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     return [_feed count]; // count # of rows
     NSLog(@"Feed Count USER Profile: %u", [_feed count]);
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Audio Clip";
@@ -119,9 +120,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     // Configure the cell...
     NSDictionary *clip   = [_feed objectAtIndex:indexPath.row];
     NSString *clipTitle  = [clip objectForKey:@"title"];
-    NSString *clipVenue  = [clip objectForKey:@"fsvenue"];
-    NSString *momentsAgo = [Utilities getRelativeTime:[clip objectForKey:@"created_at"]];
-    
+    NSString *clipVenue  = [clip objectForKey:@"venue"];
+    NSString *momentsAgo = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
     
     if ( clipTitle.length == 0 ) {
         clipTitle = @"Untitled";
@@ -140,14 +140,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
     return cell;
 }
+
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
-    
-
     NSError *error;
-    [User sharedInstance].username = @"dtrenz";
     
-    NSString *url         = [NSString stringWithFormat:@"http://gramofon.herokuapp.com/users/%@/audio_clips.json?offset=%i&limit=20", [User sharedInstance].username, offset];
+    NSString *url         = [NSString stringWithFormat:@"http://api.gramofon.co/users/%@/clips?offset=%i&limit=20", [User sharedInstance].user_id, offset];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     
@@ -196,7 +194,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         // Get the clip
         NSDictionary *clip = [_feed objectAtIndex:indexPath.row];
-        NSString *clipURL = [clip objectForKey:@"sound_file_url"];
+        NSString *clipURL = [clip objectForKey:@"url"];
         NSURL *soundFileURL = [NSURL URLWithString:clipURL];
         
         NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
@@ -223,10 +221,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
-
-    
-    
-    
     
     //      [self.navigationController pushViewController:detailViewController animated:YES];
 }
