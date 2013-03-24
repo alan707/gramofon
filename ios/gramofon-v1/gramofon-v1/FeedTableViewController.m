@@ -27,25 +27,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Inside a Table View Controller's viewDidLoad method
-//    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-//    
-//    self.refreshControl.attributedTitle   = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+
+    [self loadLatestAudioClips];
     [self.refreshControl addTarget:self
                             action:@selector(loadLatestAudioClips)
                   forControlEvents:UIControlEventValueChanged];
     
-    dispatch_queue_t getdataQ = dispatch_queue_create("load Audio Clips into table", NULL);
-    dispatch_async(getdataQ, ^{
-        feed = [NSMutableArray array];
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-        [self getFeedData:0 itemCount:20];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-        });
-    });
+//    dispatch_queue_t getdataQ = dispatch_queue_create("load Audio Clips into table", NULL);
+//    dispatch_async(getdataQ, ^{
+//        feed = [NSMutableArray array];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self getFeedData:0 itemCount:20];
+//        });
+//    });
     }
 
 - (void)didReceiveMemoryWarning
@@ -58,31 +52,33 @@
 
 -(IBAction)loadLatestAudioClips
 {
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
     [self.refreshControl beginRefreshing];
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
     dispatch_async(loadclipsQ, ^{
         feed = [NSMutableArray array];
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self getFeedData:0 itemCount:20];
-
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+
         });
     });
+    
+   
+
 }
 
 
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
-    
-    NSError *error;
-    
-    NSString *url         = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
+             
+           NSError *error;
+    NSString *url = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
+       
     if ( ! error ) {
         NSArray *data = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
         
@@ -96,8 +92,7 @@
     } else {
         NSLog(@"Error: %@", [error localizedDescription]);
     }
-    
-//    NSLog(@"feed count:%u", [feed count]);
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -110,49 +105,55 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+       
+    // image
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" of Type:@"png"];
     static NSString *CellIdentifier = @"Audio Clip";
 
-    
-    // Configure the cell...
-    
-    // Try to retrieve from the table view a now-unused cell with the given identifier.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
-    
     // If no cell is available, create a new one using the given identifier.
     if ( cell == nil ) {
         // Use the default cell style.
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    // Set up the cell.
-    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
-    NSString *clipTitle    = [clip objectForKey:@"title"];
-    NSString *clipVenue    = [clip objectForKey:@"venue"];
-    NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
-    NSDictionary *clipUser = [clip objectForKey:@"user"];
-    
-    if ( clipTitle.length == 0 ) {
-        clipTitle = @"Untitled";
-    }
-    
-    // image
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" of Type:@"png"];
-    
+
+    dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
+    dispatch_async(profilepicQ, ^{
+                
+        
+        // Configure the cell...
+        
+        // Try to retrieve from the table view a now-unused cell with the given identifier.
+               // Set up the cell.
+        NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+        NSDictionary *clipUser = [clip objectForKey:@"user"];
+
     NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
-    cell.imageView.image = [UIImage imageWithData: imageData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSString *clipTitle    = [clip objectForKey:@"title"];
+        NSString *clipVenue    = [clip objectForKey:@"venue"];
+        NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
+               
+        if ( clipTitle.length == 0 ) {
+            clipTitle = @"Untitled";
+        }
 
+        
+        cell.imageView.image = [UIImage imageWithData: imageData];
+        cell.textLabel.text = clipTitle;
+        
+        // detail label
+        cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+        
+    });
+        });
+            return cell;
     // primary label
-    cell.textLabel.text = clipTitle;
-    
-    // detail label
-    cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
-
-
-    
-    return cell;
-}
+    }
 
 
 
