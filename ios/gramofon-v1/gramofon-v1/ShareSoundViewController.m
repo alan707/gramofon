@@ -105,6 +105,7 @@
 
 - (void)uploadAudioClip
 {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
     NSString *audioClipUserId   = [NSString stringWithFormat:@"%@", [User sharedInstance].user_id];
     NSString *audioClipTitle    = [AudioClip sharedInstance].title;
     NSString *audioClipLng      = [NSString stringWithFormat:@"%@", [AudioClip sharedInstance].longitude];
@@ -179,6 +180,7 @@
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     NSLog(@"%@", returnString);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
