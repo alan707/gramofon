@@ -37,6 +37,10 @@
 		60DCB73016E2F33700ED4366 /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */; };
 		60DCB73416E2F5BF00ED4366 /* 160-voicemail-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */; };
 		60DCB73616E2F5FB00ED4366 /* 65-note.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73516E2F5FB00ED4366 /* 65-note.png */; };
+		60E88CFC1702443C0057DBFA /* CollapseClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E88CF61702443C0057DBFA /* CollapseClick.m */; };
+		60E88CFD1702443C0057DBFA /* CollapseClickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E88CF81702443C0057DBFA /* CollapseClickCell.m */; };
+		60E88CFE1702443C0057DBFA /* CollapseClickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E88CF91702443C0057DBFA /* CollapseClickCell.xib */; };
+		60E88CFF1702443C0057DBFA /* CollapseClickArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E88CFB1702443C0057DBFA /* CollapseClickArrow.m */; };
 		60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569516DC709C005AD219 /* FacebookSDK.framework */; };
 		60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */; };
 		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
@@ -112,6 +116,13 @@
 		60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 		60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "160-voicemail-2.png"; sourceTree = "<group>"; };
 		60DCB73516E2F5FB00ED4366 /* 65-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "65-note.png"; sourceTree = "<group>"; };
+		60E88CF51702443C0057DBFA /* CollapseClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseClick.h; sourceTree = "<group>"; };
+		60E88CF61702443C0057DBFA /* CollapseClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapseClick.m; sourceTree = "<group>"; };
+		60E88CF71702443C0057DBFA /* CollapseClickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseClickCell.h; sourceTree = "<group>"; };
+		60E88CF81702443C0057DBFA /* CollapseClickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapseClickCell.m; sourceTree = "<group>"; };
+		60E88CF91702443C0057DBFA /* CollapseClickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollapseClickCell.xib; sourceTree = "<group>"; };
+		60E88CFA1702443C0057DBFA /* CollapseClickArrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseClickArrow.h; sourceTree = "<group>"; };
+		60E88CFB1702443C0057DBFA /* CollapseClickArrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapseClickArrow.m; sourceTree = "<group>"; };
 		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -253,6 +264,7 @@
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 				C587147B16F7C9A400B036C5 /* Utilities.h */,
 				C587147C16F7C9A400B036C5 /* Utilities.m */,
+				60E88D00170244460057DBFA /* CollapseClick */,
 				60FFB44916FE3CB7007040FC /* Deprecated Files */,
 				602EBF2D16F96947003EE035 /* MBProgressIndicator */,
 				C58714A416F7E21A00B036C5 /* FourSquare */,
@@ -290,6 +302,20 @@
 				60CCD5BB16DC2D6A0065E761 /* gramofon-v1-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60E88D00170244460057DBFA /* CollapseClick */ = {
+			isa = PBXGroup;
+			children = (
+				60E88CF51702443C0057DBFA /* CollapseClick.h */,
+				60E88CF61702443C0057DBFA /* CollapseClick.m */,
+				60E88CF71702443C0057DBFA /* CollapseClickCell.h */,
+				60E88CF81702443C0057DBFA /* CollapseClickCell.m */,
+				60E88CF91702443C0057DBFA /* CollapseClickCell.xib */,
+				60E88CFA1702443C0057DBFA /* CollapseClickArrow.h */,
+				60E88CFB1702443C0057DBFA /* CollapseClickArrow.m */,
+			);
+			name = CollapseClick;
 			sourceTree = "<group>";
 		};
 		60FFB44916FE3CB7007040FC /* Deprecated Files */ = {
@@ -400,6 +426,7 @@
 				C5B1134B16E45CC7000C0BF5 /* Default.png in Resources */,
 				C5C1CF7416EBBFE80061094F /* play.png in Resources */,
 				C5C1CF7516EBBFE80061094F /* speaker.png in Resources */,
+				60E88CFE1702443C0057DBFA /* CollapseClickCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +459,9 @@
 				602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */,
 				604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */,
 				6041F1EC16FE355D00FADA36 /* MainTabBarViewController.m in Sources */,
+				60E88CFC1702443C0057DBFA /* CollapseClick.m in Sources */,
+				60E88CFD1702443C0057DBFA /* CollapseClickCell.m in Sources */,
+				60E88CFF1702443C0057DBFA /* CollapseClickArrow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

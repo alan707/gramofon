@@ -197,6 +197,7 @@
 
 - (IBAction)showKeyboard:(id)sender {
     // focus text field
+    
     [titleSound becomeFirstResponder];
 }
 

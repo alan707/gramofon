@@ -139,8 +139,9 @@
          ^(FBSession *session,
            FBSessionState state, NSError *error) {
              [self sessionStateChanged:session state:state error:error];
+        NSLog(@"%@", error);
          }];
-        //    NSLog(@"%@", [self.tabBarController viewControllers]);
+    
         //     [self.mainViewController pushViewController:RecordViewController animated:true];
   
     

@@ -220,6 +220,8 @@
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 
 }
 

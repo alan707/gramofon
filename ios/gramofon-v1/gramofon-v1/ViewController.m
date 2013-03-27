@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -17,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"this is what should load");
+//    NSLog(@"this is what should load");
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
