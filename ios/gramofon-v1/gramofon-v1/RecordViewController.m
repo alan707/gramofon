@@ -14,7 +14,7 @@
 
 @implementation RecordViewController
 
-@synthesize countDownLabel, tapLabel, locationManager, recordingProgress;
+//@synthesize countDownLabel, tapLabel, locationManager, recordingProgress;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,9 +39,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {    
-    countDownLabel.text = @"12:00";
-    tapLabel.text = @"TAP To Record";
-    recordingProgress.progress = 0;
+    self.countDownLabel.text = @"12:00";
+    self.tapLabel.text = @"TAP To Record";
+    self.recordingProgress.progress = 0;
     // when the record view loads, set-up the recorder
     [self resetPlayer];
 }
@@ -121,16 +121,16 @@
         timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(tick) userInfo:nil repeats:YES];
         [self performSelectorInBackground:@selector(progressBar) withObject:nil];
 //
-        tapLabel.text = @"TAP To Finish";
+        self.tapLabel.text = @"TAP To Finish";
     }
 }
 
 - (void)progressBar {
     dispatch_async(dispatch_get_main_queue(), ^{
         [NSTimer  scheduledTimerWithTimeInterval:0 target:self selector:@selector(progressBar) userInfo:nil repeats:NO];
-        float actual = [recordingProgress progress];
+        float actual = [self.recordingProgress progress];
         if (actual < 1) {
-            recordingProgress.progress =
+            self.recordingProgress.progress =
             ((float)audioRecorder.currentTime/(float)12);
             
         }
@@ -144,7 +144,7 @@
 {    
     [timer invalidate];
     
-        countDownLabel.text = @"Done!";
+        self.countDownLabel.text = @"Done!";
 
     [AudioClip sharedInstance].fileURL = audioRecorder.url;
     
@@ -165,10 +165,10 @@
     NSInteger milliseconds = roundf((timeRemaining - floor) * 100);
     
     if(floor < 0){
-        countDownLabel.text = @"Done!";
+        self.countDownLabel.text = @"Done!";
         [timer invalidate];
     }else{
-        countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d",floor, milliseconds];
+        self.countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d",floor, milliseconds];
     }
 }
 
@@ -177,7 +177,7 @@
     [AudioClip sharedInstance].location  = newLocation;
     [AudioClip sharedInstance].latitude  = [[NSNumber alloc] initWithDouble:newLocation.coordinate.latitude];
     [AudioClip sharedInstance].longitude = [[NSNumber alloc] initWithDouble:newLocation.coordinate.longitude];
-    [locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
     
     [self performSegueWithIdentifier:@"SegueToVenueList" sender:self];
 }
@@ -185,7 +185,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     if ( error.code == kCLErrorDenied ) {
-        [locationManager stopUpdatingLocation];
+        [self.locationManager stopUpdatingLocation];
         [self performSegueWithIdentifier:@"SegueToShareSound" sender:self];
     } else if( error.code == kCLErrorLocationUnknown ) {
         // retry

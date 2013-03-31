@@ -14,8 +14,8 @@
 @end
 
 @implementation UserFeedTableViewController
-@synthesize feed = _feed;
-@synthesize audioPlayer;
+//@synthesize feed = _feed;
+//@synthesize audioPlayer;
 
 - (void) setAudioClips:(NSArray *)audioClips
 {
@@ -46,7 +46,7 @@
     
     self.refreshControl = refresh;
     
-    _feed = [NSMutableArray array];
+    self.feed = [NSMutableArray array];
     
     [self getFeedData:0 itemCount:20];    
 }
@@ -173,8 +173,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
      UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if ( audioPlayer.isPlaying ) {
-        [audioPlayer stop];
+    if ( self.audioPlayer.isPlaying ) {
+        [self.audioPlayer stop];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
         UIImage *theImage = [UIImage imageWithContentsOfFile:path];
@@ -199,20 +199,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
         
-        if ( audioPlayer ) {
-            audioPlayer = nil;
+        if ( self.audioPlayer ) {
+            self.audioPlayer = nil;
         }
         
-        audioPlayer = [[AVAudioPlayer alloc] initWithData:soundFileData error:&error];
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithData:soundFileData error:&error];
         
         if ( ! error ) {
-            audioPlayer.delegate = self;
+            self.audioPlayer.delegate = self;
             
-            [audioPlayer prepareToPlay];
+            [self.audioPlayer prepareToPlay];
             
-            [audioPlayer play];
+            [self.audioPlayer play];
             
-            if ( audioPlayer.isPlaying ) {
+            if ( self.audioPlayer.isPlaying ) {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"play" ofType:@"png"];
                 UIImage *theImage = [UIImage imageWithContentsOfFile:path];
                 cell.imageView.image = theImage;

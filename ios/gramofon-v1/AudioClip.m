@@ -10,7 +10,7 @@
 
 @implementation AudioClip
 
-@synthesize fileName, fileURL, title, latitude, longitude, venue;
+//@synthesize fileName, fileURL, title, latitude, longitude, venue;
 
 
 + (AudioClip *)sharedInstance

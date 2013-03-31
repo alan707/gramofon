@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import "LoginViewController.h"
 #import "RecordViewController.h"
 
 @implementation AppDelegate
-@synthesize session = _session;
+
 
 
 
@@ -28,7 +29,9 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     return YES;
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -17,7 +17,6 @@
 
 @implementation LoginViewController
 
-@synthesize spinner;
 
 //NSString *const FBSessionStateChangedNotification =
 //@"com.gramofon.gramofon:FBSessionStateChangedNotification";

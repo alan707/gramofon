@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "User.h"
-#import "CollapseClick.h"
+#import "expandedCell.h"
 
 @interface FeedTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
 {
     NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
-}
+    NSMutableDictionary *selectedIndexes;
 
+}
 @end
 
 

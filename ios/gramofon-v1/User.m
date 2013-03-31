@@ -10,7 +10,7 @@
 
 @implementation User
 
-@synthesize user_id, username, facebook_id, firstname, lastname, email;
+//@synthesize user_id, username, facebook_id, firstname, lastname, email;
 
 + (User *)sharedInstance
 {

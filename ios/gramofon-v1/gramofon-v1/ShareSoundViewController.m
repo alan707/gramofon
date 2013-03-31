@@ -16,7 +16,7 @@
 
 @implementation ShareSoundViewController
 
-@synthesize titleSound, playButton;
+//@synthesize titleSound, playButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,20 +79,20 @@
     }
     
     if ( audioPlayer.isPlaying) {
-        [playButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.playButton setTitle:@"Stop" forState:UIControlStateNormal];
     } else {
-        [playButton setTitle:@"Play" forState:UIControlStateNormal];        
+        [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
     }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    [playButton setTitle:@"Play" forState:UIControlStateNormal];    
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
 }
 
 - (IBAction)shareSoundButton:(id)sender
 {
-    [AudioClip sharedInstance].title = titleSound.text;
+    [AudioClip sharedInstance].title = self.titleSound.text;
     
     [self.navigationController popToRootViewControllerAnimated:TRUE];
     dispatch_queue_t uploadQ  = dispatch_queue_create("upload sound loading queue", NULL);
@@ -184,21 +184,21 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if ( titleSound == self.titleSound ) {
-        [titleSound resignFirstResponder];
+    if ( self.titleSound == self.titleSound ) {
+        [self.titleSound resignFirstResponder];
     }
     
     return YES;
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
-    [titleSound resignFirstResponder];
+    [self.titleSound resignFirstResponder];
 }
 
 - (IBAction)showKeyboard:(id)sender {
     // focus text field
     
-    [titleSound becomeFirstResponder];
+    [self.titleSound becomeFirstResponder];
 }
 
 @end

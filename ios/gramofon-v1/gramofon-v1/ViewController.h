@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CollapseClick.h"
 
 @interface ViewController : UIViewController
 
