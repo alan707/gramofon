@@ -16,11 +16,11 @@ class Migration_Add_users extends CI_Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 			),
-			'first_name' => array(
+			'firstname' => array(
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 			),
-			'last_name' => array(
+			'lastname' => array(
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 			),

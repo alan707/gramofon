@@ -51,14 +51,14 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
         $route['users/(:num)/favorites']        = 'favorites/show_user_favorites/$1';
         $route['users/(:num)']                  = 'users/show/$1';
         $route['users']                         = 'users/index';
-        $route['clips/(:num)']  = 'clips/show/$1';
+        $route['clips/(:num)'] = 'clips/show/$1';
         $route['clips']        = 'clips/index';
         break;
 
     case 'POST':
-        $route['users/(:num)/favorites/(:num)'] = 'favorites/create/$1/$2';
-        $route['users'] = 'users/create';
-        $route['clips'] = 'clips/create';
+        $route['favorites'] = 'favorites/create';
+        $route['users']     = 'users/create';
+        $route['clips']     = 'clips/create';
         break;
     
     case 'PUT':

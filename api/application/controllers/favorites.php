@@ -13,8 +13,10 @@ class Favorites extends CI_Controller
     {
         parent::__construct();
 
+        header( 'Content-type: application/json' );
+
         // auto-load model for controller
-        $this->load->model('favorite_model');
+        $this->load->model( 'favorite_model' );
     }
 
     /**
@@ -27,7 +29,6 @@ class Favorites extends CI_Controller
         $json = json_encode( $favorites );
 
         if ( $json ) {
-            header('Content-type: application/json');
             echo( $json );
         }
     }
@@ -43,7 +44,7 @@ class Favorites extends CI_Controller
         $json = json_encode( $favorites );
 
         if ( $json ) {
-            header('Content-type: application/json');
+            header( 'Content-type: application/json' );
             echo( $json );
         }
     }
@@ -60,7 +61,7 @@ class Favorites extends CI_Controller
         $json = json_encode( $favorite );
 
         if ( $json ) {
-            header('Content-type: application/json');
+            header( 'Content-type: application/json' );
             echo( $json );
         }
     }
@@ -68,14 +69,14 @@ class Favorites extends CI_Controller
     /**
      * Create a new favorite from POST data.
      */
-    public function create( $user_id, $clip_id )
+    public function create()
     {
-        $favorite = $this->favorite_model->create_favorite( $user_id, $clip_id );
+        $favorite = $this->favorite_model->create_favorite();
 
         $json = json_encode( $favorite );
 
         if ( $json ) {
-            header('Content-type: application/json');
+            header( 'Content-type: application/json' );
             echo( $json );
         }
     }
@@ -92,7 +93,7 @@ class Favorites extends CI_Controller
         $json = json_encode( $result );
 
         if ( $json ) {
-            header('Content-type: application/json');
+            header( 'Content-type: application/json' );
             echo( $json );
         }
     }
