@@ -9,7 +9,7 @@
 #import "expandedCell.h"
 
 @implementation expandedCell
-@synthesize titleLabel, subtitleLabel, theImage, graySquare;
+@synthesize titleLabel, subtitleLabel, theImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -33,12 +33,8 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)favorite:(id)sender {
-}
 
-- (IBAction)comment:(id)sender {
-}
 
-- (IBAction)share:(id)sender {
-}
+
+
 @end

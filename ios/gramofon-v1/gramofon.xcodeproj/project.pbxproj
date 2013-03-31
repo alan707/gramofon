@@ -15,6 +15,8 @@
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
 		6052336D16DFFC5F000B2F39 /* 2lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336C16DFFC5F000B2F39 /* 2lines.png */; };
 		6052336F16DFFC75000B2F39 /* 1line.png in Resources */ = {isa = PBXBuildFile; fileRef = 6052336E16DFFC75000B2F39 /* 1line.png */; };
+		6066CB2A1708D4B700D7540C /* graySquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6066CB291708D4B700D7540C /* graySquareView.m */; };
+		6066CB2C1708D71000D7540C /* graySquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6066CB2B1708D70F00D7540C /* graySquareView.xib */; };
 		607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */; };
 		6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */; };
 		6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079D02116DEF43400BCD3DC /* AudioClip.m */; };
@@ -93,6 +95,9 @@
 		6050EAA516DC877300060F05 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		6052336C16DFFC5F000B2F39 /* 2lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2lines.png; path = ../2lines.png; sourceTree = "<group>"; };
 		6052336E16DFFC75000B2F39 /* 1line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1line.png; path = ../1line.png; sourceTree = "<group>"; };
+		6066CB281708D4B700D7540C /* graySquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graySquareView.h; sourceTree = "<group>"; };
+		6066CB291708D4B700D7540C /* graySquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graySquareView.m; sourceTree = "<group>"; };
+		6066CB2B1708D70F00D7540C /* graySquareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = graySquareView.xib; sourceTree = "<group>"; };
 		607714F416E18DE6009EEC40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
@@ -254,6 +259,9 @@
 				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
 				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
+				6066CB2B1708D70F00D7540C /* graySquareView.xib */,
+				6066CB281708D4B700D7540C /* graySquareView.h */,
+				6066CB291708D4B700D7540C /* graySquareView.m */,
 				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
 				6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
@@ -441,6 +449,7 @@
 				60D361841704D46500CE96B8 /* Favourite@2x.png in Resources */,
 				60D361871704D4F100CE96B8 /* Comments.png in Resources */,
 				60D361881704D4F100CE96B8 /* Comments@2x.png in Resources */,
+				6066CB2C1708D71000D7540C /* graySquareView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +483,7 @@
 				604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */,
 				6041F1EC16FE355D00FADA36 /* MainTabBarViewController.m in Sources */,
 				60D361781704CE0100CE96B8 /* expandedCell.m in Sources */,
+				6066CB2A1708D4B700D7540C /* graySquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
