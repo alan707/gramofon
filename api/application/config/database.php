@@ -45,24 +45,43 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'local';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'gramofon.cu2chhgaq2cw.us-west-2.rds.amazonaws.com';
-$db['default']['username'] = 'admin';
-$db['default']['password'] = 'gramofon23';
-$db['default']['database'] = 'gramofon';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+
+// production DB connection
+$db['production']['hostname'] = 'gramofon.cu2chhgaq2cw.us-west-2.rds.amazonaws.com';
+$db['production']['username'] = 'admin';
+$db['production']['password'] = 'gramofon23';
+$db['production']['database'] = 'gramofon';
+$db['production']['dbdriver'] = 'mysql';
+$db['production']['dbprefix'] = '';
+$db['production']['pconnect'] = TRUE;
+$db['production']['db_debug'] = TRUE;
+$db['production']['cache_on'] = FALSE;
+$db['production']['cachedir'] = '';
+$db['production']['char_set'] = 'utf8';
+$db['production']['dbcollat'] = 'utf8_general_ci';
+$db['production']['swap_pre'] = '';
+$db['production']['autoinit'] = TRUE;
+$db['production']['stricton'] = FALSE;
+
+// local development DB connection
+$db['local']['hostname'] = '127.0.0.1';
+$db['local']['username'] = 'root';
+$db['local']['password'] = 'root';
+$db['local']['database'] = 'gramofon';
+$db['local']['dbdriver'] = 'mysql';
+$db['local']['dbprefix'] = '';
+$db['local']['pconnect'] = TRUE;
+$db['local']['db_debug'] = TRUE;
+$db['local']['cache_on'] = FALSE;
+$db['local']['cachedir'] = '';
+$db['local']['char_set'] = 'utf8';
+$db['local']['dbcollat'] = 'utf8_general_ci';
+$db['local']['swap_pre'] = '';
+$db['local']['autoinit'] = TRUE;
+$db['local']['stricton'] = FALSE;
 
 
 /* End of file database.php */
