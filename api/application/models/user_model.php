@@ -108,19 +108,5 @@ class user_model extends CI_Model
 
         return ( $query->num_rows() == 0 );
     }
-
-    // @todo
-    // public function get_all_liked_clips( $offset = 0, $limit = 10 )
-    // {
-    //     $users = array();
-
-    //     $users[] = new User;
-    //     $users[] = new User;
-    //     $users[] = new User;
-    //     $users[] = new User;
-    //     $users[] = new User;
-
-    //     return $users;
-    // }
-
+    
 }

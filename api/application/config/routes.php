@@ -49,14 +49,17 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
         $route['users/(:num)/clips']            = 'clips/show_user_clips/$1';
         $route['users/(:num)/favorites/(:num)'] = 'favorites/show/$1/$2';
         $route['users/(:num)/favorites']        = 'favorites/show_user_favorites/$1';
+        $route['users/(:num)/following/(:num)'] = 'follows/show/$2/$1';
+        $route['users/(:num)/following']        = 'follows/show_user_following/$1';
         $route['users/(:num)']                  = 'users/show/$1';
         $route['users']                         = 'users/index';
-        $route['clips/(:num)'] = 'clips/show/$1';
-        $route['clips']        = 'clips/index';
+        $route['clips/(:num)']                  = 'clips/show/$1';
+        $route['clips']                         = 'clips/index';
         break;
 
     case 'POST':
         $route['favorites'] = 'favorites/create';
+        $route['following'] = 'follows/create';
         $route['users']     = 'users/create';
         $route['clips']     = 'clips/create';
         break;
@@ -68,7 +71,8 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
 
     case 'DELETE':
         $route['users/(:num)/favorites/(:num)'] = 'favorites/destroy/$1/$2';
-        $route['users/(:num)'] = 'users/destroy/$1';
-        $route['clips/(:num)'] = 'clips/destroy/$1';
+        $route['users/(:num)/following/(:num)'] = 'follows/destroy/$2/$1';
+        $route['users/(:num)']                  = 'users/destroy/$1';
+        $route['clips/(:num)']                  = 'clips/destroy/$1';
         break;
 }

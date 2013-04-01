@@ -39,8 +39,6 @@ class Favorite_model extends CI_Model
     {        
         $status = false;
 
-        $this->db->select( 'created' );
-
         $this->db->where( 'user_id', $user_id );
         $this->db->where( 'clip_id', $clip_id );
 
@@ -53,12 +51,9 @@ class Favorite_model extends CI_Model
         return $status;
     }
 
-    public function create_favorite()
+    public function create_favorite( $user_id, $clip_id )
     {
         $status = false;
-
-        $user_id = $this->input->post( 'user_id' );
-        $clip_id = $this->input->post( 'clip_id' );
 
         if ( is_numeric($user_id) && is_numeric($clip_id) ) {
             $sql = "INSERT IGNORE INTO favorites ( clip_id, user_id ) \n"

@@ -24,7 +24,13 @@ class Favorites extends CI_Controller
      */
     public function index()
     {
-        $favorites = $this->favorite_model->get_all_favorites( 0, 10 );
+        $offset = $this->input->get( 'offset' );
+        $limit  = $this->input->get( 'limit' );
+
+        $offset = ( $offset ) ? $offset : 0;
+        $limit  = ( $limit ) ? $limit : 10;
+
+        $favorites = $this->favorite_model->get_all_favorites( $offset, $limit );
 
         $json = json_encode( $favorites );
 
@@ -39,7 +45,13 @@ class Favorites extends CI_Controller
      */
     public function show_user_favorites( $user_id )
     {
-        $favorites = $this->favorite_model->get_user_favorites( $user_id, 0, 10 );
+        $offset = $this->input->get( 'offset' );
+        $limit  = $this->input->get( 'limit' );
+
+        $offset = ( $offset ) ? $offset : 0;
+        $limit  = ( $limit ) ? $limit : 10;
+
+        $favorites = $this->favorite_model->get_user_favorites( $user_id, $offset, $limit );
 
         $json = json_encode( $favorites );
 
@@ -71,13 +83,18 @@ class Favorites extends CI_Controller
      */
     public function create()
     {
-        $favorite = $this->favorite_model->create_favorite();
+        $user_id = $this->input->post( 'user_id' );
+        $clip_id = $this->input->post( 'clip_id' );
 
-        $json = json_encode( $favorite );
+        if ( $user_id && $clip_id ) {
+            $favorite = $this->favorite_model->create_favorite( $user_id, $clip_id );
 
-        if ( $json ) {
-            header( 'Content-type: application/json' );
-            echo( $json );
+            $json = json_encode( $favorite );
+
+            if ( $json ) {
+                header( 'Content-type: application/json' );
+                echo( $json );
+            }
         }
     }
 
