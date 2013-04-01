@@ -8,7 +8,7 @@
 | whenever you intend to do a schema migration.
 |
 */
-$config['migration_enabled'] = false;
+$config['migration_enabled'] = true;
 
 
 /*
@@ -21,7 +21,7 @@ $config['migration_enabled'] = false;
 | be upgraded / downgraded to.
 |
 */
-$config['migration_version'] = 2;
+$config['migration_version'] = 3;
 
 
 /*

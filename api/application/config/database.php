@@ -45,7 +45,7 @@
 | the active record class
 */
 
-$active_group = 'local';
+$active_group = 'production';
 $active_record = TRUE;
 
 

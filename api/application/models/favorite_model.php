@@ -36,7 +36,9 @@ class Favorite_model extends CI_Model
     }
 
     public function get_favorite( $user_id, $clip_id )
-    {
+    {        
+        $status = false;
+
         $this->db->select( 'created' );
 
         $this->db->where( 'user_id', $user_id );
@@ -44,31 +46,38 @@ class Favorite_model extends CI_Model
 
         $query = $this->db->get( 'favorites' );
 
-        return ( $query->num_rows() > 0 );
+        if ( $query->num_rows() > 0 ) {
+            $status = true;
+        }
+
+        return $status;
     }
 
     public function create_favorite()
     {
-        $favorite = new stdClass;
+        $status = false;
 
         $user_id = $this->input->post( 'user_id' );
         $clip_id = $this->input->post( 'clip_id' );
 
-        if ( $user_id && $clip_id ) {
-            $favorite = new stdClass;
-            $favorite->clip_id = $user_id;
-            $favorite->user_id = $clip_id;
+        if ( is_numeric($user_id) && is_numeric($clip_id) ) {
+            $sql = "INSERT IGNORE INTO favorites ( clip_id, user_id ) \n"
+                .  "VALUES ( $clip_id, $user_id )";
 
-            $this->db->insert( 'favorites', $favorite );
-
-            $favorite = $this->get_favorite( $user_id, $clip_id );
+            if ( $this->db->query($sql) ) {  
+                $status = true;
+            } else {
+                $this->output->set_status_header('500');
+            }
         }
 
-        return $favorite;
+        return $status;
     }
 
     public function remove_favorite( $user_id, $clip_id )
     {
+        $success = false;
+
         $this->db->delete( 'favorites', array(
             'user_id' => $user_id,
             'clip_id' => $clip_id
@@ -76,7 +85,11 @@ class Favorite_model extends CI_Model
 
         $favorite = $this->get_favorite( $user_id, $clip_id );
 
-        return ( ! $favorite );
+        if ( ! $favorite ) {
+            $success = true;
+        }
+
+        return $success;
     }
 
 }
