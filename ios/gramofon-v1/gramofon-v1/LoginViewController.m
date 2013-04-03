@@ -36,12 +36,12 @@
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI
 {
     return [FBSession openActiveSessionWithReadPermissions:nil
-               allowLoginUI:allowLoginUI
-               completionHandler:^(FBSession *session,
-               FBSessionState state,
-               NSError *error) {
-                   [self sessionStateChanged:session state:state error:error];
-               }];
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [self sessionStateChanged:session state:state error:error];
+                                         }];
 }
 
 - (void)sessionStateChanged:(FBSession *)session
@@ -83,10 +83,10 @@
     
     
     [self openSession];
-        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-            [self getUser];
-        }
-
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        [self getUser];
+    }
+    
 }
 
 - (void)getUser
@@ -107,7 +107,7 @@
              [[User sharedInstance] authenticateGramofonUser];
              
              [self didAuthenticate];
-        }
+         }
      }];
 }
 
@@ -131,24 +131,24 @@
 
 - (void)openSession
 {
-//    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
-        [FBSession openActiveSessionWithReadPermissions:nil
-                                           allowLoginUI:YES
-                                      completionHandler:
-         ^(FBSession *session,
-           FBSessionState state, NSError *error) {
-             [self sessionStateChanged:session state:state error:error];
-        NSLog(@"%@", error);
-         }];
+    //    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+         NSLog(@"%@", error);
+     }];
     
-        //     [self.mainViewController pushViewController:RecordViewController animated:true];
-  
+    //     [self.mainViewController pushViewController:RecordViewController animated:true];
+    
     
 }
 
 - (void)showLoginView
 {
-      [self didAuthenticate];
+    [self didAuthenticate];
     
     
     // If the login screen is not already displayed, display it. If the login screen is
@@ -168,8 +168,8 @@
 - (IBAction)performLogin:(id)sender
 {
     
-//    AppDelegate *appDelegate =
-//    [[UIApplication sharedApplication] delegate];
+    //    AppDelegate *appDelegate =
+    //    [[UIApplication sharedApplication] delegate];
     
     // If the user is authenticated, log out when the button is clicked.
     // If the user is not authenticated, log in when the button is clicked.
@@ -180,7 +180,7 @@
         // and show the login UX if necessary.
         [self openSessionWithAllowLoginUI:YES];
     }
-
+    
 }
 
 - (void) closeSession {

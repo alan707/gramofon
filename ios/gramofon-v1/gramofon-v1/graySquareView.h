@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface graySquareView : UIView
+- (IBAction)share:(UIButton *)sender;
+- (IBAction)favorite:(UIButton *)sender;
+- (IBAction)comment:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIProgressView *playProgress;
+@property (nonatomic) BOOL shouldShow;
 
 @end

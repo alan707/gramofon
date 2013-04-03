@@ -49,6 +49,7 @@
 		60DCB73016E2F33700ED4366 /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */; };
 		60DCB73416E2F5BF00ED4366 /* 160-voicemail-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */; };
 		60DCB73616E2F5FB00ED4366 /* 65-note.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DCB73516E2F5FB00ED4366 /* 65-note.png */; };
+		60F4BF5B170A495B0057ECF3 /* ExpandedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F4BF5A170A495B0057ECF3 /* ExpandedTableViewCell.xib */; };
 		60FD569616DC709C005AD219 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569516DC709C005AD219 /* FacebookSDK.framework */; };
 		60FD569816DC70CB005AD219 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */; };
 		60FD569C16DC711F005AD219 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569916DC711F005AD219 /* Accounts.framework */; };
@@ -138,6 +139,7 @@
 		60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 		60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "160-voicemail-2.png"; sourceTree = "<group>"; };
 		60DCB73516E2F5FB00ED4366 /* 65-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "65-note.png"; sourceTree = "<group>"; };
+		60F4BF5A170A495B0057ECF3 /* ExpandedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedTableViewCell.xib; sourceTree = "<group>"; };
 		60FD569516DC709C005AD219 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		60FD569716DC70CB005AD219 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60FD569916DC711F005AD219 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -260,6 +262,7 @@
 				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
 				6066CB2B1708D70F00D7540C /* graySquareView.xib */,
+				60F4BF5A170A495B0057ECF3 /* ExpandedTableViewCell.xib */,
 				6066CB281708D4B700D7540C /* graySquareView.h */,
 				6066CB291708D4B700D7540C /* graySquareView.m */,
 				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
@@ -450,6 +453,7 @@
 				60D361871704D4F100CE96B8 /* Comments.png in Resources */,
 				60D361881704D4F100CE96B8 /* Comments@2x.png in Resources */,
 				6066CB2C1708D71000D7540C /* graySquareView.xib in Resources */,
+				60F4BF5B170A495B0057ECF3 /* ExpandedTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,8 +525,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Trenz (X4Z6UZJ366)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Trenz (X4Z6UZJ366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Mond (B24X6S6GM5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alan Mond";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -537,9 +541,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "00327004-4D03-4014-AD1C-7206BB5E691D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00327004-4D03-4014-AD1C-7206BB5E691D";
+				PROVISIONING_PROFILE = "A0C428E6-C95E-4024-BEFB-75277BB0D573";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8257B285-7B82-4CD9-9F04-3DD575A86B5F";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -555,18 +560,19 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Trenz";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Trenz";
-				COPY_PHASE_STRIP = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Mond (B24X6S6GM5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alan Mond";
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "82132A5C-4024-4CDC-B8CE-6576D7B52400";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "82132A5C-4024-4CDC-B8CE-6576D7B52400";
+				PROVISIONING_PROFILE = "A0C428E6-C95E-4024-BEFB-75277BB0D573";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8257B285-7B82-4CD9-9F04-3DD575A86B5F";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
