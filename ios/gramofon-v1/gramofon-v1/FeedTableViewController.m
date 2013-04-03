@@ -22,44 +22,37 @@
 #define MAINLABEL_TAG 1
 #define SECONDLABEL_TAG 2
 #define PHOTO_TAG 3
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
+    
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
+    
     dispatch_async(loadclipsQ, ^{
 
-     selectedIndexes = [[NSMutableDictionary alloc] init];
-
-    [self loadLatestAudioClips];
+        [self loadLatestAudioClips];
   
         dispatch_async(dispatch_get_main_queue(), ^{
-
-    [self.refreshControl addTarget:self
-                            action:@selector(loadLatestAudioClips)
-                  forControlEvents:UIControlEventValueChanged];
+            
+            [self.refreshControl addTarget:self
+                                    action:@selector(loadLatestAudioClips)
+                          forControlEvents:UIControlEventValueChanged];
 
         });
+        
     });
-    
-}
-
-
-
-- (BOOL)cellIsSelected:(NSIndexPath *)indexPath {
-	// Return whether the cell at the specified index path is selected or not
-	NSNumber *selectedIndex = [selectedIndexes objectForKey:indexPath];
-	return selectedIndex == nil ? FALSE : [selectedIndex boolValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,21 +63,22 @@
 
 #pragma mark - Table view data source
 
-
 -(IBAction)loadLatestAudioClips
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+    
     [self.refreshControl beginRefreshing];
+    
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
+    
     dispatch_async(loadclipsQ, ^{
         feed = [NSMutableArray array];
         
-    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self getFeedData:0 itemCount:20];
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
             [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-
         });
     });
  }
@@ -92,70 +86,52 @@
 
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
-//    dispatch_queue_t getURLQ = dispatch_queue_create("loading audio clips from database", NULL);
-//    dispatch_async(getURLQ, ^{
     NSError *error;
+    
     NSString *url = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
-//    dispatch_async(dispatch_get_main_queue(), ^{
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     
+    if ( ! error ) {
+        NSArray *data = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+
         if ( ! error ) {
-            NSArray *data = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-//       
-            if ( ! error ) {
-                for (NSDictionary *clip in data) {
-                    [feed addObject:clip];
-                }
-            } else {
-                NSLog(@"Error: %@", [error localizedDescription]);
+            for (NSDictionary *clip in data) {
+                [feed addObject:clip];
             }
         } else {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
-
-//            
-//
-//        });
-//    });
-       
+    } else {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     // Return the number of rows in the section.
     return [feed count];
-
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-   
     static NSString *CellIdentifier = @"Audio Clip";
+    
     expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
+                                                         forIndexPath:indexPath];
 
-    
-    
-    
     // If no cell is available, create a new one using the given identifier.
     if ( cell == nil ) {
-        // Use the default cell style.
-//        cell = [[expandedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
         cell = [[expandedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-       
     }
     
-
+    // disable selection highlight
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 
     dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
-    dispatch_async(profilepicQ, ^{
     
-        
+    dispatch_async(profilepicQ, ^{
         // Configure the cell...
         
         // Try to retrieve from the table view a now-unused cell with the given identifier.
@@ -163,7 +139,7 @@
         NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
         NSDictionary *clipUser = [clip objectForKey:@"user"];
 
-        NSString *facebookpic = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
+        NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
             NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
 
         NSString *clipTitle    = [clip objectForKey:@"title"];
@@ -173,45 +149,37 @@
         if ( clipTitle.length == 0 ) {
             clipTitle = @"Untitled";
         }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-
-        UIImage *facebook_image = [UIImage imageWithData:imageData];
-        cell.theImage.image = facebook_image;
-        cell.titleLabel.text = clipTitle;
+            UIImage *facebook_image = [UIImage imageWithData:imageData];
+            cell.theImage.image  = facebook_image;
+            cell.titleLabel.text = clipTitle;
         
-        // detail label
-        cell.subtitleLabel.textAlignment = NSTextAlignmentRight;
-        cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
-                });
+            // detail label
+            cell.subtitleLabel.textAlignment = NSTextAlignmentRight;
+            cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+        });
     });
-        
   
     return cell;
-
 }
-
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Deselect cell
-    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-//         dispatch_queue_t clipFetch = dispatch_queue_create("getting feed for clip", NULL);
-//         dispatch_async(clipFetch, ^{
-    
-    
     if ( audioPlayer.isPlaying ) {
+        // if clip is playing, stop it
         [audioPlayer stop];
-        
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"speaker" ofType:@"png"];
-//        UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-//        cell.imageView.image = theImage;
     } else {
+        // Begin expandable cell code...        
+        // This is where magic happens...
+        [tableView beginUpdates];
+        [tableView endUpdates];
+        
+        
+        // Begin audio playback code...
+        
         // set-up audio player
         NSError *error;
         
@@ -225,72 +193,62 @@
         }
         
         // Get the clip
-
-
-        
         NSDictionary *clip = [feed objectAtIndex:indexPath.row];
         NSString *clipURL = [clip objectForKey:@"url"];
         NSURL *soundFileURL = [NSURL URLWithString:clipURL];
         
+        // can we speed this up?
         NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
         
+        // null out any existing audioPlayer
         if ( audioPlayer ) {
             audioPlayer = nil;
         }
         
+        // init player with clip URL
         audioPlayer = [[AVAudioPlayer alloc] initWithData:soundFileData error:&error];
         
         if ( ! error ) {
+            // if player init-ed OK...
+            
+            // delegate
             audioPlayer.delegate = self;
             
+            // prep the audio
             [audioPlayer prepareToPlay];
             
+            // start playback
             [audioPlayer play];
-            
-            if ( audioPlayer.isPlaying ) {
-//                NSString *path = [[NSBundle mainBundle] pathForResource:@"play" ofType:@"png"];
-//                UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-//                cell.imageView.image = theImage;
-            }
         } else {
+            // else, output error to log
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
-//    dispatch_async(dispatch_get_main_queue(), ^{
-      
-	// Toggle 'selected' state
-	BOOL isSelected = ![self cellIsSelected:indexPath];
-	
-	// Store cell 'selected' state keyed on indexPath
-	NSNumber *selectedIndex = [NSNumber numberWithBool:isSelected];
-	[selectedIndexes setObject:selectedIndex forKey:indexPath];
-    
-	// This is where magic happens...
-	
-        [tableView beginUpdates];
-     	[tableView endUpdates];
-
-//             });
-//         });
 }
 
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat rowHeight;
+    
+    // get selected row path
+    NSInteger selectedRow = [tableView indexPathForSelectedRow].row;
+    NSInteger currentRow  = indexPath.row;
+    
 	// If our cell is selected, return double height
-	if([self cellIsSelected:indexPath]) {
-		return kCellHeight * 2.0;
-	} else{
-	// Cell isn't selected so return single height
-	return kCellHeight;
+	if ( currentRow == selectedRow ) {
+		rowHeight = kCellHeight * 2.0;
+	} else {
+        // Cell isn't selected so return single height
+        rowHeight = kCellHeight;
     }
+    
+    return rowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Are we at the bottom of the feed table?
-    if ( indexPath.row + 1 == [feed count] ) {
-        
+    if ( indexPath.row + 1 == [feed count] ) {        
         int offset = (unsigned int)[feed count];
         
         [self getFeedData:offset itemCount:20];
@@ -298,10 +256,5 @@
         [self.tableView reloadData];
     }
 }
-
-
-
-
-
 
 @end
