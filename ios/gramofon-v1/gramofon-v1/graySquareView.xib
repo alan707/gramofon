@@ -37,7 +37,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableViewCell" id="607653391">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="823559790">
@@ -251,6 +251,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 140}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="823559790"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

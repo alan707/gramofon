@@ -15,9 +15,10 @@
 {
     NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
-    NSMutableDictionary *selectedIndexes;
 
 }
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 

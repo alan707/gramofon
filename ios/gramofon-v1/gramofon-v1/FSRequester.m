@@ -4,11 +4,19 @@
 #import "FSTargetCallback.h"
 
 
-@implementation FSRequester
-@synthesize asyncConnDict;
-@synthesize requestHistory;
 
-    
+@implementation FSRequester
+//@synthesize asyncConnDict;
+//@synthesize requestHistory;
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+    do { \
+        _Pragma("clang diagnostic push") \
+        _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+        Stuff; \
+        _Pragma("clang diagnostic pop") \
+    } while (0)
+
 - (id)init
 {
     self = [super init];
@@ -51,21 +59,24 @@
 		NSError *error = [NSError errorWithDomain:@"com.com" code:0 userInfo:dict];
 		
 		[self handleConnectionError: error];
-		[target.targetObject performSelector: target.targetCallback withObject: nil withObject: error];
+        SuppressPerformSelectorLeakWarning
+        (
+            [target.targetObject performSelector:target.targetCallback withObject: nil withObject: error];
+        );
 	}
 	
 }
 
 -(void)connectTarget:(FSTargetCallback*)target andConnection:(NSURLConnection*)connection{
-   [asyncConnDict setValue:target forKey:[NSString stringWithFormat: @"%d", [connection hash]]];
+   [self.asyncConnDict setValue:target forKey:[NSString stringWithFormat: @"%d", [connection hash]]];
 }
 
 -(void)disconnettargetWithConnection:(NSURLConnection*)connection{
-    [asyncConnDict removeObjectForKey: [NSString stringWithFormat: @"%d", [connection hash]]];
+    [self.asyncConnDict removeObjectForKey: [NSString stringWithFormat: @"%d", [connection hash]]];
 }
 
 -(FSTargetCallback*)targetForConnection:(NSURLConnection*)connection{
-    return asyncConnDict[[NSString stringWithFormat: @"%d", [connection hash]]];
+    return self.asyncConnDict[[NSString stringWithFormat: @"%d", [connection hash]]];
 }
 
 
@@ -84,10 +95,9 @@
 		NSError *error = [NSError errorWithDomain:@"com.com" code:0 userInfo: dict];
 		
 		[self handleConnectionError: error];
-		[target.targetObject performSelector: target.targetCallback withObject: nil withObject: error];
-	}
-	
-
+        SuppressPerformSelectorLeakWarning
+        ( [target.targetObject performSelector: target.targetCallback withObject: nil withObject: error] );
+    }
 }
 
 #pragma mark NSURLConnection
@@ -139,7 +149,8 @@
                                              options:0
                                                error:nil];
 	if (target.resultCallback) {
-        [self performSelector:target.resultCallback withObject:result withObject:target];
+        SuppressPerformSelectorLeakWarning
+        ( [self performSelector:target.resultCallback withObject:result withObject:target] );
     }
 	
 	
@@ -152,8 +163,8 @@
 	
 	FSTargetCallback *target = [self targetForConnection:aConnection];
 
-	
-	[target.targetObject performSelector:target.targetCallback withObject:nil withObject:error];	
+    SuppressPerformSelectorLeakWarning
+	( [target.targetObject performSelector:target.targetCallback withObject:nil withObject:error] );
     
 	[self disconnettargetWithConnection:aConnection];
 }

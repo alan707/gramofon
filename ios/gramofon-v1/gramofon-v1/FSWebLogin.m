@@ -12,16 +12,14 @@
 
 @implementation FSWebLogin
 @synthesize selector,delegate;
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+    do { \
+        _Pragma("clang diagnostic push") \
+        _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+        Stuff; \
+        _Pragma("clang diagnostic pop") \
+    } while (0)
 
 - (id) initWithUrl:(NSString*)url
 {
@@ -72,11 +70,18 @@
 		
 		NSArray *arr = [url componentsSeparatedByString:@"="];
         [Foursquare2 setAccessToken:arr[1]];
-		[delegate performSelector:selector withObject:nil];
+        SuppressPerformSelectorLeakWarning
+        (
+            [delegate performSelector:selector withObject:nil];
+        );
 		[self dismissViewControllerAnimated:YES completion:nil];
 	}else if ([url rangeOfString:@"error="].length != 0) {
 		NSArray *arr = [url componentsSeparatedByString:@"="];
-		[delegate performSelector:selector withObject:arr[1]];
+        SuppressPerformSelectorLeakWarning
+        (
+            [delegate performSelector:selector withObject:arr[1]];
+         );
+		
 	} 
 
 	return YES;

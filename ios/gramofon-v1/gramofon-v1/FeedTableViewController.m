@@ -11,8 +11,6 @@
 #import "expandedCell.h"
 
 @interface FeedTableViewController ()
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-- (BOOL)cellIsSelected:(NSIndexPath *)indexPath;
 @end
 
 @implementation FeedTableViewController

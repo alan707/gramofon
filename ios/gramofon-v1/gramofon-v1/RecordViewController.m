@@ -10,11 +10,10 @@
 #import "AudioClip.h"
 
 @interface RecordViewController ()
+@property (weak, nonatomic) NSString *GetUUID;
 @end
 
 @implementation RecordViewController
-
-//@synthesize countDownLabel, tapLabel, locationManager, recordingProgress;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,6 +51,8 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:NO error:nil];
+    self.GetUUID=nil;
+
 }
 
 // set-up the recorder
@@ -143,6 +144,7 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {    
     [timer invalidate];
+    audioRecorder=nil;
     
         self.countDownLabel.text = @"Done!";
 
