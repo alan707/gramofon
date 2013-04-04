@@ -67,10 +67,7 @@
 		C58714B016F7E57600B036C5 /* FSVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = C58714AE16F7E57600B036C5 /* FSVenue.m */; };
 		C5B1132D16E3F811000C0BF5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */; };
 		C5B1133116E4485A000C0BF5 /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133016E4485A000C0BF5 /* 123-id-card.png */; };
-		C5B1133D16E45C41000C0BF5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133A16E45C40000C0BF5 /* Default.png */; };
-		C5B1133E16E45C41000C0BF5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133B16E45C40000C0BF5 /* Default@2x.png */; };
 		C5B1133F16E45C41000C0BF5 /* Default@2x5in.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1133C16E45C40000C0BF5 /* Default@2x5in.png */; };
-		C5B1134216E45C48000C0BF5 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134016E45C47000C0BF5 /* Gramofon-app-icon.png */; };
 		C5B1134316E45C48000C0BF5 /* Gramofon-app-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */; };
 		C5B1134516E45CAC000C0BF5 /* Gramofon-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134416E45CAC000C0BF5 /* Gramofon-app-icon.png */; };
 		C5B1134716E45CB5000C0BF5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B1134616E45CB5000C0BF5 /* Default-568h@2x.png */; };
@@ -167,10 +164,7 @@
 		C5B1132B16E3F811000C0BF5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C5B1132C16E3F811000C0BF5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C5B1133016E4485A000C0BF5 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123-id-card.png"; sourceTree = "<group>"; };
-		C5B1133A16E45C40000C0BF5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C5B1133B16E45C40000C0BF5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C5B1133C16E45C40000C0BF5 /* Default@2x5in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x5in.png"; sourceTree = "<group>"; };
-		C5B1134016E45C47000C0BF5 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = "<group>"; };
 		C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon@2x.png"; sourceTree = "<group>"; };
 		C5B1134416E45CAC000C0BF5 /* Gramofon-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gramofon-app-icon.png"; sourceTree = "<group>"; };
 		C5B1134616E45CB5000C0BF5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -301,10 +295,7 @@
 				60D361741704992100CE96B8 /* cell_tall@2x.png */,
 				C5C1CF7216EBBFE80061094F /* play.png */,
 				C5C1CF7316EBBFE80061094F /* speaker.png */,
-				C5B1134016E45C47000C0BF5 /* Gramofon-app-icon.png */,
 				C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */,
-				C5B1133A16E45C40000C0BF5 /* Default.png */,
-				C5B1133B16E45C40000C0BF5 /* Default@2x.png */,
 				C5B1133C16E45C40000C0BF5 /* Default@2x5in.png */,
 				C5B1133016E4485A000C0BF5 /* 123-id-card.png */,
 				60D361791704D30700CE96B8 /* icon-play2.png */,
@@ -432,10 +423,7 @@
 				60DCB73416E2F5BF00ED4366 /* 160-voicemail-2.png in Resources */,
 				60DCB73616E2F5FB00ED4366 /* 65-note.png in Resources */,
 				C5B1133116E4485A000C0BF5 /* 123-id-card.png in Resources */,
-				C5B1133D16E45C41000C0BF5 /* Default.png in Resources */,
-				C5B1133E16E45C41000C0BF5 /* Default@2x.png in Resources */,
 				C5B1133F16E45C41000C0BF5 /* Default@2x5in.png in Resources */,
-				C5B1134216E45C48000C0BF5 /* Gramofon-app-icon.png in Resources */,
 				C5B1134316E45C48000C0BF5 /* Gramofon-app-icon@2x.png in Resources */,
 				C5B1134516E45CAC000C0BF5 /* Gramofon-app-icon.png in Resources */,
 				C5B1134716E45CB5000C0BF5 /* Default-568h@2x.png in Resources */,
