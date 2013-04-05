@@ -10,4 +10,8 @@
 
 @implementation HTTPRequest
 
+
+//NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+//[[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+
 @end

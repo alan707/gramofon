@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AudioClip.h"
 
 @interface FeedModel : NSObject
+
+- (NSMutableArray *)getGlobalFeed;
+- (NSMutableArray *)getUserFeed:(NSInteger)userId;
+- (NSMutableArray *)getFollowingFeed:(NSInteger)userId;
 
 @end

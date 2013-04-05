@@ -10,4 +10,25 @@
 
 @implementation FeedModel
 
+- (NSMutableArray *)getFollowingFeed:(NSInteger)userId
+{
+    NSMutableArray *feed;
+    
+    return feed;
+}
+
+- (NSMutableArray *)getGlobalFeed
+{
+    NSMutableArray *feed;
+    
+    return feed;
+}
+
+- (NSMutableArray *)getUserFeed:(NSInteger)userId
+{
+    NSMutableArray *feed;
+    
+    return feed;
+}
+
 @end

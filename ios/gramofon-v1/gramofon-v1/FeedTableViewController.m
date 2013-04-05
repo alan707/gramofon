@@ -11,10 +11,10 @@
 #import "expandedCell.h"
 
 @interface FeedTableViewController ()
+
 @end
 
 @implementation FeedTableViewController
-
 
 #define kCellHeight 70.0
 #define MAINLABEL_TAG 1

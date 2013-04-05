@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface UserModel : NSObject
+
+- (BOOL)authenticateUser:(NSInteger)facebookId;
+- (User *)getUser:(NSInteger)userId;
+- (BOOL)createUser:(User *)user;
 
 @end
