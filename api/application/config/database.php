@@ -50,9 +50,9 @@ $active_record = TRUE;
 
 
 // production DB connection
-$db['production']['hostname'] = 'gramofon.cu2chhgaq2cw.us-west-2.rds.amazonaws.com';
-$db['production']['username'] = 'admin';
-$db['production']['password'] = 'gramofon23';
+$db['production']['hostname'] = 'gramofondb.cu2chhgaq2cw.us-west-2.rds.amazonaws.com';
+$db['production']['username'] = 'api';
+$db['production']['password'] = 'Gram0fon_api';
 $db['production']['database'] = 'gramofon';
 $db['production']['dbdriver'] = 'mysql';
 $db['production']['dbprefix'] = '';
