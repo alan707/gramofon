@@ -10,6 +10,7 @@
 #import "Utilities.h"
 #import "expandedCell.h"
 #import "AudioClipModel.h"
+#import "HTTPRequest.h"
 
 @interface FeedTableViewController ()
 
@@ -190,36 +191,38 @@
         
         // Get the clip
         NSDictionary *clip = [feed objectAtIndex:indexPath.row];
-        NSString *clipURL = [clip objectForKey:@"url"];
+        NSString *url      = [clip objectForKey:@"url"];
         
-        NSURL *soundFileURL = [NSURL URLWithString:clipURL];
-        
-        // can we speed this up?
-        NSData *soundFileData=[[NSData alloc]initWithContentsOfURL:soundFileURL];
-        
-        // null out any existing audioPlayer
-        if ( audioPlayer ) {
-            audioPlayer = nil;
-        }
-        
-        // init player with clip URL
-        audioPlayer = [[AVAudioPlayer alloc] initWithData:soundFileData error:&error];
-        
-        if ( ! error ) {
-            // if player init-ed OK...
-            
-            // delegate
-            audioPlayer.delegate = self;
-            
-            // prep the audio
-            [audioPlayer prepareToPlay];
-            
-            // start playback
-            [audioPlayer play];
-        } else {
-            // else, output error to log
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
+        // asynchrous loading of clips w/ complete callback handler
+        [[HTTPRequest sharedInstance] getRequest:url complete:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if ( ! error ) {
+                // null out any existing audioPlayer
+                if ( audioPlayer ) {
+                    audioPlayer = nil;
+                }
+                
+                // init player with clip URL
+                audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:&error];
+                
+                if ( ! error ) {
+                    // if player init-ed OK...
+                    
+                    // delegate
+                    audioPlayer.delegate = self;
+                    
+                    // prep the audio
+                    [audioPlayer prepareToPlay];
+                    
+                    // start playback
+                    [audioPlayer play];
+                } else {
+                    // else, output error to log
+                    NSLog(@"Error: %@", [error localizedDescription]);
+                }
+            } else {
+                NSLog(@"Error: %@", [error localizedDescription]);
+            }
+        }];                
     }
 }
 
