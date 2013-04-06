@@ -9,14 +9,26 @@
 #import <Foundation/Foundation.h>
 
 @interface HTTPRequest : NSObject
+{
+    int requestCounter;
+}
 
-- (void)getRequest:(NSString *)URL doAsynchronousRequest:(BOOL)async complete:(void (^)(void))completionBlock;
-- (void)postRequest:(NSString *)URL doAsynchronousRequest:(BOOL)async;
-- (void)putRequest:(NSString *)URL doAsynchronousRequest:(BOOL)async;
-- (void)deleteRequest:(NSString *)URL doAsynchronousRequest:(BOOL)async;
+- (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock;
+
+- (void)updateNetworkActivityIndicator;
+
+- (void)requestStarted;
+
+- (void)requestCompleted;
+
+/*
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+*/
 
 @end

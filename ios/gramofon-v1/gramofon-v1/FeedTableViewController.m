@@ -9,6 +9,7 @@
 #import "FeedTableViewController.h"
 #import "Utilities.h"
 #import "expandedCell.h"
+#import "AudioClipModel.h"
 
 @interface FeedTableViewController ()
 
@@ -36,6 +37,10 @@
 {
     [super viewDidLoad];
     
+    [self loadLatestAudioClips];
+    
+    // commenting out; is this redundant?
+    /*    
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
     
     dispatch_async(loadclipsQ, ^{
@@ -51,6 +56,7 @@
         });
         
     });
+    */
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,9 +68,7 @@
 #pragma mark - Table view data source
 
 -(IBAction)loadLatestAudioClips
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-    
+{    
     [self.refreshControl beginRefreshing];
     
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
@@ -74,36 +78,28 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self getFeedData:0 itemCount:20];
-            [self.refreshControl endRefreshing];
-            [self.tableView reloadData];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
         });
     });
  }
 
-
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
-    NSError *error;
-    
-    NSString *url = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=20", offset];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
-    if ( ! error ) {
-        NSArray *data = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-
+    [AudioClipModel getAudioClips:offset itemCount:limit complete:^(NSData *data) {
+        NSError *error;
+        
+        NSArray *clips = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
         if ( ! error ) {
-            for (NSDictionary *clip in data) {
+            for (NSDictionary *clip in clips) {
                 [feed addObject:clip];
             }
+                
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
         } else {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
-    } else {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }   
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -133,12 +129,13 @@
         // Configure the cell...
         
         // Try to retrieve from the table view a now-unused cell with the given identifier.
-               // Set up the cell.
+        // Set up the cell.
         NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
         NSDictionary *clipUser = [clip objectForKey:@"user"];
 
         NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
+        
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
 
         NSString *clipTitle    = [clip objectForKey:@"title"];
         NSString *clipVenue    = [clip objectForKey:@"venue"];
@@ -150,6 +147,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             UIImage *facebook_image = [UIImage imageWithData:imageData];
+            
             cell.theImage.image  = facebook_image;
             cell.titleLabel.text = clipTitle;
         
