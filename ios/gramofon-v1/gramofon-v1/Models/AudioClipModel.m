@@ -16,7 +16,7 @@
     NSString *url = [NSString stringWithFormat:@"http://api.gramofon.co/clips?offset=%i&limit=%i", offset, limit];
     
     // asynchrous loading of clips w/ complete callback handler
-    [[HTTPRequest alloc] getRequest:url complete:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [[HTTPRequest sharedInstance] getRequest:url complete:^(NSURLResponse *response, NSData *data, NSError *error) {
         if ( ! error ) {
             if ( completeCallback != nil ) {
                 completeCallback(data);

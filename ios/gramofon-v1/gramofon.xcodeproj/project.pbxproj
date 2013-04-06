@@ -274,36 +274,36 @@
 		60CCD5B416DC2D6A0065E761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				60D361741704992100CE96B8 /* cell_tall@2x.png */,
-				C5C1CF7216EBBFE80061094F /* play.png */,
-				C5C1CF7316EBBFE80061094F /* speaker.png */,
-				C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */,
-				C5B1133C16E45C40000C0BF5 /* Default@2x5in.png */,
 				C5B1133016E4485A000C0BF5 /* 123-id-card.png */,
-				60D361791704D30700CE96B8 /* icon-play2.png */,
-				60D3617A1704D30700CE96B8 /* icon-play2@2x.png */,
-				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
-				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
+				60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */,
+				6052336E16DFFC75000B2F39 /* 1line.png */,
+				6052336C16DFFC5F000B2F39 /* 2lines.png */,
+				60DCB73516E2F5FB00ED4366 /* 65-note.png */,
+				60D361741704992100CE96B8 /* cell_tall@2x.png */,
 				60D361851704D4F100CE96B8 /* Comments.png */,
 				60D361861704D4F100CE96B8 /* Comments@2x.png */,
-				60DCB73516E2F5FB00ED4366 /* 65-note.png */,
-				60DCB73316E2F5BF00ED4366 /* 160-voicemail-2.png */,
-				60D3617D1704D37800CE96B8 /* Share.png */,
+				C5B1133C16E45C40000C0BF5 /* Default@2x5in.png */,
 				60D361811704D46500CE96B8 /* Favourite.png */,
 				60D361821704D46500CE96B8 /* Favourite@2x.png */,
-				60D3617E1704D37800CE96B8 /* Share@2x.png */,
-				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
-				6052336C16DFFC5F000B2F39 /* 2lines.png */,
 				60D17C3116E05214004A07A3 /* gramaphon_logo_small.png */,
-				6052336E16DFFC75000B2F39 /* 1line.png */,
+				C5B1134116E45C47000C0BF5 /* Gramofon-app-icon@2x.png */,
+				60D17C2E16E050F6004A07A3 /* Gramofon-circle-logo.png */,
+				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
+				60CCD5BB16DC2D6A0065E761 /* gramofon-v1-Prefix.pch */,
+				60D361791704D30700CE96B8 /* icon-play2.png */,
+				60D3617A1704D30700CE96B8 /* icon-play2@2x.png */,
+				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
 				60DCB72916E2F33700ED4366 /* login-button-small-pressed.png */,
 				60DCB72A16E2F33700ED4366 /* login-button-small-pressed@2x.png */,
 				60DCB72B16E2F33700ED4366 /* login-button-small.png */,
 				60DCB72C16E2F33700ED4366 /* login-button-small@2x.png */,
-				60CCD5B516DC2D6A0065E761 /* gramofon-v1-Info.plist */,
-				60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */,
 				60CCD5B916DC2D6A0065E761 /* main.m */,
-				60CCD5BB16DC2D6A0065E761 /* gramofon-v1-Prefix.pch */,
+				C5C1CF7216EBBFE80061094F /* play.png */,
+				60D3617D1704D37800CE96B8 /* Share.png */,
+				60D3617E1704D37800CE96B8 /* Share@2x.png */,
+				C5C1CF7316EBBFE80061094F /* speaker.png */,
+				60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */,
+				60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,9 +330,10 @@
 		C5A602641710D47F00FF959E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
+				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				6050EAA216DC877300060F05 /* LoginViewController.h */,
 				6050EAA316DC877300060F05 /* LoginViewController.m */,
-				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
 				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
 				6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */,
 				6050EAA416DC877300060F05 /* RecordViewController.h */,
@@ -345,7 +346,6 @@
 				C587148016F7DA1200B036C5 /* VenueListViewController.m */,
 				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
 				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
-				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,10 +362,10 @@
 		C5C486B5170D1A9D007ED0F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C5C486BC170D2342007ED0F7 /* UserModel.h */,
-				C5C486BD170D2342007ED0F7 /* UserModel.m */,
 				C5A602611710C58E00FF959E /* AudioClipModel.h */,
 				C5A602621710C58E00FF959E /* AudioClipModel.m */,
+				C5C486BC170D2342007ED0F7 /* UserModel.h */,
+				C5C486BD170D2342007ED0F7 /* UserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -373,14 +373,14 @@
 		C5C486C4170DB071007ED0F7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C587147B16F7C9A400B036C5 /* Utilities.h */,
-				C587147C16F7C9A400B036C5 /* Utilities.m */,
-				C531662616E16773004BEDE0 /* User.h */,
-				C531662716E16773004BEDE0 /* User.m */,
 				6079D02016DEF43400BCD3DC /* AudioClip.h */,
 				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				C5C486BF170DB044007ED0F7 /* HTTPRequest.h */,
 				C5C486C0170DB044007ED0F7 /* HTTPRequest.m */,
+				C531662616E16773004BEDE0 /* User.h */,
+				C531662716E16773004BEDE0 /* User.m */,
+				C587147B16F7C9A400B036C5 /* Utilities.h */,
+				C587147C16F7C9A400B036C5 /* Utilities.m */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";

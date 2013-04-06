@@ -13,6 +13,8 @@
     int requestCounter;
 }
 
++ (HTTPRequest *)sharedInstance;
+
 - (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock;
 
 - (void)updateNetworkActivityIndicator;

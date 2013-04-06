@@ -10,6 +10,21 @@
 
 @implementation HTTPRequest
 
++ (HTTPRequest *)sharedInstance
+{
+    // the instance of this class is stored here
+    static HTTPRequest *myInstance = nil;
+	
+    // check to see if an instance already exists
+    if ( nil == myInstance ) {
+        myInstance  = [[[self class] alloc] init];
+        // initialize variables here
+    }
+    
+    // return the instance of this class
+    return myInstance;
+}
+
 - (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];

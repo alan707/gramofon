@@ -191,6 +191,7 @@
         // Get the clip
         NSDictionary *clip = [feed objectAtIndex:indexPath.row];
         NSString *clipURL = [clip objectForKey:@"url"];
+        
         NSURL *soundFileURL = [NSURL URLWithString:clipURL];
         
         // can we speed this up?
