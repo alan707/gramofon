@@ -259,6 +259,7 @@
 		60CCD5B316DC2D6A0065E761 /* gramofon-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				C5A602641710D47F00FF959E /* Controllers */,
 				C58714A416F7E21A00B036C5 /* FourSquare */,
 				60FFB44916FE3CB7007040FC /* Deprecated Files */,
 				C5C486C4170DB071007ED0F7 /* Libraries */,
@@ -267,35 +268,13 @@
 				60CCD5B416DC2D6A0065E761 /* Supporting Files */,
 				60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */,
 				60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */,
-				6079D02016DEF43400BCD3DC /* AudioClip.h */,
-				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				60D361761704CE0100CE96B8 /* expandedCell.h */,
 				60D361771704CE0100CE96B8 /* expandedCell.m */,
 				60F4BF5A170A495B0057ECF3 /* ExpandedTableViewCell.xib */,
-				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
-				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
 				6066CB281708D4B700D7540C /* graySquareView.h */,
 				6066CB291708D4B700D7540C /* graySquareView.m */,
 				6066CB2B1708D70F00D7540C /* graySquareView.xib */,
-				6050EAA216DC877300060F05 /* LoginViewController.h */,
-				6050EAA316DC877300060F05 /* LoginViewController.m */,
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
-				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
-				6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */,
-				6050EAA416DC877300060F05 /* RecordViewController.h */,
-				6050EAA516DC877300060F05 /* RecordViewController.m */,
-				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
-				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
-				C531662616E16773004BEDE0 /* User.h */,
-				C531662716E16773004BEDE0 /* User.m */,
-				603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */,
-				6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */,
-				C587147B16F7C9A400B036C5 /* Utilities.h */,
-				C587147C16F7C9A400B036C5 /* Utilities.m */,
-				C587147F16F7DA1200B036C5 /* VenueListViewController.h */,
-				C587148016F7DA1200B036C5 /* VenueListViewController.m */,
-				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
-				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
 			);
 			path = "gramofon-v1";
 			sourceTree = "<group>";
@@ -367,6 +346,29 @@
 			name = FourSquare;
 			sourceTree = "<group>";
 		};
+		C5A602641710D47F00FF959E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6050EAA216DC877300060F05 /* LoginViewController.h */,
+				6050EAA316DC877300060F05 /* LoginViewController.m */,
+				604A654E16FBD5AF00162D63 /* FeedTableViewController.h */,
+				6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */,
+				6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */,
+				6050EAA416DC877300060F05 /* RecordViewController.h */,
+				6050EAA516DC877300060F05 /* RecordViewController.m */,
+				60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */,
+				60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */,
+				603535FF16F62B7F00AF3D1F /* UserFeedTableViewController.h */,
+				6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */,
+				C587147F16F7DA1200B036C5 /* VenueListViewController.h */,
+				C587148016F7DA1200B036C5 /* VenueListViewController.m */,
+				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
+				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
+				604A654F16FBD5AF00162D63 /* FeedTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		C5C486B5170D1A9D007ED0F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +383,12 @@
 		C5C486C4170DB071007ED0F7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C587147B16F7C9A400B036C5 /* Utilities.h */,
+				C587147C16F7C9A400B036C5 /* Utilities.m */,
+				C531662616E16773004BEDE0 /* User.h */,
+				C531662716E16773004BEDE0 /* User.m */,
+				6079D02016DEF43400BCD3DC /* AudioClip.h */,
+				6079D02116DEF43400BCD3DC /* AudioClip.m */,
 				C5C486BF170DB044007ED0F7 /* HTTPRequest.h */,
 				C5C486C0170DB044007ED0F7 /* HTTPRequest.m */,
 			);
