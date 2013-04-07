@@ -10,9 +10,10 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "AudioClip.h"
+#import "MBProgressHUD.h"
 
 @interface LoginViewController ()
-
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation LoginViewController
@@ -80,13 +81,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //initiate the Spinning HUD
+    self.hud=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"We are going to space";
     
+    //give it a quick 0.5 sec so users can see something is loading
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
     
-    [self openSession];
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        [self getUser];
-    }
+    // dispatch to main queue and run the FB authentication code
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self openSession];
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            [self getUser];
+        }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //Segue to Record Screen
+        [self didAuthenticate];
+    });
     
+        
+}
+
+-(void) loadingFBSession{
+    
+//    sleep(3);
+
+        
 }
 
 - (void)getUser
@@ -105,8 +125,6 @@
              
              // get their Gramofon user id, or create a new user account for this user.
              [[User sharedInstance] authenticateGramofonUser];
-             
-             [self didAuthenticate];
          }
      }];
 }
@@ -119,8 +137,8 @@
 //    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
 //    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
 //    NSLog(@"User.email: %@", [User sharedInstance].email);
-    
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+    
 }
 
 - (void)didReceiveMemoryWarning
