@@ -10,9 +10,6 @@
 
 @implementation AudioClip
 
-//@synthesize fileName, fileURL, title, latitude, longitude, venue;
-
-
 + (AudioClip *)sharedInstance
 {
     // the instance of this class is stored here
@@ -26,7 +23,5 @@
     // return the instance of this class
     return myInstance;
 }
-
-
 
 @end

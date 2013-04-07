@@ -123,9 +123,9 @@
     
     // disable selection highlight
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-
-    dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
     
+    dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
+ 
     dispatch_async(profilepicQ, ^{
         // Configure the cell...
         

@@ -142,21 +142,22 @@
 
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
-{    
+{
     [timer invalidate];
-    audioRecorder=nil;
     
-        self.countDownLabel.text = @"Done!";
-
-    [AudioClip sharedInstance].fileURL = audioRecorder.url;
+    self.countDownLabel.text = @"Done!";
     
-    NSString *url = [audioRecorder.url absoluteString];
+    [AudioClip sharedInstance].fileURL  = recorder.url;
+    [AudioClip sharedInstance].fileData = [NSData dataWithContentsOfURL:recorder.url];
+    
+    NSString *url  = [recorder.url absoluteString];
     NSArray *parts = [url componentsSeparatedByString:@"/"];
     
-    [AudioClip sharedInstance].fileName = [parts objectAtIndex:[parts count]-1];    
+    [AudioClip sharedInstance].fileName = [parts objectAtIndex:[parts count] - 1];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
     [self.locationManager startUpdatingLocation];
 }
 
@@ -176,10 +177,14 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    [AudioClip sharedInstance].location  = newLocation;
-    [AudioClip sharedInstance].latitude  = [[NSNumber alloc] initWithDouble:newLocation.coordinate.latitude];
-    [AudioClip sharedInstance].longitude = [[NSNumber alloc] initWithDouble:newLocation.coordinate.longitude];
     [self.locationManager stopUpdatingLocation];
+    
+    NSNumber *latitude  = [[NSNumber alloc] initWithDouble:newLocation.coordinate.latitude];
+    NSNumber *longitude = [[NSNumber alloc] initWithDouble:newLocation.coordinate.longitude];
+    
+    [AudioClip sharedInstance].location  = newLocation;
+    [AudioClip sharedInstance].latitude  = [NSString stringWithFormat:@"%@", latitude];
+    [AudioClip sharedInstance].longitude = [NSString stringWithFormat:@"%@", longitude];
     
     [self performSegueWithIdentifier:@"SegueToVenueList" sender:self];
 }

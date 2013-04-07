@@ -12,4 +12,6 @@
 
 + (void)getAudioClips:(int)offset itemCount:(int)limit complete:(void (^)(NSData *data))completeCallback;
 
++ (void)uploadAudioClip;
+
 @end

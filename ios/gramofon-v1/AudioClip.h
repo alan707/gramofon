@@ -15,10 +15,12 @@
 
 @property (strong, nonatomic) NSString *fileName;
 @property (strong, nonatomic) NSURL *fileURL;
+@property (strong, nonatomic) NSData *fileData;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) CLLocation *location;
-@property (strong, nonatomic) NSNumber *latitude;
-@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *latitude;
+@property (strong, nonatomic) NSString *longitude;
 @property (strong, nonatomic) NSString *venue;
+@property (strong, nonatomic) NSString *user_id;
 
 @end

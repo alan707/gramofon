@@ -17,6 +17,8 @@
 
 - (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock;
 
+- (void)uploadFile:(NSString *)url fileName:(NSString *)name fileData:(NSData *)data postParams:(NSDictionary *)params;
+
 - (void)updateNetworkActivityIndicator;
 
 - (void)requestStarted;

@@ -9,6 +9,7 @@
 #import "ShareSoundViewController.h"
 #import "User.h"
 #import "AudioClip.h"
+#import "AudioClipModel.h"
 
 @interface ShareSoundViewController ()
 
@@ -44,10 +45,8 @@
     // set-up audio player
     NSError *error;
     
-    NSURL *soundFileURL = [AudioClip sharedInstance].fileURL;
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    
+    audioPlayer = [[AVAudioPlayer alloc] initWithData:[AudioClip sharedInstance].fileData error:&error];
+
     if ( error ) {
         NSLog(@"Error: %@", [error localizedDescription]);
     } else {
@@ -95,92 +94,12 @@
     [AudioClip sharedInstance].title = self.titleSound.text;
     
     [self.navigationController popToRootViewControllerAnimated:TRUE];
-    dispatch_queue_t uploadQ  = dispatch_queue_create("upload sound loading queue", NULL);
+    
+    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
+    
     dispatch_async(uploadQ, ^{
-
-        [self uploadAudioClip];
-    
+        [AudioClipModel uploadAudioClip];
     });
-}
-
-- (void)uploadAudioClip
-{
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-    NSString *audioClipUserId   = [NSString stringWithFormat:@"%@", [User sharedInstance].user_id];
-    NSString *audioClipTitle    = [AudioClip sharedInstance].title;
-    NSString *audioClipLng      = [NSString stringWithFormat:@"%@", [AudioClip sharedInstance].longitude];
-    NSString *audioClipLat      = [NSString stringWithFormat:@"%@", [AudioClip sharedInstance].latitude];
-    NSString *audioClipFileName = [AudioClip sharedInstance].fileName;
-    NSString *audioClipVenue    = [AudioClip sharedInstance].venue;
-
-    NSURL *url = [NSURL URLWithString:@"http://api.gramofon.co/clips"];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];    
-    NSMutableData *body = [NSMutableData data];    
-    NSString *boundary = @"---------------------------14737809831466499882746641449";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];    
-    
-    [request setHTTPMethod:@"POST"];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    // file
-    NSData *soundFileData = [NSData dataWithContentsOfURL:[AudioClip sharedInstance].fileURL];
-    
-    NSLog(@"Uploading...");
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"audio\"; filename=\"%@\"\r\n", audioClipFileName] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[NSData dataWithData:soundFileData]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"clip[user_id]: %@", audioClipUserId);
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"clip[user_id]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[audioClipUserId dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-//    NSLog(@"clip[username]: %@", audioClipUserName);
-//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[@"Content-Disposition: form-data; name=\"audio_clip[username]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[audioClipUserName dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"clip[title]: %@", audioClipTitle);
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"clip[title]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[audioClipTitle dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"clip[latitude]: %@", audioClipLat);
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"clip[latitude]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[audioClipLat dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"clip[longitude]: %@", audioClipLng);
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"clip[longitude]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[audioClipLng dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"clip[venue]: %@", audioClipVenue);
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"clip[venue]\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[audioClipVenue dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // close form
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // set request body
-    [request setHTTPBody:body];
-    
-    //return and test
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"%@", returnString);
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
