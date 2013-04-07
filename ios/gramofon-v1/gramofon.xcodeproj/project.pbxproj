@@ -10,6 +10,9 @@
 		602EBF2C16F96934003EE035 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 602EBF2B16F96934003EE035 /* MBProgressHUD.m */; };
 		6035360116F62B7F00AF3D1F /* UserFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */; };
 		6041F1EC16FE355D00FADA36 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */; };
+		60451246170F6A6D00C8DF08 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6045123D170F250E00C8DF08 /* libSSToolkit.a */; };
+		60451248170F6A8300C8DF08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60451247170F6A8300C8DF08 /* QuartzCore.framework */; };
+		6045124A170F6A9900C8DF08 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60451249170F6A9900C8DF08 /* MessageUI.framework */; };
 		604A655016FBD5AF00162D63 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604A654F16FBD5AF00162D63 /* FeedTableViewController.m */; };
 		6050EAA616DC877300060F05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA316DC877300060F05 /* LoginViewController.m */; };
 		6050EAA716DC877300060F05 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050EAA516DC877300060F05 /* RecordViewController.m */; };
@@ -79,6 +82,44 @@
 		C5C486C1170DB045007ED0F7 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C486C0170DB044007ED0F7 /* HTTPRequest.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6045123C170F250E00C8DF08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		6045123E170F250E00C8DF08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		60451240170F250E00C8DF08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		60451242170F6A5700C8DF08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		60451244170F6A5700C8DF08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B2C507E9151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		602EBF2A16F96934003EE035 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		602EBF2B16F96934003EE035 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -86,6 +127,9 @@
 		6035360016F62B7F00AF3D1F /* UserFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedTableViewController.m; sourceTree = "<group>"; };
 		6041F1EA16FE355C00FADA36 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		6041F1EB16FE355C00FADA36 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
+		60451247170F6A8300C8DF08 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		60451249170F6A9900C8DF08 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		604A654E16FBD5AF00162D63 /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		604A654F16FBD5AF00162D63 /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		6050EAA216DC877300060F05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -184,6 +228,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6045124A170F6A9900C8DF08 /* MessageUI.framework in Frameworks */,
+				60451248170F6A8300C8DF08 /* QuartzCore.framework in Frameworks */,
+				60451246170F6A6D00C8DF08 /* libSSToolkit.a in Frameworks */,
 				60D17C3D16E059B4004A07A3 /* MapKit.framework in Frameworks */,
 				6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */,
 				C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */,
@@ -210,6 +257,16 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		60451237170F250E00C8DF08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6045123D170F250E00C8DF08 /* libSSToolkit.a */,
+				6045123F170F250E00C8DF08 /* SSToolkitTests.app */,
+				60451241170F250E00C8DF08 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		60CCD5A116DC2D6A0065E761 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +277,7 @@
 				60CCD5B316DC2D6A0065E761 /* gramofon-v1 */,
 				60CCD5AC16DC2D6A0065E761 /* Frameworks */,
 				60CCD5AB16DC2D6A0065E761 /* Products */,
+				60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 			wrapsLines = 1;
@@ -235,6 +293,8 @@
 		60CCD5AC16DC2D6A0065E761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60451249170F6A9900C8DF08 /* MessageUI.framework */,
+				60451247170F6A8300C8DF08 /* QuartzCore.framework */,
 				60D17C3C16E059B4004A07A3 /* MapKit.framework */,
 				C531662416DF8E13004BEDE0 /* AVFoundation.framework */,
 				6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */,
@@ -399,6 +459,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				60451243170F6A5700C8DF08 /* PBXTargetDependency */,
+				60451245170F6A5700C8DF08 /* PBXTargetDependency */,
 			);
 			name = gramofon;
 			productName = "gramofon-v1";
@@ -424,12 +486,42 @@
 			mainGroup = 60CCD5A116DC2D6A0065E761;
 			productRefGroup = 60CCD5AB16DC2D6A0065E761 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 60451237170F250E00C8DF08 /* Products */;
+					ProjectRef = 60451236170F250E00C8DF08 /* SSToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				60CCD5A916DC2D6A0065E761 /* gramofon */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6045123D170F250E00C8DF08 /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = 6045123C170F250E00C8DF08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6045123F170F250E00C8DF08 /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = 6045123E170F250E00C8DF08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		60451241170F250E00C8DF08 /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = 60451240170F250E00C8DF08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		60CCD5A816DC2D6A0065E761 /* Resources */ = {
@@ -510,6 +602,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60451243170F6A5700C8DF08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = 60451242170F6A5700C8DF08 /* PBXContainerItemProxy */;
+		};
+		60451245170F6A5700C8DF08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkitResources;
+			targetProxy = 60451244170F6A5700C8DF08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */ = {
@@ -606,11 +711,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = Vendor/SSToolkit;
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
+					"-all_load",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lsqlite3.0",
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -631,11 +743,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = Vendor/SSToolkit;
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
