@@ -15,7 +15,10 @@
 
 + (HTTPRequest *)sharedInstance;
 
-- (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock;
+- (void)doAsynchRequest:(NSString *)method
+       requestURL:(NSString *)url
+    requestParams:(NSDictionary *)params
+         completeHandler:(void (^)(NSURLResponse *response, NSData *data, NSError *error))complete;
 
 - (void)uploadFile:(NSString *)url fileName:(NSString *)name fileData:(NSData *)data postParams:(NSDictionary *)params;
 
@@ -24,15 +27,5 @@
 - (void)requestStarted;
 
 - (void)requestCompleted;
-
-/*
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-*/
 
 @end

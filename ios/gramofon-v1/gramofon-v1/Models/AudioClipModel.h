@@ -12,6 +12,10 @@
 
 + (void)getAudioClips:(int)offset itemCount:(int)limit complete:(void (^)(NSData *data))completeCallback;
 
++ (void)getAudioClipsByUser:(NSNumber *)user_id itemOffset:(int)offset itemCount:(int)limit complete:(void (^)(NSArray *clips))completeCallback;
+
 + (void)uploadAudioClip;
+
++ (void)deleteAudioClip:(NSNumber *)clip_id complete:(void (^)(void))completeCallback;
 
 @end

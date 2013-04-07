@@ -17,7 +17,6 @@
     AVAudioPlayer *audioPlayer;
 }
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 

@@ -17,8 +17,6 @@
 
 @implementation ShareSoundViewController
 
-//@synthesize titleSound, playButton;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -102,7 +100,8 @@
     });
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{
     if ( self.titleSound == self.titleSound ) {
         [self.titleSound resignFirstResponder];
     }
@@ -110,13 +109,14 @@
     return YES;
 }
 
-- (IBAction)dismissKeyboard:(id)sender {
+- (IBAction)dismissKeyboard:(id)sender
+{
     [self.titleSound resignFirstResponder];
 }
 
-- (IBAction)showKeyboard:(id)sender {
+- (IBAction)showKeyboard:(id)sender
+{
     // focus text field
-    
     [self.titleSound becomeFirstResponder];
 }
 

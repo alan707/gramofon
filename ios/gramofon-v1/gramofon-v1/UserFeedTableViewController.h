@@ -12,8 +12,9 @@
 
 
 @interface UserFeedTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
-@property (nonatomic, strong) NSArray *audioClips; //of NSDictionary
-@property (nonatomic, strong) NSMutableArray *feed;
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+{
+    NSMutableArray *feed;
+    AVAudioPlayer *audioPlayer;
+}
 
 @end

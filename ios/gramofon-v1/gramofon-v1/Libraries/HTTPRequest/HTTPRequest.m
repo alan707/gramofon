@@ -25,20 +25,38 @@
     return myInstance;
 }
 
-- (void)getRequest:(NSString *)url complete:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completionBlock
+- (void)doAsynchRequest:(NSString *)method
+             requestURL:(NSString *)url
+          requestParams:(NSDictionary *)params
+        completeHandler:(void (^)(NSURLResponse *, NSData *, NSError *))complete
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    [request setHTTPMethod:method];
+    
+    if ( params ) {
+        NSMutableArray *paramArray = [NSMutableArray array];
+        NSString *queryString;
+        
+        for ( NSString *key in params ) {
+            [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, params[key]]];
+        }
+        
+        queryString = [paramArray componentsJoinedByString:@"&"];
+        
+        [request setHTTPBody:[queryString dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
     [self requestStarted];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-    {
-        [self requestCompleted];
-        
-        if ( completionBlock != nil) {
-            completionBlock( response, data, error );
-        }
-    }];
+     {
+         [self requestCompleted];
+         
+         if ( complete != nil) {
+             complete( response, data, error );
+         }
+     }];
 }
 
 - (void)uploadFile:(NSString *)url fileName:(NSString *)name fileData:(NSData *)data postParams:(NSDictionary *)params

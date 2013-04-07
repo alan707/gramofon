@@ -194,7 +194,10 @@
         NSString *url      = [clip objectForKey:@"url"];
         
         // asynchrous loading of clips w/ complete callback handler
-        [[HTTPRequest sharedInstance] getRequest:url complete:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [[HTTPRequest sharedInstance] doAsynchRequest:@"GET"
+                                           requestURL:url
+                                        requestParams:nil
+                                      completeHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
             if ( ! error ) {
                 // null out any existing audioPlayer
                 if ( audioPlayer ) {
