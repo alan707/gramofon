@@ -12,7 +12,7 @@
 #import "AudioClip.h"
 
 @interface LoginViewController ()
-
+@property (nonatomic, strong) SSHUDView *hud;
 @end
 
 @implementation LoginViewController
@@ -92,6 +92,14 @@
 - (void)getUser
 {
     // We have a valid session, go get user profile info
+    
+    //Run HUD spinner
+    self.hud = [[SSHUDView alloc] initWithTitle:@"Going to space ..."];
+    //	_hud.hudSize = CGSizeMake(60.0f, 60.0f);
+    //	_hud.textLabelHidden = YES;
+    //	_hud.hidesVignette = YES;
+	[self.hud show];
+
     [[FBRequest requestForMe] startWithCompletionHandler:
      ^(FBRequestConnection *connection,
        NSDictionary<FBGraphUser> *user,
@@ -121,6 +129,7 @@
 //    NSLog(@"User.email: %@", [User sharedInstance].email);
     
     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+    [self performSelector:@selector(complete:) withObject:nil afterDelay:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,19 +161,19 @@
 {
     [self didAuthenticate];
     
-    
-    // If the login screen is not already displayed, display it. If the login screen is
-    // displayed, then getting back here means the login in progress did not successfully
-    // complete. In that case, notify the login view so it can update its UI appropriately.
-    //    if (![modalViewController isKindOfClass:[LoginViewController class]]) {
-    //        LoginViewController* loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController"
-    //                                                      bundle:nil];
-    //        [topViewController presentModalViewController:loginViewController animated:NO];
-    //    } else {
-    //        LoginViewController* loginViewController =
-    //        (LoginViewController*)modalViewController;
-    //        [loginViewController loginFailed];
-    //    }
+}
+
+# pragma mark - Actions
+
+- (void)complete:(id)sender {
+//	[self.hud completeWithTitle:@"Finished"];
+	[self performSelector:@selector(pop:) withObject:nil afterDelay:0];
+}
+
+
+- (void)pop:(id)sender {
+	[self.hud dismiss];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)performLogin:(id)sender
