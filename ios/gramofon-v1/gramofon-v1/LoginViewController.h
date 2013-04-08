@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import <SSToolkit/SSToolkit.h>
 
 
 @interface LoginViewController : UIViewController
@@ -18,7 +17,6 @@ extern NSString *const FBSessionStateChangedNotification;
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-//@property (weak, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
 - (void)openSession;
 - (void)closeSession;
