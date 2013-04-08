@@ -19,18 +19,6 @@
 @implementation LoginViewController
 
 
-//NSString *const FBSessionStateChangedNotification =
-//@"com.gramofon.gramofon:FBSessionStateChangedNotification";
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
@@ -98,15 +86,11 @@
         //Segue to Record Screen
         [self didAuthenticate];
     });
-    
-        
 }
 
--(void) loadingFBSession{
-    
-//    sleep(3);
-
-        
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.hud = nil;
 }
 
 - (void)getUser
