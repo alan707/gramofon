@@ -40,8 +40,12 @@
         NSDictionary *clip = feed[row];
         NSNumber *clipId   = clip[@"id"];
         
+        [feed removeObjectAtIndex:row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
         [AudioClipModel deleteAudioClip:clipId complete:^{
             [feed removeObjectAtIndex:row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             [tableView reloadData];
         }];
     }
@@ -63,8 +67,6 @@
     NSString *clipTitle  = clip[@"title"];
     NSString *clipVenue  = clip[@"venue"];
     NSString *momentsAgo = [Utilities getRelativeTime:clip[@"created"]];
-    
-    NSLog(@"Title: %@", clipTitle);
     
     if ( clipTitle.length == 0 ) {
         clipTitle = @"Untitled";
