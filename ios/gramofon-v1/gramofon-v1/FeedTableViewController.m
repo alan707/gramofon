@@ -20,11 +20,6 @@
 @implementation FeedTableViewController
 
 #define kCellHeight 70.0
-#define MAINLABEL_TAG 1
-#define SECONDLABEL_TAG 2
-#define PHOTO_TAG 3
-
-
 
 - (void)viewDidLoad
 {
@@ -194,6 +189,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSIndexPath *lastSelectedPath = self.selectedPath;
     
     self.selectedPath = indexPath;
