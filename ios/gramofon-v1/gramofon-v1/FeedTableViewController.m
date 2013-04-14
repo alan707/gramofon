@@ -191,19 +191,27 @@
 {
     
     NSIndexPath *lastSelectedPath = self.selectedPath;
+        
     
-    self.selectedPath = indexPath;
-    if (lastSelectedPath != nil) {
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath,lastSelectedPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }else{
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
+        
     
     if ( audioPlayer.isPlaying ) {
         // if clip is playing, stop it
         [audioPlayer stop];
+        if ([self.selectedPath isEqual:indexPath]) {
+            self.selectedPath = nil;
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            return;
+        }
+
     } else {
-         
+        self.selectedPath = indexPath;
+        if (lastSelectedPath != nil) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath,lastSelectedPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }else{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        
        
         // Begin expandable cell code...        
         // This is where magic happens...
@@ -262,7 +270,7 @@
                 NSLog(@"Error: %@", [error localizedDescription]);
             }
         }];                
-      }
+      
     }
 }
 
