@@ -189,59 +189,6 @@
     }
 }
 
-    
-    
-/*  static NSString *CellIdentifier = @"Audio Clip";
-    expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                         forIndexPath:indexPath];
-    // If no cell is available, create a new one using the given identifier.
-    if ( cell == nil ) {
-        cell = [[expandedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-
-
-
-    
-    // disable selection highlight
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    
-    dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
- 
-    dispatch_async(profilepicQ, ^{
-        // Configure the cell...
-        
-        // Try to retrieve from the table view a now-unused cell with the given identifier.
-        // Set up the cell.
-        NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
-        NSDictionary *clipUser = [clip objectForKey:@"user"];
-
-        NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
-        
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
-
-        NSString *clipTitle    = [clip objectForKey:@"title"];
-        NSString *clipVenue    = [clip objectForKey:@"venue"];
-        NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
-               
-        if ( clipTitle.length == 0 ) {
-            clipTitle = @"Untitled";
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImage *facebook_image = [UIImage imageWithData:imageData];
-            
-            cell.theImage.image  = facebook_image;
-            cell.titleLabel.text = clipTitle;
-        
-            // detail label
-            cell.subtitleLabel.textAlignment = NSTextAlignmentRight;
-            cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
-        });
-    });
-  
-    return cell;
-}
-  */
 
 #pragma mark - Table view delegate
 
@@ -335,23 +282,6 @@
     return rowHeight;
 }
 
-/*
-    // get selected row path
-    NSInteger selectedRow = [tableView indexPathForSelectedRow].row;
-    NSInteger currentRow  = indexPath.row;
-    
-	// If our cell is selected, return double height
-	if ( currentRow == selectedRow ) {
-		rowHeight = kCellHeight * 2.0;
-	} else {
-        // Cell isn't selected so return single height
-        rowHeight = kCellHeight;
-    }
-    
-    return rowHeight;
-}
- 
-*/ 
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
