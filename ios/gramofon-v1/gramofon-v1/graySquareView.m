@@ -18,27 +18,27 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    UIBezierPath *cgRect = [UIBezierPath bezierPathWithRect:self.bounds ];
-    [cgRect addClip];
-    
-    [[UIColor darkGrayColor] setFill];
-    UIRectFill(self.bounds);
-    [[UIColor blackColor] setStroke];
-    
-//    UIView *buttonView = [[UIView alloc] initWithFrame:self.bounds];
-//    buttonView.center = self.center ;
-//    CGRect buttonframe=CGRectMake(0, 0, 44, 44);
-//    UIButton *button = [[UIButton alloc] initWithFrame:buttonframe];
-    CGRect btnRect =CGRectInset(self.bounds,
-                                BTN_SCALE_FACTOR_WIDTH,
-                                BTN_SCALE_FACTOR_HEIGHT);
-    UIButton *button = [[UIButton alloc] initWithFrame:btnRect];
-    UIImage *shareImg = [UIImage imageNamed:@"Share@2x.png" ];
-    [button setImage:shareImg forState:UIControlStateNormal ];
-    [self addSubview: button];// adds buttons to all expanded cells and just leaves them there.
-    
-//    [cgRect stroke];
+//    // Drawing code
+//    UIBezierPath *cgRect = [UIBezierPath bezierPathWithRect:self.bounds ];
+//    [cgRect addClip];
+//    
+//    [[UIColor darkGrayColor] setFill];
+//    UIRectFill(self.bounds);
+//    [[UIColor blackColor] setStroke];
+//    
+////    UIView *buttonView = [[UIView alloc] initWithFrame:self.bounds];
+////    buttonView.center = self.center ;
+////    CGRect buttonframe=CGRectMake(0, 0, 44, 44);
+////    UIButton *button = [[UIButton alloc] initWithFrame:buttonframe];
+//    CGRect btnRect =CGRectInset(self.bounds,
+//                                BTN_SCALE_FACTOR_WIDTH,
+//                                BTN_SCALE_FACTOR_HEIGHT);
+//    UIButton *button = [[UIButton alloc] initWithFrame:btnRect];
+//    UIImage *shareImg = [UIImage imageNamed:@"Share@2x.png" ];
+//    [button setImage:shareImg forState:UIControlStateNormal ];
+//    [self addSubview: button];// adds buttons to all expanded cells and just leaves them there.
+//    
+////    [cgRect stroke];
 
     
 }

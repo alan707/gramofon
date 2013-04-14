@@ -11,9 +11,10 @@
 #import "expandedCell.h"
 #import "AudioClipModel.h"
 #import "HTTPRequest.h"
+#import "ShortTableViewCell.h"
 
 @interface FeedTableViewController ()
-
+@property (nonatomic, strong) NSIndexPath *selectedPath;
 @end
 
 @implementation FeedTableViewController
@@ -23,21 +24,15 @@
 #define SECONDLABEL_TAG 2
 #define PHOTO_TAG 3
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    
-    if (self) {
-        // Custom initialization
-    }
-    
-    return self;
-}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"ShortTableViewCell" bundle:nil] forCellReuseIdentifier:@"Short Cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
+    [self.tableView reloadData];
     [self loadLatestAudioClips];
     
     // commenting out; is this redundant?
@@ -111,15 +106,101 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Audio Clip";
+    if (! [self.selectedPath isEqual:indexPath]) {
+        ShortTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Short Cell" forIndexPath:indexPath];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
+        
+        dispatch_async(profilepicQ, ^{
+            // Configure the cell...
+            
+            // Try to retrieve from the table view a now-unused cell with the given identifier.
+            // Set up the cell.
+            NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+            NSDictionary *clipUser = [clip objectForKey:@"user"];
+            
+            NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
+            
+            NSString *clipTitle    = [clip objectForKey:@"title"];
+            NSString *clipVenue    = [clip objectForKey:@"venue"];
+            NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
+            
+            if ( clipTitle.length == 0 ) {
+                clipTitle = @"Untitled";
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *facebook_image = [UIImage imageWithData:imageData];
+                
+                cell.theImage.image  = facebook_image;
+                cell.titleLabel.text = clipTitle;
+                cell.titleLabel.textAlignment = NSTextAlignmentLeft;
+                
+                // detail label
+                cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
+                cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+            });
+        });
+        
+        return cell;
+    }else{
+        expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Expanded Cell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
+        
+        dispatch_async(profilepicQ, ^{
+            // Configure the cell...
+            
+            // Try to retrieve from the table view a now-unused cell with the given identifier.
+            // Set up the cell.
+            NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+            NSDictionary *clipUser = [clip objectForKey:@"user"];
+            
+            NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
+            
+            NSString *clipTitle    = [clip objectForKey:@"title"];
+            NSString *clipVenue    = [clip objectForKey:@"venue"];
+            NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
+            
+            if ( clipTitle.length == 0 ) {
+                clipTitle = @"Untitled";
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *facebook_image = [UIImage imageWithData:imageData];
+                
+                cell.theImage.image  = facebook_image;
+                cell.titleLabel.text = clipTitle;
+                cell.titleLabel.textAlignment = NSTextAlignmentLeft;
+                
+                // detail label
+                cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
+                cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+            });
+        });
+        return cell;
+    }
+}
+
     
+    
+/*  static NSString *CellIdentifier = @"Audio Clip";
     expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                          forIndexPath:indexPath];
-
     // If no cell is available, create a new one using the given identifier.
     if ( cell == nil ) {
         cell = [[expandedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+
+
+
     
     // disable selection highlight
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -160,15 +241,27 @@
   
     return cell;
 }
+  */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSIndexPath *lastSelectedPath = self.selectedPath;
+    
+    self.selectedPath = indexPath;
+    if (lastSelectedPath != nil) {
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath,lastSelectedPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }else{
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    
     if ( audioPlayer.isPlaying ) {
         // if clip is playing, stop it
         [audioPlayer stop];
     } else {
+         
+       
         // Begin expandable cell code...        
         // This is where magic happens...
         [tableView beginUpdates];
@@ -226,6 +319,7 @@
                 NSLog(@"Error: %@", [error localizedDescription]);
             }
         }];                
+      }
     }
 }
 
@@ -233,6 +327,15 @@
 {
     CGFloat rowHeight;
     
+    if ([indexPath isEqual:self.selectedPath]) {
+        rowHeight = kCellHeight * 2.0;
+    }else{
+        rowHeight = kCellHeight;
+    }
+    return rowHeight;
+}
+
+/*
     // get selected row path
     NSInteger selectedRow = [tableView indexPathForSelectedRow].row;
     NSInteger currentRow  = indexPath.row;
@@ -247,6 +350,8 @@
     
     return rowHeight;
 }
+ 
+*/ 
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

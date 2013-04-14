@@ -20,6 +20,8 @@
 		607714F516E18DE6009EEC40 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */; };
 		6079D01F16DEF3D500BCD3DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */; };
 		6079D02216DEF43400BCD3DC /* AudioClip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079D02116DEF43400BCD3DC /* AudioClip.m */; };
+		608859A8171B4EE9003CE024 /* ShortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608859A7171B4EE9003CE024 /* ShortTableViewCell.xib */; };
+		608859AB171B4F00003CE024 /* ShortTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608859AA171B4F00003CE024 /* ShortTableViewCell.m */; };
 		60CCD5AE16DC2D6A0065E761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AD16DC2D6A0065E761 /* UIKit.framework */; };
 		60CCD5B016DC2D6A0065E761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5AF16DC2D6A0065E761 /* Foundation.framework */; };
 		60CCD5B216DC2D6A0065E761 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CCD5B116DC2D6A0065E761 /* CoreGraphics.framework */; };
@@ -101,6 +103,9 @@
 		6079D01E16DEF3D500BCD3DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6079D02016DEF43400BCD3DC /* AudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClip.h; path = ../AudioClip.h; sourceTree = "<group>"; };
 		6079D02116DEF43400BCD3DC /* AudioClip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioClip.m; path = ../AudioClip.m; sourceTree = "<group>"; };
+		608859A7171B4EE9003CE024 /* ShortTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortTableViewCell.xib; sourceTree = "<group>"; };
+		608859A9171B4F00003CE024 /* ShortTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortTableViewCell.h; sourceTree = "<group>"; };
+		608859AA171B4F00003CE024 /* ShortTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortTableViewCell.m; sourceTree = "<group>"; };
 		60CCD5AA16DC2D6A0065E761 /* gramofon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gramofon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CCD5AD16DC2D6A0065E761 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CCD5AF16DC2D6A0065E761 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -266,6 +271,9 @@
 				6066CB281708D4B700D7540C /* graySquareView.h */,
 				6066CB291708D4B700D7540C /* graySquareView.m */,
 				6066CB2B1708D70F00D7540C /* graySquareView.xib */,
+				608859A7171B4EE9003CE024 /* ShortTableViewCell.xib */,
+				608859A9171B4F00003CE024 /* ShortTableViewCell.h */,
+				608859AA171B4F00003CE024 /* ShortTableViewCell.m */,
 				607714F316E18DE6009EEC40 /* MainStoryboard.storyboard */,
 			);
 			path = "gramofon-v1";
@@ -471,6 +479,7 @@
 				60D361881704D4F100CE96B8 /* Comments@2x.png in Resources */,
 				6066CB2C1708D71000D7540C /* graySquareView.xib in Resources */,
 				60F4BF5B170A495B0057ECF3 /* ExpandedTableViewCell.xib in Resources */,
+				608859A8171B4EE9003CE024 /* ShortTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +515,7 @@
 				C5C486BE170D2342007ED0F7 /* UserModel.m in Sources */,
 				C5C486C1170DB045007ED0F7 /* HTTPRequest.m in Sources */,
 				C5A602631710C58E00FF959E /* AudioClipModel.m in Sources */,
+				608859AB171B4F00003CE024 /* ShortTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
