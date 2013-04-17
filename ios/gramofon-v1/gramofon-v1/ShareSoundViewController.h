@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 - (IBAction)shareSoundButton:(id)sender;
+- (IBAction)shareLocation:(id)sender;
 - (IBAction)toggleAudio:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)showKeyboard:(id)sender;

@@ -82,6 +82,11 @@
     }
 }
 
+- (IBAction)shareLocation:(id)sender
+{
+[self performSegueWithIdentifier:@"SegueToVenueList" sender:self];    
+}
+
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     [self.playButton setTitle:@"Play" forState:UIControlStateNormal];

@@ -186,7 +186,7 @@
     [AudioClip sharedInstance].latitude  = [NSString stringWithFormat:@"%@", latitude];
     [AudioClip sharedInstance].longitude = [NSString stringWithFormat:@"%@", longitude];
     
-    [self performSegueWithIdentifier:@"SegueToVenueList" sender:self];
+    [self performSegueWithIdentifier:@"SegueToShareSound" sender:self];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
