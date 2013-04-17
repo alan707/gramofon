@@ -9,7 +9,7 @@
 #import "expandedCell.h"
 
 @implementation expandedCell
-@synthesize titleLabel, subtitleLabel, theImage;
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

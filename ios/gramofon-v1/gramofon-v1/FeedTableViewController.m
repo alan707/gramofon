@@ -15,6 +15,7 @@
 
 @interface FeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
+
 @end
 
 @implementation FeedTableViewController
@@ -254,6 +255,8 @@
                 if ( ! error ) {
                     // if player init-ed OK...
                     
+                   
+                    
                     // delegate
                     audioPlayer.delegate = self;
                     
@@ -262,6 +265,7 @@
                     
                     // start playback
                     [audioPlayer play];
+//                    [self performSelectorInBackground:@selector(playbackProgress) withObject:nil];
                 } else {
                     // else, output error to log
                     NSLog(@"Error: %@", [error localizedDescription]);
@@ -286,6 +290,16 @@
     return rowHeight;
 }
 
+
+- (void)playbackProgress {
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+//        [NSTimer  scheduledTimerWithTimeInterval:0 target:self selector:@selector(progressBar) userInfo:nil repeats:NO];
+        float progress = (float)audioPlayer.deviceCurrentTime/(float)audioPlayer.duration;
+        [self.progressBar setProgress:progress];
+       });
+    
+}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "graySquareView.h"
+
 
 @interface expandedCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *theImage;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+
 //@property (strong, nonatomic) IBOutlet UIView *graySquare;
 
 
