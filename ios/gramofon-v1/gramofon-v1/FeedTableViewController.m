@@ -232,7 +232,7 @@
         [audioPlayer stop];
         if ([self.selectedPath isEqual:indexPath]) {
             self.selectedPath = nil;
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 //            return;
         }
 
