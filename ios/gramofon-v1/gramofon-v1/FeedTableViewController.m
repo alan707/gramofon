@@ -15,6 +15,7 @@
 
 @interface FeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -22,15 +23,28 @@
 
 #define kCellHeight 70.0
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+    
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl = self.refreshControl;
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+
+    [self.refreshControl beginRefreshing];
     [self.tableView registerNib:[UINib nibWithNibName:@"ShortTableViewCell" bundle:nil] forCellReuseIdentifier:@"Short Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
-    [self.tableView reloadData];
+
     [self loadLatestAudioClips];
-    
+    [self.tableView reloadData];
     // commenting out; is this redundant?
     /*    
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
@@ -59,9 +73,9 @@
 
 #pragma mark - Table view data source
 
--(IBAction)loadLatestAudioClips
+-(void)loadLatestAudioClips
 {    
-    [self.refreshControl beginRefreshing];
+//    [self.refreshControl beginRefreshing];
     
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
     
@@ -73,6 +87,21 @@
         });
     });
  }
+
+- (void)handleRefresh:(id)paramSender
+{
+    /* Put a bit of delay between when the refresh control is released and when we actually do the refreshing to make
+    the UI look a bit smoother than just doing the update without the animation*/
+    int64_t delayInSeconds = 1.0f;
+    dispatch_time_t popTime =
+        dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    
+    [self loadLatestAudioClips];
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    });
+}
 
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {

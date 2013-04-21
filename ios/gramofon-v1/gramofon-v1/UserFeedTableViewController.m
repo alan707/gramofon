@@ -12,7 +12,7 @@
 #import "AudioClipModel.h"
 
 @interface UserFeedTableViewController ()
-
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation UserFeedTableViewController
@@ -20,10 +20,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl = self.refreshControl;
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged ];
     
-    feed = [NSMutableArray array];
+    [self.refreshControl beginRefreshing];
     
-    [self getFeedData:0 itemCount:20];    
+    
+    [self loadLatestAudioClips];
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+//
+//    feed = [NSMutableArray array];
+//    
+//    [self getFeedData:0 itemCount:20];
+//    
+}
+
+-(void)loadLatestAudioClips
+{
+    //    [self.refreshControl beginRefreshing];
+    
+    dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
+    
+    dispatch_async(loadclipsQ, ^{
+        feed = [NSMutableArray array];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self getFeedData:0 itemCount:20];
+        });
+    });
+}
+
+-(void) handleRefresh:(id)paramSender
+{
+    /* Put a bit of delay between when the refresh control is released and when we actually do the refreshing to make
+     the UI look a bit smoother than just doing the update without the animation*/
+    int64_t delayInSeconds = 1.0f;
+    dispatch_time_t popTime =
+    dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [self loadLatestAudioClips];
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+    });
 }
 
 - (void)didReceiveMemoryWarning

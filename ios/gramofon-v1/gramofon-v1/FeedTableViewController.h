@@ -16,7 +16,8 @@
     NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
 }
-@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (nonatomic, strong) IBOutlet UIProgressView *progressBar;
+
 
 @end
 
