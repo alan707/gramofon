@@ -9,6 +9,7 @@
 #import "RecordViewController.h"
 #import "AudioClip.h"
 
+
 @interface RecordViewController ()
 @property (weak, nonatomic) NSString *GetUUID;
 @end
@@ -34,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "LoginViewController.h"
 #import "RecordViewController.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -29,6 +30,10 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"3Wq6WzjAcQnCP7aVZmWpuSLCdwTjQskUauLMCenk"
+                  clientKey:@"L0AjBCxbinFnON42bQ4icAHGPAIR4g2ZuGfWyVVS"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
 
