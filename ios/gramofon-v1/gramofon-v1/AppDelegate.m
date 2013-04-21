@@ -25,14 +25,17 @@ NSString *const FBSessionStateChangedNotification =
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return [FBSession.activeSession handleOpenURL:url];
+//    return [FBSession.activeSession handleOpenURL:url];
+
+    return [PFFacebookUtils handleOpenURL:url];
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"3Wq6WzjAcQnCP7aVZmWpuSLCdwTjQskUauLMCenk"
                   clientKey:@"L0AjBCxbinFnON42bQ4icAHGPAIR4g2ZuGfWyVVS"];
-    
+            [PFFacebookUtils initializeFacebook];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;

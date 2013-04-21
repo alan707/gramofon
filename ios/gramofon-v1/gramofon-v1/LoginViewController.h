@@ -13,16 +13,17 @@
 
 @interface LoginViewController : UIViewController
 
-extern NSString *const FBSessionStateChangedNotification;
+//extern NSString *const FBSessionStateChangedNotification;
+
 
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-- (void)openSession;
-- (void)closeSession;
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-- (void)loginFailed;
+//- (void)openSession;
+//- (void)closeSession;
+//- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+//- (void)loginFailed;
 - (IBAction)performLogin:(id)sender;
 
 @end

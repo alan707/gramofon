@@ -48,6 +48,8 @@
 	<string>1.0</string>
 	<key>FacebookAppID</key>
 	<string>494330727285381</string>
+	<key>FacebookDisplayName</key>
+	<string>Gramofon</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

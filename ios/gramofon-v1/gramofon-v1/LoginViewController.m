@@ -11,6 +11,7 @@
 #import "User.h"
 #import "AudioClip.h"
 #import "MBProgressHUD.h"
+#import "Parse/Parse.h"
 
 @interface LoginViewController ()
 @property (nonatomic, strong) MBProgressHUD *hud;
@@ -18,112 +19,87 @@
 
 @implementation LoginViewController
 
-
-/*
- * Opens a Facebook session and optionally shows the login UX.
- */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI
-{
-    return [FBSession openActiveSessionWithReadPermissions:nil
-                                              allowLoginUI:allowLoginUI
-                                         completionHandler:^(FBSession *session,
-                                                             FBSessionState state,
-                                                             NSError *error) {
-                                             [self sessionStateChanged:session state:state error:error];
-                                         }];
-}
-
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch ( state ) {
-        case FBSessionStateOpen:
-            if ( !error ) {
-                [self getUser];
-            }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            [FBSession.activeSession closeAndClearTokenInformation];
-            break;
-        default:
-            break;
-    }
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:FBSessionStateChangedNotification
-     object:session];
-    
-    if ( error ) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-}
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //initiate the Spinning HUD
-    self.hud=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"We are going to space";
+ 
+    // Check if user is cached and linked to Facebook, if so, bypass login
     
-    //give it a quick 0.5 sec so users can see something is loading
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
+    //init FB data request
+    FBRequest *request = [FBRequest requestForMe];
     
-    // dispatch to main queue and run the FB authentication code
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self openSession];
-        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-            [self getUser];
+    // Send request to Facebook
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookUsername = userData[@"username"];
+            NSString *email = userData[@"email"];
+            NSString *facebookID = userData[@"id"];
+            NSString *firstname = userData[@"first_name"];
+            NSString *lastname = userData[@"last_name"];
+//            NSString *location = userData[@"location"][@"name"];
+//            NSString *gender = userData[@"gender"];
+//            NSString *birthday = userData[@"birthday"];
+//            NSString *relationship = userData[@"relationship_status"];
+//              NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+            
+            [User sharedInstance].username    = facebookUsername;
+            [User sharedInstance].facebook_id = facebookID;
+            [User sharedInstance].firstname   = firstname;
+            [User sharedInstance].lastname    = lastname;
+            [User sharedInstance].email       = email;
+    
+            // get their Gramofon user id, or create a new user account for this user.
+            [[User sharedInstance] authenticateGramofonUser];
         }
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //Segue to Record Screen
-        [self didAuthenticate];
-    });
+    }];
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+    }
+
 }
+    
+    
+
 
 -(void)viewDidDisappear:(BOOL)animated
 {
     self.hud = nil;
 }
 
-- (void)getUser
-{
-    // We have a valid session, go get user profile info
-    [[FBRequest requestForMe] startWithCompletionHandler:
-     ^(FBRequestConnection *connection,
-       NSDictionary<FBGraphUser> *user,
-       NSError *error) {
-         if ( !error ) {
-             [User sharedInstance].username    = user.username;
-             [User sharedInstance].facebook_id = user.id;
-             [User sharedInstance].firstname   = user.first_name;
-             [User sharedInstance].lastname    = user.last_name;
-             [User sharedInstance].email       = [user objectForKey:@"email"];
-             
-             // get their Gramofon user id, or create a new user account for this user.
-             [[User sharedInstance] authenticateGramofonUser];
-         }
-     }];
+#pragma mark - Login mehtods
+
+
+/* Login to facebook method */
+- (IBAction)performLogin:(id)sender{
+    // The permissions requested from the user
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        [_spinner stopAnimating]; // Hide loading indicator
+        
+        if (!user) {
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
+        } else if (user.isNew) {
+            NSLog(@"User with facebook signed up and logged in!");
+              [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        } else {
+            NSLog(@"User with facebook logged in!");
+              [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        }
+    }];
+    [_spinner startAnimating]; // Show loading indicator until login is finished
 }
 
-- (void)didAuthenticate
-{
-//    NSLog(@"User.user_id: %@", [User sharedInstance].user_id);
-//    NSLog(@"User.username: %@", [User sharedInstance].username);
-//    NSLog(@"User.facebook_id: %@", [User sharedInstance].facebook_id);
-//    NSLog(@"User.firstname: %@", [User sharedInstance].firstname);
-//    NSLog(@"User.lastname: %@", [User sharedInstance].lastname);
-//    NSLog(@"User.email: %@", [User sharedInstance].email);
-    [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -131,71 +107,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)openSession
-{
-    //    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
-    [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-         if ( error ) {
-             NSLog(@"%@", error);
-         }
-     }];
-    
-    //     [self.mainViewController pushViewController:RecordViewController animated:true];
-    
-    
-}
 
-- (void)showLoginView
-{
-    [self didAuthenticate];
-    
-    
-    // If the login screen is not already displayed, display it. If the login screen is
-    // displayed, then getting back here means the login in progress did not successfully
-    // complete. In that case, notify the login view so it can update its UI appropriately.
-    //    if (![modalViewController isKindOfClass:[LoginViewController class]]) {
-    //        LoginViewController* loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController"
-    //                                                      bundle:nil];
-    //        [topViewController presentModalViewController:loginViewController animated:NO];
-    //    } else {
-    //        LoginViewController* loginViewController =
-    //        (LoginViewController*)modalViewController;
-    //        [loginViewController loginFailed];
-    //    }
-}
-
-- (IBAction)performLogin:(id)sender
-{
-    
-    //    AppDelegate *appDelegate =
-    //    [[UIApplication sharedApplication] delegate];
-    
-    // If the user is authenticated, log out when the button is clicked.
-    // If the user is not authenticated, log in when the button is clicked.
-    if (FBSession.activeSession.isOpen) {
-        [self closeSession];
-    } else {
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        [self openSessionWithAllowLoginUI:YES];
-    }
-    
-}
-
-- (void) closeSession {
-    [FBSession.activeSession closeAndClearTokenInformation];
-}
-
-- (void)loginFailed
-{
-    // User switched back to the app without authorizing. Stay here, but
-    // stop the spinner.
-    [self.spinner stopAnimating];
-}
 
 @end

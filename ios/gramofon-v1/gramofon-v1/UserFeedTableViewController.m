@@ -25,16 +25,10 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged ];
     
     [self.refreshControl beginRefreshing];
-    
-    
     [self loadLatestAudioClips];
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
-//
-//    feed = [NSMutableArray array];
-//    
-//    [self getFeedData:0 itemCount:20];
-//    
+ 
 }
 
 -(void)loadLatestAudioClips
@@ -195,8 +189,8 @@
                                               }
                                           } else {
                                               NSLog(@"Error: %@", [error localizedDescription]);
-                                          }
-                                      }];                
+               }
+        }];                
     }
 }
 
