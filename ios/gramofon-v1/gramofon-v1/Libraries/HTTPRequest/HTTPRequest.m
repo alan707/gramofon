@@ -34,6 +34,8 @@
     
     [request setHTTPMethod:method];
     
+    [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
+    
     if ( params ) {
         NSMutableArray *paramArray = [NSMutableArray array];
         NSString *queryString;
@@ -123,27 +125,5 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = activityStatus;
 }
-
-/*
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"didReceiveResponse");
-}
-
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"didReceiveData: %@", data);
-}
-     
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError");
-}
-     
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSLog(@"connectionDidFinishLoading");
-}
-*/
 
 @end

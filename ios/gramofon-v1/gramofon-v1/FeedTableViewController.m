@@ -35,16 +35,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl = self.refreshControl;
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-
-    [self.refreshControl beginRefreshing];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
-
+    
+    [self.refreshControl beginRefreshing];
     [self loadLatestAudioClips];
-    [self.tableView reloadData];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,18 +55,10 @@
 #pragma mark - Table view data source
 
 -(void)loadLatestAudioClips
-{    
-
+{
+    feed = [NSMutableArray array];
     
-    dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
-    
-    dispatch_async(loadclipsQ, ^{
-        feed = [NSMutableArray array];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self getFeedData:0 itemCount:20];
-        });
-    });
+    [self getFeedData:0 itemCount:20];
  }
 
 - (void)handleRefresh:(id)paramSender
@@ -79,9 +70,8 @@
         dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     
-    [self loadLatestAudioClips];
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
+        [self loadLatestAudioClips];
+        
     });
 }
 
@@ -93,16 +83,56 @@
         NSArray *clips = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             
         if ( ! error ) {
-            for (NSDictionary *clip in clips) {
+            for ( NSDictionary *clipObject in clips ) {
+                
+                NSUInteger intClipIndex = [feed count];
+                
+                NSMutableDictionary *clip = [NSMutableDictionary dictionaryWithDictionary:clipObject];
+                
+                clip[@"index"] = [NSNumber numberWithInt:intClipIndex];
+                
+                clip[@"user"] = [NSMutableDictionary dictionaryWithDictionary:clip[@"user"]];
+                
+                [clip addObserver:self forKeyPath:@"user.photo" options:NSKeyValueObservingOptionNew context:@"myContext"];
+                
                 [feed addObject:clip];
+                
+                // get profile photo
+                
+                NSDictionary *clipUser = [clip objectForKey:@"user"];
+                
+                NSString *userPhotoURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
+                
+                [[HTTPRequest sharedInstance] doAsynchRequest:@"GET" requestURL:userPhotoURL requestParams:nil completeHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                    if ( ! error ) {
+                        UIImage *userPhoto = [UIImage imageWithData:data];
+                        
+                        if ( userPhoto != nil ) {
+                            feed[intClipIndex][@"user"][@"photo"] = userPhoto;
+                        }
+                    } else {
+                        NSLog(@"Error: %@", [error localizedDescription]);
+                    }
+                }];
             }
                 
-            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         } else {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // user photo has been loaded/added, refresh cell data to see it
+    [self.tableView reloadData];
+
+    // ideally, we would only update this row, but i can't get it to work -dt
+//    NSUInteger row         = [object[@"index"] intValue];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+//    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -113,45 +143,37 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Expanded Cell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
-        
-        dispatch_async(profilepicQ, ^{
-            // Configure the cell...
-            
-            // Try to retrieve from the table view a now-unused cell with the given identifier.
-            // Set up the cell.
-            NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
-            NSDictionary *clipUser = [clip objectForKey:@"user"];
-            
-            NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
-            
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
-            
-            NSString *clipTitle    = [clip objectForKey:@"title"];
-            NSString *clipVenue    = [clip objectForKey:@"venue"];
-            NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
-            
-            if ( clipTitle.length == 0 ) {
-                clipTitle = @"Untitled";
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImage *facebook_image = [UIImage imageWithData:imageData];
-                
-                cell.theImage.image  = facebook_image;
-                cell.titleLabel.text = clipTitle;
-                cell.titleLabel.textAlignment = NSTextAlignmentLeft;
-                
-                // detail label
-                cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
-                cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
-            });
-        });
-        return cell;
-
+    expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Expanded Cell" forIndexPath:indexPath];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    // Configure the cell...
+    
+    // Try to retrieve from the table view a now-unused cell with the given identifier.
+    // Set up the cell.
+    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];  
+    NSString *clipTitle    = clip[@"title"];
+    NSString *clipVenue    = clip[@"venue"];
+    NSString *momentsAgo   = [Utilities getRelativeTime:clip[@"created"]];
+    
+    if ( clipTitle.length == 0 ) {
+        clipTitle = @"Untitled";
+    }
+    
+    if ( clip[@"user"][@"photo"] != nil ) {
+        cell.theImage.image = clip[@"user"][@"photo"];
+    }
+    
+//    cell.clipData = clip;
+    
+    cell.titleLabel.text = clipTitle;
+    cell.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    // detail label
+    cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
+    cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", momentsAgo, clipVenue];
+    
+    return cell;
 }
 
 
@@ -161,17 +183,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-
-    
     if ( audioPlayer.isPlaying ) {
         // if clip is playing, stop it
         [audioPlayer stop];
         if ([self.selectedPath isEqual:indexPath]) {
             self.selectedPath = nil;
             
-        //If cell is selected again, reload row to compress the cell back to the short size
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            // If cell is selected again, reload row to compress the cell back to the short size
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
 
     } else {
@@ -181,7 +200,6 @@
         // This is where magic happens...
         [tableView beginUpdates];
         [tableView endUpdates];
-        
         
         // Begin audio playback code...
         
