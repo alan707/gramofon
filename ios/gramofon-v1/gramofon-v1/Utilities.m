@@ -18,9 +18,14 @@
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
 
+    // not sure if we need this -dt
     [df setFormatterBehavior:NSDateFormatterBehavior10_4];
 
-    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSTimeZone *tzGMT = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    
+    [df setTimeZone:tzGMT];
 
     NSDate *convertedDate = [df dateFromString:origDate];
     NSDate *todayDate     = [NSDate date];

@@ -24,8 +24,7 @@
                                   completeHandler:^(NSURLResponse *response, NSData *data, NSError *error)
                                   {
                                       if ( ! error ) {
-                                          if ( completeCallback != nil ) {
-                                              completeCallback(data);
+                                          if ( completeCallback != nil ) {                                              completeCallback(data);
                                           }
                                       } else {
                                           NSLog(@"Error: %@", [error localizedDescription]);
