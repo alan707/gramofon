@@ -40,29 +40,11 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
 
     [self.refreshControl beginRefreshing];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"ShortTableViewCell" bundle:nil] forCellReuseIdentifier:@"Short Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
 
     [self loadLatestAudioClips];
     [self.tableView reloadData];
-    // commenting out; is this redundant?
-    /*    
-    dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
-    
-    dispatch_async(loadclipsQ, ^{
 
-        [self loadLatestAudioClips];
-  
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.refreshControl addTarget:self
-                                    action:@selector(loadLatestAudioClips)
-                          forControlEvents:UIControlEventValueChanged];
-
-        });
-        
-    });
-    */
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +57,7 @@
 
 -(void)loadLatestAudioClips
 {    
-//    [self.refreshControl beginRefreshing];
+
     
     dispatch_queue_t loadclipsQ = dispatch_queue_create("loading audio clips from database", NULL);
     
@@ -91,7 +73,7 @@
 - (void)handleRefresh:(id)paramSender
 {
     /* Put a bit of delay between when the refresh control is released and when we actually do the refreshing to make
-    the UI look a bit smoother than just doing the update without the animation*/
+    the UI look smoother than just doing the update without the animation*/
     int64_t delayInSeconds = 1.0f;
     dispatch_time_t popTime =
         dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -131,48 +113,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (! [self.selectedPath isEqual:indexPath]) {
-//        ShortTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Short Cell" forIndexPath:indexPath];
-//        
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        
-//        dispatch_queue_t profilepicQ = dispatch_queue_create("loading facebook pics Facebook", NULL);
-//        
-//        dispatch_async(profilepicQ, ^{
-//            // Configure the cell...
-//            
-//            // Try to retrieve from the table view a now-unused cell with the given identifier.
-//            // Set up the cell.
-//            NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
-//            NSDictionary *clipUser = [clip objectForKey:@"user"];
-//            
-//            NSString *facebookpic  = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [clipUser objectForKey:@"facebook_id"]];
-//            
-//            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:facebookpic]];
-//            
-//            NSString *clipTitle    = [clip objectForKey:@"title"];
-//            NSString *clipVenue    = [clip objectForKey:@"venue"];
-//            NSString *momentsAgo   = [Utilities getRelativeTime:[clip objectForKey:@"created"]];
-//            
-//            if ( clipTitle.length == 0 ) {
-//                clipTitle = @"Untitled";
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                UIImage *facebook_image = [UIImage imageWithData:imageData];
-//                
-//                cell.theImage.image  = facebook_image;
-//                cell.titleLabel.text = clipTitle;
-//                cell.titleLabel.textAlignment = NSTextAlignmentLeft;
-//                
-//                // detail label
-//                cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
-//                cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
-//            });
-//        });
-//        
-//        return cell;
-//    }else{
         expandedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Expanded Cell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -211,7 +151,7 @@
             });
         });
         return cell;
-//    }
+
 }
 
 
@@ -222,29 +162,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    NSIndexPath *lastSelectedPath = self.selectedPath;
-    
 
-        
     
     if ( audioPlayer.isPlaying ) {
         // if clip is playing, stop it
         [audioPlayer stop];
         if ([self.selectedPath isEqual:indexPath]) {
             self.selectedPath = nil;
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            return;
+            
+        //If cell is selected again, reload row to compress the cell back to the short size
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
 
     } else {
         self.selectedPath = indexPath;
-//        if (lastSelectedPath != nil) {
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath,lastSelectedPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        }else{
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        }
-        
-       
+      
         // Begin expandable cell code...        
         // This is where magic happens...
         [tableView beginUpdates];
@@ -285,8 +217,6 @@
                 
                 if ( ! error ) {
                     // if player init-ed OK...
-                    
-                   
                     
                     // delegate
                     audioPlayer.delegate = self;
