@@ -106,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sX2-5r-gCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="1327"/>
+            <point key="canvasLocation" x="1516" y="1538"/>
         </scene>
         <!--Record View Controller - Record-->
         <scene sceneID="dnY-4G-Xr3">
@@ -227,19 +227,17 @@
                                 <color key="textColor" red="0.30588235289999999" green="0.23529411759999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-XT-sCV">
-                                <color key="onTintColor" red="0.30588235289999999" green="0.23529411759999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-XT-sCV">
+                                <color key="onTintColor" red="0.094117656350135803" green="0.5215686559677124" blue="0.21960785984992981" alpha="1" colorSpace="deviceRGB"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-hC-oh2">
-                                <color key="onTintColor" red="0.30588235289999999" green="0.23529411759999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-hC-oh2">
+                                <color key="onTintColor" red="0.094117656349999995" green="0.52156865600000002" blue="0.2196078598" alpha="1" colorSpace="deviceRGB"/>
                             </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Your Title" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" background="titleShareSound-whitebg.png" disabledBackground="titleShareSound-whitebg.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2tj-2E-rA1">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="OE7-2M-ajo"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Title" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2tj-2E-rA1">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="done"/>
                                 <connections>
                                     <action selector="showKeyboard:" destination="bmH-xg-Tk4" eventType="editingDidBegin" id="Jxu-zP-301"/>
                                     <outlet property="delegate" destination="bmH-xg-Tk4" id="Mgu-k9-taw"/>
@@ -289,11 +287,11 @@
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="157" id="1qW-oO-Q6M"/>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="top" secondItem="ebN-pa-ywb" secondAttribute="top" type="user" id="2gF-XO-Awi"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4QF-fs-VyR"/>
+                            <constraint firstItem="W4e-4x-bSx" firstAttribute="centerX" secondItem="2tj-2E-rA1" secondAttribute="centerX" type="default" id="6Cz-ZU-tDz"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="212" id="6ks-JR-9qm"/>
                             <constraint firstAttribute="centerX" secondItem="2tj-2E-rA1" secondAttribute="centerX" type="user" id="8x2-OG-h7L"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KeF-hC-oh2" secondAttribute="bottom" constant="178" type="user" id="DNI-VB-0Xa"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="46" id="Dqd-nq-1t9"/>
-                            <constraint firstItem="W4e-4x-bSx" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="81" id="Dzb-EE-f6M"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="trailing" secondItem="ebN-pa-ywb" secondAttribute="trailing" type="default" id="ESt-hD-EiO"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="IQW-B2-aqx"/>
                             <constraint firstItem="KeF-hC-oh2" firstAttribute="bottom" secondItem="ebN-pa-ywb" secondAttribute="bottom" type="default" id="IZN-IZ-jMG"/>
@@ -303,6 +301,7 @@
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" type="default" id="aTD-Ap-Uy1"/>
                             <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="31" id="c91-M8-hTQ"/>
                             <constraint firstItem="wwr-bI-rjZ" firstAttribute="centerX" secondItem="ZDy-6V-OGQ" secondAttribute="centerX" type="default" id="cYP-Z5-ukg"/>
+                            <constraint firstItem="W4e-4x-bSx" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="74" id="du3-OS-RpB"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="trailing" secondItem="2tj-2E-rA1" secondAttribute="trailing" type="default" id="f7Z-uB-bkw"/>
                             <constraint firstItem="plC-Tb-ayF" firstAttribute="bottom" secondItem="zoc-XT-sCV" secondAttribute="bottom" type="default" id="h5J-pt-1lH"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j6c-do-bv0"/>
@@ -312,7 +311,6 @@
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="centerX" secondItem="90e-L2-R1C" secondAttribute="centerX" type="default" id="lqT-kf-kO4"/>
                             <constraint firstItem="N8O-RN-MhK" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="137" id="nIN-It-GO5"/>
                             <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="plC-Tb-ayF" secondAttribute="top" type="user" id="qfX-CF-cTQ"/>
-                            <constraint firstItem="W4e-4x-bSx" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="70" id="sYK-6F-j6f"/>
                             <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="tAT-4N-6uz"/>
                         </constraints>
                     </view>
@@ -329,7 +327,7 @@
                     <connections>
                         <outlet property="playButton" destination="wwr-bI-rjZ" id="Djo-y5-RIg"/>
                         <outlet property="titleSound" destination="2tj-2E-rA1" id="wXz-JG-GtN"/>
-                        <segue destination="wKa-l0-eVh" kind="push" identifier="SegueToVenueList" id="ePd-iA-AMO"/>
+                        <segue destination="wKa-l0-eVh" kind="modal" identifier="SegueToVenueList" modalTransitionStyle="flipHorizontal" id="ePd-iA-AMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ok-QN-6hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,12 +342,12 @@
                         <barButtonItem key="backBarButtonItem" title="Location" id="fJN-Xa-hAv"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="bmH-xg-Tk4" kind="push" identifier="SegueFromVenueList" id="nSp-cf-Ccx"/>
+                        <segue destination="bmH-xg-Tk4" kind="modal" identifier="SegueFromVenueList" modalTransitionStyle="flipHorizontal" id="nSp-cf-Ccx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXS-rR-u6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="834"/>
+            <point key="canvasLocation" x="2470" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5a-Cl-aid">
@@ -431,7 +429,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXE-u1-Fae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="731"/>
+            <point key="canvasLocation" x="1516" y="842"/>
         </scene>
     </scenes>
     <resources>
@@ -443,7 +441,6 @@
         <image name="gramaphon_logo_small.png" width="361" height="360"/>
         <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
         <image name="login-button-small.png" width="151" height="43"/>
-        <image name="titleShareSound-whitebg.png" width="277" height="56"/>
     </resources>
     <classes>
         <class className="FeedTableViewController" superclassName="UITableViewController">
