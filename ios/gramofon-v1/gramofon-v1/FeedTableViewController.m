@@ -164,14 +164,20 @@
         cell.theImage.image = clip[@"user"][@"photo"];
     }
     
-//    cell.clipData = clip;
-    
     cell.titleLabel.text = clipTitle;
     cell.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     // detail label
     cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
-    cell.subtitleLabel.text = [NSString stringWithFormat:@"near %@ - %@", momentsAgo, clipVenue];
+    
+    // set subtitle text
+    if ( clipVenue ) {
+        // if we have a venue name, display timestamp + venue
+        cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %@", momentsAgo, clipVenue];
+    } else {
+        // otherwise, just display timestamp
+        cell.subtitleLabel.text = [NSString stringWithFormat:@"%@", momentsAgo];        
+    }
     
     return cell;
 }

@@ -118,7 +118,15 @@
     
     // detail label
     cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"near %@ - %@", clipVenue, momentsAgo];
+    
+    // set subtitle text
+    if ( clipVenue ) {
+        // if we have a venue name, display timestamp + venue
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", momentsAgo, clipVenue];
+    } else {
+        // otherwise, just display timestamp
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", momentsAgo];
+    }
     
     return cell;
 }
