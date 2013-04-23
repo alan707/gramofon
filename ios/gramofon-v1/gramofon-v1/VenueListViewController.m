@@ -88,8 +88,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     [AudioClip sharedInstance].venue = [self.nearbyVenues[indexPath.row] name];
-    [self performSegueWithIdentifier:@"SegueFromVenueList" sender:self];
+    
+    [self.navigationController popViewControllerAnimated:TRUE];
 }
                   
 @end

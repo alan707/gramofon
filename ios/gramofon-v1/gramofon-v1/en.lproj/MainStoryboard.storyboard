@@ -233,7 +233,7 @@
                             <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-hC-oh2">
                                 <color key="onTintColor" red="0.094117656349999995" green="0.52156865600000002" blue="0.2196078598" alpha="1" colorSpace="deviceRGB"/>
                             </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Title" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2tj-2E-rA1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Title" adjustsFontSizeToFit="NO" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2tj-2E-rA1">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -327,7 +327,7 @@
                     <connections>
                         <outlet property="playButton" destination="wwr-bI-rjZ" id="Djo-y5-RIg"/>
                         <outlet property="titleSound" destination="2tj-2E-rA1" id="wXz-JG-GtN"/>
-                        <segue destination="wKa-l0-eVh" kind="modal" identifier="SegueToVenueList" modalTransitionStyle="flipHorizontal" id="ePd-iA-AMO"/>
+                        <segue destination="wKa-l0-eVh" kind="push" identifier="SegueToVenueList" id="ePd-iA-AMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ok-QN-6hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,13 +341,10 @@
                     <navigationItem key="navigationItem" title="Where are you?" id="5le-R6-KKF">
                         <barButtonItem key="backBarButtonItem" title="Location" id="fJN-Xa-hAv"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="bmH-xg-Tk4" kind="modal" identifier="SegueFromVenueList" modalTransitionStyle="flipHorizontal" id="nSp-cf-Ccx"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXS-rR-u6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470" y="842"/>
+            <point key="canvasLocation" x="2935" y="150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5a-Cl-aid">
@@ -496,7 +493,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="nSp-cf-Ccx"/>
-    </inferredMetricsTieBreakers>
 </document>

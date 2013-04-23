@@ -54,6 +54,14 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // if the clip has a title, reload it into the title text input
+    if ( [AudioClip sharedInstance].title ) {
+        self.titleSound.text = [AudioClip sharedInstance].title;
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     // release the iOS audio session
@@ -84,7 +92,12 @@
 
 - (IBAction)shareLocation:(id)sender
 {
-[self performSegueWithIdentifier:@"SegueToVenueList" sender:self];    
+    // if the user has entered a title, store it for later
+    if ( self.titleSound.text ) {
+        [AudioClip sharedInstance].title = self.titleSound.text;
+    }
+    
+    [self performSegueWithIdentifier:@"SegueToVenueList" sender:self];    
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -94,8 +107,6 @@
 
 - (IBAction)shareSoundButton:(id)sender
 {
-    [AudioClip sharedInstance].title = self.titleSound.text;
-    
     [self.navigationController popToRootViewControllerAnimated:TRUE];
     
     dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
@@ -110,6 +121,9 @@
     if ( self.titleSound == self.titleSound ) {
         [self.titleSound resignFirstResponder];
     }
+    
+    // update the title of the audio clip
+    [AudioClip sharedInstance].title = self.titleSound.text;
     
     return YES;
 }

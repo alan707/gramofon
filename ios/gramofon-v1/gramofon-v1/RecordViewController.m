@@ -149,6 +149,10 @@
     
     self.countDownLabel.text = @"Done!";
     
+    // blank out title, in case of a previous title
+    [AudioClip sharedInstance].title    = @"";
+    
+    // store audio clip data
     [AudioClip sharedInstance].fileURL  = recorder.url;
     [AudioClip sharedInstance].fileData = [NSData dataWithContentsOfURL:recorder.url];
     
