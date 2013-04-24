@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *theImage;
+@property (strong, nonatomic) NSString *clipID;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 //@property (strong, nonatomic) IBOutlet UIView *graySquare;

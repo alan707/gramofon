@@ -16,6 +16,7 @@
 @interface FeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSString *ClipID;
 
 @end
 
@@ -151,7 +152,8 @@
     
     // Try to retrieve from the table view a now-unused cell with the given identifier.
     // Set up the cell.
-    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];  
+    NSDictionary *clip     = [feed objectAtIndex:indexPath.row];
+   
     NSString *clipTitle    = clip[@"title"];
     NSString *clipVenue    = clip[@"venue"];
     NSString *momentsAgo   = [Utilities getRelativeTime:clip[@"created"]];
@@ -164,9 +166,14 @@
         cell.theImage.image = clip[@"user"][@"photo"];
     }
     
+    //Set the clip id to be used when sharing facebook, twitter, SMS, email.
+    self.ClipID       = clip[@"id"];
+  
+    
     cell.titleLabel.text = clipTitle;
     cell.titleLabel.textAlignment = NSTextAlignmentLeft;
-    
+  
+  
     // detail label
     cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
     
@@ -299,7 +306,11 @@
 }
 
 - (IBAction)shareButton:(id)sender {
-    NSString* someText = @"Dude, I just sent you this text from the app!!";
+    
+  
+
+    NSString *theUrl   = [NSString stringWithFormat:@"http://gramofon.co/clip/%@", self.ClipID];
+    NSURL* someText = [NSURL URLWithString:theUrl];
     NSArray* dataToShare = @[someText];  // ...or whatever pieces of data you want to share.
     
     UIActivityViewController* activityViewController =
