@@ -416,6 +416,125 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Expanded Cell" rowHeight="140" id="71w-O6-xDy" customClass="expandedCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbe-IE-an2">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="Eo0-JZ-M9F"/>
+                                                <constraint firstAttribute="width" constant="247" id="zrN-2w-HPD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-1T-3fs">
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5u-3G-2oR">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="3Ab-Pu-dvv"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Kae-th-MUZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="Share@2x.png">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="shareButton:" destination="GDk-Yg-B6s" eventType="touchUpInside" id="ewi-9v-jfq"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-Od-Bvh">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="OZ3-nN-Z57"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="Favourite@2x.png">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhu-Ro-wQW">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="3OW-dH-oRu"/>
+                                                        <constraint firstAttribute="width" constant="44" id="LWu-9h-FN0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="Comments@2x.png">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <progressView tag="23" contentMode="scaleToFill" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="hBp-uO-1OC">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="gyP-M1-j5u"/>
+                                                    </constraints>
+                                                </progressView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="zmU-Od-Bvh" firstAttribute="bottom" secondItem="Q5u-3G-2oR" secondAttribute="bottom" type="default" id="1fX-AF-bcP"/>
+                                                <constraint firstItem="Q5u-3G-2oR" firstAttribute="top" secondItem="GKb-1T-3fs" secondAttribute="top" constant="25" id="ISf-2L-gUh"/>
+                                                <constraint firstItem="hhu-Ro-wQW" firstAttribute="top" secondItem="hBp-uO-1OC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WRm-P5-VDn"/>
+                                                <constraint firstItem="hBp-uO-1OC" firstAttribute="centerX" secondItem="GKb-1T-3fs" secondAttribute="centerX" type="default" id="dXT-ye-RzK"/>
+                                                <constraint firstItem="zmU-Od-Bvh" firstAttribute="leading" secondItem="GKb-1T-3fs" secondAttribute="leading" constant="141" id="jMJ-VI-Ir0"/>
+                                                <constraint firstItem="Q5u-3G-2oR" firstAttribute="leading" secondItem="GKb-1T-3fs" secondAttribute="leading" constant="62" id="lY1-E5-QaA"/>
+                                                <constraint firstItem="zmU-Od-Bvh" firstAttribute="top" secondItem="Q5u-3G-2oR" secondAttribute="top" type="default" id="tgO-E9-6zY"/>
+                                                <constraint firstItem="hBp-uO-1OC" firstAttribute="top" secondItem="GKb-1T-3fs" secondAttribute="top" constant="10" id="xKY-Gz-MDC"/>
+                                                <constraint firstItem="hhu-Ro-wQW" firstAttribute="leading" secondItem="GKb-1T-3fs" secondAttribute="leading" constant="214" id="ybi-Nd-d8c"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0D-xc-0IP">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="XH4-4b-azK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpa-8q-zKp">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="JPK-RG-IX1"/>
+                                                <constraint firstAttribute="width" constant="55" id="ocF-dq-3Ck"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="g0D-xc-0IP" firstAttribute="top" secondItem="Zbe-IE-an2" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="5E2-08-ySR"/>
+                                    <constraint firstItem="GKb-1T-3fs" firstAttribute="top" secondItem="71w-O6-xDy" secondAttribute="top" constant="69" id="HBY-Kb-KkB"/>
+                                    <constraint firstItem="g0D-xc-0IP" firstAttribute="leading" secondItem="Cpa-8q-zKp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IIh-ct-oli"/>
+                                    <constraint firstItem="Zbe-IE-an2" firstAttribute="leading" secondItem="Cpa-8q-zKp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Kj8-GU-Mzx"/>
+                                    <constraint firstAttribute="bottom" secondItem="GKb-1T-3fs" secondAttribute="bottom" constant="1" id="Xzx-or-WuF"/>
+                                    <constraint firstItem="GKb-1T-3fs" firstAttribute="trailing" secondItem="71w-O6-xDy" secondAttribute="trailing" type="default" id="Zep-PE-GZI"/>
+                                    <constraint firstItem="Cpa-8q-zKp" firstAttribute="top" secondItem="71w-O6-xDy" secondAttribute="top" constant="7" id="h1w-6h-6e1"/>
+                                    <constraint firstItem="Zbe-IE-an2" firstAttribute="top" secondItem="71w-O6-xDy" secondAttribute="top" constant="11" id="jGG-HR-C9q"/>
+                                    <constraint firstItem="g0D-xc-0IP" firstAttribute="trailing" secondItem="71w-O6-xDy" secondAttribute="trailing" type="default" id="l7I-Bh-8wO"/>
+                                    <constraint firstItem="GKb-1T-3fs" firstAttribute="leading" secondItem="71w-O6-xDy" secondAttribute="leading" type="default" id="onA-qg-ohS"/>
+                                    <constraint firstItem="Zbe-IE-an2" firstAttribute="trailing" secondItem="71w-O6-xDy" secondAttribute="trailing" type="default" id="sqX-23-dxp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="g0D-xc-0IP" id="gul-1O-w1y"/>
+                                    <outlet property="theImage" destination="Cpa-8q-zKp" id="tbA-Xl-eUJ"/>
+                                    <outlet property="titleLabel" destination="Zbe-IE-an2" id="aa9-Sk-dst"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="GDk-Yg-B6s" id="zhu-OJ-Niz"/>
@@ -426,7 +545,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXE-u1-Fae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="842"/>
+            <point key="canvasLocation" x="1507" y="827"/>
         </scene>
     </scenes>
     <resources>
@@ -435,6 +554,9 @@
         <image name="1line.png" width="276" height="3"/>
         <image name="2lines.png" width="277" height="121"/>
         <image name="65-note.png" width="15" height="24"/>
+        <image name="Comments@2x.png" width="88" height="88"/>
+        <image name="Favourite@2x.png" width="88" height="88"/>
+        <image name="Share@2x.png" width="88" height="88"/>
         <image name="gramaphon_logo_small.png" width="361" height="360"/>
         <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
         <image name="login-button-small.png" width="151" height="43"/>
@@ -443,6 +565,7 @@
         <class className="FeedTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="shareButton:"/>
                 <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
             </relationships>
         </class>
@@ -486,6 +609,15 @@
         </class>
         <class className="VenueListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueListViewController.h"/>
+        </class>
+        <class className="expandedCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/expandedCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

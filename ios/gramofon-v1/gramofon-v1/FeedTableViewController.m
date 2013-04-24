@@ -40,7 +40,7 @@
     self.refreshControl = self.refreshControl;
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ExpandedTableViewCell" bundle:nil] forCellReuseIdentifier:@"Expanded Cell"];
     
     [self.refreshControl beginRefreshing];
     [self loadLatestAudioClips];
@@ -298,4 +298,13 @@
     }
 }
 
+- (IBAction)shareButton:(id)sender {
+    NSString* someText = @"Dude, I just sent you this text from the app!!";
+    NSArray* dataToShare = @[someText];  // ...or whatever pieces of data you want to share.
+    
+    UIActivityViewController* activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:dataToShare
+                                      applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:^{}];
+}
 @end

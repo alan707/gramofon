@@ -16,7 +16,9 @@
     NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
 }
-@property (nonatomic, strong) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+
+- (IBAction)shareButton:(id)sender;
 
 
 @end
