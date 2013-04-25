@@ -167,8 +167,7 @@
     }
     
     //Set the clip id to be used when sharing facebook, twitter, SMS, email.
-    self.ClipID       = clip[@"id"];
-  
+      
     
     cell.titleLabel.text = clipTitle;
     cell.titleLabel.textAlignment = NSTextAlignmentLeft;
@@ -231,6 +230,8 @@
         // Get the clip
         NSDictionary *clip = [feed objectAtIndex:indexPath.row];
         NSString *url      = [clip objectForKey:@"url"];
+        self.ClipID        =  clip[@"id"];
+
         
         // asynchrous loading of clips w/ complete callback handler
         [[HTTPRequest sharedInstance] doAsynchRequest:@"GET"
@@ -307,9 +308,10 @@
 
 - (IBAction)shareButton:(id)sender {
     
-  
+    
 
-    NSString *theUrl   = [NSString stringWithFormat:@"http://gramofon.co/clip/%@", self.ClipID];
+    NSString *theUrl     = [NSString stringWithFormat:@"http://gramofon.co/clip/%@", self.ClipID];
+
     NSURL* someText = [NSURL URLWithString:theUrl];
     NSArray* dataToShare = @[someText];  // ...or whatever pieces of data you want to share.
     
