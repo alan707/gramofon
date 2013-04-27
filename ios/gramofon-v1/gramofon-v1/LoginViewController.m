@@ -41,11 +41,7 @@
             NSString *facebookID = userData[@"id"];
             NSString *firstname = userData[@"first_name"];
             NSString *lastname = userData[@"last_name"];
-//            NSString *location = userData[@"location"][@"name"];
-//            NSString *gender = userData[@"gender"];
-//            NSString *birthday = userData[@"birthday"];
-//            NSString *relationship = userData[@"relationship_status"];
-//              NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+
             
             [User sharedInstance].username    = facebookUsername;
             [User sharedInstance].facebook_id = facebookID;
@@ -55,11 +51,16 @@
     
             // get their Gramofon user id, or create a new user account for this user.
             [[User sharedInstance] authenticateGramofonUser];
+//            if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+//                [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+//            }
+//            if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+//                [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+//            }
+
         }
     }];
-    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
-    }
+       
 
 }
     
@@ -75,7 +76,7 @@
 
 
 /* Login to facebook method */
-- (IBAction)performLogin:(id)sender{
+- (IBAction)performFBLogin:(id)sender{
     // The permissions requested from the user
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     
@@ -86,18 +87,46 @@
         if (!user) {
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                // Notification Alert is missing here asking user to Authorize Gramofon under Settings/Facebook -> Gramofon
+                // switch to "on"
+                 NSLog(@"Notification Alert is missing here asking user to Authorize Gramofon under Settings/Facebook -> Gramofon");
             } else {
                 NSLog(@"Uh oh. An error occurred: %@", error);
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-              [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+            [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
         } else {
             NSLog(@"User with facebook logged in!");
-              [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+            [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
         }
     }];
     [_spinner startAnimating]; // Show loading indicator until login is finished
+}
+
+- (IBAction)performTwitterLogin:(id)sender {
+    
+    PFUser *user = [PFUser currentUser];
+    if (![PFTwitterUtils isLinkedWithUser:user]) {
+        [PFTwitterUtils linkUser:user block:^(BOOL succeeded, NSError *error) {
+            if ([PFTwitterUtils isLinkedWithUser:user]) {
+                NSLog(@"Woohoo, user logged in with Twitter!");
+            }
+        }];
+    }
+    
+    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Twitter login.");
+            return;
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in with Twitter!");
+            [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        } else {
+            NSLog(@"User logged in with Twitter!");
+            [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
+        }     
+    }];
 }
 
 

@@ -24,6 +24,7 @@
 //- (void)closeSession;
 //- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 //- (void)loginFailed;
-- (IBAction)performLogin:(id)sender;
+- (IBAction)performFBLogin:(id)sender;
+- (IBAction)performTwitterLogin:(id)sender;
 
 @end

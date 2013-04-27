@@ -36,6 +36,8 @@ NSString *const FBSessionStateChangedNotification =
     [Parse setApplicationId:@"3Wq6WzjAcQnCP7aVZmWpuSLCdwTjQskUauLMCenk"
                   clientKey:@"L0AjBCxbinFnON42bQ4icAHGPAIR4g2ZuGfWyVVS"];
             [PFFacebookUtils initializeFacebook];
+    [PFTwitterUtils initializeWithConsumerKey:@"mO0Ld43fXe8l4o1JwtBJqw"
+                               consumerSecret:@"GAGzJce9YLrBCQGHhbYuKOVoSR9I1IIQRDwiGbag"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
@@ -67,10 +69,15 @@ NSString *const FBSessionStateChangedNotification =
     [FBSession.activeSession handleDidBecomeActive];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationWillTerminate:(UIApplication *)application {
+    /*
+     Called when the application is about to terminate.
+     Save data if appropriate.
+     See also applicationDidEnterBackground:.
+     */
+    [FBSession.activeSession close];
 }
+
 
 
 @end

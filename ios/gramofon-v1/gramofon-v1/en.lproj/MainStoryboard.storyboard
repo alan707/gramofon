@@ -15,7 +15,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXy-Dd-gGG">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" type="user" id="aEO-Ak-2Vj"/>
-                                    <constraint firstAttribute="width" constant="168" id="g3M-b0-vVd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -28,7 +27,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="performLogin:" destination="2" eventType="touchUpInside" id="U7I-vy-Tcs"/>
+                                    <action selector="performFBLogin:" destination="2" eventType="touchUpInside" id="Hvx-gX-hXU"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Kcq-1b-P49">
@@ -41,14 +40,43 @@
                                     <constraint firstAttribute="height" constant="193" id="LnC-JS-b2W"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-DN-hON">
+                                <color key="backgroundColor" red="0.0039215688589999999" green="0.67058825489999996" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="urr-Lm-B4p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="performTwitterLogin:" destination="2" eventType="touchUpInside" id="N4f-Kj-Ypc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="twitter-bird-dark-bgs.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zih-KC-JbP">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="eDV-kR-XPd"/>
+                                    <constraint firstAttribute="height" constant="44" id="sSB-bz-HEm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="QXv-DN-hON" firstAttribute="bottom" secondItem="Zih-KC-JbP" secondAttribute="bottom" type="default" id="2uf-jR-CtI"/>
+                            <constraint firstItem="Zih-KC-JbP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="78" id="3GC-FX-r86"/>
+                            <constraint firstItem="QXv-DN-hON" firstAttribute="leading" secondItem="yXy-Dd-gGG" secondAttribute="leading" type="default" id="CQI-Hb-qXB"/>
                             <constraint firstAttribute="bottom" secondItem="yXy-Dd-gGG" secondAttribute="bottom" constant="40" id="PS3-0T-zKP"/>
-                            <constraint firstItem="Kcq-1b-P49" firstAttribute="centerX" secondItem="pmQ-ES-vcE" secondAttribute="centerX" type="default" id="QPI-7p-dsd"/>
-                            <constraint firstAttribute="centerY" secondItem="pmQ-ES-vcE" secondAttribute="centerY" type="user" id="dKr-LO-js4"/>
-                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="ddR-a1-rln"/>
+                            <constraint firstItem="QXv-DN-hON" firstAttribute="trailing" secondItem="yXy-Dd-gGG" secondAttribute="trailing" type="default" id="RO7-Kh-jcc"/>
+                            <constraint firstAttribute="bottom" secondItem="Zih-KC-JbP" secondAttribute="bottom" constant="103" id="X6g-uX-GL8"/>
+                            <constraint firstItem="pmQ-ES-vcE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="43" id="YIy-3W-XTH"/>
+                            <constraint firstItem="yXy-Dd-gGG" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="df1-Md-23Q"/>
+                            <constraint firstItem="QXv-DN-hON" firstAttribute="centerX" secondItem="Kcq-1b-P49" secondAttribute="centerX" type="default" id="hy5-gh-qal"/>
                             <constraint firstAttribute="bottom" secondItem="Kcq-1b-P49" secondAttribute="bottom" constant="114" id="kam-pg-Whw"/>
+                            <constraint firstItem="QXv-DN-hON" firstAttribute="top" secondItem="Zih-KC-JbP" secondAttribute="top" type="default" id="ofJ-Zc-ibL"/>
                             <constraint firstAttribute="centerX" secondItem="pmQ-ES-vcE" secondAttribute="centerX" type="user" id="vMW-Tb-Zmg"/>
                         </constraints>
                     </view>
@@ -560,6 +588,7 @@
         <image name="gramaphon_logo_small.png" width="361" height="360"/>
         <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
         <image name="login-button-small.png" width="151" height="43"/>
+        <image name="twitter-bird-dark-bgs.png" width="300" height="300"/>
     </resources>
     <classes>
         <class className="FeedTableViewController" superclassName="UITableViewController">
@@ -572,7 +601,9 @@
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="performFBLogin:"/>
                 <relationship kind="action" name="performLogin:"/>
+                <relationship kind="action" name="performTwitterLogin:"/>
                 <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
