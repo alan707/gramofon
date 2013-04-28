@@ -307,8 +307,7 @@
 }
 
 - (IBAction)shareButton:(id)sender {
-    
-    
+   
 
     NSString *theUrl     = [NSString stringWithFormat:@"http://gramofon.co/clip/%@", self.ClipID];
 
