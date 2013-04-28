@@ -11,6 +11,7 @@
 #import "expandedCell.h"
 #import "AudioClipModel.h"
 #import "HTTPRequest.h"
+#import "MBProgressHUD.h"
 
 
 @interface FeedTableViewController ()
@@ -41,10 +42,18 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl = self.refreshControl;
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    
-    feed = [NSMutableArray array];
-    
-    [self getFeedData:0 itemCount:20];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
+    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
+    dispatch_async(uploadQ, ^{
+        feed = [NSMutableArray array];
+        
+        [self getFeedData:0 itemCount:20];
+        sleep (1);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+    });
 }
 
 - (void)didReceiveMemoryWarning
