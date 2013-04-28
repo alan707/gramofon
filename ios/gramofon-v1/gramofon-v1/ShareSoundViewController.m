@@ -109,11 +109,11 @@
 {
     [self.navigationController popToRootViewControllerAnimated:TRUE];
     
-    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
-    
-    dispatch_async(uploadQ, ^{
+//    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
+//    
+//    dispatch_async(uploadQ, ^{
         [AudioClipModel uploadAudioClip];
-    });
+//    });
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField

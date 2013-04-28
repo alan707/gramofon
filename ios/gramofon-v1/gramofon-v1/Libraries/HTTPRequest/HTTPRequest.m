@@ -96,8 +96,9 @@
     
     [self requestStarted];
     
+    NSLog(@"upload started");
     //return and test
-    [NSURLConnection sendAsynchronousRequest:request queue:nil completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
          [self requestCompleted];
          
@@ -110,12 +111,14 @@
 - (void)requestStarted
 {
     requestCounter++;
+//    NSLog(@"requestStarted: %i active requests", requestCounter);
     [self updateNetworkActivityIndicator];
 }
 
 - (void)requestCompleted
 {
     requestCounter--;
+//    NSLog(@"requestCompleted: %i active requests", requestCounter);
     [self updateNetworkActivityIndicator];
 }
 
