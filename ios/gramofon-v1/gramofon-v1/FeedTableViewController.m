@@ -80,6 +80,31 @@
 //    });
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+   
+    if(section == 0) {
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 44)]; // x,y,width,height
+        
+        NSArray *itemArray = [NSArray arrayWithObjects: @"Home", @"Followed", @"My Clips", nil];
+        UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:itemArray];
+        [control setFrame:CGRectMake(0, 0, 319.0, 40.0)];
+        [control setSegmentedControlStyle:UISegmentedControlStylePlain];
+        [control setSelectedSegmentIndex:0];
+        [control setEnabled:YES];
+        
+        [headerView addSubview:control];
+        return headerView;
+        
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) return 44.f;
+    return 0.f;
+}
+
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
     [AudioClipModel getAudioClips:offset itemCount:limit complete:^(NSData *data) {
