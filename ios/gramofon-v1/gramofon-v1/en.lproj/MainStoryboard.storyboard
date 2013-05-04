@@ -529,6 +529,7 @@
                                     <constraint firstItem="Zbe-IE-an2" firstAttribute="trailing" secondItem="71w-O6-xDy" secondAttribute="trailing" type="default" id="sqX-23-dxp"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="progressBar" destination="hBp-uO-1OC" id="KD4-Ed-hp7"/>
                                     <outlet property="subtitleLabel" destination="g0D-xc-0IP" id="gul-1O-w1y"/>
                                     <outlet property="theImage" destination="Cpa-8q-zKp" id="tbA-Xl-eUJ"/>
                                     <outlet property="titleLabel" destination="Zbe-IE-an2" id="aa9-Sk-dst"/>

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSIndexPath *selectedPath;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSString *ClipID;
+@property (nonatomic, strong) UISegmentedControl *control;
 
 @end
 
@@ -87,11 +88,23 @@
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 44)]; // x,y,width,height
         
         NSArray *itemArray = [NSArray arrayWithObjects: @"Home", @"Followed", @"My Clips", nil];
-        UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:itemArray];
-        [control setFrame:CGRectMake(0, 0, 319.0, 40.0)];
-        [control setSegmentedControlStyle:UISegmentedControlStylePlain];
-        [control setSelectedSegmentIndex:0];
-        [control setEnabled:YES];
+        self.control = [[UISegmentedControl alloc] initWithItems:itemArray];
+        [self.control setFrame:CGRectMake(0, 0, 319.0, 40.0)];
+        [self.control setSegmentedControlStyle:UISegmentedControlStylePlain];
+        [self.control setSelectedSegmentIndex:0];
+        [self.control setEnabled:YES];
+        NSInteger selectedSegment = control.selectedSegmentIndex;
+        
+        if (selectedSegment == 0) {
+            //toggle the correct view to be visible
+            [firstView setHidden:NO];
+            [secondView setHidden:YES];
+        }
+        elseif(selectedSegment == 1){
+            //toggle the correct view to be visible
+            [firstView setHidden:YES];
+            [secondView setHidden:NO];
+        }
         
         [headerView addSubview:control];
         return headerView;
