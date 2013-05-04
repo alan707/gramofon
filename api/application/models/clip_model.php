@@ -100,12 +100,22 @@ class Clip_model extends CI_Model
 
         if ( $filename ) {
             $clip = new stdClass;
+
+            // required clip properties
             $clip->filename  = $filename;
             $clip->title     = $data['title'];
-            $clip->latitude  = $data['latitude'];
-            $clip->longitude = $data['longitude'];
-            $clip->venue     = $data['venue'];
             $clip->user_id   = $data['user_id'];
+
+            // optional LatLng location properties
+            if ( isset($data['latitude']) && isset($data['longitude'])) {
+                $clip->latitude  = $data['latitude'];
+                $clip->longitude = $data['longitude'];
+            }
+
+            // optional venue name property
+            if ( isset($data['venue']) ) {
+                $clip->venue = $data['venue'];
+            }
 
             $this->db->insert( 'clips', $clip );
 
