@@ -33,7 +33,7 @@
                                   }];
 }
 
-+ (void)getAudioClipsByUser:(NSNumber *)user_id itemOffset:(int)offset itemCount:(int)limit complete:(void (^)(NSArray *))completeCallback
++ (void)getAudioClipsByUser:(NSNumber *)user_id itemOffset:(int)offset itemCount:(int)limit complete:(void (^)(NSData *))completeCallback
 {
     NSString *url = [NSString stringWithFormat:@"http://api.gramofon.co/users/%@/clips?offset=%i&limit=%i", user_id, offset, limit];
     
@@ -45,10 +45,7 @@
                                   {
                                       if ( ! error ) {
                                           if ( completeCallback != nil ) {
-                                              NSArray *clips = [NSJSONSerialization JSONObjectWithData:data
-                                                                                               options:kNilOptions
-                                                                                                 error:&error];
-                                              completeCallback( clips );
+                                              completeCallback( data );
                                           }
                                       } else {
                                           NSLog(@"Error: %@", [error localizedDescription]);

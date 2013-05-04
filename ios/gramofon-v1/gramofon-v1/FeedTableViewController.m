@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSIndexPath *selectedPath;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSString *ClipID;
-@property (nonatomic, strong) UISegmentedControl *control;
 
 @end
 
@@ -81,46 +80,13 @@
 //    });
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-   
-    if(section == 0) {
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 44)]; // x,y,width,height
-        
-        NSArray *itemArray = [NSArray arrayWithObjects: @"Home", @"Followed", @"My Clips", nil];
-        self.control = [[UISegmentedControl alloc] initWithItems:itemArray];
-        [self.control setFrame:CGRectMake(0, 0, 319.0, 40.0)];
-        [self.control setSegmentedControlStyle:UISegmentedControlStylePlain];
-        [self.control setSelectedSegmentIndex:0];
-        [self.control setEnabled:YES];
-        NSInteger selectedSegment = control.selectedSegmentIndex;
-        
-        if (selectedSegment == 0) {
-            //toggle the correct view to be visible
-            [firstView setHidden:NO];
-            [secondView setHidden:YES];
-        }
-        elseif(selectedSegment == 1){
-            //toggle the correct view to be visible
-            [firstView setHidden:YES];
-            [secondView setHidden:NO];
-        }
-        
-        [headerView addSubview:control];
-        return headerView;
-        
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) return 44.f;
-    return 0.f;
-}
 
 - (void)getFeedData:(int)offset itemCount:(int)limit
 {
-    [AudioClipModel getAudioClips:offset itemCount:limit complete:^(NSData *data) {
+    [AudioClipModel getAudioClips:offset
+                        itemCount:limit
+                         complete:^(NSData *data)
+    {
         NSError *error;
         
         NSArray *clips = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
