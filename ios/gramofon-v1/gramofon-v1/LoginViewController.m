@@ -26,7 +26,7 @@
     [super viewDidLoad];
     //initiate the Spinning HUD
     self.hud=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"We are going to space";
+    self.hud.labelText = @"Logging you in...";
  
     // Check if user is cached and linked to Facebook, if so, bypass login
     
@@ -42,21 +42,21 @@
                 // result is a dictionary with the user's Facebook data
                 NSDictionary *userData = (NSDictionary *)result;
                 
-                NSString *facebookUsername = userData[@"username"];
-                NSString *email = userData[@"email"];
-                NSString *facebookID = userData[@"id"];
-                NSString *firstname = userData[@"first_name"];
-                NSString *lastname = userData[@"last_name"];
+//                NSString *facebookUsername = userData[@"username"];
+//                NSString *email = userData[@"email"];
+//                NSString *facebookID = userData[@"id"];
+//                NSString *firstname = userData[@"first_name"];
+//                NSString *lastname = userData[@"last_name"];                
                 
-                
-                [User sharedInstance].username    = facebookUsername;
-                [User sharedInstance].facebook_id = facebookID;
-                [User sharedInstance].firstname   = firstname;
-                [User sharedInstance].lastname    = lastname;
-                [User sharedInstance].email       = email;
+                [User sharedInstance].username    = userData[@"username"];
+                [User sharedInstance].facebook_id = userData[@"id"];
+                [User sharedInstance].firstname   = userData[@"first_name"];
+                [User sharedInstance].lastname    = userData[@"last_name"];
+                [User sharedInstance].email       = userData[@"email"];
                 
                 // get their Gramofon user id, or create a new user account for this user.
                 [[User sharedInstance] authenticateGramofonUser];
+                
                 if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
                     [self performSegueWithIdentifier: @"SegueToRecord" sender: self];
                 }

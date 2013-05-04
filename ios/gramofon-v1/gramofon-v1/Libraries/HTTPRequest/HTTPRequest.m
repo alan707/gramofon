@@ -96,11 +96,12 @@
     
     [self requestStarted];
     
-    NSLog(@"upload started");
-    //return and test
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
          [self requestCompleted];
+         
+         NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+         NSLog(@"%@", responseString);
          
          if ( error ) {
              NSLog(@"Error: %@", [error localizedDescription]);
