@@ -12,6 +12,7 @@
 #import "AudioClipModel.h"
 #import "HTTPRequest.h"
 #import "MBProgressHUD.h"
+#import "UserModel.h"
 
 
 @interface FeedTableViewController ()
@@ -374,4 +375,14 @@
     
     [self presentViewController:activityViewController animated:YES completion:^{}];
 }
+
+- (IBAction)followButton:(id)sender {
+    NSInteger selectedRow          = [[self tableView] indexPathForSelectedRow].row;
+    NSDictionary *selectedClip     = feed[selectedRow];
+    NSDictionary *selectedClipUser = selectedClip[@"user"];
+    NSNumber *selectedClipUserId   = [NSNumber numberWithInteger:[selectedClipUser[@"id"] integerValue]];
+    
+    [UserModel followUser:selectedClipUserId];
+}
+
 @end

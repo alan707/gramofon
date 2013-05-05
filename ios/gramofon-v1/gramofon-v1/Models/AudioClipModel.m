@@ -55,12 +55,6 @@
 
 + (void)uploadAudioClip;
 {
-//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                               [AudioClip sharedInstance].title, @"clip[title]",
-//                               [AudioClip sharedInstance].longitude, @"clip[longitude]",
-//                               [AudioClip sharedInstance].latitude, @"clip[latitude]",
-//                               [AudioClip sharedInstance].venue, @"clip[venue]",
-//                               [User sharedInstance].user_id, @"clip[user_id]", nil];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     // required params

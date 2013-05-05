@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 - (IBAction)shareButton:(id)sender;
+- (IBAction)followButton:(id)sender;
 
 
 @end

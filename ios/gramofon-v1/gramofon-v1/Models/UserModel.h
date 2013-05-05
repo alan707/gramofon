@@ -11,8 +11,9 @@
 
 @interface UserModel : NSObject
 
-- (BOOL)authenticateUser:(NSInteger)facebookId;
-- (User *)getUser:(NSInteger)userId;
-- (BOOL)createUser:(User *)user;
++ (BOOL)authenticateUser:(NSInteger)facebookId;
++ (User *)getUser:(NSInteger)userId;
++ (BOOL)createUser:(User *)user;
++ (BOOL)followUser:(NSNumber *)followedId;
 
 @end
