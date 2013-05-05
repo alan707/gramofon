@@ -16,10 +16,11 @@
     NSMutableArray *feed;
     AVAudioPlayer *audioPlayer;
 }
-@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+
 
 - (IBAction)shareButton:(id)sender;
 - (IBAction)followButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *theImage;
 
 
 @end

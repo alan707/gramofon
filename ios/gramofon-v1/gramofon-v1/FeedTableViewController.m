@@ -347,8 +347,8 @@
 //    dispatch_async(dispatch_get_main_queue(), ^{
     
 //        [NSTimer  scheduledTimerWithTimeInterval:0 target:self selector:@selector(progressBar) userInfo:nil repeats:NO];
-        float progress = (float)audioPlayer.deviceCurrentTime/(float)audioPlayer.duration;
-        [self.progressBar setProgress:progress];
+//        float progress = (float)audioPlayer.deviceCurrentTime/(float)audioPlayer.duration;
+//        [self.progressBar setProgress:progress];
 //       });
     
 }
