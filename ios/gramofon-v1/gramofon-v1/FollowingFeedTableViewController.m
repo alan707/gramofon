@@ -195,7 +195,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     // user photo has been loaded/added, refresh cell data to see it
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
     
     // ideally, we would only update this row, but i can't get it to work -dt
     //    NSUInteger row         = [object[@"index"] intValue];
