@@ -7,6 +7,7 @@
 //
 
 #import "HTTPRequest.h"
+#import "GAI.h"
 
 @implementation HTTPRequest
 
@@ -97,15 +98,21 @@
     [self requestStarted];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
-         [self requestCompleted];
+    {
+        [self requestCompleted];
          
 //         NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //         NSLog(@"%@", responseString);
          
-         if ( error ) {
-             NSLog(@"Error: %@", [error localizedDescription]);
-         }
+        if ( error ) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        } else {                 
+            // track upload event in GoogleAnalytics
+            [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                withAction:@"Uploaded a Clip"
+                                 withLabel:@"NA"
+                                 withValue:[NSNumber numberWithInt:0]];
+        }
      }];
 }
 

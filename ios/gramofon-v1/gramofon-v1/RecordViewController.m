@@ -8,7 +8,7 @@
 
 #import "RecordViewController.h"
 #import "AudioClip.h"
-
+#import "GAI.h"
 
 @interface RecordViewController ()
 @property (weak, nonatomic) NSString *GetUUID;
@@ -45,6 +45,12 @@
     self.recordingProgress.progress = 0;
     // when the record view loads, set-up the recorder
     [self resetPlayer];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Record Screen"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -151,6 +157,12 @@
     
     // blank out title, in case of a previous title
     [AudioClip sharedInstance].title    = @"";
+    
+    // track record event in GoogleAnalytics
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                      withAction:@"User Recorded a Clip"
+                                                       withLabel:@"NA"
+                                                       withValue:[NSNumber numberWithInt:0]];
     
     // store audio clip data
     [AudioClip sharedInstance].fileURL  = recorder.url;

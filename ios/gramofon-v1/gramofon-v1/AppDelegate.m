@@ -11,11 +11,9 @@
 #import "LoginViewController.h"
 #import "RecordViewController.h"
 #import <Parse/Parse.h>
+#import "GAI.h"
 
 @implementation AppDelegate
-
-
-
 
 NSString *const FBSessionStateChangedNotification =
 @"com.gramofon.gramofon:FBSessionStateChangedNotification";
@@ -35,10 +33,25 @@ NSString *const FBSessionStateChangedNotification =
 {
     [Parse setApplicationId:@"3Wq6WzjAcQnCP7aVZmWpuSLCdwTjQskUauLMCenk"
                   clientKey:@"L0AjBCxbinFnON42bQ4icAHGPAIR4g2ZuGfWyVVS"];
-            [PFFacebookUtils initializeFacebook];
+    
+    [PFFacebookUtils initializeFacebook];
+    
     [PFTwitterUtils initializeWithConsumerKey:@"mO0Ld43fXe8l4o1JwtBJqw"
                                consumerSecret:@"GAGzJce9YLrBCQGHhbYuKOVoSR9I1IIQRDwiGbag"];
+    
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40676146-1"];
 
     return YES;
 

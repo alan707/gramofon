@@ -10,6 +10,7 @@
 #import "User.h"
 #import "AudioClip.h"
 #import "AudioClipModel.h"
+#import "GAI.h"
 
 @interface ShareSoundViewController ()
 
@@ -62,6 +63,12 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Share Screen"];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     // release the iOS audio session
@@ -80,7 +87,13 @@
     if ( audioPlayer.isPlaying ) {
         [audioPlayer stop];
     } else {
-        [audioPlayer play];
+        [audioPlayer play];        
+        
+        // track clip preview event in GoogleAnalytics
+        [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                          withAction:@"Previewed Clip from Share Screen"
+                                                           withLabel:@"NA"
+                                                           withValue:[NSNumber numberWithInt:0]];
     }
     
     if ( audioPlayer.isPlaying) {
@@ -109,11 +122,7 @@
 {
     [self.navigationController popToRootViewControllerAnimated:TRUE];
     
-//    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
-//    
-//    dispatch_async(uploadQ, ^{
-        [AudioClipModel uploadAudioClip];
-//    });
+    [AudioClipModel uploadAudioClip];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField

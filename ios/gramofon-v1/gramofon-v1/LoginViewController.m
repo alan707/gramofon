@@ -12,6 +12,7 @@
 #import "AudioClip.h"
 #import "MBProgressHUD.h"
 #import "Parse/Parse.h"
+#import "GAI.h"
 
 @interface LoginViewController ()
 @property (nonatomic, strong) MBProgressHUD *hud;
@@ -78,10 +79,13 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
     });
 
-}
-    
-    
+}   
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Login Screen"];
+}
 
 -(void)viewDidDisappear:(BOOL)animated
 {

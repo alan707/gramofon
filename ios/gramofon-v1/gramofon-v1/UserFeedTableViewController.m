@@ -12,7 +12,7 @@
 #import "AudioClipModel.h"
 #import "HTTPRequest.h"
 #import "MBProgressHUD.h"
-
+#import "GAI.h"
 
 @interface UserFeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
@@ -54,6 +54,12 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"User Profile Screen"];
 }
 
 - (void)didReceiveMemoryWarning

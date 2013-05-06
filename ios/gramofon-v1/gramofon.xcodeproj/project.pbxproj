@@ -91,6 +91,8 @@
 		C5C1CF7516EBBFE80061094F /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C1CF7316EBBFE80061094F /* speaker.png */; };
 		C5C486BE170D2342007ED0F7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C486BD170D2342007ED0F7 /* UserModel.m */; };
 		C5C486C1170DB045007ED0F7 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C486C0170DB044007ED0F7 /* HTTPRequest.m */; };
+		C5E8849517372863007E0B1A /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8849417372863007E0B1A /* libGoogleAnalytics.a */; };
+		C5E8849717372877007E0B1A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8849617372877007E0B1A /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,14 @@
 		C5C486BD170D2342007ED0F7 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
 		C5C486BF170DB044007ED0F7 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = Libraries/HTTPRequest/HTTPRequest.h; sourceTree = "<group>"; };
 		C5C486C0170DB044007ED0F7 /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequest.m; path = Libraries/HTTPRequest/HTTPRequest.m; sourceTree = "<group>"; };
+		C5E8848D173723CF007E0B1A /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		C5E8848E173723CF007E0B1A /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		C5E8848F173723CF007E0B1A /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		C5E88490173723CF007E0B1A /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		C5E88491173723CF007E0B1A /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		C5E88492173723CF007E0B1A /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		C5E8849417372863007E0B1A /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = GoogleAnalytics/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		C5E8849617372877007E0B1A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +224,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E8849717372877007E0B1A /* CoreData.framework in Frameworks */,
+				C5E8849517372863007E0B1A /* libGoogleAnalytics.a in Frameworks */,
 				6006A69317245F88001E0567 /* SystemConfiguration.framework in Frameworks */,
 				6006A69117245F7E001E0567 /* StoreKit.framework in Frameworks */,
 				6006A68F17245F75001E0567 /* Security.framework in Frameworks */,
@@ -252,6 +264,8 @@
 		60CCD5A116DC2D6A0065E761 = {
 			isa = PBXGroup;
 			children = (
+				C5E8849617372877007E0B1A /* CoreData.framework */,
+				C5E8849417372863007E0B1A /* libGoogleAnalytics.a */,
 				C5B1134A16E45CC7000C0BF5 /* Default.png */,
 				C5B1134816E45CBD000C0BF5 /* Default@2x.png */,
 				C5B1134616E45CB5000C0BF5 /* Default-568h@2x.png */,
@@ -408,6 +422,7 @@
 		C5A602651710D53100FF959E /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				C5E8848C173723CF007E0B1A /* GoogleAnalytics */,
 				C58714A416F7E21A00B036C5 /* FourSquare */,
 				602EBF2D16F96947003EE035 /* MBProgressIndicator */,
 			);
@@ -438,6 +453,19 @@
 				C587147C16F7C9A400B036C5 /* Utilities.m */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		C5E8848C173723CF007E0B1A /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				C5E8848D173723CF007E0B1A /* GAI.h */,
+				C5E8848E173723CF007E0B1A /* GAITrackedViewController.h */,
+				C5E8848F173723CF007E0B1A /* GAITracker.h */,
+				C5E88490173723CF007E0B1A /* GAITransaction.h */,
+				C5E88491173723CF007E0B1A /* GAITransactionItem.h */,
+				C5E88492173723CF007E0B1A /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,6 +696,11 @@
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/gramofon-v1/GoogleAnalytics\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
@@ -693,6 +726,11 @@
 				GCC_PREFIX_HEADER = "gramofon-v1/gramofon-v1-Prefix.pch";
 				INFOPLIST_FILE = "gramofon-v1/gramofon-v1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/gramofon-v1/GoogleAnalytics\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",

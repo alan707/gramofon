@@ -13,7 +13,7 @@
 #import "HTTPRequest.h"
 #import "MBProgressHUD.h"
 #import "UserModel.h"
-
+#import "GAI.h"
 
 @interface FeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
@@ -55,6 +55,12 @@
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             });
     });
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Explore Screen"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -325,9 +331,14 @@
             } else {
                 NSLog(@"Error: %@", [error localizedDescription]);
             }
-        }];                
-      
-    }
+        }];        
+        
+        // track select event in GoogleAnalytics
+        [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                          withAction:@"Selected Clip In Feed"
+                                                           withLabel:clip[@"title"]
+                                                           withValue:[NSNumber numberWithInt:0]];
+    }    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -374,6 +385,12 @@
                                                             applicationActivities:nil];
     
     [self presentViewController:activityViewController animated:YES completion:^{}];
+    
+    // track social share event in GoogleAnalytics
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                      withAction:@"Shared Clip From Feed"
+                                                       withLabel:@"NA"
+                                                       withValue:[NSNumber numberWithInt:0]];
 }
 
 - (IBAction)followButton:(id)sender {
@@ -383,6 +400,12 @@
     NSNumber *selectedClipUserId   = [NSNumber numberWithInteger:[selectedClipUser[@"id"] integerValue]];
     
     [UserModel followUser:selectedClipUserId];
+    
+    // track follow event in GoogleAnalytics
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                      withAction:@"Followed User From Feed"
+                                                       withLabel:@"NA"
+                                                       withValue:[NSNumber numberWithInt:0]];
 }
 
 @end

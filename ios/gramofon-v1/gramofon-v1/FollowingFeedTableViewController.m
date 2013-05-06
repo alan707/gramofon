@@ -12,6 +12,7 @@
 #import "AudioClipModel.h"
 #import "HTTPRequest.h"
 #import "MBProgressHUD.h"
+#import "GAI.h"
 
 @interface FollowingFeedTableViewController ()
 @property (nonatomic, strong) NSIndexPath *selectedPath;
@@ -34,8 +35,6 @@
 
 #define kCellHeight 70.0
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,6 +54,12 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Following Screen"];
 }
 
 - (void)didReceiveMemoryWarning

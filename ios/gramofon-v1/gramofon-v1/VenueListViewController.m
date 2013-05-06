@@ -10,6 +10,7 @@
 #import "Foursquare2.h"
 #import "FSConverter.h"
 #import "AudioClip.h"
+#import "GAI.h"
 
 @interface VenueListViewController ()
 
@@ -31,6 +32,12 @@
     [super viewDidLoad];
     
     [self getVenuesForLocation:[AudioClip sharedInstance].location];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // track screen view in Google Analytics
+    [[[GAI sharedInstance] defaultTracker] sendView:@"FourSquare Venue Screen"];
 }
 
 -(void)getVenuesForLocation:(CLLocation *)location
@@ -91,7 +98,13 @@
     
     [AudioClip sharedInstance].venue = [self.nearbyVenues[indexPath.row] name];
     
-    [self.navigationController popViewControllerAnimated:TRUE];
+    [self.navigationController popViewControllerAnimated:TRUE];    
+    
+    // track venue selection event in GoogleAnalytics
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"User Interaction"
+                                                      withAction:@"Selected Venue"
+                                                       withLabel:[AudioClip sharedInstance].venue
+                                                       withValue:[NSNumber numberWithInt:0]];
 }
                   
 @end
