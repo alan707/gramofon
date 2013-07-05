@@ -51,6 +51,7 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) )
         $route['users/(:num)/favorites']        = 'favorites/show_user_favorites/$1';
         $route['users/(:num)/following/(:num)'] = 'follows/show/$2/$1';
         $route['users/(:num)/following']        = 'follows/show_user_following/$1';
+        $route['users/(:num)/following/clips']  = 'clips/show_user_following/$1';
         $route['users/(:num)']                  = 'users/show/$1';
         $route['users']                         = 'users/index';
         $route['clips/(:num)']                  = 'clips/show/$1';

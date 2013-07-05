@@ -131,4 +131,27 @@ class Clips extends CI_Controller
 		}
 	}
 
+
+    /**
+     * Show all clips by users followed by the given user ID
+     * @param int $user_id 
+     */
+    public function show_user_following( $user_id )
+    {
+        $offset = $this->input->get( 'offset' );
+        $limit  = $this->input->get( 'limit' );
+
+        $offset = ( $offset ) ? $offset : 0;
+        $limit  = ( $limit ) ? $limit : 10;
+
+        $follows = $this->clip_model->get_user_following( $user_id, $offset, $limit );
+
+        $json = json_encode( $follows );
+
+        if ( $json ) {
+            header( 'Content-type: application/json' );
+            echo( $json );
+        }
+    }
+
 }

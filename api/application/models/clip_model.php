@@ -176,4 +176,32 @@ class Clip_model extends CI_Model
         return $return;
     }
 
+    public function get_user_following( $user_id, $offset = 0, $limit = 10 )
+    {
+        $clips = array();
+
+        $this->db->select(
+            'clips.*,'
+          . 'users.id as user_id,'
+          . 'users.username as user_username,'
+          . 'users.firstname as user_firstname,'
+          . 'users.lastname as user_lastname,'
+          . 'users.email as user_email,'
+          . 'users.facebook_id as user_facebook_id,'
+          . 'users.created as user_created'
+        );
+
+        $this->db->join( 'users', 'clips.user_id = users.id' );
+        $this->db->where( 'user_id', $user_id );
+        $this->db->order_by( 'clips.created', 'desc');
+
+        $query = $this->db->get( 'clips', $limit, $offset );
+
+        foreach ( $query->result() as $row ) {
+            $clips[] = new Clip( $row );
+        }
+
+        return $clips;
+    }
+
 }
