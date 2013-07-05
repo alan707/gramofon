@@ -48,7 +48,7 @@ NSString *const FBSessionStateChangedNotification =
     [GAI sharedInstance].dispatchInterval = 20;
     
     // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].debug = NO;
     
     // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40676146-1"];

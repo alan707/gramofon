@@ -17,10 +17,10 @@
 }
 @property (weak, nonatomic) IBOutlet UIProgressView *recordingProgress;
 
-@property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tapLabel;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (IBAction)toggleRecording:(id)sender;
+
 
 @end

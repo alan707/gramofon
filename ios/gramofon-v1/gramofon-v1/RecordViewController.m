@@ -39,8 +39,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{    
-    self.countDownLabel.text = @"12:00";
+{
     self.tapLabel.text = @"TAP To Record";
     self.recordingProgress.progress = 0;
     // when the record view loads, set-up the recorder
@@ -153,8 +152,6 @@
 {
     [timer invalidate];
     
-    self.countDownLabel.text = @"Done!";
-    
     // blank out title, in case of a previous title
     [AudioClip sharedInstance].title    = @"";
     
@@ -181,15 +178,14 @@
 
 -(void)tick
 {
-    NSTimeInterval timeRemaining = 12 - audioRecorder.currentTime;    
-    NSInteger floor = floorf(timeRemaining);
-    NSInteger milliseconds = roundf((timeRemaining - floor) * 100);
+//    NSTimeInterval timeRemaining = 12 - audioRecorder.currentTime;    
+//    NSInteger floor = floorf(timeRemaining);
+//    NSInteger milliseconds = roundf((timeRemaining - floor) * 100);
     
-    if(floor < 0){
-        self.countDownLabel.text = @"Done!";
+    if ( floor < 0 ){
         [timer invalidate];
-    }else{
-        self.countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d",floor, milliseconds];
+    } else {
+//        self.countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d",floor, milliseconds];
     }
 }
 
