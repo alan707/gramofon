@@ -256,26 +256,6 @@
                                     <action selector="dismissKeyboard:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="19q-bm-zUC"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="2lines.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8O-RN-MhK"/>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebN-pa-ywb">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="asS-uD-3Y0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.30588235289999999" green="0.23529411759999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plC-Tb-ayF">
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.30588235289999999" green="0.23529411759999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-XT-sCV">
-                                <color key="onTintColor" red="0.094117656350135803" green="0.5215686559677124" blue="0.21960785984992981" alpha="1" colorSpace="deviceRGB"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-hC-oh2">
-                                <color key="onTintColor" red="0.094117656349999995" green="0.52156865600000002" blue="0.2196078598" alpha="1" colorSpace="deviceRGB"/>
-                            </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Title" adjustsFontSizeToFit="NO" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2tj-2E-rA1">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
@@ -308,7 +288,7 @@
                                     <constraint firstAttribute="width" constant="195" id="I9a-ox-ko2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Select Location">
+                                <state key="normal" title="Add Location">
                                     <color key="titleColor" red="0.30980392159999998" green="0.20784313730000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -319,46 +299,23 @@
                                     <action selector="shareLocation:" destination="bmH-xg-Tk4" eventType="touchUpInside" id="iXv-md-Nj7"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="1line.png" translatesAutoresizingMaskIntoConstraints="NO" id="90e-L2-R1C">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="KvU-1p-Ezo"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ebN-pa-ywb" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="157" id="1qW-oO-Q6M"/>
-                            <constraint firstItem="KeF-hC-oh2" firstAttribute="top" secondItem="ebN-pa-ywb" secondAttribute="top" type="user" id="2gF-XO-Awi"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4QF-fs-VyR"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="centerX" secondItem="2tj-2E-rA1" secondAttribute="centerX" type="default" id="6Cz-ZU-tDz"/>
-                            <constraint firstItem="plC-Tb-ayF" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="212" id="6ks-JR-9qm"/>
                             <constraint firstAttribute="centerX" secondItem="2tj-2E-rA1" secondAttribute="centerX" type="user" id="8x2-OG-h7L"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KeF-hC-oh2" secondAttribute="bottom" constant="178" type="user" id="DNI-VB-0Xa"/>
-                            <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="46" id="Dqd-nq-1t9"/>
-                            <constraint firstItem="plC-Tb-ayF" firstAttribute="trailing" secondItem="ebN-pa-ywb" secondAttribute="trailing" type="default" id="ESt-hD-EiO"/>
-                            <constraint firstItem="plC-Tb-ayF" firstAttribute="leading" secondItem="ebN-pa-ywb" secondAttribute="leading" type="default" id="IQW-B2-aqx"/>
-                            <constraint firstItem="KeF-hC-oh2" firstAttribute="bottom" secondItem="ebN-pa-ywb" secondAttribute="bottom" type="default" id="IZN-IZ-jMG"/>
+                            <constraint firstItem="wwr-bI-rjZ" firstAttribute="centerX" secondItem="W4e-4x-bSx" secondAttribute="centerX" type="default" id="COG-bm-uwx"/>
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="bottom" secondItem="7SP-q7-Vuq" secondAttribute="bottom" type="default" id="MSw-q7-Dwd"/>
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="top" secondItem="wwr-bI-rjZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PMO-0v-nYa"/>
-                            <constraint firstItem="zoc-XT-sCV" firstAttribute="leading" secondItem="KeF-hC-oh2" secondAttribute="leading" type="user" id="RZB-oJ-7JA"/>
                             <constraint firstItem="ZDy-6V-OGQ" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" type="default" id="aTD-Ap-Uy1"/>
-                            <constraint firstAttribute="trailing" secondItem="KeF-hC-oh2" secondAttribute="trailing" constant="31" id="c91-M8-hTQ"/>
                             <constraint firstItem="wwr-bI-rjZ" firstAttribute="centerX" secondItem="ZDy-6V-OGQ" secondAttribute="centerX" type="default" id="cYP-Z5-ukg"/>
                             <constraint firstItem="W4e-4x-bSx" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="74" id="du3-OS-RpB"/>
-                            <constraint firstItem="N8O-RN-MhK" firstAttribute="trailing" secondItem="2tj-2E-rA1" secondAttribute="trailing" type="default" id="f7Z-uB-bkw"/>
-                            <constraint firstItem="plC-Tb-ayF" firstAttribute="bottom" secondItem="zoc-XT-sCV" secondAttribute="bottom" type="default" id="h5J-pt-1lH"/>
-                            <constraint firstItem="N8O-RN-MhK" firstAttribute="leading" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j6c-do-bv0"/>
-                            <constraint firstItem="N8O-RN-MhK" firstAttribute="centerX" secondItem="90e-L2-R1C" secondAttribute="centerX" type="default" id="jEp-7D-MJX"/>
                             <constraint firstItem="2tj-2E-rA1" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="20" symbolic="YES" type="default" id="kyx-J9-oRv"/>
-                            <constraint firstItem="90e-L2-R1C" firstAttribute="centerY" secondItem="N8O-RN-MhK" secondAttribute="centerY" type="user" id="lj5-Tm-xO2"/>
-                            <constraint firstItem="ZDy-6V-OGQ" firstAttribute="centerX" secondItem="90e-L2-R1C" secondAttribute="centerX" type="default" id="lqT-kf-kO4"/>
-                            <constraint firstItem="N8O-RN-MhK" firstAttribute="top" secondItem="7SP-q7-Vuq" secondAttribute="top" constant="137" id="nIN-It-GO5"/>
-                            <constraint firstItem="zoc-XT-sCV" firstAttribute="top" secondItem="plC-Tb-ayF" secondAttribute="top" type="user" id="qfX-CF-cTQ"/>
-                            <constraint firstItem="ebN-pa-ywb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7SP-q7-Vuq" secondAttribute="leading" constant="41" type="user" id="tAT-4N-6uz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iK1-Zi-XfT">
-                        <barButtonItem key="rightBarButtonItem" title="Share my Sound" id="AYj-uZ-GGu">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="AYj-uZ-GGu">
                             <color key="tintColor" red="0.0039215688593685627" green="0.67058825492858887" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <action selector="shareSoundButton:" destination="bmH-xg-Tk4" id="Yo9-Ki-NXR"/>
@@ -675,7 +632,6 @@
         <image name="123-id-card.png" width="24" height="17"/>
         <image name="160-voicemail-2.png" width="26" height="18"/>
         <image name="1line.png" width="276" height="3"/>
-        <image name="2lines.png" width="277" height="121"/>
         <image name="65-note.png" width="15" height="24"/>
         <image name="Share@2x.png" width="88" height="88"/>
         <image name="follow_icon.png" width="387" height="323"/>
