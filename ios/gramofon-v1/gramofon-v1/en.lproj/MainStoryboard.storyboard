@@ -402,7 +402,6 @@
                         <segue destination="32l-Sy-bcO" kind="relationship" relationship="viewControllers" id="bS6-tr-XeG"/>
                         <segue destination="GDk-Yg-B6s" kind="relationship" relationship="viewControllers" id="s2R-PH-cn6"/>
                         <segue destination="6GV-op-rzL" kind="relationship" relationship="viewControllers" id="s4x-i8-eue"/>
-                        <segue destination="Omf-QY-tmI" kind="relationship" relationship="viewControllers" id="pmF-Q8-wK1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgC-eH-Kw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,110 +527,10 @@
             </objects>
             <point key="canvasLocation" x="1507" y="827"/>
         </scene>
-        <!--Following Feed Table View Controller - Following-->
-        <scene sceneID="tuA-cR-smF">
-            <objects>
-                <tableViewController id="Omf-QY-tmI" customClass="FollowingFeedTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="wzR-sl-GIb">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Expanded Cell" rowHeight="140" id="rim-bL-L9S" customClass="expandedCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMO-bX-oRD">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="247" id="TuA-Bw-KxP"/>
-                                                <constraint firstAttribute="height" constant="22" id="XcQ-Pe-MzX"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R37-wy-saI">
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmT-Im-ST8">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="FNY-FR-uFM"/>
-                                                        <constraint firstAttribute="height" constant="44" id="ckW-0s-kRu"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Button" image="Share@2x.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="shareButton:" destination="Omf-QY-tmI" eventType="touchUpInside" id="Z9B-az-VEl"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="FmT-Im-ST8" firstAttribute="top" secondItem="R37-wy-saI" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3ge-Bl-O8s"/>
-                                                <constraint firstItem="FmT-Im-ST8" firstAttribute="centerX" secondItem="R37-wy-saI" secondAttribute="centerX" type="default" id="PXz-6A-oKc"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHX-ol-c0Z">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="18" id="cag-5b-MQZ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEe-pm-FV1">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="55" id="9ix-2b-vzn"/>
-                                                <constraint firstAttribute="width" constant="55" id="NpQ-R7-ThF"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="nEe-pm-FV1" firstAttribute="top" secondItem="rim-bL-L9S" secondAttribute="top" constant="7" id="0rM-e7-P7I"/>
-                                    <constraint firstItem="oMO-bX-oRD" firstAttribute="trailing" secondItem="rim-bL-L9S" secondAttribute="trailing" type="default" id="EuF-Gs-W0G"/>
-                                    <constraint firstItem="nHX-ol-c0Z" firstAttribute="top" secondItem="oMO-bX-oRD" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="JuE-Cf-TKV"/>
-                                    <constraint firstItem="nHX-ol-c0Z" firstAttribute="leading" secondItem="nEe-pm-FV1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="NsT-TB-nUW"/>
-                                    <constraint firstItem="R37-wy-saI" firstAttribute="leading" secondItem="rim-bL-L9S" secondAttribute="leading" type="default" id="Shy-9b-K8P"/>
-                                    <constraint firstAttribute="bottom" secondItem="R37-wy-saI" secondAttribute="bottom" constant="1" id="VDb-ad-q9v"/>
-                                    <constraint firstItem="R37-wy-saI" firstAttribute="trailing" secondItem="rim-bL-L9S" secondAttribute="trailing" type="default" id="Y50-hw-ody"/>
-                                    <constraint firstItem="R37-wy-saI" firstAttribute="top" secondItem="rim-bL-L9S" secondAttribute="top" constant="69" id="jqE-lt-AZH"/>
-                                    <constraint firstItem="nHX-ol-c0Z" firstAttribute="trailing" secondItem="rim-bL-L9S" secondAttribute="trailing" type="default" id="mFT-FL-Ugs"/>
-                                    <constraint firstItem="oMO-bX-oRD" firstAttribute="top" secondItem="rim-bL-L9S" secondAttribute="top" constant="11" id="uGC-n5-IWT"/>
-                                    <constraint firstItem="oMO-bX-oRD" firstAttribute="leading" secondItem="nEe-pm-FV1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zUf-n8-7eE"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="subtitleLabel" destination="nHX-ol-c0Z" id="Fwh-Rc-eVa"/>
-                                    <outlet property="theImage" destination="nEe-pm-FV1" id="iSB-1U-rju"/>
-                                    <outlet property="titleLabel" destination="oMO-bX-oRD" id="vyR-Kz-MvU"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Omf-QY-tmI" id="ai9-vW-kNb"/>
-                            <outlet property="delegate" destination="Omf-QY-tmI" id="cJ5-qO-jZ0"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Following" image="1line.png" id="UTf-eg-psC"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cew-xg-e5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1522" y="2256"/>
-        </scene>
     </scenes>
     <resources>
         <image name="123-id-card.png" width="24" height="17"/>
         <image name="160-voicemail-2.png" width="26" height="18"/>
-        <image name="1line.png" width="276" height="3"/>
         <image name="65-note.png" width="15" height="24"/>
         <image name="Share@2x.png" width="88" height="88"/>
         <image name="follow_icon.png" width="387" height="323"/>
@@ -646,12 +545,6 @@
                 <relationship kind="action" name="followButton:"/>
                 <relationship kind="action" name="shareButton:"/>
                 <relationship kind="outlet" name="theImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="FollowingFeedTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowingFeedTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareButton:"/>
             </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
