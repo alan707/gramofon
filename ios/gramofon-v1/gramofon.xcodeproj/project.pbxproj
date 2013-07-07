@@ -40,7 +40,6 @@
 		60CCD5B816DC2D6A0065E761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5B616DC2D6A0065E761 /* InfoPlist.strings */; };
 		60CCD5BA16DC2D6A0065E761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5B916DC2D6A0065E761 /* main.m */; };
 		60CCD5BE16DC2D6A0065E761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */; };
-		60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5C916DC2D6A0065E761 /* ViewController.m */; };
 		60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */; };
 		60CCD5E016DC36E40065E761 /* tableShareSound-white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */; };
 		60CCD5E116DC36E40065E761 /* titleShareSound-whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CCD5DF16DC36E40065E761 /* titleShareSound-whitebg.png */; };
@@ -71,6 +70,7 @@
 		60FD569E16DC711F005AD219 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60FD569B16DC711F005AD219 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C531662516DF8E13004BEDE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531662416DF8E13004BEDE0 /* AVFoundation.framework */; };
 		C531662816E16773004BEDE0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C531662716E16773004BEDE0 /* User.m */; };
+		C5661F911789DB300054DDBE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5661F901789DB300054DDBE /* ProfileViewController.m */; };
 		C587147D16F7C9A400B036C5 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C587147C16F7C9A400B036C5 /* Utilities.m */; };
 		C587148116F7DA1200B036C5 /* VenueListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C587148016F7DA1200B036C5 /* VenueListViewController.m */; };
 		C58714A216F7E21300B036C5 /* Foursquare2.m in Sources */ = {isa = PBXBuildFile; fileRef = C587149F16F7E21200B036C5 /* Foursquare2.m */; };
@@ -143,8 +143,6 @@
 		60CCD5BB16DC2D6A0065E761 /* gramofon-v1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gramofon-v1-Prefix.pch"; sourceTree = "<group>"; };
 		60CCD5BC16DC2D6A0065E761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60CCD5BD16DC2D6A0065E761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		60CCD5C816DC2D6A0065E761 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		60CCD5C916DC2D6A0065E761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60CCD5D916DC34A10065E761 /* ShareSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSoundViewController.h; sourceTree = "<group>"; };
 		60CCD5DA16DC34A10065E761 /* ShareSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSoundViewController.m; sourceTree = "<group>"; };
 		60CCD5DE16DC36E40065E761 /* tableShareSound-white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableShareSound-white-bg.png"; sourceTree = "<group>"; };
@@ -178,6 +176,8 @@
 		C531662416DF8E13004BEDE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C531662616E16773004BEDE0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
 		C531662716E16773004BEDE0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		C5661F8F1789DB300054DDBE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		C5661F901789DB300054DDBE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C587147B16F7C9A400B036C5 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		C587147C16F7C9A400B036C5 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		C587147F16F7DA1200B036C5 /* VenueListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueListViewController.h; sourceTree = "<group>"; };
@@ -413,8 +413,8 @@
 				600A696417367458003F965C /* FollowingFeedTableViewController.m */,
 				C587147F16F7DA1200B036C5 /* VenueListViewController.h */,
 				C587148016F7DA1200B036C5 /* VenueListViewController.m */,
-				60CCD5C816DC2D6A0065E761 /* ViewController.h */,
-				60CCD5C916DC2D6A0065E761 /* ViewController.m */,
+				C5661F8F1789DB300054DDBE /* ProfileViewController.h */,
+				C5661F901789DB300054DDBE /* ProfileViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -569,7 +569,6 @@
 			files = (
 				60CCD5BA16DC2D6A0065E761 /* main.m in Sources */,
 				60CCD5BE16DC2D6A0065E761 /* AppDelegate.m in Sources */,
-				60CCD5CA16DC2D6A0065E761 /* ViewController.m in Sources */,
 				60CCD5DB16DC34A20065E761 /* ShareSoundViewController.m in Sources */,
 				6050EAA616DC877300060F05 /* LoginViewController.m in Sources */,
 				6050EAA716DC877300060F05 /* RecordViewController.m in Sources */,
@@ -594,6 +593,7 @@
 				608859AB171B4F00003CE024 /* ShortTableViewCell.m in Sources */,
 				600A695F1735B045003F965C /* UserFeedTableViewController.m in Sources */,
 				600A696517367458003F965C /* FollowingFeedTableViewController.m in Sources */,
+				C5661F911789DB300054DDBE /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

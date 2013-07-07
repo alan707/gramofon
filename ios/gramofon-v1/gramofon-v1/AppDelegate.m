@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+//#import "ViewController.h"
 #import "LoginViewController.h"
 #import "RecordViewController.h"
 #import <Parse/Parse.h>

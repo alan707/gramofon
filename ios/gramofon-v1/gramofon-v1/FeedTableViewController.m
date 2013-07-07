@@ -45,7 +45,7 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading";
-    dispatch_queue_t uploadQ = dispatch_queue_create("upload sound loading queue", NULL);
+    dispatch_queue_t uploadQ = dispatch_queue_create("explore feed loading queue", NULL);
     dispatch_async(uploadQ, ^{
         feed = [NSMutableArray array];
         
@@ -243,7 +243,7 @@
     cell.subtitleLabel.textAlignment = NSTextAlignmentLeft;
     
     // set subtitle text
-    if ( clipVenue ) {
+    if ( clipVenue.length > 0 ) {
         // if we have a venue name, display timestamp + venue
         cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %@", momentsAgo, clipVenue];
     } else {
