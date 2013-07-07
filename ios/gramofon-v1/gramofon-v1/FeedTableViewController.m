@@ -346,7 +346,7 @@
     CGFloat rowHeight;
     
     if ([indexPath isEqual:self.selectedPath]) {
-        rowHeight = kCellHeight * 2.0;
+        rowHeight = kCellHeight ;
     }else{
         rowHeight = kCellHeight;
     }
