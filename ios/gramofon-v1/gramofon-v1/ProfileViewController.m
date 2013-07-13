@@ -81,7 +81,6 @@
             }
             
             [self.profileTable reloadData];
-//            [self performSelectorOnMainThread:@selector(updateTable) withObject:nil waitUntilDone:NO];
         } else {
            NSLog(@"Error: %@", [error localizedDescription]);
         }
@@ -103,7 +102,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ProfileTableCell"];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // Configure the cell...
     
@@ -144,5 +143,67 @@
         [self getFeedData:offset itemCount:20];
     }
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"selected");
+    if ( audioPlayer.isPlaying ) {
+        // if clip is playing, stop it
+        [audioPlayer stop];        
+    } else {
+        // set-up audio player
+        NSError *error;
+        
+        // grab the iOS audio session for playback
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [session setActive:YES error:&error];
+        
+        if ( error ) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        
+        // Get the clip
+        NSDictionary *clip = [feed objectAtIndex:indexPath.row];
+        NSString *url      = [clip objectForKey:@"url"];
+        
+        // asynchrous loading of clips w/ complete callback handler
+        [[HTTPRequest sharedInstance] doAsynchRequest:@"GET"
+                                           requestURL:url
+                                        requestParams:nil
+                                      completeHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                          if ( ! error ) {
+                                              // null out any existing audioPlayer
+                                              if ( audioPlayer ) {
+                                                  audioPlayer = nil;
+                                              }
+                                              
+                                              // init player with clip URL
+                                              audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:&error];
+                                              
+                                              if ( ! error ) {
+                                                  // if player init-ed OK...
+                                                  
+                                                  // delegate
+                                                  audioPlayer.delegate = self;
+                                                  
+                                                  // prep the audio
+                                                  [audioPlayer prepareToPlay];
+                                                  
+                                                  // start playback
+                                                  [audioPlayer play];
+                                              } else {
+                                                  // else, output error to log
+                                                  NSLog(@"Error: %@", [error localizedDescription]);
+                                              }
+                                          } else {
+                                              NSLog(@"Error: %@", [error localizedDescription]);
+                                          }
+                                      }];
+        
+    }
+}
+
 
 @end
