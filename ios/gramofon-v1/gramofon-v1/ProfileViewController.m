@@ -135,4 +135,14 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Are we at the bottom of the feed table?
+    if ( indexPath.row + 1 == [feed count] ) {
+        int offset = (unsigned int)[feed count];
+        
+        [self getFeedData:offset itemCount:20];
+    }
+}
+
 @end
